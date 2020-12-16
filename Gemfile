@@ -27,7 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'devise', '~> 4.7', '>= 4.7.3'
-
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-facebook', '~> 8.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
