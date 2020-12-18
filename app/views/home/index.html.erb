@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
 <%= link_to '登出', destroy_user_session_path, method: 'delete' %>
+<%= %>
 <%#= link_to '個人頁面',  %>
 <%= current_user.name %>
 <% else %>
