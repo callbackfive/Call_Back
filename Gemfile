@@ -31,9 +31,11 @@ gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-facebook', '~> 8.0'
 gem "rails-i18n"
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 
 group :development do
