@@ -2,4 +2,4 @@
 
 <p>請點擊下方連結以確認您的信箱！</p>
 
-<p><%= link_to '確認我的帳戶', user_confirmation_url(confirmation_token: @token), method: 'post' %></p>
+<p><%= link_to '確認我的帳戶', new_user_confirmation_url(confirmation_token: @token), method: 'post' %></p>
