@@ -74,7 +74,7 @@ Rails.application.configure do
     port: 587,
     domain: '5xruby.tw',
     user_name: 'postmaster@sandboxa0ec803b397d4f85915750f27860f6af.mailgun.org',
-    password: ENV['pusher_secret'],
+    password: ENV['mailgun_password'],
     authentication: 'plain',
     enable_starttls_auto: true
   }
