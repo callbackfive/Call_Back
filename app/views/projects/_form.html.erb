@@ -1,0 +1,13 @@
+<%# if project.errors.any? %>
+  <ul>
+    <%# project.errors.full_messages.each do |message| %>
+    <li><%#= message %></li>
+    <%# end %>
+  </ul>
+<%# end %>
+
+<%= form_for(project) do |form| %>
+  <%= form.label :title, '專案名稱' %>
+  <%= form.text_field :title %>
+  <%= form.submit %>
+<% end %>
