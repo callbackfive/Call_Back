@@ -64,11 +64,18 @@ Rails.application.configure do
   # ============
   # Email
   # ============
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.perform_deliveries = true
 
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.default_url_options = { host: "http://localhost:3000" }
-  # config.action_mailer.smtp_settings = config_for(:applicaiton).symbolize_keys
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 587,
+    domain: '5xruby.tw',
+    user_name: 'postmaster@sandboxa0ec803b397d4f85915750f27860f6af.mailgun.org',
+    password: ENV['pusher_secret'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end
