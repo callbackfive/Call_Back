@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
 
-  # def index
-  #   @projects = Projects.all
-  # end
+  def index
+    @projects = Project.all
+  end
 
   def new
     @project = Project.new
