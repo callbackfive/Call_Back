@@ -6,6 +6,9 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def show
+  end
+
   def new
     @project = Project.new
   end
@@ -21,13 +24,19 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    
   end
 
+  def update
+    if @project.update(project_params)
+      redirect_to root_path, notice: '提案內容已更新'
+    else
+      render :edit
+    end
+  end
 
   private
   def find_project
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:id]).order(id: :desc)
   end
 
   def project_params
