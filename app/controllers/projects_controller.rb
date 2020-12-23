@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :find_project, only: [:show, :edit, :update]
+
 
   def index
     @projects = Project.all
@@ -18,11 +20,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
 
   private
-  # def find_project
-  #   @project = Project.find(params[:id])
-  # end
+  def find_project
+    @project = Project.find(params[:id])
+  end
 
   def project_params
     params.require(:project).permit(:title, :category, :summary, :content, :pic, :target_amount, :user_id)
