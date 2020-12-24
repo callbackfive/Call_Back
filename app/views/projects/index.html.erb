@@ -1,0 +1,12 @@
+<h1>專案列表</h1>
+
+<%= link_to '提案', new_project_path %>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.title, project %>
+      <%= link_to "編輯", edit_project_path(project) %>
+    </li>
+  <% end %>
+</ul>
