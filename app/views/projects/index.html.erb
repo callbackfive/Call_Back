@@ -1,6 +1,8 @@
-<h1>專案列表</h1>
+<h1 class="text-xl text-green-500">專案列表</h1>
 
-<%= link_to '提案', new_project_path %>
+<%= link_to "提案", new_project_path ,class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
+
+<%# <%= link_to '提案', new_project_path ,%> 
 
 <ul>
   <% @projects.each do |project| %>
