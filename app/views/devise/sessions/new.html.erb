@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2>登入</h2>
 
 <p class="alert"><%= alert %></p>
 
@@ -16,14 +16,15 @@
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :記住我 %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "登入" %>
   </div>
 <% end %>
+<%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %>
 
 <%= render "devise/shared/links" %>
 <%= link_to '回首頁', root_path %>

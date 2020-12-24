@@ -30,6 +30,7 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-facebook', '~> 8.0'
 gem "rails-i18n"
+gem 'figaro', '~> 1.0'
 
 
 group :development, :test do
