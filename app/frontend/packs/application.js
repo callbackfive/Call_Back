@@ -12,7 +12,7 @@ require("channels")
 import "styles/application" 
 import "scripts/index" 
 
-// require.context('../images', true)
+require.context('../images', true)
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
