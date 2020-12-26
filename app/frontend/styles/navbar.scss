@@ -1,0 +1,44 @@
+.menu{
+  
+  @apply border-b;
+  @apply border-gray-200;
+  @apply shadow-sm;
+
+   a{
+      display: inline-block;
+      padding: 15px;
+      @apply text-gray-700;
+   }
+
+   .login{
+
+
+    .user-pic{
+      
+      @apply rounded-full;
+      @apply overflow-hidden;
+      @apply border;
+      @apply border-gray-200;
+      @apply focus:outline-none;
+     
+      
+     
+      
+
+
+      img{
+
+        @apply h-full; 
+        @apply w-full; 
+        @apply object-cover;
+        @apply bg-gray-600
+
+        
+      }
+
+    }
+
+   }
+
+
+}
