@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  resources :projects, except: [:destroy]
+  resources :projects, only: :index
+
+  resources :users do
+    resources :projects, except: [:destroy], shallow: true
+  end
    
 end
