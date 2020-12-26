@@ -1,11 +1,14 @@
 <h1>首頁</h1>
 
 <% if user_signed_in? %>
-<%= link_to '登出', destroy_user_session_path, method: 'delete' %>
-<%= %>
-<%= link_to '編輯個人資料', edit_user_registration_path %>
-<%= current_user.name %>
+  <%= current_user.name %><br/>
+  <%= link_to '登出', destroy_user_session_path, method: 'delete' %>
+  <%= %><br/>
+  <%= link_to '探索', projects_path %><br/>
+  <%= link_to '個人頁面', profile_users_path %>
+
 <% else %>
-<%= link_to '註冊', new_user_registration_path %>
-<%= link_to '登入', new_user_session_path %>
+  <%= link_to '註冊', new_user_registration_path %>
+  <%= link_to '登入', new_user_session_path %>
+  <%= link_to '探索', projects_path %>
 <% end %>

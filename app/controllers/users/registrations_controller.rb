@@ -63,4 +63,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+  def after_update_path_for(resource)
+    sign_in_after_change_password? ? profile_users_path : root_path
+  end
+  #sign_in_after_change_password?
+  #return true if account_update_params[:password].blank?
 end
