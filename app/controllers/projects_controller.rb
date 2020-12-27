@@ -7,9 +7,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  # def user_projects_index
-  #   @projects = Project.where(params[:user_id])
-  # end
+
+  def user_projects_index
+    @projects = Project.where(:user_id => current_user.id)
+  end
 
   def show
   end

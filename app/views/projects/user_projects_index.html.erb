@@ -1,1 +1,23 @@
-<h1>會員的專案列表</h1>
+<h1>（此登入會員的）我的專案列表頁</h1>
+
+<% if @projects.blank? %> 
+  <div>你沒有任何提案紀錄</div>
+<% else %>
+  <h2>您的提案列表</h2>
+  <% @projects.each do |project| %>
+   <% if project.user_id == current_user.id %>
+    <div>
+      <ul>
+        <li>
+          <div><%= link_to project.title, project %></div>
+        </li>
+      </ul>
+    </div>
+   <% end %>
+  <% end %>
+<% end %>
+
+<div>
+  <%= link_to '回首頁(會員)', root_path %>
+</div>
+
