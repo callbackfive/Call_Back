@@ -17,9 +17,15 @@ Rails.application.routes.draw do
     collection do
       get 'proposal', as: 'new', action: :new
     end
+    
+    #givebacks
+    resources :givebacks
   end
+
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index
   end
+
+  
 
 end
