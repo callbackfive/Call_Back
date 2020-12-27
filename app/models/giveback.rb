@@ -1,0 +1,2 @@
+class Giveback < ApplicationRecord
+end
