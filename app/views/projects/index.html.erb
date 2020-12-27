@@ -1,14 +1,20 @@
 <h1 class="text-xl text-green-500">專案列表</h1>
 
-<%= link_to "提案", new_project_path ,class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
+<%#= link_to "提案", new_project_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
 
-<%# <%= link_to '提案', new_project_path ,%> 
+<% if user_signed_in? %>
+  <%= link_to "提案", new_project_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
+<% else %>
+  <%= link_to "提案", new_user_session_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
+<% end %>
 
 <ul>
   <% @projects.each do |project| %>
     <li>
       <%= link_to project.title, project %>
-      <%= link_to "編輯", edit_project_path(project) %>
     </li>
   <% end %>
 </ul>
+<div>
+  <%= link_to '回首頁(探索)', root_path %>
+</div>

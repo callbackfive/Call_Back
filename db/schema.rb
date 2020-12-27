@@ -33,17 +33,14 @@ ActiveRecord::Schema.define(version: 2020_12_22_180734) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.datetime "birthday"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "fb_uid"
-    t.string "fb_token"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.datetime "birthday"
     t.string "fb_uid"
     t.string "fb_token"
     t.index ["email"], name: "index_users_on_email", unique: true
