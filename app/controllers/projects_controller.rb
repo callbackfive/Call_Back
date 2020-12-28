@@ -22,7 +22,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
-
     if @project.save
       redirect_to user_projects_path(current_user), notice: '成功新增專案'
     else
@@ -51,6 +50,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :pic, :target_amount, :user_id)
+    params.require(:project).permit(:title, :category, :summary, :content, :pic, :target_amount, :user_id, givebacks_attributes: [:title, :price])
   end
 end
