@@ -32,10 +32,13 @@
   </div>
   <div>
       <%= givebacks_form.label :價格 %>
-      <%= givebacks_form.text_field :price %>
-    <% end %>
+      <%= givebacks_form.text_field :price %> 
   </div>
-
+  <div>
+      <%= givebacks_form.label :預計寄送時間 %>
+      <%= givebacks_form.datetime_field :deliver_time %> 
+  </div>
+  <% end %>
   <%= form.submit %>
 <% end %>
 
