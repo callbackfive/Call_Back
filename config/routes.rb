@@ -13,13 +13,12 @@ Rails.application.routes.draw do
 
   # projects
   resources :projects, except: [:new, :destroy], shallow: true
+
   resource :project, only: [] do
     collection do
       get 'proposal', as: 'new', action: :new
     end
-    
-    #givebacks
-    resources :givebacks
+    resources :givebacks, except: [:new]
   end
 
   resources :users do
