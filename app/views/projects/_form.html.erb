@@ -24,15 +24,17 @@
     <%= form.text_area :target_amount %>
   </div>
 
-  <ul>
+  <%#-------- givebacks ----------%>
+  <div>
     <%= form.fields_for :givebacks do |givebacks_form| %>
       <%= givebacks_form.label :回饋商品名稱 %>
       <%= givebacks_form.text_field :title %>
-      <br>
+  </div>
+  <div>
       <%= givebacks_form.label :價格 %>
       <%= givebacks_form.text_field :price %>
     <% end %>
-  </ul>
+  </div>
 
   <%= form.submit %>
 <% end %>
