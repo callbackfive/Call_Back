@@ -1,16 +1,16 @@
 <h1>（現在登入的會員的專案列表）我的專案列表頁</h1>
 
-<% if @projects.blank? %> 
+<% if @user_projects.blank? %> 
   <div>你沒有任何提案紀錄</div>
 <% else %>
   <h2>您的提案列表</h2>
   <div>
     <ul>
-      <% @projects.each do |project| %>
-        <% if project.user_id == current_user.id %>
+      <% @user_projects.each do |user_project| %>
+        <% if user_project.user_id == current_user.id %>
           <li>
-            <%= link_to project.title, project %>
-            <%= link_to "編輯", edit_project_path(project) %>
+            <%= link_to user_project.title, user_project %>
+            <%= link_to "編輯", edit_project_path(user_project) %>
           </li>
         <% end %>
       <% end %>

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
-  before_action :find_project,only: [:show, :edit, :update]
+  before_action :find_project, only: [:show, :edit, :update]
 
 
   def index
@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 
 
   def user_projects_index
-    @projects = Project.where(:user_id => current_user.id)
+    @user_projects = Project.where(:user_id => current_user.id)
   end
 
   def show
