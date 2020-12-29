@@ -18,6 +18,14 @@
     "tailwindcss": "^2.0.2",
     "turbolinks": "^5.2.0"
   },
+  "scripts": {
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run bulid:css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:css": "postcss frontend/styles/application.scss -o frontend/styles/main.css",
+    "watch:css": "postcss frontend/styles/application.scss -o frontend/styles/main.css"
+  },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

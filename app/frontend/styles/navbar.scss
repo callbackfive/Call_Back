@@ -1,17 +1,21 @@
-
-
 nav{
   
   @apply border-b;
   @apply border-gray-200;
   @apply shadow-sm;
-  
-  
-  .nav-container{
 
-    @apply max-w-screen-xl;
+  
+  
+  
+  .container{
+
+    max-width:1280px;
     @apply mx-auto;
-    
+
+
+   .row{
+
+
 
     .nav-left{
 
@@ -32,12 +36,9 @@ nav{
         @apply text-gray-600;
         @apply border-red-400;
         @apply border-b-2;
-        @apply box-border
+        @apply box-border;
     
         }
-
-
-
 
 
     }
@@ -75,7 +76,7 @@ nav{
 
       }
 
-      .user-list{
+      #user-list{
 
         @apply bg-gray-100;
         @apply w-48;
@@ -114,9 +115,16 @@ nav{
   
     }
 
+
+   }
+    
+
+    
   }  
    
 
 }
+
+
 
 
