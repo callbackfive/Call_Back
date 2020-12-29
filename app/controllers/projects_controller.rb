@@ -19,7 +19,6 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     2.times{ @project.givebacks.build }
-
   end
 
   def create
@@ -52,6 +51,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :pic, :target_amount, :user_id, givebacks_attributes: [:title, :price, :deliver_time])
+    params.require(:project).permit(:title, :category, :summary, :content, :pic, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy])
   end
 end
