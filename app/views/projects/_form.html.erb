@@ -27,16 +27,20 @@
   <%#-------- givebacks ----------%>
   <div>
     <%= form.fields_for :givebacks do |givebacks_form| %>
-      <%= givebacks_form.label :回饋商品名稱 %>
+      <%= givebacks_form.label :title, '回饋商品' %>
       <%= givebacks_form.text_field :title %>
   </div>
   <div>
-      <%= givebacks_form.label :價格 %>
+      <%= givebacks_form.label :price, '價格' %>
       <%= givebacks_form.text_field :price %> 
   </div>
   <div>
-      <%= givebacks_form.label :預計寄送時間 %>
+      <%= givebacks_form.label :deliver_time, '預計寄送時間' %>
       <%= givebacks_form.datetime_field :deliver_time %> 
+  </div>
+  <div>
+      <%= givebacks_form.check_box :_destroy %>
+      <%= givebacks_form.label :_destroy, '刪除回饋商品' %>
   </div>
   <% end %>
   <%= form.submit %>
