@@ -7,7 +7,8 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
 
 
-import App from '../scripts/navbar'
+import App from '../scripts/App'
+import  '../styles/application.scss'
 
 
 

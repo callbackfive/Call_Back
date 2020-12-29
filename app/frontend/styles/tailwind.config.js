@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('@tailwindcss/postcss7-compat/colors')
 
 module.exports = {
   purge: [],
