@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
   before_action :find_project, only: [:show, :edit, :update]
-
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @projects = Project.all
