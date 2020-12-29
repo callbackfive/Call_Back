@@ -4,7 +4,16 @@
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
-<div>回饋商品： <%= @project.givebacks.title %></div>
+
+<%# -----giveback-----%>
+<div>
+  <ul>
+    <% @givebacks.each do |g| %>
+      <li>回饋商品： <%= g.title %></li>
+      <li>商品價格： <%= g.price %>元</li>
+    <%end%>
+  </ul>
+</div>
 
 <div>
   <%= link_to '回探索（專案列表）', projects_path %></h2>
