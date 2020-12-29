@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     2.times{ @project.givebacks.build }
+
   end
 
   def create
