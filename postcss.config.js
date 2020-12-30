@@ -1,7 +1,7 @@
 let environment = {
   plugins: [
     
-    require('tailwindcss')('./app/frontend/styles/tailwind.config.js'),
+    require('@tailwindcss/postcss7-compat')('./app/frontend/styles/tailwind.config.js'),
     require('postcss-import'),
     require('postcss-flexbugs-fixes'),
     require('postcss-preset-env')({

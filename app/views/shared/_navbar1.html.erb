@@ -1,0 +1,61 @@
+
+
+<nav calss="w-full fixed">
+
+  <div class="nav-container">
+
+    <div class="flex justify-between items-center">
+
+      <div class="nav-left flex  space-x-4 items-center">
+
+        <div class="logo">
+          
+          <%= image_pack_tag 'logo.jpg',class:"logo" %>
+          
+
+        </div>
+
+        <div class="menu-list">
+          <a href="#" class="menu-item">關於</a>
+          <a href="#" class="menu-item">提案</a>
+          <a href="#" class="menu-item">探索</a> 
+        </div>
+
+
+      </div>
+     
+      <!--right動態切換 -->
+    
+      <div class="user-profile">
+          
+        <div class="drop-down-btn flex space-x-2 ">              
+          <button class="user-pic">
+              <img src="https://picsum.photos/40/40/?random=1" class="pic">
+          </button>
+
+          <button class="down-icon">
+          <i class="fas fa-caret-down"></i>
+          <%# <i class="fas fa-caret-up"></i> %>
+          </button>
+
+        </div>  
+
+        <div id="user-list">
+            <div class="list-item">登入</div>
+            <div class="list-item">註冊</div>
+          </div>
+
+        </div>
+    
+      </div>
+    </div>
+  </div>
+
+</nav>
+
+
+
+
+
+
+
