@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  include ProjectsHelper
   before_action :find_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
