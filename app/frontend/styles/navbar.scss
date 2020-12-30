@@ -1,0 +1,130 @@
+nav{
+  
+  @apply border-b;
+  @apply border-gray-200;
+  @apply shadow-sm;
+
+  
+  
+  
+  .container{
+
+    max-width:1280px;
+    @apply mx-auto;
+
+
+   .row{
+
+
+
+    .nav-left{
+
+
+
+      .menu-item{
+        
+        display: inline-block;
+        padding: 22px;
+        font-size: 18px;
+        @apply text-gray-400;
+
+        
+      }
+
+      .menu-item:hover{
+
+        @apply text-gray-600;
+        @apply border-red-400;
+        @apply border-b-2;
+        @apply box-border;
+    
+        }
+
+
+    }
+
+
+    .user-profile{
+
+      @apply relative;
+
+      
+
+      .user-pic{
+
+        @apply block;
+        @apply h-14;
+        @apply w-14;
+        @apply rounded-full;
+        @apply overflow-hidden;
+        @apply border;
+        @apply border-gray-300;
+        
+
+        .pic{ 
+          @apply h-full;
+          @apply w-full;
+          @apply object-cover;
+        }
+
+        .user-pic:focus{
+
+          @apply outline-none;
+          @apply border-gray-400;
+
+        }
+
+      }
+
+      #user-list{
+
+        @apply bg-gray-100;
+        @apply w-48;
+        @apply rounded;
+        @apply mt-1;
+        @apply shadow-sm;
+        @apply absolute;
+        @apply right-0;
+
+    
+
+        .list-item{ 
+          @apply block;
+          @apply py-2;
+          @apply px-4;
+          @apply text-gray-800;        
+        }
+
+        .list-item +.list-item{ 
+
+          @apply border-t;
+          @apply border-gray-200;
+
+        }
+
+        .list-item:hover{ 
+
+          @apply text-white;        
+          @apply bg-indigo-500;      
+        }
+
+
+
+      }
+      
+  
+    }
+
+
+   }
+    
+
+    
+  }  
+   
+
+}
+
+
+
+

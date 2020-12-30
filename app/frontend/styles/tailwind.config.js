@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('@tailwindcss/postcss7-compat/colors')
 
 module.exports = {
   purge: [],
@@ -480,6 +480,8 @@ module.exports = {
       full: '100%',
       min: 'min-content',
       max: 'max-content',
+      
+      
     },
     objectPosition: {
       bottom: 'bottom',
