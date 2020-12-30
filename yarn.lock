@@ -1654,7 +1654,7 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
-"@tailwindcss/postcss7-compat@^2.0.2", "tailwindcss@npm:@tailwindcss/postcss7-compat@^2.0.2":
+"@tailwindcss/postcss7-compat@^2.0.2":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@tailwindcss/postcss7-compat/-/postcss7-compat-2.0.2.tgz"
   integrity sha512-KM8kjG5dd8qoXBX2a6r3r1TOqhFh8NtFBheG9qpVPwSjrD8wRdoM7s+Xz56HEA1XmeN64gEKqjmY6vm55DiS3Q==

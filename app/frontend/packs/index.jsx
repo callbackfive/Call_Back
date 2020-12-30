@@ -13,7 +13,7 @@ import  '../styles/application.scss'
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
    
   ReactDOM.render(
     <App/>,
