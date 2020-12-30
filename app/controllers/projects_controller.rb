@@ -47,10 +47,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-  # def find_user_projects
-  #   @user_projects = Project.find_by(user_id: 1)
-  # end
-
   def find_project
     @project = Project.find(params[:id])
   end
