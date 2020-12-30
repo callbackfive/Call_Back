@@ -1,12 +1,12 @@
 <%= form_for(project) do |form| %>
   <div class="project-title">
     <%= form.label :title, '專案標題' %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title ,class:"border-2 border-gray-300"%>
   </div>
 
   <div class="project-category">
     <%= form.label :category, '專案類別' %>
-    <%= form.text_field :category %>
+    <%= form.text_field :category ,class:"border-2 border-gray-300" %>
   </div>
   
   <div class="project-summary">
@@ -24,6 +24,25 @@
     <%= form.text_area :target_amount %>
   </div>
 
+  <%#-------- givebacks ----------%>
+  <div>
+    <%= form.fields_for :givebacks do |givebacks_form| %>
+      <%= givebacks_form.label :title, '回饋商品' %>
+      <%= givebacks_form.text_field :title %>
+  </div>
+  <div>
+      <%= givebacks_form.label :price, '價格' %>
+      <%= givebacks_form.text_field :price %> 
+  </div>
+  <div>
+      <%= givebacks_form.label :deliver_time, '預計寄送時間' %>
+      <%= givebacks_form.datetime_field :deliver_time %> 
+  </div>
+  <div>
+      <%= givebacks_form.check_box :_destroy %>
+      <%= givebacks_form.label :_destroy, '刪除回饋商品' %>
+  </div>
+  <% end %>
   <%= form.submit %>
 <% end %>
 

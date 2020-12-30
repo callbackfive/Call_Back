@@ -17,7 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
+# Use Active Model has_secure_passwordx
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
@@ -27,10 +27,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'devise', '~> 4.7', '>= 4.7.3'
-gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-facebook', '~> 8.0'
-gem "rails-i18n"
-gem 'figaro', '~> 1.0'
+gem "rails-i18n",'~> 6.0'
+gem 'figaro', '~> 1.2'
 
 
 
@@ -38,6 +38,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+
 end
 
 group :development do
@@ -49,6 +50,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'foreman', '~> 0.82.0'
   gem 'thor', '~>  0.19.1'
+  gem 'hirb', '~> 0.7.3'
 end
 
 group :test do

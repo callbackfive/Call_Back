@@ -43,4 +43,6 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+
+# 排除Peacock套件顏色設定檔
 /.vscode/settings.json
