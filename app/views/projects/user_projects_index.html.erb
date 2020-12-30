@@ -11,6 +11,7 @@
           <li>
             <%= link_to user_project.title, user_project %>
             <%= link_to "編輯", edit_project_path(user_project) %>
+            <%= link_to "真的刪除", user_project, method: 'delete' %>
           </li>
         <% end %>
       <% end %>
