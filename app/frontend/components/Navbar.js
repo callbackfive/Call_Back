@@ -32,7 +32,7 @@ const Navbar = () => {
     <ul className={click? 'nav-menu active':'nav-menu'}>
 
       <li className="nav-items">
-        <Link to='/' className='nav-links' onClick={closeMobileMenu}>關於</Link>
+        <Link to='/' className='nav-links' onClick={()=>closeMobileMenu('')}>關於</Link>
       </li>
 
       <li className="nav-items">
