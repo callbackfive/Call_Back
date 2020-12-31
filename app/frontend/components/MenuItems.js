@@ -7,7 +7,7 @@ export const MenuItems = [
   },
   {
     title:'註冊',
-    path:'#',
+    path:'',
     cName :'dropdown-link'
 
   }

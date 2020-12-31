@@ -15,7 +15,7 @@ export function Button() {
     if(window.innerWidth<960 ){
       setdropDown(false)
     }else{
-      setdropDown(true)
+      setdropDown(!dropdown)
     }
 
   }
@@ -41,7 +41,7 @@ export function Button() {
         </div>
       
       </button>
-      {dropdown && <Dropdown />}
+      {dropdown && <Dropdown isShow={dropdown} onShow={(show) => setdropDown(show)} />}
 
     </Link>
 
