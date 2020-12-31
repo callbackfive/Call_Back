@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
-  include ProjectsHelper
-  before_action :find_project,only: [:show, :edit, :update]
-
+  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @projects = Project.all
@@ -9,7 +8,7 @@ class ProjectsController < ApplicationController
 
 
   def user_projects_index
-    @projects = Project.where(:user_id => current_user.id)
+    @user_projects = Project.where(:user_id => current_user.id)
   end
 
   def show
@@ -41,11 +40,12 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
-  # def user_projects
-  #   @user_projects = Project.find_by(user_id: 1)
-  # end
+  def destroy
+    @project.destroy
+    redirect_to user_projects_path(current_user), notice: '已刪除專案'
+  end
 
+  private
   def find_project
     @project = Project.find(params[:id])
   end
