@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   # projects
-  resources :projects, except: :new, shallow: true
+  resources :projects, shallow: true, except: :new do
+    resources :comments
+  end 
 
   resource :project, only: [] do
     collection do
