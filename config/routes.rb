@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # projects
   resources :projects, shallow: true, except: :new do
-    resources :comments
+    resources :comments, shallow: true, only: [:create, :destroy]
   end 
 
   resource :project, only: [] do

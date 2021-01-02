@@ -1,4 +1,5 @@
 <div>
-  [<%#= comment.user.name %>]
+  [<%= comment.user.name %>]
   <%= comment.content %>
+  <%= link_to "刪除", comment, method: 'delete' %>
 </div>
