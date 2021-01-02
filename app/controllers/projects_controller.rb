@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
 
   def show
     @givebacks = @project.givebacks
+    @comment = Comment.new
+    @comments = @project.comments.includes(:user)
   end
 
   def new
