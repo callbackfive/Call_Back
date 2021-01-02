@@ -1,6 +1,11 @@
 class CommentsController < ActionController::Base
+  before_action :find_project, only: [:new, :create]
+
+  def new
+    @comment = current_user.comments.new(parent_id: params[:parent_id])
+  end
+  
   def create
-    @project = Project.find(params[:project_id])
     @comment = current_user.comments.new(comment_params)
     @comment.project = @project
      if @comment.save
@@ -16,6 +21,10 @@ class CommentsController < ActionController::Base
 
   private
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:id, :content, :parent_id)
+  end
+
+  def find_project
+    @project = Project.find(params[:project_id])
   end
 end
