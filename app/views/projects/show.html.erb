@@ -15,6 +15,14 @@
   </ul>
 </div>
 
+  <%= form_with model: [@project, @project.comments.build] do |f| %>
+    <div class="form-group">
+      <%= f.label :content, placeholder: '請留言' %>
+      <%= f.text_area :body %>
+    </div>
+    <%= f.submit '送出' %>
+  <% end %>
+
 
 <div>
   <% if (current_user == @project.user) %>
