@@ -15,6 +15,7 @@
   </ul>
 </div>
 
+<% if user_signed_in? %>
   <%= form_for(@comment, url: project_comments_path(@project), remote: true) do |f| %>
     <div>
       <%= f.label :content %>
@@ -22,8 +23,10 @@
     </div>
     <%= f.submit '送出' %>
   <% end %>
+<% end %>
 
-<%= render @project.comments %>
+  <%= render @project.comments %>
+
 
 <div>
   <% if (current_user == @project.user) %>

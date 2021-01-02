@@ -1,4 +1,5 @@
 class CommentsController < ActionController::Base
+  before_action :authenticate_user!
   before_action :find_project, only: [:new, :create]
 
   def new
