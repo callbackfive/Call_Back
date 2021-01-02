@@ -1,5 +1,11 @@
 <div>
   [<%= comment.user.name %>]
   <%= comment.content %>
+  <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
   <%= link_to "刪除", comment, method: 'delete' %>
+  <% if comment.replies.any? %>
+    <% comment.replies.each do |reply| %> 
+      <%= render partial: 'comments/reply', locals: { reply: reply } %>
+    <% end %>
+  <% end %>
 </div>

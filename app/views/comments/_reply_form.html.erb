@@ -1,0 +1,9 @@
+<%= form_with model: [@project, @comment] do |f| %>
+  <%= f.hidden_field :parent_id %>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <%= f.submit 'Submit' %>
+  <%= link_to 'Cancel', post_path(@project) %>
+<% end %>
