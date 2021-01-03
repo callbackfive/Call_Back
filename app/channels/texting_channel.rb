@@ -1,6 +1,6 @@
 class TextingChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "texting_channel_#{params[:id]}"
+    stream_from "texting_channel_#{params[:texting_id]}"
   end
 
   def unsubscribed

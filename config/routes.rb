@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   end
   
   # 訊息頁面
-  get 'textings/index'
-  
+  resources :textings, only: [:index, :show], shallow: true
+
 end
