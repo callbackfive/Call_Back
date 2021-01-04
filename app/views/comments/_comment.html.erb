@@ -1,5 +1,5 @@
 <div>
-  <% if !comment.parent_id %>
+  <% if comment.parent_id.blank? %>
     <div>
       [<%= comment.user.name %>]
       <%= comment.created_at.strftime("%Y/%m/%d") %>
@@ -14,7 +14,7 @@
 
     <% if comment.replies.any? %>
       <% comment.replies.each do |reply| %> 
-        <%= render partial: 'comments/reply', locals: { reply: reply } %>
+        <%= render 'comments/reply', reply: reply %>
       <% end %>
     <% end %>
 
