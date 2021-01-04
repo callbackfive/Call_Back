@@ -14,22 +14,25 @@
     <%end%>
   </ul>
 </div>
+<br>
 
+<%# -----comment-----%>
+<h3>---留言區---</h3>
 <% if user_signed_in? %>
-  <%= form_for(@comment, url: project_comments_path(@project), remote: true) do |f| %>
+  <%= form_with model: Comment.new, url: project_comments_path(@project) do |f| %>
     <div>
-      <%= f.label :content %>
       <%= f.text_area :content, placeholder: '請留言' %>
     </div>
     <%= f.submit '送出' %>
   <% end %>
 <% end %>
 
-  <%= render @project.comments %>
+<%# 渲染comment跟reply的畫面 %>
+<%= render @project.comments, comment: @comment %>
 
 
 <div>
-  <% if (current_user == @project.user) %>
+  <% if project_owner? %>
     <%= link_to "編輯此專案", edit_project_path(@project) %>
   <% end %>
 </div>
