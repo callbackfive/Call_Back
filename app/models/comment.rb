@@ -6,6 +6,5 @@ class Comment < ApplicationRecord
 
   validates :content, presence: :true
   
-  #讓最新的留言在最上面
-  default_scope { order('created_at DESC') }
+  # default_scope { order('created_at DESC') }
 end
