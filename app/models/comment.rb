@@ -5,4 +5,7 @@ class Comment < ApplicationRecord
   has_many :replies, class_name: 'Comment', foreign_key: :parent_id, dependent: :destroy
 
   validates :content, presence: :true
+  
+  #讓最新的留言在最上面
+  default_scope { order('created_at DESC') }
 end

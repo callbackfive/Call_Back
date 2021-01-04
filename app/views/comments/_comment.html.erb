@@ -1,10 +1,15 @@
 <div>
-  <% unless comment.parent_id || !comment.persisted? %>
+  <% if !comment.parent_id %>
+    <div>
+      [<%= comment.user.name %>]
+      <%= comment.content %>
+    </div>
 
-    [<%= comment.user.name %>]
-    <%= comment.content %>
-    <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
-    <%= link_to "刪除", comment, method: 'delete' %>
+    <%# 限定只有提案者可以回覆留言 %>
+    <% if project_owner? %>
+      <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
+      <%= link_to "刪除", comment, method: 'delete' %>
+    <% end %>
 
     <% if comment.replies.any? %>
       <% comment.replies.each do |reply| %> 

@@ -22,7 +22,7 @@ class CommentsController < ActionController::Base
 
   private
   def comment_params
-    params.require(:comment).permit(:id, :content, :parent_id)
+    params.require(:comment).permit(:content, :parent_id)
   end
 
   def find_project
