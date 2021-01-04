@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @texting = @project.texting
     @givebacks = @project.givebacks
   end
 

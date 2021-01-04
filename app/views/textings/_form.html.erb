@@ -1,0 +1,14 @@
+<%= form_with(model: texting, local: true) do |form| %>
+  <% if texting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(texting.errors.count, "error") %> prohibited this texting from being saved:</h2>
+
+      <ul>
+        <% texting.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<% end %>

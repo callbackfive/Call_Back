@@ -1,12 +1,12 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
-  let textin_id = document.getElementById('texting-id').getAttribute('data-texting-id');
+  let texting_id = document.getElementById('texting-id').getAttribute('data-texting-id');
 
-  console.log(textin_id);
-  consumer.subscriptions.create({ channel: "TextingChannel", texting_id: textin_id }, {
+  console.log(texting_id);
+  consumer.subscriptions.create({ channel: "TextingChannel", texting_id: texting_id }, {
     connected() {
-      console.log('Connected to texting channel ' + textin_id);
+      console.log('Connected to texting channel ' + texting_id);
     },
   
     disconnected() {
