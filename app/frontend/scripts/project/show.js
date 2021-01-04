@@ -1,1 +1,10 @@
-console.log("It's our pleasure to give you project#show for now and erver");
+document.addEventListener('turbolinks:load', () => {
+
+  const textingCreateLink = document.querySelector('#texting-create-link');
+
+  textingCreateLink.addEventListener('click', (e) => {
+    e.preventDefault;
+    
+  });
+
+});

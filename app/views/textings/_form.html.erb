@@ -1,14 +1,7 @@
-<%= form_with(model: texting, local: true) do |form| %>
-  <% if texting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(texting.errors.count, "error") %> prohibited this texting from being saved:</h2>
-
-      <ul>
-        <% texting.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: texting, url: '/textings/create', local: true) do |form| %>
   
+  <%= form.hidden_field :user_id, value: user.id %>
+  <%= form.hidden_field :project_id, value: project.id %>
+  <%= form.submit '傳送訊息' %>
+
 <% end %>
