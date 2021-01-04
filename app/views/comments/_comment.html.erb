@@ -2,6 +2,7 @@
   <% if !comment.parent_id %>
     <div>
       [<%= comment.user.name %>]
+      <%= comment.created_at.strftime("%Y/%m/%d") %>
       <%= comment.content %>
     </div>
 
