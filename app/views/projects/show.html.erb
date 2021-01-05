@@ -21,7 +21,7 @@
 <% if user_signed_in? %>
   <%= form_with model: Comment.new, url: project_comments_path(@project) do |f| %>
     <div>
-      <%= f.text_area :content, placeholder: '請留言' %>
+      <%= f.text_area :content, placeholder: '請留言', class:'border-2' %>
     </div>
     <%= f.submit '送出' %>
   <% end %>
