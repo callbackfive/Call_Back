@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
 
-  def user_projects_index
+  def user_projects
     @user_projects = Project.where(:user_id => current_user.id)
   end
 
