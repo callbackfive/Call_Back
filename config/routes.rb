@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   end
   
   # projects
+
   resources :projects, except: :new do
-    # 
+    #
+    resources :comments, shallow: true, only: [:new, :create, :destroy]
     resources :textings, only: [:index, :show, :create]
   end
   

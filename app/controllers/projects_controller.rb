@@ -14,6 +14,10 @@ class ProjectsController < ApplicationController
   def show
     @texting = @project.texting
     @givebacks = @project.givebacks
+    #要可以在show頁面留言
+    @comment = Comment.new
+    #避免N+1 query
+    @comments = @project.comments.includes(:user)
   end
 
   def new

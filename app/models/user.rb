@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-    has_many :projects
+  has_many :projects
+  has_many :comments
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
