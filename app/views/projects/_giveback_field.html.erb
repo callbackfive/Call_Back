@@ -1,0 +1,22 @@
+<%= content_tag :div, class: 'nested_field' do %>
+
+  <div>
+    <%= form.label :title, '回饋商品' %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :price, '價格' %>
+    <%= form.text_field :price %> 
+  </div>
+  <div>
+    <%= form.label :deliver_time, '預計寄送時間' %>
+    <%= form.datetime_field :deliver_time %> 
+  </div>
+  <div>
+    <%= form.label :_destroy, '刪除回饋商品' %>
+    <%= form.check_box :_destroy %>
+  </div>
+
+  <%= form.submit %>
+
+<% end %>
