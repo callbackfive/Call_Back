@@ -22,13 +22,13 @@ Rails.application.routes.draw do
     # 留言
     resources :comments, shallow: true, only: [:new, :create, :destroy]
     
-    # 聯絡短信
-    resources :textings, only: [:index, :show, :create]
-
     # 回饋
     resources :givebacks, except: [:new]
   end
 
+  # 聯絡短信
+  resources :textings, only: [:index, :show, :create], shallow: true
+  
 end
 
 

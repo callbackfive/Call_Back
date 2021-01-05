@@ -6,7 +6,7 @@
 <div>募資目標： <%= @project.target_amount %></div>
 
 <%# -----texting-----%>
-<div><%= link_to '聯絡提案人', project_textings_path(@project), id: 'new-texting-link', data: {popup: true} %></div>
+<div><%= link_to '聯絡提案人', textings_path, id: 'new-texting-link', data: {popup: true} %></div>
 
 <div class="new-texting-popup">
   <div class="popup-content">
