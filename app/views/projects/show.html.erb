@@ -6,15 +6,14 @@
 <div>募資目標： <%= @project.target_amount %></div>
 
 <%# -----texting-----%>
-<div><%= link_to '聯絡提案人', textings_path, method: 'POST', id: 'texting-create-link', data: {popup: true} %></div>
-<div class="texting-new-popup">
+<div><%= link_to '聯絡提案人', project_textings_path(@project), id: 'new-texting-link', data: {popup: true} %></div>
+
+<div class="new-texting-popup">
   <div class="popup-content">
     <div>提案人： <%= @project.user.name %></div>
     <hr>
     <div class="message-guiding">傳訊息給 <%= @project.user.name %></div>
-    <%= render 'textings/form', texting: @project.texting, project: @project, user: @project.user %>
-
-     
+    <%= render 'textings/form', texting: Texting.new, project: @project, user: current_user %>   
   </div>
 </div>
 

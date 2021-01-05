@@ -1,4 +1,4 @@
-<%= form_with(model: texting, url: '/textings/create', local: true) do |form| %>
+<%= form_with(model: texting, url: project_textings_path(project), method: 'POST', local: true) do |form| %>
   
   <%= form.hidden_field :user_id, value: user.id %>
   <%= form.hidden_field :project_id, value: project.id %>
