@@ -2,7 +2,7 @@
 <%= form_with model: [@project, @comment] do |f| %>
   <%= f.hidden_field :parent_id %>
   <div>
-    <%= f.text_area :content, placeholder: '請回覆' %>
+    <%= f.text_area :content, placeholder: '請回覆', class:'border-2' %>
   </div>
   <%= f.submit '送出回覆' %>
   <%= link_to '取消', project_path(@project) %>
