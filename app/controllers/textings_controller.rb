@@ -10,13 +10,15 @@ class TextingsController < ApplicationController
   end
 
   def create
+    # byebug
     @texting = Texting.new(texting_params)
-    @texting = @project.textings
-    @texting = current_user.textings
+    @texting.project_id = @project.id
+    @texting.user_id = current_user.id
+
     if @texting.save
       redirect_to projects_path
     else
-      render 'texting/form'
+      render 'projects/show'
     end
   end
 
