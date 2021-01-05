@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     resources :givebacks, except: [:new]
   end
 
-  # 聯絡短信
-  resources :textings, only: [:index, :show, :create], shallow: true
+  # 對話框
+  resources :dialogboxes, only: [:index, :show, :create], shallow: true
   
 end
 

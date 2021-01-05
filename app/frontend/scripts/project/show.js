@@ -1,8 +1,8 @@
 document.addEventListener('turbolinks:load', () => {
 
-  const textingCreateLink = document.querySelector('#texting-create-link');
+  const newDialogboxLink = document.querySelector('#new-dialogbox-link');
 
-  textingCreateLink.addEventListener('click', (e) => {
+  newDialogboxLink.addEventListener('click', (e) => {
     // e.preventDefault;
     console.log(e);
   });

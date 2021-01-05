@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TextingTest < ActiveSupport::TestCase
+class DialogboxTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

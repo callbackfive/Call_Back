@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     #避免N+1 query
     @comments = @project.comments.includes(:user)
     
-    @texting = Texting.new
+    @dialogbox = Dialogbox.new
   end
 
   def new
