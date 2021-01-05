@@ -37,7 +37,13 @@
     <%= form.fields_for :givebacks do |giveback| %>
       <%= render 'giveback_field', form: giveback %>
     <% end %>
+
+    <div class='mb-3' data-target='nested_form.links'>
+      <%= link_to '新增回饋商品', '#', data: { action: 'click->nested_form#add_new_giveback' } %>
+    </div>
   </div>
+
+  <%= form.submit %>
 <% end %>
 
 
