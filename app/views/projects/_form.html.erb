@@ -27,9 +27,9 @@
 
   <%#-------- givebacks ----------%>
   <h3 class='text-xl font-bold'>回饋商品區</h3>
-  <div data-controller='nested_form' >
-    <template>
-      <%= form.fields_for :givebacks, Giveback.new, child_index: 'new record' do |giveback| %>
+  <div data-controller='nested-form' >
+    <template data-nested-form-target='template'>
+      <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
         <%= render 'giveback_field', form: giveback %>
       <% end %>
     </template>
@@ -38,8 +38,8 @@
       <%= render 'giveback_field', form: giveback %>
     <% end %>
 
-    <div class='mb-3' data-target='nested_form.links'>
-      <%= link_to '新增回饋商品', '#', data: { action: 'click->nested_form#add_new_giveback' } %>
+    <div class='mb-3' data-nested-form-target='links'>
+      <%= link_to '新增回饋商品', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
     </div>
   </div>
 
