@@ -10,9 +10,14 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "output" ]
+  static targets = [ "links", "template" ]
 
-  connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
+  connect() {  
+  }
+  add_new_giveback(event) {
+    event.preventDefault()
+
+    let content = this.templateTarget.innerHTML.replace(/new_record/g, new Date().getTime())
+    this.linksTarget.insertAdjacentHTML('beforebegin', content)
   }
 }
