@@ -1,24 +1,22 @@
 <div>
-  <% if comment.parent_id.blank? %>
-    <div>
-      [<%= comment.user.name %>]
-      <%= comment.created_at.strftime("%Y/%m/%d") %>
-      <%= comment.content %>
-    </div>
+  <div>
+    [<%= comment.user.name %>]
+    <%= comment.created_at.strftime("%Y/%m/%d") %>
+    <%= comment.content %>
+  </div>
 
-    <%# 限定只有提案者可以回覆留言 %>
-    <% if project_owner? %>
-      <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
-      <%= link_to "刪除", comment, method: 'delete' %>
-    <% end %>
-
-    <% if comment.replies.any? %>
-      <% comment.replies.each do |reply| %> 
-        <%= render 'comments/reply', reply: reply %>
-      <% end %>
-    <% end %>
-
-    <div id="reply-form-<%= comment.id %>"></div>
-
+  <%# 限定只有提案者可以回覆留言 %>
+  <% if project_owner? %>
+    <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
+    <%= link_to "刪除", comment, method: 'delete' %>
   <% end %>
+
+  <div id="reply-form-<%= comment.id %>"></div>
+
+  <% if comment.replies.any? %>
+    <% comment.replies.each do |reply| %>
+      <%= render 'comments/reply', reply: reply %>
+    <% end %>
+  <% end %>
+
 </div>
