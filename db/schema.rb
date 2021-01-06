@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2021_01_05_174030) do
 
   create_table "dialogboxes", force: :cascade do |t|
     t.bigint "project_id", null: false
-    t.bigint "project_owner_id", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_dialogboxes_on_project_id"
@@ -50,8 +48,10 @@ ActiveRecord::Schema.define(version: 2021_01_05_174030) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
-    t.bigint "project_id", null: false
-    t.index ["project_id"], name: "index_messages_on_project_id"
+    t.bigint "dialogbox_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dialogbox_id"], name: "index_messages_on_dialogbox_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_174030) do
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
   add_foreign_key "dialogboxes", "projects"
-  add_foreign_key "messages", "projects"
+  add_foreign_key "messages", "dialogboxes"
   add_foreign_key "messages", "users"
   add_foreign_key "projects", "users"
 end

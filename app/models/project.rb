@@ -4,5 +4,5 @@ class Project < ApplicationRecord
   has_many :comments, -> { order('created_at DESC') }
   accepts_nested_attributes_for :givebacks, allow_destroy: true,
                                             reject_if: :all_blank
-  has_one :dialogbox
+  has_many :dialogboxes
 end
