@@ -1,5 +1,4 @@
-<%= content_tag :div, class: 'nested_field' do %>
-
+<%= content_tag :div, class: "nested_field", data: { new_record: form.object.new_record? } do %>
   <div class='m-3'>
     <%= form.label :title, '回饋商品' %>
     <%= form.text_field :title, class:'border-2'%>
@@ -12,8 +11,8 @@
     <%= form.label :deliver_time, '預計寄送時間' %>
     <%= form.datetime_field :deliver_time %> 
   </div>
-  <div>
-    <%= form.label :_destroy, '刪除回饋商品' %>
-    <%= form.check_box :_destroy %>
-  </div>
+
+  <%= link_to '刪除回饋商品', '#', class:'mb-3 text-red-400', data: { action: 'click->nested-form#remove_giveback'}%>
+  <%= form.hidden_field :_destroy %>
+
 <% end %>
