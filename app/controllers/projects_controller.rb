@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
     @comments = @project.comments.includes(:user)
     
     @dialogbox = Dialogbox.new
+    @message = Message.new
   end
 
   def new

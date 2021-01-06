@@ -1,6 +1,6 @@
 <%= form_with(model: dialogbox, url: dialogboxes_path, method: 'POST', local: true) do |form| %>
   <%= form.hidden_field :user, value: user.id %>
   <%= form.hidden_field :project, value: project.id %>
-  <%= form.submit '傳送訊息' %>
+  <%= form.submit '建立聊天室（傳送訊息）' %>
 
 <% end %>

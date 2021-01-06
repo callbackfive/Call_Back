@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   # 對話框
   resources :dialogboxes, only: [:index, :show, :create], shallow: true
   
+  # 訊息
+  resources :messages, only: :create
+
 end
 
 

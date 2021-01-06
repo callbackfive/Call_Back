@@ -10,13 +10,42 @@
 
 <div class="new-dialogbox-popup">
   <div class="popup-content">
-    <div>提案人： <%= @project.user.name %></div>
+    <div class="project-owner-info">
+      <div>提案人： <%= @project.user.name %></div>
+    </div>
     <hr>
-    <div class="message-guiding">傳訊息給 <%= @project.user.name %></div>
-    <%= render 'dialogboxes/form', dialogbox: Dialogbox.new, project: @project, user: current_user %>   
+    <div class="add-message-to-dialogbox">
+      <div class="message-guiding">傳訊息給 <%= @project.user.name %></div>
+        <%= render 'dialogboxes/form', dialogbox: Dialogbox.new,
+                                       project: @project,
+                                       user: current_user %>
+    </div>
+    <hr>
+    <div class="chat-dialogbox">
+      <nav class="">
+        <span class="navbar-brand" href='#'><%#= @project.title %></span>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            Hello, <%= current_user.name %>
+          </li>
+        </ul>
+      </nav>
+      <hr>
+      <% @dialogbox.messages.each do |message| %>
+        <div id="messages">
+      // TODO
+          <%= render 'messages/message', message: message %>
+        </div>
+      <% end %>
+      <div class="chat-box">
+      // TODO
+        <%= render 'messages/form', message: @message %>
+      </div>
+    </div>
   </div>
 </div>
 
+<%# -----message-----%>
 <%# -----giveback-----%>
 <div>
   <ul>
