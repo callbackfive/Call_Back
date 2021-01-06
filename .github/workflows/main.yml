@@ -16,3 +16,4 @@ jobs:
           heroku_app_name: "callback5" #Must be unique in Heroku
           heroku_email: "blueridge05@gmail.com"
           branch: "dev"
+          healthcheck: "https://callback.money/health"
