@@ -1,12 +1,18 @@
+<div>
+  <% if user_signed_in? %>
+    <%= current_user.name %><br/>
+    <%= link_to '登出', destroy_user_session_path, method: "delete" %><br/>
+    <%= link_to '個人頁面', profile_users_path %><br/>
+    <%= link_to '您的提案列表', user_projects_path(current_user) %>
+  <% else %>
+    <%= link_to '註冊', new_user_registration_path %>
+    <%= link_to '登入', new_user_session_path %>
+  <% end %>
+</div>
+
 <h1 class="text-xl text-green-500">專案列表</h1>
 
-<%#= link_to "提案", new_project_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
-
-<% if user_signed_in? %>
-  <%= link_to "提案", new_project_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
-<% else %>
-  <%= link_to "提案", new_user_session_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
-<% end %>
+<%= link_to "提案", new_project_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
 
 <ul>
   <% @projects.each do |project| %>
@@ -15,6 +21,7 @@
     </li>
   <% end %>
 </ul>
-<div>
-  <%= link_to '回首頁(探索)', root_path %>
-</div>
+
+
+
+
