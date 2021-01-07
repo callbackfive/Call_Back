@@ -23,26 +23,3 @@ CallBack是一個復刻的募資平台網站，參考國內外各大募資平台
 [李信宏](https://github.com/twhank)
 [吳凱雯](https://github.com/wineuwu)
 [蔡宗儒](https://github.com/bobanderic2000)
-
-<!-- This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
