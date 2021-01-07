@@ -32,6 +32,7 @@ gem 'omniauth-facebook', '~> 8.0'
 gem "rails-i18n",'~> 6.0'
 gem 'figaro', '~> 1.2'
 gem 'carrierwave', '~> 2.1'
+gem 'fog-aws', '~> 3.7'
 
 
 
