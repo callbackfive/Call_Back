@@ -2,6 +2,10 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project, only: :create
 
+  def index
+    @messages = Message.all
+  end
+
   def create
     if had_dialog?
       continue_dialog

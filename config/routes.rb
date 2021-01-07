@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :dialogboxes, only: [:index, :show, :create], shallow: true
   
   # 訊息
-  resources :messages, only: :create
+  resources :messages, only: [:index, :create]
 
 end
 
