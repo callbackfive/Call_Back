@@ -298,6 +298,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   letter_opener (~> 1.4, >= 1.4.1)
   listen (~> 3.2)
+  mini_magick (~> 4.11)
   omniauth (~> 1.9, >= 1.9.1)
   omniauth-facebook (~> 8.0)
   pg (~> 1.2, >= 1.2.3)
