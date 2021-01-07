@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Dropdown from './Dropdown';
 
 
-export function Button() {
+export function Button({user}) {
   const [click, setClick] = useState(true)
   const [dropdown, setdropDown] = useState(false)
   const handleClick = () => { setClick(!click)}
@@ -15,7 +15,7 @@ export function Button() {
     if(window.innerWidth<960 ){
       setdropDown(false)
     }else{
-      setdropDown(true)
+      setdropDown(!dropdown)
     }
 
   }
@@ -41,7 +41,7 @@ export function Button() {
         </div>
       
       </button>
-      {dropdown && <Dropdown />}
+      {dropdown && <Dropdown user={user} isShow={dropdown} onShow={(show) => setdropDown(show)} />}
 
     </Link>
 

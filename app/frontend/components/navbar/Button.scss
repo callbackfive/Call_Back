@@ -1,8 +1,14 @@
+.login-btn:focus{
+
+  @apply outline-none;
+}
+
+
 .login-btn{
 
+  
   @apply flex;
   @apply space-x-2;
-
   @apply items-center;
 
   .user-pic{
@@ -37,12 +43,10 @@
    
     font-size: 18px;
     color: #fff;
-
     
   }
 
 }
-
 
 
 @media screen and (max-width: 960px) {
