@@ -15,16 +15,17 @@ class MessagesController < ApplicationController
   private
   
   def had_dialog?
-    my_msg = Message.joins(:dialogbox)
+    @my_msg = Message.joins(:dialogbox)
                           .where(user: current_user,
                                  dialogboxes: { project: @project })
                           .first
-    my_msg.present?
+    @my_msg.present?
   end
 
   def continue_dialog
-    the_dialogbox = my_msg.dialogbox Message.new()
-    the_dialogbox.messages.create(user: current_user, message: params[:message])
+    dialogbox = @my_msg.dialogbox
+    dialogbox.messages.create(user: current_user,
+                              content: params.values[1].values[1])
   end
 
   def start_dialog
