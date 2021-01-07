@@ -31,14 +31,14 @@ gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-facebook', '~> 8.0'
 gem "rails-i18n",'~> 6.0'
 gem 'figaro', '~> 1.2'
-
-
+gem 'carrierwave', '~> 2.1'
+gem 'fog-aws', '~> 3.7'
+gem 'mini_magick', '~> 4.11'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
-
 end
 
 group :development do
@@ -48,8 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'foreman', '~> 0.82.0'
-  gem 'thor', '~>  0.19.1'
+  gem 'foreman', '~> 0.87.2'
+  gem 'thor', '~> 1.0', '>= 1.0.1'
   gem 'hirb', '~> 0.7.3'
   gem 'cancancan', '~> 1.15'
 end
