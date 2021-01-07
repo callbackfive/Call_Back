@@ -12,6 +12,11 @@
     <%= form.datetime_field :deliver_time %> 
   </div>
 
+  <div class="m-3">
+    <%= form.label :image, '商品照片' %>
+    <%= form.file_field :image, id: :giveback_image %>
+  </div> 
+
   <%= link_to '刪除回饋商品', '#', class:'mb-3 text-red-400', data: { action: 'click->nested-form#remove_giveback'}%>
   <%= form.hidden_field :_destroy %>
 
