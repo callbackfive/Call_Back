@@ -1,0 +1,15 @@
+current directory: /Users/atroposlee/Call_Back/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/atroposlee/.rvm/rubies/ruby-2.7.0/bin/ruby -I /Users/atroposlee/.rvm/rubies/ruby-2.7.0/lib/ruby/2.7.0 -r ./siteconf20210107-44024-11t0a52.rb extconf.rb
+creating Makefile
+
+current directory: /Users/atroposlee/Call_Back/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/atroposlee/Call_Back/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/atroposlee/Call_Back/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20210107-44024-widlui/skiptrace/internal
