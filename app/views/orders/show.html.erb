@@ -5,32 +5,34 @@
 
 <h2>寄送資訊：</h2>
 
-<%= form_for(@order) do |form| %>
-   <div class="relative mb-4">
-    <%= form.label :full_name, "收件人" %>
-    <%= form.text_field :full_name, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"%>
-
-  </div><br>
-
-  <div class="relative mb-4">
-    <%= form.label :delivery_country, "國家" %>
-    <%= form.text_field :delivery_country, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
-  </div><br>
+<%= form_tag orders_path, method: :post do%>
+  <input name="giveback_id" value="<%= @giveback.id%>">
   
-  <div class="relative mb-4">
-    <%= form.label :address, "收件地址"%>
-    <%= form.text_field :address, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"%>
+  <div class="relative mb-2">
+  <%= label :full_name, "收件人" %>
+  <%= text_field_tag :full_name %>
   </div>
 
-   <div class="relative mb-4">
-    <%= form.label :phone, "手機號碼" %>
-    <%= form.text_field :phone, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+  <div class="relative mb-2">
+  <%= label :delivery_country, "國家" %>
+  <%= text_field_tag :delivery_country %>
+  </div>
+  
+  <div class="relative mb-2">
+  <%= label :address, "收件地址" %>
+  <%= text_field_tag :address %>
+  </div>
+
+   <div class="relative mb-2">
+  <%= label :phone, "手機號碼" %>
+  <%= text_field_tag :phone %>
   </div>
  
-    <div class="relative mb-4">
-    <%= form.label :email, "電子信箱" %>
-    <%= form.text_field :email, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+  <div class="relative mb-2">
+  <%= label :email, "電子信箱" %>
+  <%= text_field_tag :email%>
   </div>
 
-  <%= form.submit "準備結帳"%>
+  <button type="submit">確認結帳</button>
+
 <% end %>
