@@ -4,4 +4,5 @@ class Comment < ApplicationRecord
   has_many :replies, -> { order('created_at ASC') }, class_name: 'Comment', foreign_key: :parent_id, dependent: :destroy
 
   validates :content, presence: :true
+  acts_as_paranoid
 end
