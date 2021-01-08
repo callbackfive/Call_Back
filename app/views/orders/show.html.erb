@@ -1,0 +1,37 @@
+<h1>訂單頁(show)</h1>
+<h2>付款方式：信用卡付款</h2>
+<div>回饋商品： <%= @giveback.title %></div>
+<div>商品價格： <%= @giveback.price %></div>
+
+<%= form_for(order) do |form| %>
+  <div class="project-title">
+    <%= form.label :title, '專案標題' %>
+    <%= form.text_field :title ,class:"border-2 border-gray-300"%>
+  </div>
+
+
+  <div class="project-category">
+    <%= form.label :category, '專案類別' %>
+    <%= form.text_field :category ,class:"border-2 border-gray-300" %>
+  </div>
+  
+  <div class="project-summary">
+    <%= form.label :summary, '內容摘要' %>
+    <%= form.text_field :summary %>
+  </div>
+
+  <div class="project-content">
+    <%= form.label :content, '專案內容' %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="target-amount">
+    <%= form.label :target_amount, '募資目標' %>
+    <%= form.text_area :target_amount %>
+  </div>
+  <br>
+
+  
+
+  <%= form.submit %>
+<% end %>
