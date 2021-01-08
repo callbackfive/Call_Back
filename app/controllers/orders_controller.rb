@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
     before_action :authenticate_user!
     before_action :find_giveback, only: [:show, :edit, :update, :destroy]
 
-
+    def show 
+        @order = Order.new
+    end
 
     private
     def find_giveback
