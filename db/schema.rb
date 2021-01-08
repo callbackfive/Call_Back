@@ -71,8 +71,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_020757) do
     t.string "fb_uid"
     t.string "fb_token"
     t.string "image"
-    t.string "provider"
-    t.string "uid"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -82,5 +80,6 @@ ActiveRecord::Schema.define(version: 2021_01_08_020757) do
 
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
+  add_foreign_key "givebacks", "projects"
   add_foreign_key "projects", "users"
 end
