@@ -7,7 +7,11 @@
 <div>募資目標： <%= @project.target_amount %></div>
 
 <%# -----dialogbox-----%>
-<div><%= link_to '聯絡提案人', dialogboxes_path, id: 'new-dialogbox-link', data: {popup: true} %></div>
+<div>
+  <% unless project_owner? %>
+    <%= link_to '聯絡提案人', dialogboxes_path, id: 'new-dialogbox-link', data: {popup: true} %>
+  <% end %>
+</div>
 
 <div class="new-dialogbox-popup">
   <div class="popup-content">

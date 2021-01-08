@@ -4,40 +4,26 @@
 <div class="container mx-auto">
   <div class="grid grid-cols-3">
     <%# 聯絡訊息列表 %>
-      <% @my_messages.each do |message| %>
-        <% if message.dialogbox = current_user.projects.dialogboxes %>
-          <%#= link_to dialogbox do %>
-            <div class="card mb-3">
-              <div class="card-body">
-              <%#= dialogbox.name %>嗨
-              </div>
-            </div>
-          <%# end %>
-        <% end %>
-      <% end %>
-    </div>
-    <%# 聊天視窗 %>
-    <div class="col-span-2">
-      <%# if @dialogbox.present? %>
-        <div class="chat-dialogbox">
-          <nav class="navbar navbar-light bg-light mb-4">
-            <span class="navbar-brand" href='#'><%#= @dialogbox.name %></span>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                Hello, <%= current_user.username %>
-              </li>
-            </ul>
-          </nav>
-          <%# @dialogbox.messages.each do |message| %>
-            <div id="messages">
-              <%#= render 'messages/message', message: message %>
-            </div>
-          <%# end %>
-          <div class="chat-box">
-            <%#= render 'messages/form', message: Message.new, dialogbox: @dialogbox %>
+    <% @my_dialogboxes.each do |dialogbox| %> 
+      <div class="col-span-1">
+        <%= link_to dialogbox do %>
+          <div class="card-body">
+            <%= dialogbox.project.title %>
           </div>
+        <% end %>
+      </div>
+      <%# 訊息視窗 %>
+      <div class="col-span-2">
+        <div class="dialogbox">
+          <h4><%= dialogbox.project.title %></h4>
         </div>
-      <%# end %>
-    </div>
+        <% dialogbox.messages.each do |message| %>
+          <p><%= message.content %></p>
+          <div>
+            <%= render 'messages/message', message: Message.new %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

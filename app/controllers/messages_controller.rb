@@ -17,7 +17,6 @@ class MessagesController < ApplicationController
   end
   
   private
-  
   def had_dialog?
     @my_msg = Message.joins(:dialogbox)
                      .where(user: current_user, dialogboxes: {project: @project})
@@ -32,11 +31,12 @@ class MessagesController < ApplicationController
   end
 
   def start_dialog
-    dialogbox = @project.dialogboxes.new
-    dialogbox.save
-    first_msg = Message.new(content: params.values[1].values[1],
-                               user: current_user)
-    first_msg.save
+      @dialogbox = @project.dialogboxes.new(user: current_user)
+      @dialogbox.save
+      first_msg = Message.new(content: params.values[1].values[1],
+                              user: current_user,
+                              dialogbox: @dialogbox)
+      first_msg.save
   end
 
   def find_project
