@@ -3,35 +3,34 @@
 <div>回饋商品： <%= @giveback.title %></div>
 <div>商品價格： <%= @giveback.price %></div>
 
-<%= form_for(order) do |form| %>
-  <div class="project-title">
-    <%= form.label :title, '專案標題' %>
-    <%= form.text_field :title ,class:"border-2 border-gray-300"%>
-  </div>
+<h2>寄送資訊：</h2>
 
+<%= form_for(@order) do |form| %>
+   <div class="relative mb-4">
+    <%= form.label :full_name, "收件人" %>
+    <%= form.text_field :full_name, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"%>
 
-  <div class="project-category">
-    <%= form.label :category, '專案類別' %>
-    <%= form.text_field :category ,class:"border-2 border-gray-300" %>
-  </div>
+  </div><br>
+
+  <div class="relative mb-4">
+    <%= form.label :delivery_country, "國家" %>
+    <%= form.text_field :delivery_country, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+  </div><br>
   
-  <div class="project-summary">
-    <%= form.label :summary, '內容摘要' %>
-    <%= form.text_field :summary %>
+  <div class="relative mb-4">
+    <%= form.label :address, "收件地址"%>
+    <%= form.text_field :address, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"%>
   </div>
 
-  <div class="project-content">
-    <%= form.label :content, '專案內容' %>
-    <%= form.text_area :content %>
+   <div class="relative mb-4">
+    <%= form.label :phone, "手機號碼" %>
+    <%= form.text_field :phone, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+  </div>
+ 
+    <div class="relative mb-4">
+    <%= form.label :email, "電子信箱" %>
+    <%= form.text_field :email, class:"w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
   </div>
 
-  <div class="target-amount">
-    <%= form.label :target_amount, '募資目標' %>
-    <%= form.text_area :target_amount %>
-  </div>
-  <br>
-
-  
-
-  <%= form.submit %>
+  <%= form.submit "準備結帳"%>
 <% end %>

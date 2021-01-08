@@ -1,0 +1,36 @@
+<h1>訂單頁(show)</h1>
+<h2>付款方式：信用卡付款</h2>
+<div>回饋商品： <%= @giveback.title %></div>
+<div>商品價格： <%= @giveback.price %></div>
+
+<h2>寄送資訊：</h2>
+
+<%= form_for(@order) do |form| %>
+  <div>
+    <%= form.label :full_name, "收件人" %>
+    <%= form.text_field :full_name %>
+  </div><br>
+
+  <div>
+    <%= form.label :delivery_country, "國家" %>
+    <%= form.text_field :delivery_country %>
+  </div><br>
+  
+  <div>
+    <%= form.label :address, "收件地址"
+    %>
+    <%= form.text_field :address%>
+  </div><br>
+
+  <div>
+    <%= form.label :phone, "手機號碼" %>
+    <%= form.text_field :phone %>
+  </div><br>
+ 
+  <div>
+    <%= form.label :email, "電子信箱" %>
+    <%= form.text_field :email %>
+  </div><br>
+
+  <%= form.submit "準備結帳"%>
+<% end %>
