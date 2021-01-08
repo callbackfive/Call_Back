@@ -1,4 +1,4 @@
-<h2>登入</h2>
+<h2 class="text-lg">登入</h2>
 
 <p class="alert"><%= alert %></p>
 
@@ -9,14 +9,14 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, '輸入密碼' %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :記住我 %>
+      <%= f.label :記住我的登入狀態 %>
     </div>
   <% end %>
 
