@@ -1,7 +1,8 @@
 <h1>個人頁面</h1>
-  <p>顯示名稱:<%= current_user.name %></p>
-  <p>Email:<%= current_user.email %></p>
+<p>顯示名稱:<%= current_user.name %></p>
+<p>Email:<%= current_user.email %></p>
+<%= image_tag current_user.image_url if current_user.image_url.present? %>
 
-  <%= link_to '編輯個人資料', edit_user_registration_path %><br/>
+<%= link_to '編輯個人資料', edit_user_registration_path %><br/>
 
 <%= link_to '回首頁', root_path %>

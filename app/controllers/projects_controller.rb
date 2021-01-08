@@ -13,15 +13,13 @@ class ProjectsController < ApplicationController
 
   def show
     @givebacks = @project.givebacks
-    #要可以在show頁面留言
     @comment = Comment.new
-    #避免N+1 query
     @comments = @project.comments.includes(:user)
   end
 
   def new
     @project = Project.new
-    2.times{ @project.givebacks.build }
+    @project.givebacks.new
   end
 
   def create
@@ -55,6 +53,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :pic, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy])
+    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

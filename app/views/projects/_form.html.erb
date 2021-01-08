@@ -4,6 +4,11 @@
     <%= form.text_field :title ,class:"border-2 border-gray-300"%>
   </div>
 
+  <div class="m-3">
+    <%= form.label :image, '專案照片' %>
+    <%= form.file_field :image, id: :giveback_image %>
+  </div> 
+
   <div class="project-category">
     <%= form.label :category, '專案類別' %>
     <%= form.text_field :category ,class:"border-2 border-gray-300" %>
@@ -23,26 +28,27 @@
     <%= form.label :target_amount, '募資目標' %>
     <%= form.text_area :target_amount %>
   </div>
+  <br>
 
   <%#-------- givebacks ----------%>
-  <div>
-    <%= form.fields_for :givebacks do |givebacks_form| %>
-      <%= givebacks_form.label :title, '回饋商品' %>
-      <%= givebacks_form.text_field :title %>
+  <h3 class='text-xl font-bold'>回饋商品區</h3>
+  <div data-controller='nested-form' >
+  
+    <template data-nested-form-target='template'>
+      <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
+        <%= render 'giveback_field', form: giveback %>
+      <% end %>
+    </template>
+
+    <%= form.fields_for :givebacks do |giveback| %>
+      <%= render 'giveback_field', form: giveback %>
+    <% end %>
+
+    <div class='mb-3' data-nested-form-target='links'>
+      <%= link_to '新增回饋商品', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
+    </div>
   </div>
-  <div>
-      <%= givebacks_form.label :price, '價格' %>
-      <%= givebacks_form.text_field :price %> 
-  </div>
-  <div>
-      <%= givebacks_form.label :deliver_time, '預計寄送時間' %>
-      <%= givebacks_form.datetime_field :deliver_time %> 
-  </div>
-  <div>
-      <%= givebacks_form.label :_destroy, '刪除回饋商品' %>
-      <%= givebacks_form.check_box :_destroy %>
-  </div>
-  <% end %>
+
   <%= form.submit %>
 <% end %>
 
