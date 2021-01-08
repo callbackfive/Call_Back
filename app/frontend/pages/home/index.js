@@ -7,11 +7,7 @@ import Banner from '../../components/home/Carousel'
 import TopRank from '../../components/home/Card'
 import  '../../styles/application.scss'
 
-
-
-
-
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbolinks:load',() => {
    
   ReactDOM.render(
   <>  

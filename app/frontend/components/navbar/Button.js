@@ -27,7 +27,7 @@ export function Button({user}) {
 
   return(
 
-    <Link to=''>
+    <div>
       
       <button className='login-btn' onClick={onClick} >
         <div className="user-pic">
@@ -43,7 +43,7 @@ export function Button({user}) {
       </button>
       {dropdown && <Dropdown user={user} isShow={dropdown} onShow={(show) => setdropDown(show)} />}
 
-    </Link>
+    </div>
 
   )
 } 
