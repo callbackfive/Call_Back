@@ -1,9 +1,19 @@
 class DialogboxesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_project, only: [:create]
   before_action :find_project_owner, only: [:create]
 
+  TODO
   def index
-    @dialogboxes = Dialogbox.all
+    @messsages = current_user.messages
+    @messages.each do |message|
+      [] << message.dialogbox
+    end
+
+
+    @categories.each do |category|
+      @posts = Post.where("category_id = ? and institution_id = ?", category, @institution).order("created_at DESC")
+    end
   end
 
   def show

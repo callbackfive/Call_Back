@@ -20,9 +20,8 @@ class MessagesController < ApplicationController
   
   def had_dialog?
     @my_msg = Message.joins(:dialogbox)
-                          .where(user: current_user,
-                                 dialogboxes: { project: @project })
-                          .first
+                     .where(user: current_user, dialogboxes: {project: @project})
+                     .first
     @my_msg.present?
   end
 
