@@ -1,0 +1,2 @@
+class ProjectOwner < ApplicationRecord
+end

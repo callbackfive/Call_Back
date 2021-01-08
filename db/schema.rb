@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 2021_01_06_153132) do
     t.index ["project_id"], name: "index_givebacks_on_project_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "giveback_id"
+    t.string "project_title"
+    t.string "giveback_title"
+    t.integer "giveback_price"
+    t.integer "quantity"
+    t.datetime "issue_date"
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["giveback_id"], name: "index_orders_on_giveback_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "category"
