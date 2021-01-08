@@ -34,6 +34,8 @@ gem 'figaro', '~> 1.2'
 gem 'carrierwave', '~> 2.1'
 gem 'fog-aws', '~> 3.7'
 gem 'mini_magick', '~> 4.11'
+gem 'cancancan', '~> 1.15'
+gem 'paranoia', '~> 2.4', '>= 2.4.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +53,6 @@ group :development do
   gem 'foreman', '~> 0.87.2'
   gem 'thor', '~> 1.0', '>= 1.0.1'
   gem 'hirb', '~> 0.7.3'
-  gem 'cancancan', '~> 1.15'
 end
 
 group :test do

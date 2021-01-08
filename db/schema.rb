@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_153132) do
+ActiveRecord::Schema.define(version: 2021_01_08_020757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_153132) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
     t.index ["project_id"], name: "index_comments_on_project_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_153132) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
     t.string "image"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_givebacks_on_deleted_at"
     t.index ["project_id"], name: "index_givebacks_on_project_id"
   end
 
@@ -49,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_153132) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_projects_on_deleted_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -65,6 +71,10 @@ ActiveRecord::Schema.define(version: 2021_01_06_153132) do
     t.string "fb_uid"
     t.string "fb_token"
     t.string "image"
+    t.string "provider"
+    t.string "uid"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["fb_uid"], name: "index_users_on_fb_uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
