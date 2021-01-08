@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :projects
   has_many :comments
   has_many :dialogboxes
+  mount_uploader :image, ImageUploader
+  acts_as_paranoid
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
