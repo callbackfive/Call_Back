@@ -1,5 +1,6 @@
+
 .banner-carousel{
-  background:url('../../images/banner2.jpg') center center/cover no-repeat;
+  background:url('https://images.pexels.com/photos/6206548/pexels-photo-6206548.jpeg?cs=srgb&dl=pexels-jill-wellington-6206548.jpg&fm=jpg') center center/cover no-repeat;
   font-family: sans-serif;
   display: flex;
   align-items: center;
@@ -7,6 +8,8 @@
   justify-content: center;
   width:100%;
   height: 65vh;
+  z-index: 0;
+  margin-top: 66px;
   box-shadow: inset 0 0 0 1000px rgba(99, 99, 99, 0.2);
 }
 
@@ -17,8 +20,6 @@
 /* round buttons on hover */
 .rec.rec-arrow:hover {
   color:white;
- 
-  
 }
 /* hide disabled buttons */
 .rec.rec-arrow:disabled {
@@ -28,10 +29,7 @@
 /* add custom outline on focused items */
 .rec-carousel-item:focus {
   outline: none;
-  
 }
-
-
 
 @media screen and (max-width: 960px) {
 

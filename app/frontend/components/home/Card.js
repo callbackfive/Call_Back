@@ -1,13 +1,14 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import './Card.scss'
 
-export let Card  = (item) => {
+ const Card  = ({ project }) => {
+
   return (
     <>
 
     <div className="card-item">
 
-      <img className="item-img" src="https://images.pexels.com/photos/1983038/pexels-photo-1983038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+      <img className="item-img" src={project.webformatURL}/>
      
       <div className="item-content">
 
@@ -20,7 +21,6 @@ export let Card  = (item) => {
           <h2>SWOL 雙水箱旋轉拖把 | 分離淨水和污水，才是真正的乾淨</h2>
           <p>Swol</p>
         </div>
-  
 
         <div className="item-progress">
 
@@ -31,15 +31,8 @@ export let Card  = (item) => {
             <div className="days">剩53天</div>
 
           </div>
-          
         </div>
-
-      
-      
       </div>
-      
-      
-      
     </div>
     
     </>

@@ -1,14 +1,10 @@
 import React,{useState} from 'react';
 import { Button } from './Button';
 import {Link} from 'react-router-dom'
-import  './Navbar.css'
-
-
-
-
+import  './Navbar.scss'
+import logo from '../../images/shell.png'
 
 const Navbar = ({user}) => {
-
 
   const [click,setClick] = useState(false)
   const [dropdown,setDropdown] = useState(false)
@@ -19,31 +15,40 @@ const Navbar = ({user}) => {
   
   return(
     <>
-    <nav className="navbar">
-    <Link to='/' className="navbar-logo">
-      CallBack
-    </Link>
+  <nav> 
+    <div className="navbar-container"> 
+      <div className="row"> 
 
-    <div className="menu-icon" onClick={handleClick}>
+        <div className="nav-left">
 
-      <i className={click ? 'fas fa-times':'fas fa-bars'}></i>
+          <a href="/" className="navbar-logo">
+            <div className="logo-txt">CALLBACK</div>
+            <div className="logo-pic"><img src={logo} alt=""/></div>
+          </a>
 
-    </div>
+          <div className={click? 'nav-menu active':'nav-menu'}>
+            <li className="nav-items">
+              <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>註冊</Link>
+            </li>
+            <a className="nav-items  nav-links" onClick={() => {window.location.href="/about"}}>關於</a>
+            <a className="nav-items  nav-links" onClick={() => {window.location.href="/project/proposal"}}>提案</a>
+            <a className="nav-items nav-links" onClick={() => {window.location.href="/projects"}}>探索</a>
 
-    <ul className={click? 'nav-menu active':'nav-menu'}>
+          </div>
 
-      <li className="nav-items  nav-links" onClick={() => {window.location.href="/about"}}>關於</li>
-      <li className="nav-items  nav-links" onClick={() => {window.location.href="/project/proposal"}}>提案</li>
-      <li className="nav-items nav-links" onClick={() => {window.location.href="/projects"}}>探索</li>
+        </div>
 
-      <li className="nav-items">
-        <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>註冊</Link>
-      </li>
-      
-    </ul>
-    <Button user={user}/>
-   
-    </nav>
+        <div className="nav-right">
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? 'fas fa-times':'fas fa-bars'}></i>
+          </div>
+          <Button user={user}/>
+        </div>
+
+      </div>
+
+      </div>
+  </nav>
     </>
   )
   

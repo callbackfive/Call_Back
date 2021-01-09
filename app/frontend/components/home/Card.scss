@@ -4,28 +4,23 @@
   @apply rounded;
   @apply overflow-hidden;
   @apply shadow-md;
-  @apply max-w-sm;
+
 
   img{@apply w-full;}
 
   .item-content{
     @apply px-6;
     @apply py-4;
-   
-
+  
     .item-category{
-
+      
       @apply space-x-2;
-     
-
       p{
         display: inline-block;
         font-size: 14px;
         @apply bg-gray-200; 
         @apply px-2;
         @apply py-1;
-        
-      
       }
 
     }

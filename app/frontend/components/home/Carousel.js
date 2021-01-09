@@ -13,7 +13,7 @@ const breakPoints = [
 function App () {
   return (
     <>
-      <div className="banner-carousel">
+      <div className="banner-carousel mt-2" >
         <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={2500}  showArrow ={false} pagination ={false}>
           <Item>Call Back your money !</Item>
           <Item>Two</Item>

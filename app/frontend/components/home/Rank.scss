@@ -1,0 +1,75 @@
+
+
+.ranking{
+
+  @apply w-full;
+
+
+  .ranking-container{
+
+    max-width: 1280px;
+    margin: auto;
+    padding: 5px 0px;
+    @apply box-border;
+
+    .ranking-row{
+
+      @apply flex;
+      @apply flex-col;
+
+      .ranking-txt{
+
+        @apply flex;
+        @apply justify-between;
+        @apply relative;
+
+        h2{
+          @apply text-2xl;
+          @apply text-gray-600;
+          
+        }
+
+        h2::before{
+          @apply absolute;
+        
+          top: 5px;
+          left: 0;
+          content:" ";
+          height: 30px;
+          width: 8px;
+          background: #EF5959;
+         
+        }
+
+        .more-btn{
+          @apply inline-block;
+          font-size: 16px;
+          background-color: transparent;
+          border-width: 1px;
+          border-style: solid;
+          border-color: initial;
+          border-radius: 4px;
+          cursor: pointer;
+          padding: .75rem 1.5rem;
+          line-height: 1em;
+          opacity: .9;
+          white-space: nowrap;
+          transform: translateZ(0);
+        }
+      }
+      .ranking-projects{
+
+        @apply grid;
+        @apply grid-cols-3;
+        @apply gap-4;
+
+
+      }
+
+
+    }
+  }
+}
+
+
+

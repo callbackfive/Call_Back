@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
 
 import Banner from '../../components/home/Carousel'
-import TopRank from '../../components/home/Card'
+import Rank from '../../components/home/Rank'
 import  '../../styles/application.scss'
 
 document.addEventListener('turbolinks:load',() => {
@@ -12,7 +12,7 @@ document.addEventListener('turbolinks:load',() => {
   ReactDOM.render(
   <>  
     <Banner/>
-    <TopRank/>
+    <Rank/>
   </>,
     document.getElementById('content'),
   )

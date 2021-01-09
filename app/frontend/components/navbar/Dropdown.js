@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './Dropdown.scss';
 import Rails from '@rails/ujs'
 
-const Dropdown = ({ isShow, onShow, user }) => {
+const Dropdown = ({ isShow,user }) => {
   
   const [click,setClick]=useState(false)
   const handleClick = () => {setClick(!click)}
@@ -21,67 +21,35 @@ const Dropdown = ({ isShow, onShow, user }) => {
 
     return(
       <>
-      
-      <ul onClick={handleClick} className={isShow ? 'dropdown-menu clicke':'dropdown-menu'}>
-  
-      <li className="dropdown-link" onClick={()=>{window.location.href="/users/sign_in"}}>登入</li>
-      <li className="dropdown-link" onClick={()=>{window.location.href="/users/sign_out"}}>註冊</li>
-  
-      </ul>
-  
+        <ul onClick={handleClick} className={isShow ? 'dropdown-menu clicke':'dropdown-menu'}style={{zIndex: 1000}}>
+    
+          <li className="dropdown-link">
+            <a href="/users/sign_in">登入</a>
+          </li>
+          <li className="dropdown-link">
+            <a href="/users/sign_up">註冊</a>
+          </li>
+        </ul>
       </>
-  
     )
 
   }else
 
   {
-
-
     return(
       <>
-      
-      <ul onClick={handleClick} className={isShow ? 'dropdown-menu clicke':'dropdown-menu'} style={{zIndex: 1000}}>
-  
-      <li className="dropdown-link" onClick={()=>{window.location.href="/users/sign_in"}}>個人頁面</li>
-      <li className="dropdown-link" onClick={()=>{window.location.href="/users/sign_out"}}>登出</li>
-      <li className="dropdown-link">
-        <a href="/?abc=123" onClick={(e) => test(e)}>test</a>
-      </li>
-  
-      </ul>
-  
+        <ul onClick={handleClick} className={isShow ? 'dropdown-menu clicke':'dropdown-menu'} style={{zIndex: 1000}}>
+          <li className="dropdown-link">
+            <a href="/users/sign_in">個人頁面</a>
+          </li>
+          <li className="dropdown-link">
+            <a href="/users/sign_out" onClick={(e) => test(e)}>test</a>
+          </li>
+        </ul>
       </>
-
-  
     )
-
-
-
   }
 
-
-  
-
-
-  
 }
 
 export default  Dropdown;
-
-
-
-// {MenuItems.map((item, index)=>{
-//   return(
-
-//     <li key={index}>
-//     <Link className={item.cName} to={item.path} onClick={() => {onShow(false)}}
-//     >
-//     {item.title}
-//     </Link>
-//   </li>
-
-
-//   )
-
-// })}
