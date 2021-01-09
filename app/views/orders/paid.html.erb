@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div style="margin: 32px auto;">
+        <p>已贊助</p>
+        <h3><%= @pledge.project_name%></h3>
+        <p>方案：<%= @pledge.support_name%></p>
+        <p>單號：<%= @pledge.merchantOrderNo%></p>
+        <p>單價：<%= @pledge.support_price%></p>
+        <p>數量：<%= @pledge.quantity%></p>
+        <p>總價：<%= @pledge.payment.end_price%></p>
+        <p>生效日：<%= @pledge.issue_date %></p>
+        <p>
+          贊助內容：
+        </p>
+        <p>
+          <%= @pledge.project_support.description %>
+        </p>
+        <hr/>
+        <%= link_to "回到首頁", root_path, class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
