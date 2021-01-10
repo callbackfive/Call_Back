@@ -37,15 +37,11 @@
   
 <br>
 
-
-
 <div class="project-status">
     <%= form.label "上架狀態"%><br/>
     <%= form.select :status, Project.statuses.keys.map { |s| [s.humanize, s] }, {include_blank: true}, {class: "form-control"} %>
   </div>
   <br>
-
-  
 
   <%#-------- givebacks ----------%>
   <h3 class='text-xl font-bold'>回饋商品區</h3>

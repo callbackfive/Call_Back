@@ -14,7 +14,6 @@ class Project < ApplicationRecord
   scope :succeeded_and_done, -> {self.succeeded.where('due_date < ?', Time.now)}
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
-
   def status_to_string
     case status_before_type_cast
     when Project.statuses[:is_hidden]
