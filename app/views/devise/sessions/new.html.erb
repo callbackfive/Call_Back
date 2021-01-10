@@ -32,9 +32,9 @@
 
     <% end %>
 
-      <%= link_to "使用Facebook帳號登入", user_facebook_omniauth_authorize_path, class:"mt-3 text-center text-white bg-blue-500 border-0 py-1 px-1 focus:outline-none hover:bg-blue-600 rounded text-lg" %>
-    
-      <%= link_to "使用Google帳號登入", user_google_oauth2_omniauth_authorize_path, class:"mt-3 text-center text-white bg-blue-500 border-0 py-1 px-1 focus:outline-none hover:bg-blue-600 rounded text-lg" %><br />
+    <%= link_to "使用Facebook帳號登入", user_facebook_omniauth_authorize_path, class:"mt-3 text-center text-white bg-blue-500 border-0 py-1 px-1 focus:outline-none hover:bg-blue-600 rounded text-lg" %>
+  
+    <%= link_to "使用Google帳號登入", user_google_oauth2_omniauth_authorize_path, class:"mt-3 text-center text-white bg-gray-500 border-0 py-1 px-1 focus:outline-none hover:bg-gray-600 rounded text-lg" %><br />
 
     <p class="text-center leading-7 text-md text-gray-600">您還沒有註冊？</p>
     <%= render "devise/shared/links" %>
