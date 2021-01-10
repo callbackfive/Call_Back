@@ -15,4 +15,20 @@ class Project < ApplicationRecord
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
 
+  def status_to_string
+    case status_before_type_cast
+    when Project.statuses[:is_hidden]
+      return "未上架"
+    when Project.statuses[:is_published]
+      return "募資中"
+    when Project.statuses[:succeeded]
+      return "募資已成功"
+    when Project.statuses[:failed] 
+      return "募資失敗"
+    else
+      return "狀態未明"
+    end
+  end
+
+
 end
