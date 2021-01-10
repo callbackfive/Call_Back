@@ -7,7 +7,6 @@ class Project < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
 
-    
   enum status: [:is_hidden, :is_published ,:succeeded, :failed]
   
   scope :is_now_on_sale, -> {self.where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)}
