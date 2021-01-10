@@ -15,7 +15,6 @@ class PaymentsController < ApplicationController
       version = '1.4'
       respondType = 'JSON'
       timeStamp = Time.now.to_i.to_s
-      # merchantOrderNo = "CallBack"  + Time.now.to_i.to_s
       merchantOrderNo = @order.merchant_order_no
       amt = @order.giveback_price
       itemDesc = @order.giveback_title
@@ -35,7 +34,7 @@ class PaymentsController < ApplicationController
 
     def notify
 
-      hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X' #填入你的key
+      hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X'
       hashIV = 'CQBc2k1cpdHqEEkP' #
 
       if params["Status"] == "SUCCESS"
@@ -47,13 +46,8 @@ class PaymentsController < ApplicationController
           
           rawTradeInfo = decrypt_data(tradeInfo, hashKey, hashIV, 'AES-256-CBC')
 
-          #轉成JSON
-          jsonResult = JSON.parse(rawTradeInfo)
-          
-          #取出json裡面的Result value, 我們需要的都在裡面
+          jsonResult = JSON.parse(rawTradeInfo) 
           result = jsonResult["Result"]
-          
-          #寫入Log
           Logger.new("#{Rails.root}/paid.log").try("info", result)
       
         end
@@ -66,7 +60,7 @@ class PaymentsController < ApplicationController
       
     def paid
 
-      hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X' #填入你的key
+      hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X' 
       hashIV = 'CQBc2k1cpdHqEEkP' #
       
       if params["Status"] == "SUCCESS"
@@ -81,12 +75,9 @@ class PaymentsController < ApplicationController
             jsonResult = JSON.parse(rawTradeInfo)
             result = jsonResult["Result"]
             Logger.new("#{Rails.root}/paid.log").try("info", result)
-            # 存回log
 
             merchantOrderNo = result["MerchantOrderNo"]
-            #TODO藍新的merchantOrderNo欄位要怎麻對回專案order的merchant_order_no？
-            # Payment無法建立，但log有東西
-            
+  
             order = Order.find_by(merchantOrderNo: merchantOrderNo)
 
             if order 
@@ -96,22 +87,14 @@ class PaymentsController < ApplicationController
               
               if result["PaymentType"] == "CREDIT"
                 payment.payment_type = "credit_card"
-
-
               end
-              
-              # 設已付款金額
+
               payment.end_price = result["Amt"]
-              
-              # 儲存，加!會導致失敗的時候出現error
               payment.save!
-              
-              # pledge 改成已付款，Model裡面有override
               pledge.paid!
               
               flash[:alert] = "付款成功"
               redirect_to root_path
-              # redirect_to pledges_path(pledge)
               return
           end
         end
@@ -122,83 +105,15 @@ class PaymentsController < ApplicationController
     end
       
     def not_paid_yet
-
-        hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X' #填入你的key
-        hashIV = 'CQBc2k1cpdHqEEkP' #
-    
-        if params["Status"] == "SUCCESS"
-    
-          tradeInfo = params["TradeInfo"]
-          tradeSha = params["TradeSha"]
-    
-          checkValue = "HashKey=#{hashKey}&#{tradeInfo}&HashIV=#{hashIV}"
-          if tradeSha == Digest::SHA256.hexdigest(checkValue).upcase
-            
-            #解碼
-            rawTradeInfo = decrypt_data(tradeInfo, hashKey, hashIV, 'AES-256-CBC')
-            
-            #轉成JSON
-            jsonResult = JSON.parse(rawTradeInfo)
-            
-            result = jsonResult["Result"]
-            
-            #寫入Log
-            Logger.new("#{Rails.root}/not_paid_yet.log").try("info", result)
-            
-            merchantOrderNo = result["MerchantOrderNo"]
-            
-            #利用訂單編號找出 pledge，建立非同步交易的情況pledge 會是處於not_selected_yet
-            pledge = Pledge.not_selected_yet.find_by(merchant_order_no: merchant_order_no)
-            
-            if pledge 
-              # 建立一個新的payment, status會是未付款
-              payment = Payment.not_paid_yet.new(pledge: pledge)
-              payment.merchant_order_no = merchantOrderNo
-              
-              payment.transaction_service_provider = "mpg"
-              if result["PaymentType"] == "CVS"
-                payment.payment_type = "cvs"
-                expire_date = result["ExpireDate"]
-                expire_time = result["ExpireTime"]
-                payment.unpaid_payment_expire_date = Time.zone.parse("#{expire_date} #{expire_time}")
-                payment.code_no = result["CodeNo"]
-              elsif result["PaymentType"] == "VACC"
-                payment.payment_type = "atm"
-                # TODO: add info from result
-              elsif result["PaymentType"] == "BARCODE"
-                payment.payment_type = "bar_code"
-                # TODO: add info from result
-              end
-              payment.end_price = result["Amt"]
-              payment.save!
-              
-              # pledge改成未付款
-              pledge.not_paid!
-              
-              redirect_to pledge_path(pledge)
-              return
-            end
-          end
-        end
-        
-        flash[:alert] = "選擇付款方式失敗"
-        redirect_to root_path()
+      redirect_to root_path
     end
       
     def canceled
         redirect_to root_path
-    end
-      
+    end     
   
       
     private
-    def is_login?
-        unless current_user
-          flash[:error] = "您尚未登入"
-          redirect_to login_path
-          return
-        end
-    end
       
     def get_order
         @order = Order.find_by(id: params[:order_id], user: current_user)
@@ -235,7 +150,6 @@ class PaymentsController < ApplicationController
         loop do
           lastHex = data.last.bytes.first
           break if lastHex >= blocksize
-          # 每一次只移除最後一個
           data = data[0...-1]
         end
         return data

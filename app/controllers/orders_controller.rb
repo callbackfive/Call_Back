@@ -23,14 +23,6 @@ class OrdersController < ApplicationController
       else
         render :show
       end
-        # @order = Order.create({
-        #   user: current_user,
-        #   giveback: @giveback,
-        #   project_title: @giveback.project.title,
-        #   giveback_title: @giveback.title,
-        #   giveback_price: @giveback.price,
-          
-        #   })
     end  
 
 
