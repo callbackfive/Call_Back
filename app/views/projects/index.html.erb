@@ -4,6 +4,8 @@
     <%= link_to '登出', destroy_user_session_path, method: "delete" %><br/>
     <%= link_to '個人頁面', profile_users_path %><br/>
     <%= link_to '您的提案列表', user_projects_path(current_user) %>
+    <%= link_to '您的贊助列表', user_orders_path(current_user) %>
+
   <% else %>
     <%= link_to '註冊', new_user_registration_path %>
     <%= link_to '登入', new_user_session_path %>

@@ -14,7 +14,7 @@
       <%= image_tag g.image_url if g.image_url.present? %>
       <li>回饋商品： <%= g.title %></li>
       <li>商品價格： <%= g.price %>元</li>
-      <%= link_to "贊助此專案", order_path(g) %>
+      <%= link_to "贊助此專案", user_order_path(g) %>
     <%end%>
   </ul>
 </div>

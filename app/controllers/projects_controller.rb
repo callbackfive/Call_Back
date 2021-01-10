@@ -6,7 +6,6 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-
   def user_projects_index
     @user_projects = Project.where(:user_id => current_user.id)
   end

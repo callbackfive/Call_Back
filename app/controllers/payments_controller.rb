@@ -3,7 +3,6 @@ class PaymentsController < ApplicationController
     
   before_action :authenticate_user!
   before_action :get_order, only: [:mpg]
-
     
   skip_before_action :verify_authenticity_token, only: [:paid, :not_paid_yet, :notify, :canceled]
 
