@@ -8,7 +8,7 @@
       <div class="col-span-1">
         <%= link_to dialogbox do %>
           <div class="card-body">
-            <%= dialogbox.project.title %>(聊天室title)
+            <%= dialogbox.project.title %>(這dialogbox的專案名；還沒做好，點開之後右邊要可以直接show個別的dialogbox，不跳頁)
           </div>
         <% end %>
       </div>
@@ -17,11 +17,11 @@
         <div class="project-dialogbox">
           <h4><%= dialogbox.project.title %></h4>
         </div>
-        <% dialogbox.messages.each do |message| %>
-          <div class="messages-block">
+        <div class="messages-block">
+          <% dialogbox.messages.each do |message| %>
             <%= render 'messages/message', message: message %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
         <div class="message-typing-box">
           <%= render 'messages/form', message: Message.new, project: dialogbox.project %>
         </div>

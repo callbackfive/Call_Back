@@ -25,10 +25,6 @@
       </div>
     </div>
     <div class="chat-dialogbox">
-      <div class="nav-item">
-        Hello, <%= current_user.name %>
-      </div>
-      <hr>
     <%# -----message-----%>
       <div class="message-typing-box">
         <%= render 'messages/form', message: @message, project: @project %>

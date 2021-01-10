@@ -29,10 +29,8 @@ Rails.application.routes.draw do
   
   # 訊息
   resources :messages, only: :index
-
   # 專案頁面創訊息
   post '/project/create_message', action: 'create_message', controller: 'projects'
-
   # 對話框創訊息
   post '/dialogbox/create_message', action: 'create_message', controller: 'dialogboxes'
 

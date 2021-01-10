@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
     @givebacks = @project.givebacks
     @comment = Comment.new
     @comments = @project.comments.includes(:user)
+    @message = Message.new
   end
 
   def new
@@ -52,7 +53,7 @@ class ProjectsController < ApplicationController
   def create_message
     if had_dialog?
       continue_dialog
-      redirect_to project_path(@project), notice: '您先前有發送過訊息，可至聯絡訊息，查看此專案的提案人是否已回覆'
+      redirect_to project_path(@project), notice: '您先前有發送過訊息，可至聯絡訊息，查看專案負責人是否已回覆'
     else
       start_dialog
       redirect_to project_path(@project), notice: '您與提案人的已開始新對話，可至聯絡訊息查看'
@@ -64,22 +65,19 @@ class ProjectsController < ApplicationController
     @my_msg = Message.joins(:dialogbox)
                      .where(user: current_user, dialogboxes: {project: @project})
                      .first
-    byebug
     @my_msg.present?
   end
 
   def continue_dialog
     dialogbox = @my_msg.dialogbox
-    byebug
     dialogbox.messages.create(user: current_user,
                               content: params.values[1].values[1])
-    byebug
   end
 
   def start_dialog
       @dialogbox = @project.dialogboxes.new(user: current_user)
       @dialogbox.save
-      first_msg = Message.new(content: params.values[2],
+      first_msg = Message.new(content: params.values[1].values[1],
                               user: current_user,
                               dialogbox: @dialogbox)
       first_msg.save
@@ -90,8 +88,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_project_for_creating_message
-    @project = Project.find(params.values[1].to_i)
-    byebug
+    @project = Project.find(params.values[1].values[0].to_i)
   end
 
   def project_params

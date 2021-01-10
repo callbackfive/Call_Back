@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @messages = Message.all
+    # @messages = Message.all
     # User.includes(:posts).where(posts: { name: 'example' })
   end
 
@@ -30,8 +30,8 @@ class MessagesController < ApplicationController
   #     first_msg.save
   # end
   
-  def message_params
-    params.require(:message).permit(:content, :user_id, :project_id)
-  end
+  # def message_params
+  #   params.require(:message).permit(:content, :user_id, :project_id)
+  # end
   
 end

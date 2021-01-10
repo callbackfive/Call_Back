@@ -11,6 +11,10 @@ class DialogboxesController < ApplicationController
     @dialogbox_id = params[:id]
   end
 
+  def create_message
+    
+  end
+
   private
   def dialogbox_params
     params.require(:dialogbox).permit(:project_id, :user_id, :project_owner_id)
