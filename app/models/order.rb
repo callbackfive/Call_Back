@@ -12,6 +12,8 @@ class Order < ApplicationRecord
   validates :phone, format:{with: /\A09\d{8}\Z/,message:': 您的手機號碼需為10碼數字.'}
 
 
+  enum status: [:not_paid, :paid, :canceled]
+
   private
 
     def build_trade_no
