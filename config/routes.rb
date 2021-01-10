@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   # projects
   resources :projects, except: [:new] do
+    member do
+      get 'rewards', as: 'rewards', action: :project_givebacks
+    end
     resources :comments, shallow: true, only: [:new, :create, :destroy]
   end 
 
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
     collection do
       get 'proposal', as: 'new', action: :new
     end
-    resources :givebacks, except: [:new]
+    resources :givebacks, except: [:new] 
   end
 
   resources :users do
