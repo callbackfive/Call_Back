@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_082849) do
+ActiveRecord::Schema.define(version: 2021_01_10_154405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2021_01_10_082849) do
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_givebacks_on_deleted_at"
     t.index ["project_id"], name: "index_givebacks_on_project_id"
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -82,5 +91,6 @@ ActiveRecord::Schema.define(version: 2021_01_10_082849) do
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
   add_foreign_key "givebacks", "projects"
+  add_foreign_key "identities", "users"
   add_foreign_key "projects", "users"
 end
