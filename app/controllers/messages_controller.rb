@@ -1,18 +1,19 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: :create
+  before_action :set_project_for_message, only: :create
 
   def index
     @messages = Message.all
+    # User.includes(:posts).where(posts: { name: 'example' })
   end
 
   def create
     if had_dialog?
       continue_dialog
-      redirect_to project_path(@project), notice: '1訊息傳送成功，可至個人聯絡訊息查看'
+      # flash[:notice] = '1訊息傳送成功，可至個人聯絡訊息查看'
     else
       start_dialog
-      redirect_to project_path(@project), notice: '2訊息傳送成功，可至個人聯絡訊息查看'
+      # flash[:notice] = '2訊息傳送成功，可至個人聯絡訊息查看'
     end
   end
   
@@ -39,8 +40,8 @@ class MessagesController < ApplicationController
       first_msg.save
   end
 
-  def find_project
-    @project = Project.find(params.values[1][:project].to_i)
+  def set_project_for_message
+    @project = Project.find(params.values[1].values[0])
   end
   
   def message_params

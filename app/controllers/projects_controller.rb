@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
     @givebacks = @project.givebacks
     @comment = Comment.new
     @comments = @project.comments.includes(:user)
-    
     @dialogbox = Dialogbox.new
     @message = Message.new
   end

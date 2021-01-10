@@ -23,19 +23,11 @@
       <div class="message-guiding">
         傳訊息給 <%= @project.user.name %>
       </div>
-      <%#= render 'messages/form', dialogbox: Dialogbox.new,
-                                      project: @project,
-                                      user: current_user %>
     </div>
     <div class="chat-dialogbox">
-      <nav class="">
-        <span class="navbar-brand" href='#'><%= @project.title %></span>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            Hello, <%= current_user.name %>
-          </li>
-        </ul>
-      </nav>
+      <div class="nav-item">
+        Hello, <%= current_user.name %>
+      </div>
       <hr>
     <%# -----message-----%>
       <div class="message-typing-box">

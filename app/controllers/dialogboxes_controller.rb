@@ -3,6 +3,8 @@ class DialogboxesController < ApplicationController
 
   def index
     @my_dialogboxes = current_user.dialogboxes
+    # .includes(:messages)
+    @my_projects = current_user.projects
   end
 
   def show

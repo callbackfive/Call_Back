@@ -1,10 +1,12 @@
 <div class="message mb-2 <%= 'me' if message.user == current_user %>">
   <div class="content-container">
     <div class="content">
-      <%= message.content %>
+      訊息內容：<%= message.content %>
     </div>
     <div class="author">
-      <%#= message.user.name %>
+    <%# byebug %>
+      傳訊息的人：<%= message.user.name %>
+    <%# byebug %>
     </div>
   </div>
 </div>

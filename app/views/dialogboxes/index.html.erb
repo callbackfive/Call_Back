@@ -8,21 +8,23 @@
       <div class="col-span-1">
         <%= link_to dialogbox do %>
           <div class="card-body">
-            <%= dialogbox.project.title %>
+            <%= dialogbox.project.title %>(聊天室title)
           </div>
         <% end %>
       </div>
       <%# 訊息視窗 %>
       <div class="col-span-2">
-        <div class="dialogbox">
+        <div class="project-dialogbox">
           <h4><%= dialogbox.project.title %></h4>
         </div>
         <% dialogbox.messages.each do |message| %>
-          <p><%= message.content %></p>
-          <div>
-            <%= render 'messages/message', message: Message.new %>
+          <div class="messages-block">
+            <%= render 'messages/message', message: message %>
           </div>
         <% end %>
+        <div class="message-typing-box">
+          <%= render 'messages/form', message: Message.new, project: dialogbox.project %>
+        </div>
       </div>
     <% end %>
   </div>
