@@ -7,16 +7,6 @@ class MessagesController < ApplicationController
     # User.includes(:posts).where(posts: { name: 'example' })
   end
 
-  def create
-    if had_dialog?
-      continue_dialog
-      # flash[:notice] = '1訊息傳送成功，可至個人聯絡訊息查看'
-    else
-      start_dialog
-      # flash[:notice] = '2訊息傳送成功，可至個人聯絡訊息查看'
-    end
-  end
-  
   private
   def had_dialog?
     @my_msg = Message.joins(:dialogbox)

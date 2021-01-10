@@ -18,10 +18,8 @@ Rails.application.routes.draw do
   
   # 專案
   resources :projects, path_names: {new: 'proposal'} do
-    
     # 留言
     resources :comments, shallow: true, only: [:new, :create, :destroy]
-    
     # 回饋
     resources :givebacks, except: [:new]
   end
@@ -30,7 +28,13 @@ Rails.application.routes.draw do
   resources :dialogboxes, only: [:index, :show, :create], shallow: true
   
   # 訊息
-  resources :messages, only: [:index, :create]
+  resources :messages, only: :index
+
+  # 專案頁面創訊息
+  post '/project/create_message', action: 'create_message', controller: 'projects'
+
+  # 對話框創訊息
+  post '/dialogbox/create_message', action: 'create_message', controller: 'dialogboxes'
 
 end
 
