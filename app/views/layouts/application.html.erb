@@ -14,7 +14,9 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <p class="notice"><%= notice %></p>
+    <% if notice %>
+      <p class="notice text-center bg-red-100 p-5 text-lg"><%= notice %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

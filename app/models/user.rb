@@ -9,6 +9,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :name, presence: true
+  enum role: [ :guest, :regular, :admin ]
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
