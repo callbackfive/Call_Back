@@ -28,26 +28,18 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index
+    resources :orders, only: [:index, :new, :create, :show]
   end
 
   resources :categories, only: [:new, :show] do
   end
 
-  resources :orders, only: [:new, :create, :show] do
-    post :paid
-    post :not_paid_yet
-  end
   
   resources :payments do
     collection do
       get :mpg
-      get :canceled
       post :notify
       post :paid
-      post :not_paid_yet
     end
   end
-
-  
-
 end

@@ -1,0 +1,34 @@
+<h1>（現在登入的會員的贊助列表）我的贊助列表頁</h1>
+
+<% if @user_orders.blank? %> 
+  <div>你沒有任何贊助紀錄</div>
+<% else %>
+  <h2>您的贊助列表</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <td>專案名稱</td>
+        <td>回饋品名稱</td>
+        <td>訂單編號</td>
+        <td>訂購時間</td>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @user_orders.each do |user_order| %>
+          <% if user_order.user_id == current_user.id %>
+            <tr>
+              <td><%= user_order.project_title%></td>
+              <td><%= link_to user_order.giveback_title, current_user %></td>
+              <td><%= user_order.merchant_order_no%></td>
+              <td><%= user_order.created_at%> </td>
+          </tr>
+          <% end %>
+        <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+  <%= link_to '回首頁(探索)', root_path %>
+</div>

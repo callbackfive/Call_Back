@@ -2,10 +2,14 @@ class OrdersController < ApplicationController
     before_action :authenticate_user!
     before_action :find_giveback, only: [:show, :edit, :update, :destroy]
 
+    def index
+      @orders = current_user.orders
+      @user_orders = Order.where(:user_id => current_user.id)
+    end
 
-      def show
-      end
-
+    def show
+      @order = Order.new
+    end
 
     def create
       @giveback = Giveback.find(order_params[:giveback_id])
@@ -17,14 +21,12 @@ class OrdersController < ApplicationController
         giveback_title: @giveback.title,
         giveback_price: @giveback.price,
       )
-      # byebug
       if @order.save
         redirect_to mpg_payments_path(order_id: @order.id)
       else
         render :show
       end
     end  
-
 
     private
     def find_giveback

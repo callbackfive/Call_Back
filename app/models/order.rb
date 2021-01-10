@@ -8,8 +8,8 @@ class Order < ApplicationRecord
   before_create :build_trade_no
 
  
-  validates_presence_of :full_name, :delivery_country, :zip, :email, :message => ": 不可空白."
-  validates :phone, format:{with: /\A09\d{8}\Z/,message:': 您的手機號碼需為10碼數字.'}
+  # validates_presence_of :full_name, :delivery_country, :zip, :email, :message => ": 不可空白."
+  # validates :phone, format:{with: /\A09\d{8}\Z/,message:': 您的手機號碼需為10碼數字.'}
 
 
   enum status: [:not_paid, :paid, :canceled]
