@@ -8,18 +8,18 @@ import './Card.scss'
 
     <div className="card-item">
 
-      <img className="item-img" src={project.webformatURL}/>
+      <img className="item-img" src=""/>
      
       <div className="item-content">
 
         <div className="item-category">
-          <p>創意生活</p>
+          <p>{project.category}</p>
           <p>SUCCESS !</p>
         </div>
 
         <div className="item-txt">
-          <h2>SWOL 雙水箱旋轉拖把 | 分離淨水和污水，才是真正的乾淨</h2>
-          <p>Swol</p>
+          <h2>{project.title}</h2>
+          <p>{project.name}</p>
         </div>
 
         <div className="item-progress">
@@ -27,7 +27,7 @@ import './Card.scss'
 
           <div className="pg-txt">
             
-            <div className="price">$30,000</div>
+            <div className="price">{project.target_amount}</div>
             <div className="days">剩53天</div>
 
           </div>
