@@ -1,9 +1,9 @@
 <div id="dialogbox-id" data-dialogbox-id="<%= @dialogbox.try(:id) %>"></div>
 <div id="user-id" data-user-id="<%= current_user.id %>"></div>
 
+<%# 我發出的聯絡訊息列表 %>
 <div class="container mx-auto">
   <div class="grid grid-cols-3">
-    <%# 聯絡訊息列表 %>
     <% @my_dialogboxes.each do |dialogbox| %> 
       <div class="col-span-1">
         <%= link_to dialogbox do %>
@@ -29,3 +29,5 @@
     <% end %>
   </div>
 </div>
+
+<%# 我收到的聯絡訊息列表 %>

@@ -1,7 +1,6 @@
 <%= form_with(model: message,
               url: project_create_message_path,
-              method: 'POST',
-              local: true) do |form| %>
+              method: 'POST') do |form| %>
   <div class="input-group">
     <%= form.hidden_field :project, value: project.id %>
     <%= form.text_area :content, placeholder: 'Type your message here...' %>

@@ -9,11 +9,11 @@
 <%# -----dialogbox-----%>
 <div>
   <% unless project_owner? %>
-    <%= link_to '聯絡提案人', dialogboxes_path, id: 'new-dialogbox-link', data: {popup: true} %>
+    <a href="#" class="new-dialogbox-popup">聯絡提案人</a>
   <% end %>
 </div>
 
-<div class="new-dialogbox-popup">
+<div class="new-dialogbox-popup-block no-popup">
   <div class="popup-content">
     <div class="close-popup">
       <i class="far fa-times-circle text-5xl"></i>
