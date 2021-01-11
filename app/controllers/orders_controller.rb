@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
     def index
       @orders = current_user.orders
-      @user_orders = Order.where(:user_id => current_user.id)
+      @user_orders = Order.where(:user_id => current_user.id).order(id: :desc)
     end
 
     def show
