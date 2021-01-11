@@ -1,4 +1,5 @@
 <h1>（現在登入的會員的贊助列表）我的贊助列表頁</h1>
+<%= link_to '回首頁(探索)', root_path %>
 
 <% if @user_orders.blank? %> 
   <div>你沒有任何贊助紀錄</div>
@@ -11,6 +12,7 @@
         <td>專案名稱</td>
         <td>回饋品名稱</td>
         <td>訂單編號</td>
+        <td>贊助金額</td>
         <td>訂購時間</td>
       </tr>
     </thead>
@@ -22,7 +24,10 @@
               <td><%= user_order.project_title%></td>
               <td><%= link_to user_order.giveback_title, current_user %></td>
               <td><%= user_order.merchant_order_no%></td>
+              <td><%= user_order.giveback_price%></td>
               <td><%= user_order.created_at%> </td>
+              
+              
           </tr>
           <% end %>
         <% end %>
@@ -30,5 +35,5 @@
   </table>
 <% end %>
 
-  <%= link_to '回首頁(探索)', root_path %>
+
 </div>
