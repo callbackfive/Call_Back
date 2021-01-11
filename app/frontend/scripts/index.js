@@ -1,1 +1,1 @@
-import "./project/index" 
+import "./project" 
