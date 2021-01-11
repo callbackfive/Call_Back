@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
+  belongs_to :category, optional: true
   has_many :givebacks, inverse_of: :project
   has_many :comments, -> { where(parent_id: nil).order('created_at DESC') },dependent: :destroy
   has_many :orders, through: :givebacks
