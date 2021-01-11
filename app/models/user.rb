@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments
   mount_uploader :image, ImageUploader
   acts_as_paranoid
+  validates :name, presence: true
 
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid

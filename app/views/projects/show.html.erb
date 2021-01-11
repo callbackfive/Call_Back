@@ -5,6 +5,9 @@
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
+<% if !project_owner? %>
+  <%= link_to '贊助此專案', rewards_project_path %>
+<% end %>
 
 <%# -----giveback-----%>
 <div>

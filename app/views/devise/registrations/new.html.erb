@@ -48,11 +48,10 @@
       <% end %>
 
       <div class="fb-signin">
-      <%- if devise_mapping.omniauthable? %>
-       <%- resource_class.omniauth_providers.each do |provider| %>
-        <%= link_to "登入#{OmniAuth::Utils.camelize(provider)}帳號", omniauth_authorize_path(resource_name, provider), class: 'btn btn-fb' %>
-       <% end %>
-      <% end %>
+      <%= link_to "使用Facebook帳號登入", user_facebook_omniauth_authorize_path, class:"btn btn-fb" %>
+      </div>
+      <div class="google-signin">
+        <%= link_to "使用Google帳號登入", user_google_oauth2_omniauth_authorize_path, class:"btn btn-google" %>
       </div>
       <p>註冊 CALLBACK 會員即表示我同意網站使用條款</p>
 
