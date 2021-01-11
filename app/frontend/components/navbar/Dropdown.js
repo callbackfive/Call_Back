@@ -9,8 +9,6 @@ const Dropdown = ({ isShow,user }) => {
   const handleClick = () => {setClick(!click)}
 
   const test = (e) => {
-    e.preventDefault()
-    alert(1)
     Rails.ajax({
       url: '/users/sign_out',
       type: 'DELETE',
@@ -40,10 +38,10 @@ const Dropdown = ({ isShow,user }) => {
       <>
         <ul onClick={handleClick} className={isShow ? 'dropdown-menu clicke':'dropdown-menu'} style={{zIndex: 1000}}>
           <li className="dropdown-link">
-            <a href="/users/sign_in">個人頁面</a>
+            <a href="/users/profile">個人頁面</a>
           </li>
           <li className="dropdown-link">
-            <a href="/users/sign_out" onClick={(e) => test(e)}>test</a>
+            <a href="/users/sign_out" onClick={(e) => test(e)}>登出</a>
           </li>
         </ul>
       </>

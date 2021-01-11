@@ -3,6 +3,7 @@
 .ranking{
 
   @apply w-full;
+  @apply mt-20;
 
 
   .ranking-container{
@@ -22,10 +23,14 @@
         @apply flex;
         @apply justify-between;
         @apply relative;
+        @apply mb-4;
+        @apply px-4;
 
         h2{
+          display: inline-block;
           @apply text-2xl;
-          @apply text-gray-600;
+          color:#EF5959;
+          @apply font-bold;
           
         }
 
@@ -35,7 +40,7 @@
           top: 5px;
           left: 0;
           content:" ";
-          height: 30px;
+          height: 20px;
           width: 8px;
           background: #EF5959;
           margin-right:10px; 
@@ -51,7 +56,7 @@
           border-color: initial;
           border-radius: 4px;
           cursor: pointer;
-          padding: .75rem 1.5rem;
+          padding: .75rem 1rem;
           line-height: 1em;
           opacity: .9;
           white-space: nowrap;
@@ -62,7 +67,10 @@
 
         @apply grid;
         @apply grid-cols-3;
-        @apply gap-4;
+        @apply gap-12;
+        @apply place-items-stretch ;
+        @apply mx-auto ;
+       
 
 
       }
