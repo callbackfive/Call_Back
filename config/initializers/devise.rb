@@ -11,11 +11,6 @@
 Devise.setup do |config|
 
   config.omniauth :facebook, ENV['fb_api'], ENV['fb_secret'], :scope => 'public_profile,email', :info_fields => 'email,name', callback_url: "http://localhost:5000/users/auth/facebook/callback"
-<<<<<<< HEAD
-
-  config.omniauth :google_oauth2, ENV['google_api'], ENV['google_secret']
-=======
->>>>>>> 81de5c4 (resolve)
 
   config.omniauth :google_oauth2, ENV['google_api'], ENV['google_secret']
 
