@@ -3,10 +3,9 @@ class PaymentsController < ApplicationController
     
   before_action :authenticate_user!
   before_action :get_order, only: [:mpg]
-    
   skip_before_action :verify_authenticity_token, only: [:paid, :not_paid_yet, :notify, :canceled]
 
-    def mpg
+  def mpg
       hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X'
       hashIV = 'CQBc2k1cpdHqEEkP' 
 
@@ -31,7 +30,8 @@ class PaymentsController < ApplicationController
 
     end
 
-  def notify
+  
+    def notify
 
       hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X' #填入你的key
       hashIV = 'CQBc2k1cpdHqEEkP' #
@@ -98,7 +98,7 @@ class PaymentsController < ApplicationController
           Logger.new("#{Rails.root}/paid.log").try("info", result)
 
           merchantOrderNo = result["MerchantOrderNo"]
-          order = Order.not_selected_yet.find_by(merchantOrderNo: merchantOrderNo)
+          order = Order.order_received.find_by(merchantOrderNo: merchantOrderNo)
           
           if order 
             payment = Payment.paid.new(order: order)
@@ -114,20 +114,18 @@ class PaymentsController < ApplicationController
             end
             
             payment.end_price = result["Amt"]
-            
             payment.save!
-            
             order.paid!
             
-            flash[:alert] = "付款成功"
-            # redirect_to root_path
-            redirect_to user_order_path(order)
+            flash[:notice] = "付款成功，請至會員中心查看訂單紀錄"
+            redirect_to root_path
+            
             return
         end
       end
     end
   
-      flash[:alert] = "付款失敗"
+      flash[:notice] = "付款失敗"
       redirect_to root_path
   end
       
