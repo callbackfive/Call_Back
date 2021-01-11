@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
     @projects = Project.is_now_on_sale    
     @successful_projects = Project.succeeded_and_done
     @past_projects = Project.past_projects
-    
   end
 
   def user_projects_index
@@ -59,12 +58,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-<<<<<<< HEAD
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
-=======
-  def callback_sanitizer
-    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
->>>>>>> fcab7d0 (resolve)
+    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, :category_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

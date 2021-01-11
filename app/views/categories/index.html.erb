@@ -1,0 +1,9 @@
+<ul class="mt-80 container">
+  <%= link_to '新增類別', new_category_path %>
+  <% @categories.each do |category|%>
+    <li>
+      <%= category.title %>
+      <%= link_to "刪除", category_path(category), method: 'delete' %>
+    </li>
+  <% end %>
+</ul>
