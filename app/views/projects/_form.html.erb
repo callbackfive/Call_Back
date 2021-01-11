@@ -38,7 +38,7 @@
   </div>
   <br>
 
-<div class="project-status">
+  <div class="project-status">
     <%= form.label "上架狀態"%><br/>
     <%= form.select :status, Project.statuses.keys.map { |s| [s.humanize, s] }, {include_blank: true}, {class: "form-control"} %>
   </div>
