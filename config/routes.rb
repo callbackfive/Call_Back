@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:new, :create, :show] do
+    post :paid
+    post :not_paid_yet
   end
   
   resources :payments do

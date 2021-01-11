@@ -5,8 +5,19 @@
 
 <h2>寄送資訊：</h2>
 
+<% if @order.errors.any? %>
+  <ul>
+    <% @order.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+
 <%= form_tag orders_path, method: :post do%>
-  <input name="giveback_id" value="<%= @giveback.id%>">
+  <input type="hidden" name="giveback_id" value="<%= @giveback.id%>">
   
   <div class="relative mb-2">
   <%= label :full_name, "收件人" %>
@@ -18,6 +29,11 @@
   <%= text_field_tag :delivery_country %>
   </div>
   
+  <div class="relative mb-2">
+  <%= label :zip, "郵遞區號" %>
+  <%= text_field_tag :zip %>
+  </div>
+
   <div class="relative mb-2">
   <%= label :address, "收件地址" %>
   <%= text_field_tag :address %>
