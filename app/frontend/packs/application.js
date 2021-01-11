@@ -11,7 +11,7 @@ require("channels")
 
 import "styles/application" 
 import "@fortawesome/fontawesome-free/css/all.css"
-import "scripts" 
+import "pages" 
 
 
 const images = require.context('../images', true)

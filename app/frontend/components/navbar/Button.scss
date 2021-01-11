@@ -1,8 +1,14 @@
+.login-btn:focus{
+
+  @apply outline-none;
+}
+
+
 .login-btn{
 
+  
   @apply flex;
   @apply space-x-2;
-
   @apply items-center;
 
   .user-pic{
@@ -13,7 +19,7 @@
     @apply rounded-full;
     @apply overflow-hidden;
     @apply border;
-    @apply border-gray-800;
+    @apply border-gray-400;
     
   
     .pic{ 
@@ -23,27 +29,15 @@
     }
   
     .user-pic:focus{
-  
       @apply outline-none;
       @apply border-gray-400;
-  
     }
-
-   
-  
   }
-
   .btn-icon{
-   
     font-size: 18px;
-    color: #fff;
-
-    
+    color: #696969;
   }
-
 }
-
-
 
 @media screen and (max-width: 960px) {
 

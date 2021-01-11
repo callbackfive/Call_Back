@@ -1,20 +1,70 @@
-.navbar {
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-  height: 80px;
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@1&display=swap');
+
+
+
+nav{
+  @apply border-b;
+  @apply border-gray-200;
+  @apply shadow-sm;
+  background: #EF5959;
+  
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.row{  
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
+  justify-items: center;
+}
+
+.nav-left{
+  display: flex;
 }
 
 .navbar-logo {
+  font-family: 'Changa One', cursive;
   color: #fff;
   justify-self: start;
+  font-weight: 400;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 37px;
+  @apply flex;
 }
+.navbar-logo a{
+
+  display: inline-block;
+
+}
+.navbar-logo .logo {
+
+ width: 15%;
+ height: 15%;
+
+}
+
+.nav-right{
+
+  display: flex;
+
+}
+
+
+
+
+.navbar-logo .logo img{
+
+  @apply w-full;
+  @apply h-full;
+ 
+ }
+
+
 
 .fa-firstdraft {
   margin-left: 0.5rem;
@@ -41,7 +91,7 @@
 .nav-links {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 6px 10px;
 }
 
 .nav-links:hover {

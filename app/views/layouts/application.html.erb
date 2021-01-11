@@ -8,13 +8,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    
+   
+ 
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name%>" >
+
+    <%= content_tag :p,
+      id: "navbar_current_user",
+      user_data: current_user.to_json do %>
+    <% end %>
+
     <%= render "shared/navbar" %>
-    <p class="notice"><%= notice %></p>
+
     <%= yield %>
+
   </body>
 </html>
