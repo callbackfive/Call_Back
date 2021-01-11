@@ -34,4 +34,19 @@ class OrdersController < ApplicationController
     end
 
 
+      def find_project
+        @project = Project.find(params[:id])
+      end
+
+      def order_params
+        params.permit(
+          :giveback_id,
+          :full_name,
+          :delivery_country,
+          :address,
+          :phone,
+          :email,
+          :zip
+        )
+      end
 end
