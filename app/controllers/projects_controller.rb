@@ -3,9 +3,12 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @projects = Project.all
+    # @projects = Project.all
+    @projects = Project.is_now_on_sale    
+    @successful_projects = Project.succeeded_and_done
+    @past_projects = Project.past_projects
+    
   end
-
 
   def user_projects_index
     @user_projects = Project.where(:user_id => current_user.id)
@@ -57,6 +60,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
+    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

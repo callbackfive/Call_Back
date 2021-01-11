@@ -5,17 +5,21 @@
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
+<div>截止日期： <%= @project.due_date %></div>
 <% if !project_owner? %>
   <%= link_to '贊助此專案', rewards_project_path %>
 <% end %>
 
+
 <%# -----giveback-----%>
+
 <div>
   <ul>
     <% @givebacks.each do |g| %>
       <%= image_tag g.image_url if g.image_url.present? %>
       <li>回饋商品： <%= g.title %></li>
       <li>商品價格： <%= g.price %>元</li>
+      <%= link_to "贊助此專案", user_order_path(g) %>
     <%end%>
   </ul>
 </div>
