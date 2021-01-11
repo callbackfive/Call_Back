@@ -63,10 +63,7 @@ class PaymentsController < ApplicationController
             elsif result["PaymentType"] == "VACC"
               order.payment.paid!
               order.paid!
-
-
             else
-
             end
           end
         end
@@ -94,30 +91,18 @@ class PaymentsController < ApplicationController
           #解碼
           rawTradeInfo = decrypt_data(tradeInfo, hashKey, hashIV, 'AES-256-CBC')
           
-          #轉成JSON
           jsonResult = JSON.parse(rawTradeInfo)
-          
-          #取出json裡面的Result value, 我們需要的都在裡面
           result = jsonResult["Result"]
           
           #寫入Log
           Logger.new("#{Rails.root}/paid.log").try("info", result)
-          
-          #取出我們平台的訂單編號
+
           merchantOrderNo = result["MerchantOrderNo"]
-          
-          #利用訂單編號找出 order，同步付款的情況order 會是處於not_selected_yet
           order = Order.not_selected_yet.find_by(merchantOrderNo: merchantOrderNo)
           
-
           if order 
-            
- 
             payment = Payment.paid.new(order: order)
-            
             payment.merchant_order_no = merchantOrderNo
-            
-            # transaction_service_provider 設成 mpg
             payment.transaction_service_provider = "mpg"
             
             if result["PaymentType"] == "CREDIT"

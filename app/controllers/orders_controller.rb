@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user!
-    before_action :find_giveback, only: [:show, :edit, :update, :destroy]
+    before_action :find_giveback, only: [:show, :create]
 
     def index
       @orders = current_user.orders
-      @user_orders = Order.where(:user_id => current_user.id)
     end
 
     def show
@@ -33,12 +32,11 @@ class OrdersController < ApplicationController
         @giveback = Giveback.find(params[:id])
     end
 
-
-      def find_project
+    def find_project
         @project = Project.find(params[:id])
-      end
+    end
 
-      def order_params
+    def order_params
         params.permit(
           :giveback_id,
           :full_name,
@@ -48,5 +46,5 @@ class OrdersController < ApplicationController
           :email,
           :zip
         )
-      end
+    end
 end

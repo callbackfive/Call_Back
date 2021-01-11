@@ -33,7 +33,6 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:new, :show] do
   end
-
   
   resources :payments do
     collection do
