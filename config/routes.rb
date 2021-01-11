@@ -25,7 +25,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index
-    resources :orders, only: [:index, :new, :create, :show]
+    resources :orders, only: [:index, :new, :create, :show] do
+      member do
+        get 'records', as: 'records', action: :paid_record
+      end
+    end
   end
 
   resources :categories, shallow: true

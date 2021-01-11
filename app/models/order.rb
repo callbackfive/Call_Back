@@ -8,11 +8,27 @@ class Order < ApplicationRecord
   validates_presence_of :full_name, :delivery_country, :zip, :email, :message => ": 不可空白."
   validates :phone, format:{with: /\A09\d{8}\Z/,message:': 您的手機號碼需為10碼數字.'}
 
-  enum status: [:not_selected_yet, :not_paid, :paid, :canceled]
+  enum status: [:order_received, :not_paid, :paid, :canceled]
 
   def paid!
     self.issue_date = Time.now
     super
+  end
+
+
+  def status_to_string
+    case status_before_type_cast
+    when Order.statuses[:order_received]
+      return "訂單已成立，尚未付款"
+    when Order.statuses[:not_paid]
+      return "未付款"
+    when Order.statuses[:paid]
+      return "已付款"
+    when Order.statuses[:canceled] 
+      return "已取消"
+    else
+      return "狀態未明"
+    end
   end
 
   private

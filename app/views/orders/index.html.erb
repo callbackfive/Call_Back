@@ -14,6 +14,7 @@
         <td>訂單編號</td>
         <td>贊助金額</td>
         <td>訂購時間</td>
+        <td>訂單狀態</td>
       </tr>
     </thead>
 
@@ -26,6 +27,8 @@
               <td><%= user_order.merchant_order_no%></td>
               <td><%= user_order.giveback_price%></td>
               <td><%= user_order.created_at%> </td>
+              <td><%= user_order.status_to_string%></td>
+
           </tr>
           <% end %>
         <% end %>
