@@ -13,7 +13,7 @@
         <td>回饋品名稱</td>
         <td>訂單編號</td>
         <td>贊助金額</td>
-        <td>訂購時間</td>
+        <td>付款時間</td>
         <td>訂單狀態</td>
       </tr>
     </thead>
@@ -26,7 +26,7 @@
               <td><%= link_to user_order.giveback_title, current_user %></td>
               <td><%= user_order.merchantOrderNo%></td>
               <td><%= user_order.giveback_price%></td>
-              <td><%= user_order.created_at.strftime('%Y年%m月%d日 %H:%M:%S') %> </td>
+              <td><%= user_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S') %> </td>
               <td><%= user_order.status_to_string%></td>
 
           </tr>
