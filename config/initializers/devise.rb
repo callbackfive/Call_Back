@@ -17,6 +17,8 @@ Devise.setup do |config|
 =======
 >>>>>>> 81de5c4 (resolve)
 
+  config.omniauth :google_oauth2, ENV['google_api'], ENV['google_secret']
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
