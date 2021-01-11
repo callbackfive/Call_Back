@@ -16,7 +16,10 @@
 <div class="new-dialogbox-popup">
   <div class="popup-content">
     <div class="project-owner-info">
-      <div>提案人： <%= @project.user.name %></div>
+      <div>提案負責人： <%= @project.user.name %></div>
+      <div>(這邊可以放提案負責人照片)</div>
+      <div>(這邊可以放提案負責人粉絲專頁或官方連結)</div>
+      <div>(這邊可以放提案負責人簡介)</div>
     </div>
     <hr>
     <div class="add-message-to-dialogbox">
@@ -25,7 +28,7 @@
       </div>
     </div>
     <div class="chat-dialogbox">
-    <%# -----message-----%>
+      <%# -----message-----%>
       <div class="message-typing-box">
         <%= render 'projects/msg_form', message: @message, project: @project %>
       </div>
