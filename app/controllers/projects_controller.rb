@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  def callback_sanitizer
+  def project_params
     params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end
