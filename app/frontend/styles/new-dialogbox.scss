@@ -5,32 +5,39 @@
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 
   .popup-content{
-    width: 400px;
-    height: 300px;
+    width: 1000px;
+    height: 600px;
     background: #fff;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 50px;
+    border-radius: 20px;
     position: relative;
 
-    .project-owner-info{}
-
-    .add-message-to-dialogbox{
-      .message-guiding{}
+    .close-popup{
+      position: absolute;
+      top: 0;
+      right: -70px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 1);
+      cursor: pointer;
     }
 
-    .chat-dialogbox{
+    .project-owner-info{
+      padding-bottom: 30px;
+    }
 
-      .message-typing-box{
+    .add-message-to-dialogbox{
+      padding-top: 30px;
 
-        .input-group{
+      .message-guiding{
+        font-weight: bold;
 
-          .input-group-append{}
-        }
+
       }
     }
   }

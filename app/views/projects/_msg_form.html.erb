@@ -4,7 +4,7 @@
               local: true) do |form| %>
   <div class="input-group">
     <%= form.hidden_field :project, value: project.id %>
-    <%= form.text_field :content, placeholder: 'Type your message here...' %>
+    <%= form.text_area :content, placeholder: 'Type your message here...' %>
     <div class="input-group-append">
       <%= form.submit '送出訊息', class: 'btn btn-primary' %>
     </div>
