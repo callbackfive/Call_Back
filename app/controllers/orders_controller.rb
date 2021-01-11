@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+<<<<<<< HEAD
     before_action :authenticate_user!
     before_action :find_giveback, only: [:show, :edit, :update, :destroy]
 
@@ -10,4 +11,6 @@ class OrdersController < ApplicationController
     end
 
 
+=======
+>>>>>>> add_model_and_controller
 end
