@@ -1,0 +1,49 @@
+.card-item{
+
+  @apply max-w-sm;
+  @apply rounded;
+  @apply overflow-hidden;
+  @apply shadow-md;
+
+
+  img{@apply w-full;}
+
+  .item-content{
+    @apply px-6;
+    @apply py-4;
+  
+    .item-category{
+      
+      @apply space-x-2;
+      p{
+        display: inline-block;
+        font-size: 14px;
+        @apply bg-gray-200; 
+        @apply px-2;
+        @apply py-1;
+      }
+
+    }
+
+    .item-txt{
+
+      h2{
+
+        @apply font-bold;
+        @apply text-gray-600;
+        @apply text-lg;
+        @apply mb-2;
+      }
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+}
