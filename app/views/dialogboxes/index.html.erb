@@ -23,7 +23,7 @@
           <% end %>
         </div>
         <div class="message-typing-box">
-          <%= render 'messages/form', message: Message.new, project: dialogbox.project %>
+          <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: dialogbox %>
         </div>
       </div>
     <% end %>

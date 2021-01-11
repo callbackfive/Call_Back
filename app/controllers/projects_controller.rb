@@ -69,8 +69,8 @@ class ProjectsController < ApplicationController
   end
 
   def continue_dialog
-    dialogbox = @my_msg.dialogbox
-    dialogbox.messages.create(user: current_user,
+    @dialogbox = @my_msg.dialogbox
+    @dialogbox.messages.create(user: current_user,
                               content: params.values[1].values[1])
   end
 
