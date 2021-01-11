@@ -6,19 +6,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
 
-
-import App from '../scripts/App'
-import  '../styles/application.scss'
-
-
-
+import App from '../App'
+import '../../styles/application.scss'
 
 document.addEventListener('turbolinks:load', () => {
    
   ReactDOM.render(
     <App/>,
-    document.getElementById('root'),
-  
+    document.getElementById('navbar_container'),
   )
   
 })
+

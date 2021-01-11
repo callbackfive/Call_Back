@@ -97,6 +97,14 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_payments_on_order_id"
+    
+  create_table "identities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -130,6 +138,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
     t.string "fb_token"
     t.string "image"
     t.datetime "deleted_at"
+    t.integer "role"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["fb_uid"], name: "index_users_on_fb_uid"
@@ -139,5 +148,6 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
   add_foreign_key "givebacks", "projects"
+  add_foreign_key "identities", "users"
   add_foreign_key "projects", "users"
 end

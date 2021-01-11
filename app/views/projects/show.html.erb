@@ -41,7 +41,7 @@
 
 
 <div>
-  <% if project_owner? %>
+  <% if can? :edit, @project %>
     <%= link_to "編輯此專案", edit_project_path(@project) %>
   <% end %>
 </div>
