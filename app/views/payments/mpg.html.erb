@@ -1,0 +1,15 @@
+<%# <h1>請支援收銀......</h1> %>
+<form id="mpg_form"  action="https://ccore.spgateway.com/MPG/mpg_gateway" accept-charset="UTF-8" method="post">
+  <input type='hidden' name='MerchantID' value='<%= @merchantID %>'>
+  <input type='hidden' name='TradeInfo' value='<%= @tradeInfo %>'>
+  <input type='hidden' name='TradeSha' value='<%= @tradeSha%>'>
+  <input type='hidden' name='Version' value='<%= @version %>'>
+
+  <button type="submit">送出</button>
+</form>
+
+<script>
+  $().ready(function(){
+    $("#mpg_form").submit();
+  })
+</script>
