@@ -10,11 +10,6 @@
     <%= form.label :image, '專案照片' %>
     <%= form.file_field :image, id: :giveback_image %>
   </div> 
-
-  <div class="project-category">
-    <%= form.label :category, '專案類別' %>
-    <%= form.text_field :category ,class:"border-2 border-gray-300" %>
-  </div>
   
   <div class="project-summary">
     <%= form.label :summary, '內容摘要' %>
@@ -34,13 +29,13 @@
 
   <div class="project-due-date">
     <%= form.label :due_date, '截止時間' %>
-    <%= form.datetime_field :due_date %> 
+    <%= form.date_field :due_date %> 
   </div>
   <br>
 
   <div>
     <%= form.label "專案類別"%><br/>
-   <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "Select One" %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
   </div>
   <br>
 
