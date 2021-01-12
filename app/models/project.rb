@@ -18,7 +18,7 @@ class Project < ApplicationRecord
   def status_to_string
     case status_before_type_cast
     when Project.statuses[:is_hidden]
-      return "未上架"
+      return "尚未提交"
     when Project.statuses[:is_published]
       return "募資中"
     when Project.statuses[:succeeded]
