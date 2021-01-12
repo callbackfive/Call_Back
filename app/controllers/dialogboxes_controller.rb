@@ -7,6 +7,8 @@ class DialogboxesController < ApplicationController
   end
 
   def show
+    # TODO
+    # render 'index'
     find_dialogbox
     @dialogbox = Dialogbox.find(params[:id])
   end
