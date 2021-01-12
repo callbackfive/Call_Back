@@ -1,0 +1,19 @@
+<div class="container mx-auto px-5 py-12">
+  <div class="flex">
+    <%= image_tag @project.image_url if @project.image_url.present? %>
+    <div>
+      <div class="text-2xl font-bold"><%= @project.title %></div>
+      <div><%= @project.category %></div>
+    </div>
+  </div>
+
+  <div class="flex">
+    <% @givebacks.each do |g| %>
+    <ul class="m-3 border">
+        <%= image_tag g.image_url if g.image_url.present? %>
+        <li>回饋商品： <%= g.title %></li>
+        <li>商品價格： <%= g.price %>元</li>
+    </ul>
+    <%end%>
+  </div>
+</div>

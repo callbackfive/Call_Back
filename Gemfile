@@ -36,6 +36,8 @@ gem 'fog-aws', '~> 3.7'
 gem 'mini_magick', '~> 4.11'
 gem 'cancancan', '~> 1.15'
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
+gem 'omniauth-google-oauth2', '~> 0.8.1'
+gem 'koala', '~> 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
