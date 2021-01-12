@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
     t.index ["project_id"], name: "index_givebacks_on_project_id"
   end
 
+  create_table "identities", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "giveback_id"
@@ -97,14 +106,6 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_payments_on_order_id"
-    
-  create_table "identities", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "provider"
-    t.string "uid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|

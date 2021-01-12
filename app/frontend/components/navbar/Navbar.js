@@ -23,7 +23,7 @@ const Navbar = ({user}) => {
 
           <a href="/" className="navbar-logo">
             <div className="logo-txt">CALLBACK</div>
-            <div className="logo-pic"><img src={logo} alt=""/></div>
+            <div className="logo-pic"><img src="https://phillee.s3-us-west-1.amazonaws.com/uploads/project/image/logo.png" alt=""/></div>
           </a>
 
           <div className={click? 'nav-menu active':'nav-menu'}>

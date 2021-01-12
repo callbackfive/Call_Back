@@ -5,11 +5,10 @@ import './Card.scss'
 
   return (
     <>
-
+    <a href="">
     <div className="card-item">
-
-      <img className="item-img" src=""/>
-     
+      <div className="card-pic"><img className="item-img" src={project.image.url}/></div>
+      
       <div className="item-content">
 
         <div className="item-category">
@@ -18,14 +17,14 @@ import './Card.scss'
         </div>
 
         <div className="item-txt">
-          <h2>{project.title}</h2>
+          <h2 className="truncate">{project.title}</h2>
           <p>{project.name}</p>
         </div>
 
         <div className="item-progress">
 
 
-          <div className="pg-txt">
+          <div className="pg-txt flex justify-between">
             
             <div className="price">{project.target_amount}</div>
             <div className="days">剩53天</div>
@@ -34,7 +33,7 @@ import './Card.scss'
         </div>
       </div>
     </div>
-    
+    </a>
     </>
   )
 }

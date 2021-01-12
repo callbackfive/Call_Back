@@ -5,8 +5,11 @@
   @apply overflow-hidden;
   @apply shadow-md;
 
+  .card-pic{
+   
+    img{@apply w-full;}
+  }
 
-  img{@apply w-full;}
 
   .item-content{
     @apply px-6;
