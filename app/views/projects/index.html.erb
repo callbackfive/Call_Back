@@ -24,30 +24,3 @@
   <% end %>
 </ul>
 
-<div>
-  <div class="container">
-    <p>正在募資</p>
-    <% unless @projects.blank? %>
-      <%= render 'projects/card_list', projects: @projects %>
-    <% else %>
-      <div>
-        <p>現在沒有進行中的募資！！</p>
-      </div>
-    <% end %>
-    <hr />
-  </div>
-  <% unless @successful_projects.blank? %>
-    <div class="container">
-      <p>募資成功</p>
-      <%= render 'projects/card_list', projects: @successful_projects %>
-      <hr />
-    </div>
-  <% end %>
-  <% unless @past_projects.blank? %>
-    <div class="container">
-      <p>過去專案</p>
-      <%= render 'projects/card_list', projects: @past_projects %>
-      <hr />
-    </div>
-  <% end %>
-</div>

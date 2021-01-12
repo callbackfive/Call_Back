@@ -16,6 +16,7 @@
     "autoprefixer": "^9.8.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "framer-motion": "^3.1.1",
+    "jquery": "^3.5.1",
     "postcss": "^7.0.35",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
