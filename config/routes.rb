@@ -33,8 +33,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :new, :create, :show]
   end
 
-  resources :categories, only: [:new, :show] do
-  end
+  resources :categories, shallow: true
   
   resources :payments do
     collection do

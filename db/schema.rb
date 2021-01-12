@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_055711) do
+ActiveRecord::Schema.define(version: 2021_01_12_061236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -110,7 +111,6 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.string "category"
     t.string "summary"
     t.string "content"
     t.integer "target_amount"
@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
     t.datetime "deleted_at"
     t.integer "status", default: 0
     t.datetime "due_date"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
@@ -150,5 +152,6 @@ ActiveRecord::Schema.define(version: 2021_01_11_055711) do
   add_foreign_key "comments", "users"
   add_foreign_key "givebacks", "projects"
   add_foreign_key "identities", "users"
+  add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users"
 end
