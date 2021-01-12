@@ -1,15 +1,22 @@
 import React from 'react'
+import { useEffect } from 'react/cjs/react.development'
 import Category from '../project/Category'
 
 const CategoryList = () => {
+  const [projects, setProjects]= useState([])
+
+  useEffect
+  fetch()
+
   return (
     <div>
 
-      {projects.slice.map(category=> (
-          <Card key={category.id} project={category}/>
+      {
+      category.map(category=> (
+        <Catego key={category.id} category={category}/>
         ))
-      }   
-      <Catego/>
+      }  
+
     </div>
     
   )
