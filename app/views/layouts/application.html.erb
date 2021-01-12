@@ -20,8 +20,12 @@
     <% end %>
 
     <%= render "shared/navbar" %>
+    <div class="mt-16"></div>
     <% if notice %>
       <p class="notice text-center bg-red-100 p-5 text-lg"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="notice text-center bg-red-100 p-5 text-lg"><%= alert %></p>
     <% end %>
     <%= yield %>
 
