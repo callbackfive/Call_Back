@@ -51,7 +51,6 @@ class ProjectsController < ApplicationController
     redirect_to user_projects_path(current_user), notice: '已刪除專案'
   end
 
-<<<<<<< HEAD
   def create_message
     set_project_for_creating_message
     if had_dialog?
@@ -61,10 +60,10 @@ class ProjectsController < ApplicationController
       start_dialog
       redirect_to project_path(@project), notice: '您與提案人的已開始新對話，可至聯絡訊息查看'
     end
-=======
+  end
+
   def project_givebacks
     @givebacks = @project.givebacks
->>>>>>> origin/dev
   end
 
   private
