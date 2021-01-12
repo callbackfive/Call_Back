@@ -3,11 +3,9 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    # @projects = Project.all
-    @projects = Project.is_now_on_sale    
+    @projects = Project.is_now_on_sale 
     @successful_projects = Project.succeeded_and_done
     @past_projects = Project.past_projects
-    
   end
 
   def user_projects_index
@@ -30,6 +28,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
     if @project.save
       redirect_to user_projects_path(current_user), notice: '成功新增專案'
+      @project.is_published!
     else
       render :new
     end
@@ -98,6 +97,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
+    params.require(:project).permit(:title, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, :category_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end
