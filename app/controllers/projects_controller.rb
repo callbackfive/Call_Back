@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
     if @project.save
       redirect_to user_projects_path(current_user), notice: '成功新增專案'
+      @project.is_published!
     else
       render :new
     end

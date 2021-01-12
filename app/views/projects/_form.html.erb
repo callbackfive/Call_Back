@@ -1,66 +1,72 @@
-<div class="container mx-auto ">
-<%= form_for(project) do |form| %>
+<div class="container">
+  <% if project.errors.any? %>
+      <ul>
+          <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+      </ul>
+  <% end %>
+  <%= form_for(project) do |form| %>
 
-  <div class="project-title">
-    <%= form.label :title, '專案標題' %>
-    <%= form.text_field :title ,class:"border-2 border-gray-300"%>
-  </div>
+    <div class="project-title">
+      <%= form.label :title, '專案標題' %><br>
+      <%= form.text_field :title, class:"border-2 border-gray-300"%>
+    </div>
 
-  <div class="m-3">
-    <%= form.label :image, '專案照片' %>
-    <%= form.file_field :image, id: :giveback_image %>
-  </div> 
-  
-  <div class="project-summary">
-    <%= form.label :summary, '內容摘要' %>
-    <%= form.text_field :summary %>
-  </div>
+    <div class="m-3">
+      <%= form.label :image, '專案照片' %><br>
+      <%= form.file_field :image, id: :giveback_image %>
+    </div> 
+    
+    <div class="project-summary">
+      <%= form.label :summary, '內容摘要' %><br>
+      <%= form.text_field :summary, class:"border-2 border-gray-300" %>
+    </div>
 
-  <div class="project-content">
-    <%= form.label :content, '專案內容' %>
-    <%= form.text_area :content %>
-  </div>
+    <div class="project-content">
+      <%= form.label :content, '專案內容' %><br>
+      <%= form.text_area :content, class:"border-2 border-gray-300" %>
+    </div>
 
-  <div class="target-amount">
-    <%= form.label :target_amount, '募資目標' %>
-    <%= form.text_area :target_amount %>
-  </div>
-  <br>
+    <div class="target-amount">
+      <%= form.label :target_amount, '募資目標' %><br>
+      <%= form.text_area :target_amount, class:"border-2 border-gray-300" %>
+    </div>
+    <br>
 
-  <div class="project-due-date">
-    <%= form.label :due_date, '截止時間' %>
-    <%= form.date_field :due_date %> 
-  </div>
-  <br>
+    <div class="project-due-date">
+      <%= form.label :due_date, '截止時間' %><br>
+      <%= form.date_field :due_date %> 
+    </div>
+    <br>
 
-  <div>
-    <%= form.label "專案類別"%><br/>
-    <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
-  </div>
-  <br>
+    <div>
+      <%= form.label "專案類別"%><br/>
+      <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
+    </div>
+    <br>
 
-  <%#-------- givebacks ----------%>
-  <h3 class='text-xl font-bold'>回饋商品區</h3>
-  <div data-controller='nested-form' >
-  
-    <template data-nested-form-target='template'>
-      <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
+    <%#-------- givebacks ----------%>
+    <h3 class='text-xl font-bold'>回饋商品區</h3>
+    <div data-controller='nested-form' >
+    
+      <template data-nested-form-target='template'>
+        <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
+          <%= render 'giveback_field', form: giveback %>
+        <% end %>
+      </template>
+
+      <%= form.fields_for :givebacks do |giveback| %>
         <%= render 'giveback_field', form: giveback %>
       <% end %>
-    </template>
 
-    <%= form.fields_for :givebacks do |giveback| %>
-      <%= render 'giveback_field', form: giveback %>
-    <% end %>
-
-    <div class='mb-3' data-nested-form-target='links'>
-      <%= link_to '新增回饋商品', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
+      <div class='mb-3' data-nested-form-target='links'>
+        <%= link_to '新增回饋', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
+      </div>
     </div>
-  </div>
 
-
-  <%= form.submit %>
-<% end %>
+    <%= form.submit %>
+  <% end %>
 
 </div>
 
