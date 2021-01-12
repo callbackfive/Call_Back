@@ -1,0 +1,52 @@
+<h1>訂單頁(show)</h1>
+<h2>付款方式：信用卡付款</h2>
+<div>回饋商品： <%= @giveback.title %></div>
+<div>商品價格： <%= @giveback.price %></div>
+
+<h2>寄送資訊：</h2>
+
+<% if @order.errors.any? %>
+  <ul>
+    <% @order.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_tag user_orders_path, method: :post do%>
+  <input type="hidden" name="giveback_id" value="<%= @giveback.id%>">
+  
+  <div>
+  <%= label :full_name, "收件人" %>
+  <%= text_field_tag :full_name %>
+  </div>
+
+  <div>
+  <%= label :delivery_country, "國家" %>
+  <%= text_field_tag :delivery_country %>
+  </div>
+  
+  <div>
+  <%= label :zip, "郵遞區號" %>
+  <%= text_field_tag :zip %>
+  </div>
+
+  <div>
+  <%= label :address, "收件地址" %>
+  <%= text_field_tag :address %>
+  </div>
+
+   <div>
+  <%= label :phone, "手機號碼" %>
+  <%= text_field_tag :phone %>
+  </div>
+ 
+  <div>
+  <%= label :email, "電子信箱" %>
+  <%= text_field_tag :email%>
+  </div>
+
+  <button type="submit">確認結帳</button>
+
+<% end %>

@@ -1,0 +1,25 @@
+<h1>（現在登入的會員的專案列表）我的專案列表頁</h1>
+
+<% if @user_projects.blank? %> 
+  <div>你沒有任何提案紀錄</div>
+<% else %>
+  <h2>您的提案列表</h2>
+  <div>
+    <ul>
+      <% @user_projects.each do |user_project| %>
+        <% if user_project.user_id == current_user.id %>
+          <li>
+            <%= link_to user_project.title, user_project %>
+            <%= user_project.status_to_string %></td>
+            <%= link_to "編輯", edit_project_path(user_project) %>
+            <%= link_to "真的刪除", user_project, method: 'delete' %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to '回首頁(探索)', root_path %>
+</div>

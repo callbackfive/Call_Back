@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "projects#index"
+  root to: "home#index"
   
   devise_for :users, controllers: { 
     sessions: 'users/sessions', 
@@ -11,17 +11,33 @@ Rails.application.routes.draw do
     get '/profile', action: 'show'
   end
 
-  # 使用者的提案列表
-  resources :users do
-    resources :projects, only: [:index], action: :user_projects
-  end
-  
-  # 專案
+  # projects
   resources :projects, path_names: {new: 'proposal'} do
-    # 留言
+    member do
+      get 'rewards', as: 'rewards', action: :project_givebacks
+    end
     resources :comments, shallow: true, only: [:new, :create, :destroy]
-    # 回饋
-    resources :givebacks, except: [:new]
+  end 
+
+  resource :project, only: [] do
+    resources :givebacks, except: [:new] 
+  end
+
+  resources :users do
+    resources :projects, only: [:index], action: :user_projects_index
+    resources :orders, only: [:index, :new, :create, :show]
+  end
+
+  resources :categories, shallow: true
+  
+  resources :payments do
+    collection do
+      get :mpg
+      get :canceled
+      post :notify
+      post :paid
+      post :not_paid_yet
+    end
   end
 
   # 對話框

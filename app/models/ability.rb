@@ -1,10 +1,16 @@
 class Ability
   include CanCan::Ability
   def initialize(user)
+    user ||= User.new(role: :guest)
+    
     can :read, Project
 
-    if user.present?  # additional permissions for logged in users (they can read their own posts)
-      can :read, Project, user_id: user.id
+    if user.admin?
+      can :manage, :all
+    elsif user.regular?
+      can :manage, Project, user_id: user.id
     end
+
   end
 end
+ 

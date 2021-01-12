@@ -1,31 +1,69 @@
-<h2>登入</h2>
 
-<p class="alert"><%= alert %></p>
+<div class="signin-container mt-14">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <h2>歡迎回來！</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <main class="signin-box">
+    <h3 class="account-title">會員帳號</h3>
+    <section class="mt-6">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field form-item">
+          <%= f.label :email ,"登入信箱" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: 'user-input'%>
+        </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :記住我 %>
-    </div>
-  <% end %>
+        <div class="field form-item">
+          <%= f.label :password ,"密碼"%>
+          <%= f.password_field :password, autocomplete: "current-password" , class: 'user-input'%>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "登入" %>
-  </div>
-<% end %>
-<%# <%= link_to "登入 Facebook", user_facebook_omniauth_authorize_path %>
+        <div class="flex justify-between">        
+        
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :記住我  , class: 'checked-txt'%>
+            
+            </div>
 
-<%= render "devise/shared/links" %>
-<%= link_to '回首頁', root_path %>
+          <% end %>
+
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <div class="field">
+          <%= link_to "忘記密碼?", new_password_path(resource_name) %>
+          </div>
+          
+          <% end %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登入",class: 'btn form-btn' %>
+        </div>
+      <% end %>
+
+
+      
+      <div class="fb-signin">
+        <%= link_to "使用Facebook帳號登入", user_facebook_omniauth_authorize_path, class:"btn btn-fb" %>
+      </div>
+      <div class="google-signin">
+        <%= link_to "使用Google帳號登入", user_google_oauth2_omniauth_authorize_path, class:"btn btn-google" %>
+      </div>
+
+
+      <p>如果您使用Facebook登入，我們將在取得您的授權同意後，導入您的姓名和個人資料作為帳號必要資訊。</p>
+
+      <div class="resign flex justify-between my-4">
+        <div class="resign-titel"><span>還沒有帳號？</span></div>
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <div class="resign-titel">
+            <%= link_to "註冊", new_registration_path(resource_name) ,class:'resign-btn'%>
+            <% end %>
+        </div>
+      </div>
+
+    </section>    
+  </main>
+
+</div>
 

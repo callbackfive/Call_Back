@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @projects = Project.all
+    @projects = Project.is_now_on_sale 
+    @successful_projects = Project.succeeded_and_done
+    @past_projects = Project.past_projects
   end
 
-
-  def user_projects
+  def user_projects_index
     @user_projects = Project.where(:user_id => current_user.id)
   end
 
@@ -27,6 +28,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
     if @project.save
       redirect_to user_projects_path(current_user), notice: '成功新增專案'
+      @project.is_published!
     else
       render :new
     end
@@ -57,6 +59,10 @@ class ProjectsController < ApplicationController
       start_dialog
       redirect_to project_path(@project), notice: '您與提案人的已開始新對話，可至聯絡訊息查看'
     end
+  end
+
+  def project_givebacks
+    @givebacks = @project.givebacks
   end
 
   private
@@ -91,6 +97,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :category, :summary, :content, :image, :target_amount, :user_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
+    params.require(:project).permit(:title, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, :category_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

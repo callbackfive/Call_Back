@@ -1,0 +1,47 @@
+.login-btn:focus{
+
+  @apply outline-none;
+}
+
+
+.login-btn{
+
+  
+  @apply flex;
+  @apply space-x-2;
+  @apply items-center;
+
+  .user-pic{
+
+    @apply block;
+    @apply h-14;
+    @apply w-14;
+    @apply rounded-full;
+    @apply overflow-hidden;
+    @apply border;
+    @apply border-gray-400;
+    
+  
+    .pic{ 
+      @apply h-full;
+      @apply w-full;
+      @apply object-cover;
+    }
+  
+    .user-pic:focus{
+      @apply outline-none;
+      @apply border-gray-400;
+    }
+  }
+  .btn-icon{
+    font-size: 18px;
+    color: #696969;
+  }
+}
+
+@media screen and (max-width: 960px) {
+
+  .login-btn{
+    display: none;
+  }
+}
