@@ -1,11 +1,11 @@
 <h1>募資專案頁(show)</h1>
-<h2 data-controller="favorite" data-favorite-id="<%= @post.id %>">
-  <% if user_signed_in? && !project_owner %>
+<h2 data-controller="favorite" data-favorite-id="<%= @project.id %>">
+  <% if user_signed_in? && !project_owner? %>
     <%= link_to '#', data: { action: 'favorite#toggle_like' } do %>
-      <% if current_user.favorite?(@post) %>
-        <i class="fa fa-heart" data-target="favorite.icon"></i>
+      <% if current_user.favorite?(@project) %>
+        <i class="fas fa-heart" data-target="favorite.icon"></i>
       <% else %>
-        <i class="fa fa-heart" data-target="favorite.icon"></i>
+        <i class="far fa-heart" data-target="favorite.icon"></i>
       <% end %>
     <% end %>
   <% end %>
