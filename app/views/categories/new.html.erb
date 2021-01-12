@@ -1,0 +1,15 @@
+<div class="mt-80 container">
+  <%= form_for(@category) do |form| %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, class:"border-2" %><br>
+    <div class="m-3">
+      <%= form.label :image, '類別照片' %><br>
+      <%= form.file_field :image, id: :category_image %>
+    </div> 
+    <div class="m-3">
+      <%= form.label :image, '類別照片' %><br>
+      <%= form.file_field :image, id: :category_image %>
+    </div> 
+    <%= form.submit %>
+  <% end%>
+</div>
