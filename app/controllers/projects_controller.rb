@@ -1,8 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_project_for_creating_message, only: :create_message
-
 
   def index
     @projects = Project.all
@@ -51,6 +49,7 @@ class ProjectsController < ApplicationController
   end
 
   def create_message
+    set_project_for_creating_message
     if had_dialog?
       continue_dialog
       redirect_to project_path(@project), notice: '您先前有發送過訊息，可至聯絡訊息，查看專案負責人是否已回覆'
