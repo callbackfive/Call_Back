@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks]
+  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -66,6 +66,16 @@ class ProjectsController < ApplicationController
     @givebacks = @project.givebacks
   end
 
+  def favorite
+    if current_user.favorite?(@project)
+      current_user.my_favorites.destroy(@project)
+      render json: { status: 'removed' }
+    else
+      current_user.my_favorites << @project
+      render json: { status: 'added' }
+    end
+  end
+
   private
   def had_dialog?
     @my_msg = Message.joins(:dialogbox)
@@ -81,12 +91,12 @@ class ProjectsController < ApplicationController
   end
 
   def start_dialog
-      @dialogbox = @project.dialogboxes.new(user: current_user)
-      @dialogbox.save
-      first_msg = Message.new(content: params.values[1].values[1],
-                              user: current_user,
-                              dialogbox: @dialogbox)
-      first_msg.save
+    @dialogbox = @project.dialogboxes.new(user: current_user)
+    @dialogbox.save
+    first_msg = Message.new(content: params.values[1].values[1],
+                            user: current_user,
+                            dialogbox: @dialogbox)
+    first_msg.save
   end
   
   def find_project

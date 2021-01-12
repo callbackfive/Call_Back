@@ -3,9 +3,9 @@
   <% if user_signed_in? && !project_owner %>
     <%= link_to '#', data: { action: 'favorite#toggle_like' } do %>
       <% if current_user.favorite?(@post) %>
-        <i class="fas fa-heart" data-target="favorite.icon"></i>
+        <i class="fa fa-heart" data-target="favorite.icon"></i>
       <% else %>
-        <i class="far fa-heart" data-target="favorite.icon"></i>
+        <i class="fa fa-heart" data-target="favorite.icon"></i>
       <% end %>
     <% end %>
   <% end %>
