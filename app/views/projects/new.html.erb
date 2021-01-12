@@ -1,4 +1,18 @@
 <div class="container mx-auto">
   <h1 >請提案</h1>
-  <%= render 'form', project: @project %>
+  <%= form_for(@project) do |form| %>
+
+    <div class="project-title">
+      <%= form.label :title, '專案標題' %><br>
+      <%= form.text_field :title, class:"border-2 border-gray-300"%>
+    </div>
+
+    <div>
+      <%= form.label "專案類別"%><br/>
+      <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
+    </div>
+
+    <%= form.submit %>
+
+  <% end %>
 </div>
