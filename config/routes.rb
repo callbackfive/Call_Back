@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   root to: "home#index"
-
+  
   devise_for :users, controllers: { 
     sessions: 'users/sessions', 
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks",
   }
-  
+
   resource :users, controller: 'profiles', only: [] do
     get '/profile', action: 'show'
   end
 
   # projects
-  resources :projects, except: [:new] do
+  resources :projects, path_names: {new: 'proposal'} do
     member do
       get 'rewards', as: 'rewards', action: :project_givebacks
     end
@@ -20,9 +20,6 @@ Rails.application.routes.draw do
   end 
 
   resource :project, only: [] do
-    collection do
-      get 'proposal', as: 'new', action: :new
-    end
     resources :givebacks, except: [:new] 
   end
 
@@ -42,4 +39,18 @@ Rails.application.routes.draw do
       post :not_paid_yet
     end
   end
+
+  # 對話框
+  resources :dialogboxes, only: [:index, :show, :create], shallow: true
+  
+  # 訊息
+  resources :messages, only: :index
+  # 專案頁面創訊息
+  post '/project/create_message', action: 'create_message', controller: 'projects'
+  # 對話框創訊息
+  post '/dialogbox/create_message', action: 'create_message', controller: 'dialogboxes'
+
 end
+
+
+

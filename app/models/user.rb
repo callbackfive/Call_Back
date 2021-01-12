@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
   has_many :projects
   has_many :comments
+  has_many :dialogboxes
   has_many :orders
   mount_uploader :image, ImageUploader
   acts_as_paranoid

@@ -1,0 +1,12 @@
+<%= form_with(model: message,
+              url: dialogbox_create_message_path,
+              method: 'POST',
+              local: true) do |form| %>
+  <div class="input-group">
+    <%= form.hidden_field :dialogbox, value: dialogbox.id %>
+    <%= form.text_field :content, placeholder: 'Type your message here...' %>
+    <div class="input-group-append">
+      <%= form.submit '送出訊息', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

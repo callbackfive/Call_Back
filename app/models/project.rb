@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
+  has_many :dialogboxes
   belongs_to :category
   has_many :givebacks, inverse_of: :project
   has_many :comments, -> { where(parent_id: nil).order('created_at DESC') },dependent: :destroy
@@ -31,3 +32,10 @@ class Project < ApplicationRecord
 
 
 end
+
+# 元喬
+# scope :participating_rooms, -> (user) dialogbox
+#   where(sender: user, receiver: user)
+# end
+
+# find_or_create   ...Rails內建

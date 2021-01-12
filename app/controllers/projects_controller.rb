@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
     @givebacks = @project.givebacks
     @comment = Comment.new
     @comments = @project.comments.includes(:user)
+    @message = Message.new
   end
 
   def new
@@ -49,13 +50,50 @@ class ProjectsController < ApplicationController
     redirect_to user_projects_path(current_user), notice: '已刪除專案'
   end
 
+  def create_message
+    set_project_for_creating_message
+    if had_dialog?
+      continue_dialog
+      redirect_to project_path(@project), notice: '您先前有發送過訊息，可至聯絡訊息，查看專案負責人是否已回覆'
+    else
+      start_dialog
+      redirect_to project_path(@project), notice: '您與提案人的已開始新對話，可至聯絡訊息查看'
+    end
+  end
+
   def project_givebacks
     @givebacks = @project.givebacks
   end
 
   private
+  def had_dialog?
+    @my_msg = Message.joins(:dialogbox)
+                     .where(user: current_user, dialogboxes: {project: @project})
+                     .first
+    @my_msg.present?
+  end
+
+  def continue_dialog
+    @dialogbox = @my_msg.dialogbox
+    @dialogbox.messages.create(user: current_user,
+                              content: params.values[1].values[1])
+  end
+
+  def start_dialog
+      @dialogbox = @project.dialogboxes.new(user: current_user)
+      @dialogbox.save
+      first_msg = Message.new(content: params.values[1].values[1],
+                              user: current_user,
+                              dialogbox: @dialogbox)
+      first_msg.save
+  end
+  
   def find_project
     @project = Project.find(params[:id])
+  end
+
+  def set_project_for_creating_message
+    @project = Project.find(params.values[1].values[0].to_i)
   end
 
   def project_params
