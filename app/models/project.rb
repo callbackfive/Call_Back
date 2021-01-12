@@ -9,8 +9,8 @@ class Project < ApplicationRecord
   acts_as_paranoid
 
   enum status: [:is_hidden, :is_published ,:succeeded, :failed]
-  
   scope :is_now_on_sale, -> {self.where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)}
+  #在截止日之前達標
   scope :succeeded_and_done, -> {self.succeeded.where('due_date < ?', Time.now)}
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
