@@ -17,9 +17,9 @@ const Navbar = ({user}) => {
     <>
   <nav> 
     <div className="navbar-container"> 
-      <div className="row"> 
+      <div className="row "> 
 
-        <div className="nav-left">
+        <div className="nav-left ">
 
           <a href="/" className="navbar-logo">
             <div className="logo-txt">CALLBACK</div>
@@ -31,7 +31,7 @@ const Navbar = ({user}) => {
               <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>註冊</Link>
             </li>
             <a className="nav-items  nav-links" onClick={() => {window.location.href="/about"}}>關於</a>
-            <a className="nav-items  nav-links" onClick={() => {window.location.href="/projects/proposal"}}>提案</a>
+            <a className="nav-items  nav-links" onClick={() => {window.location.href="/project/proposal"}}>提案</a>
             <a className="nav-items nav-links" onClick={() => {window.location.href="/projects"}}>探索</a>
 
           </div>

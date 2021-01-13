@@ -1,2 +1,54 @@
-.category{
+.category-btn{
+  @apply flex;
+  @apply flex-col;
+  @apply px-12;
+  @apply py-6;
+  @apply box-border;
+  @apply space-y-6;
+  
+  .category-pic{
+
+    width:100px;
+    height:100px;
+    @apply mx-auto;
+    @apply rounded-full;
+    @apply shadow-sm;
+    @apply flex;
+    @apply justify-center;
+    align-items: center; 
+    background:	#FCFCFC;
+ 
+  
+
+    .category-circle{
+      width:50px;
+      img{ @apply w-full; }
+    }
+    
+  }
+  .category-title{
+    @apply text-gray-500;
+    @apply tracking-wider;
+    @apply text-center;
+
+  }
+  .category-title:hover{
+   color:#EF5959;
+  }
+
+}
+
+.category-btn:hover{
+
+
+  .category-circle{
+    @apply scale-50;
+  }
+  
+  
+
+  .category-title{
+    color:#EF5959;
+  }
+
 }

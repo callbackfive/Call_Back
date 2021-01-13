@@ -1,19 +1,13 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types'
+import Projects from '../../components/project/Projects'
 
-import CategoryList from '../../components/project/CategoryList'
-import Cards from '../../components/home/Card'
 
 
 document.addEventListener('turbolinks:load', () => {
-   
+
   ReactDOM.render(
-    <>
-    <CategoryList/>
-    <Cards/>
-    </>,
-    document.getElementById('project-content'),
+    <Projects/>,
+    document.getElementById('project-content')
   )
-  
 })

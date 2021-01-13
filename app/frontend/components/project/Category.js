@@ -1,17 +1,23 @@
 import React from 'react'
+import "./Category.scss";
 
-export const Category = () => {
+const Category = ({category,handleBtn}) => {
   return (
     <>
-    
-      <div className="grid grid-cols-3 gap-4">
-        <div className="category">
-          <div className="category-pic"><img src={category.image.url} alt=""/></div>
-          <div className="category-title">{category.title}</div>
+      <button value={category.title} onClick={handleBtn}>
+      <div className="category-btn" id={category.id}>
+        <div className="category-pic">
+          <div className="category-circle">
+            <img src={category.image.url} alt="" className="w-full"/>
+          </div> 
+        </div>
+        <div className="category-title">
+          <p>{category.title}</p>
         </div>
       </div>
-      
+      </button>
     </>
 
   )
 }
+export default Category

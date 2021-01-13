@@ -1,23 +1,35 @@
-import React from 'react'
-import { useEffect } from 'react/cjs/react.development'
-import Category from '../project/Category'
+import React,{useState,useEffect} from 'react'
+import Category from './Category'
+import  './CategoryList.scss'
 
-const CategoryList = () => {
-  const [projects, setProjects]= useState([])
+const CategoryList = ({handleBtn}) => {
+  const [categories, setCategories]= useState([])
+  const [isLoading, setIsLoading]= useState(true)
 
-  useEffect
-  fetch()
+
+  useEffect(() => {
+    fetch('/apis/categories')
+    .then((res) => res.json())
+    .then((data) =>{
+      setCategories(data)
+      console.log(data)
+      setIsLoading(false) })
+      .catch(err => console.log(err))
+  },[])
+  
 
   return (
-    <div>
-
+    <>
+      <div className="categories-list ">
       {
-      category.map(category=> (
-        <Catego key={category.id} category={category}/>
+      categories.map(category=> (
+        <Category key={category.id} category={category} handleBtn={handleBtn}/>
         ))
-      }  
+      } 
+      </div>
+ 
 
-    </div>
+    </>
     
   )
 }

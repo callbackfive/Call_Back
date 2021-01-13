@@ -6,21 +6,27 @@ import './Rank.scss'
 
 
  const Rank = () => {
-  const [imgs, setImgs]= useState([])
   const [projects, setProjects]= useState([])
   const [isLoading, setIsLoading]= useState(true)
 
-   useEffect(() => {
-    fetch('/apis/projects')
-    .then(res => res.json())
-    .then((data) =>{
-      setProjects(data)
-      console.log(data)
-      setIsLoading(false)
-
-     })
-    .catch(err => console.log(err))
+  useEffect(() => {
+    Promise.all([
+      fetch('/apis/projects')
+      .then(res => res.json())
+      .then((data) =>{
+        setProjects(data)
+        console.log(data)
+        setIsLoading(false)
+  
+      })
+      .catch(err => console.log(err)),
+      
+      
+    ])
   },[])
+  const atClick = (project) => {
+    Turbolinks.visit(`/projects/${project}`)
+  }
 
   return (
     <div>
@@ -33,8 +39,8 @@ import './Rank.scss'
               <a href="/projects" className="more-btn">查看更多</a>
             </div>
             <div className="ranking-projects">
-              {projects.slice(4, 10).map(project => (
-                  <Card key={project.id} project={project}/>
+              {projects.slice(0, 6).map(project => (
+                  <Card key={project.id} project={project} onClick={atClick}/>
               ))
               }        
             </div>

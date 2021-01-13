@@ -1,13 +1,22 @@
 .card-item{
 
-  @apply max-w-sm;
+  max-width: 350px;
+  
+ 
   @apply rounded;
   @apply overflow-hidden;
   @apply shadow-md;
+  @apply box-border;
+
 
   .card-pic{
-   
-    img{@apply w-full;}
+    clear: both;
+    overflow: hidden;
+    height: 250px;
+    background: #d7d7d7;
+    @apply box-border;
+ 
+    img{@apply w-full;height: auto;}
   }
 
 
