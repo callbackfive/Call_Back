@@ -3,8 +3,8 @@ class OrdersController < ApplicationController
     before_action :find_giveback, only: [:show]
 
     def index
-      @orders = current_user.orders(id: :desc)
-      @user_orders = Order.where(:user_id => current_user.id)
+      @orders = current_user.orders
+      @user_orders = Order.where(:user_id => current_user.id).order(id: :desc)
     end
 
     def show
