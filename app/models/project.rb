@@ -31,7 +31,6 @@ class Project < ApplicationRecord
     end
   end
 
-
   def days_left
     (due_date.to_i - Time.now.to_i) / (60 * 60 * 24) 
   end

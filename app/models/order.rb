@@ -17,7 +17,6 @@ class Order < ApplicationRecord
     project.reaching_goal
   end
 
-
   def status_to_string
     case status_before_type_cast
     when Order.statuses[:order_received]
