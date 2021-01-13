@@ -11,7 +11,8 @@ require("channels")
 
 import "styles/application" 
 import "@fortawesome/fontawesome-free/css/all.css"
-import "pages" 
+import "pages"
+import "scripts"
 
 
 const images = require.context('../images', true)
@@ -26,3 +27,4 @@ const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+console.log("script-index.js");
