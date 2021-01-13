@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user!
-    before_action :find_giveback, only: [:create]
-    before_action :find_project, only: [:show]
+    before_action :find_giveback, only: [:show]
 
     def index
       @orders = current_user.orders
@@ -9,7 +8,6 @@ class OrdersController < ApplicationController
 
     def show
       @order = Order.new
-      @givebacks = @project.givebacks
     end
 
     def create

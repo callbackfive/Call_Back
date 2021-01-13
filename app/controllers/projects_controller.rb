@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
+    @project.project_new_validation = true
     if @project.save
       redirect_to edit_project_path(@project)
     else

@@ -11,6 +11,11 @@ class Project < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
 
+  #在不同頁面驗證個別欄位
+  attr_accessor :project_new_validation
+  validates :title, presence: true, if: -> {project_new_validation} 
+
+
   enum status: [:is_hidden, :is_published ,:succeeded, :failed]
   scope :is_now_on_sale, -> {self.where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)}
   #在截止日之前達標
@@ -34,10 +39,3 @@ class Project < ApplicationRecord
 
 
 end
-
-# 元喬
-# scope :participating_rooms, -> (user) dialogbox
-#   where(sender: user, receiver: user)
-# end
-
-# find_or_create   ...Rails內建
