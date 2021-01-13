@@ -14,6 +14,7 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "antd": "^4.9.4",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.21.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "framer-motion": "^3.1.1",
     "postcss": "^7.0.35",

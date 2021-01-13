@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     member do
       get 'rewards', as: 'rewards', action: :project_givebacks
     end
+    member do
+      post :favorite
+    end
+    collection do
+      get :my_favorite
+    end
     resources :comments, shallow: true, only: [:new, :create, :destroy]
   end 
 
