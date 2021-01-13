@@ -37,10 +37,6 @@ class OrdersController < ApplicationController
           @giveback = Giveback.find(params[:id])
       end
 
-      def find_project
-          @project = Project.find(params[:id])
-      end
-
       def order_params
           params.permit(
             :giveback_id,

@@ -3,7 +3,7 @@
     <%= image_tag @project.image_url if @project.image_url.present? %>
     <div>
       <div class="text-2xl font-bold"><%= @project.title %></div>
-      <div><%= @project.category %></div>
+      <div><%= @project.category.title %></div>
     </div>
   </div>
 

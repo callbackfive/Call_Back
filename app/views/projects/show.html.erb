@@ -18,10 +18,10 @@
 <div>募資目標： <%= @project.target_amount %></div>
 <div>NT$<%=@project.paid_orders_amounts%></div>
 <div>募資人數： <%= @project.paid_orders.count%></div>
-<div>剩下<%= @project.seconds_left%>天</div>
+<div>剩下<%= @project.days_left%>天</div>
 
 <% if !project_owner? %>
-  <%= link_to '贊助此專案', rewards_project_path %>
+  <%= link_to '贊助此專案（回饋品列表 rewards_project_path）', rewards_project_path %>
 <% end %>
 
 <%# -----dialogbox-----%>
@@ -54,6 +54,10 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+<%# now.strftime('%Y年%m月%d日 %H:%M:%S') %>
+>>>>>>> need to fixed order page
 
 <%# -----giveback-----%>
 
@@ -63,7 +67,7 @@
       <%= image_tag g.image_url if g.image_url.present? %>
       <li>回饋商品： <%= g.title %></li>
       <li>商品價格： <%= g.price %>元</li>
-      <%= link_to "贊助此專案", user_order_path(g) %>
+      <%= link_to "贊助此回饋商品（連結訂單與填寫寄送資訊頁）user_order_path(g)", user_order_path(g) %>
     <%end%>
   </ul>
 </div>

@@ -26,7 +26,15 @@ class Project < ApplicationRecord
     end
   end
 
-  def seconds_left
+ 
+  # def update_status_if_reaching_goal!
+  #   if self.is_published? && (self.paid_orders_amounts >= target_amount)
+  #     self.succeeded!
+  #   end
+  # end
+
+
+  def days_left
     (due_date.to_i - Time.now.to_i) / (60 * 60 * 24) 
   end
 
@@ -44,11 +52,9 @@ class Project < ApplicationRecord
       return "狀態未明"
     end
   end
-
-
+  
 end
 
-# 元喬
 # scope :participating_rooms, -> (user) dialogbox
 #   where(sender: user, receiver: user)
 # end

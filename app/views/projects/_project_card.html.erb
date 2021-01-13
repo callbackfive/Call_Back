@@ -5,7 +5,7 @@
 <div><%= @project.user.name%></div>
 <div>NT$<%=@project.paid_orders_amounts%></div>
 <div>已有<%= @project.paid_orders.count%>人贊助</div>
-<div>還剩<%= @project.seconds_left%>天</div>
+<div>還剩<%= @project.days_left%>天</div>
 
 
 <%= link_to '專案', user_projects_path %>

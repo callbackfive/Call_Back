@@ -1,6 +1,6 @@
 <h1>（現在登入的會員的專案列表）我的專案列表頁</h1>
 
-<% if can? Project, :user_projects_index %>
+<%# if can? Project, :user_projects_index %>
 
   <% if @user_projects.blank? %> 
     <div>你沒有任何提案紀錄</div>
@@ -39,9 +39,9 @@
     </div>
   <% end %>
 
-<% else %>
+<%# else %>
 <h2>您沒有權限閱覽此頁面！</h2>
-<% end %>
+<%# end %>
 
 <div>
   <%= link_to '回首頁(探索)', root_path %>
