@@ -1,4 +1,3 @@
-<div id="dialogbox-id" data-dialogbox-id="<%#= @dialogbox.try(:id) %>"></div>
 <div id="user-id" data-user-id="<%= current_user.id %>"></div>
 
 <%# 我發出的聯絡訊息列表 %>
@@ -19,6 +18,20 @@
         <%# if @dialogbox.user == current_user || @dialogbox.project.user == current_user %>
           <%#= @dialogbox.project.title %>
         <%# end %>
+        <%#= 上面四行保留修改，後續要用來判別是否為聊天室的兩位 %>
+        <% if @dialogbox.present? %>
+          <div class="dialogbox-project-title">
+            <h4><%= @dialogbox.project.title %></h4>
+          </div>  
+          <div class="messages-block">
+            <% @dialogbox.messages.each do |message| %>
+              <%= render 'messages/message', message: message %>
+            <% end %>
+          </div>
+          <div class="message-typing-box">
+            <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

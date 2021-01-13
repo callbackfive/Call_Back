@@ -1,15 +1,16 @@
 class DialogboxesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_current_user_projects, only: [:index, :show]
   before_action :set_dialogbox_create_by_current_user, only: [:index, :show]
+  before_action :set_current_user_projects, only: [:index, :show]
 
   def index
   end
 
   def show
-    find_dialogbox
+    # find_dialogbox
     @dialogbox = Dialogbox.find(params[:id])
     @dialogbox_id = params[:id]
+    render 'index'
   end
 
   def create_message
@@ -32,7 +33,7 @@ class DialogboxesController < ApplicationController
   end
 
   def find_dialogbox
-    # @dialogbox = Dialogbox.find(params.values[2].to_i)
+    @dialogbox = Dialogbox.find(params.values[2].to_i)
   end
 
   def set_dialogbox_for_creating_message
