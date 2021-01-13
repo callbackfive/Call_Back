@@ -35,7 +35,6 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    # redirect_to user_projects_path(current_user), notice: '成功新增專案'
   end
 
   def update
