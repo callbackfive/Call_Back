@@ -1,10 +1,9 @@
-<div id="dialogbox-id" data-dialogbox-id="1"></div>
-<%#= @dialogbox_id %>
+<div id="dialogbox-id" data-dialogbox-id="<%= @dialogbox_id %>"></div>
 
 <%= render 'index' %>
 <div class="project-dialogbox">
   <h4><%= @dialogbox.project.title %></h4>
-</div>
+</div>  
 <div class="messages-block">
   <% @dialogbox.messages.each do |message| %>
     <%= render 'messages/message', message: message %>

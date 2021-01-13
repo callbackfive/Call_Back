@@ -9,6 +9,7 @@ class DialogboxesController < ApplicationController
   def show
     find_dialogbox
     @dialogbox = Dialogbox.find(params[:id])
+    @dialogbox_id = params[:id]
   end
 
   def create_message
