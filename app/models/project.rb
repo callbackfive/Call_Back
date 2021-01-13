@@ -26,6 +26,10 @@ class Project < ApplicationRecord
     end
   end
 
+  def seconds_left
+    (due_date.to_i - Time.now.to_i) / (60 * 60 * 24) 
+  end
+
   def status_to_string
     case status_before_type_cast
     when Project.statuses[:is_hidden]

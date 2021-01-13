@@ -16,9 +16,9 @@
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
-<div>NT: <%=@project.paid_orders_amounts%></div>
+<div>NT$<%=@project.paid_orders_amounts%></div>
 <div>募資人數： <%= @project.paid_orders.count%></div>
-<div>截止日期： <%= @project.due_date.strftime('%Y年%m月%d日 %H:%M:%S') %></div>
+<div>剩下<%= @project.seconds_left%>天</div>
 
 <% if !project_owner? %>
   <%= link_to '贊助此專案', rewards_project_path %>
