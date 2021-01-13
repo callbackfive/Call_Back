@@ -4,7 +4,7 @@ import "./Category.scss";
 const Category = ({category,handleBtn}) => {
   return (
     <>
-      <button value={category.title} onClick={handleBtn}>
+      <button value={category.title} onClick={handleBtn} className="btns-cate">
       <div className="category-btn" id={category.id}>
         <div className="category-pic">
           <div className="category-circle">

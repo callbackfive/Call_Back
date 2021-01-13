@@ -5,7 +5,7 @@ import '../home/Rank.scss'
 
 
 
- const CardList = ({projects}) => {
+ const CardList = ({projects,isFilter}) => {
   return (
     <div>
 
@@ -16,7 +16,7 @@ import '../home/Rank.scss'
               <h2 className="title">全部商品</h2>
             </div>
             <div className="ranking-projects">
-              {projects.map(project => (
+              {isFilter.map(project => (
                     <Card key={project.id} project={project}/>
                 ))
                 } 

@@ -3,6 +3,12 @@
   @apply flex;
   @apply justify-around;
  
-  
+  .btns-cate:focus{
+    @apply outline-none;
+    color: #EF5959;
+    font-weight: 800;
+    
+    
+  }
 
 }

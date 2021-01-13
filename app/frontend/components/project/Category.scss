@@ -6,6 +6,8 @@
   @apply box-border;
   @apply space-y-6;
   
+ 
+  
   .category-pic{
 
     width:100px;
@@ -32,9 +34,7 @@
     @apply text-center;
 
   }
-  .category-title:hover{
-   color:#EF5959;
-  }
+
 
 }
 
@@ -52,3 +52,6 @@
   }
 
 }
+
+
+

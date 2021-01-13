@@ -7,6 +7,7 @@ import CardList from '../../components/project/CardList'
 const Projects = () => {
 
   const [projects, setProjects]= useState([])
+  const [isFilter, setIsFilter]= useState([])
   const [isLoading, setIsLoading]= useState(true)
 
 
@@ -29,11 +30,11 @@ const Projects = () => {
   const handleBtn = (e) => {
     
     const currentCategory = e.currentTarget.value
-  
-    let catProduct=projects.filter((item) => item.category === currentCategory )
-    console.log(catProduct)
-    setProjects(catProduct);
-  
+    console.log(currentCategory)
+    let isFilter;
+    isFilter=projects.filter((item) => item.category === currentCategory )
+    console.log(isFilter)
+    setIsFilter(isFilter)
   }
 
   return(
@@ -45,7 +46,7 @@ const Projects = () => {
     </section>
     <section className="projects-bg">
       <div className="projects-container ">
-        <CardList key={projects.id} projects={projects} />
+        <CardList key={projects.id} isFilter={isFilter} projects={projects} />
       </div> 
     </section>
 
