@@ -2,11 +2,14 @@
 
   @apply flex;
   @apply justify-around;
+  @apply text-gray-500;
  
   .btns-cate:focus{
     @apply outline-none;
     color: #EF5959;
     font-weight: 800;
+    border-bottom: 1px;
+    border-color: #EF5959;
     
     
   }

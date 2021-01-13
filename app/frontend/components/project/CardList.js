@@ -5,6 +5,7 @@ import '../home/Rank.scss'
 
 
 
+
  const CardList = ({projects,isFilter}) => {
   return (
     <div>
