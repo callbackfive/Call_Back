@@ -22,6 +22,26 @@
       </ul>
     </div>
 
+    <h2 class="mt-3">已達標專案列表</h2>
+    <div class="mb-3">
+      <ul>
+        <% @user_projects.each do |user_project| %>
+          <% if user_project.succeeded? %>
+            <li>
+              <%= user_project.title %>
+              <%= user_project.status_to_string %></td>
+              <%= link_to "修改", edit_project_path(user_project) %>
+              <%= link_to "專案頁面", user_project %>
+              <%= link_to "刪除", user_project, method: 'delete' %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+
+
+
     <div class="border-t py-3">
       <h2>草稿專案列表</h2>
       <ul>
