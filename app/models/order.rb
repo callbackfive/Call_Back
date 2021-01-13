@@ -14,6 +14,7 @@ class Order < ApplicationRecord
   def paid!
     self.issue_date = Time.now
     super
+    project.reaching_goal
   end
 
 

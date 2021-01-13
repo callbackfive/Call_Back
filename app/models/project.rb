@@ -15,7 +15,6 @@ class Project < ApplicationRecord
 
   enum status: [:is_hidden, :is_published ,:succeeded, :failed]
   scope :is_now_on_sale, -> {self.where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)}
-  #在截止日之前達標
   scope :succeeded_and_done, -> {self.succeeded.where('due_date < ?', Time.now)}
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
@@ -25,13 +24,12 @@ class Project < ApplicationRecord
       sum += order.giveback_price
     end
   end
-
  
-  # def update_status_if_reaching_goal!
-  #   if self.is_published? && (self.paid_orders_amounts >= target_amount)
-  #     self.succeeded!
-  #   end
-  # end
+  def reaching_goal
+    if self.is_published? && (self.paid_orders_amounts >= self.target_amount)
+      self.succeeded!
+    end
+  end
 
 
   def days_left
