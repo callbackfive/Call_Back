@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def user_projects_index
-    @user_projects = Project.where(:user_id => current_user.id)
+    @user_projects = current_user.projects
   end
 
   def show
@@ -27,19 +27,20 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.new(project_params)
     if @project.save
-      redirect_to user_projects_path(current_user), notice: '成功新增專案'
-      @project.is_published!
+      redirect_to edit_project_path(@project)
     else
       render :new
     end
   end
 
   def edit
+    # redirect_to user_projects_path(current_user), notice: '成功新增專案'
   end
 
   def update
     if @project.update(project_params)
       redirect_to project_path, notice: '提案內容已更新'
+      @project.is_published!
     else
       render :edit
     end
