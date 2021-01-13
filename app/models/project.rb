@@ -32,10 +32,3 @@ class Project < ApplicationRecord
 
 
 end
-
-# 元喬
-# scope :participating_rooms, -> (user) dialogbox
-#   where(sender: user, receiver: user)
-# end
-
-# find_or_create   ...Rails內建

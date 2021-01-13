@@ -82,7 +82,7 @@ class ProjectsController < ApplicationController
   def start_dialog
       @dialogbox = @project.dialogboxes.new(user: current_user)
       @dialogbox.save
-      first_msg = Message.new(content: params.values[1].values[1],
+      first_msg = Message.new(content: params[:message][:content],
                               user: current_user,
                               dialogbox: @dialogbox)
       first_msg.save
@@ -93,7 +93,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_project_for_creating_message
-    @project = Project.find(params.values[1].values[0].to_i)
+    @project = Project.find(params[:message][:project])
   end
 
   def project_params

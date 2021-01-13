@@ -1,5 +1,6 @@
 class DialogboxesController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_dialogbox, only: :show
   before_action :set_dialogbox_create_by_current_user, only: [:index, :show]
   before_action :set_current_user_projects, only: [:index, :show]
 
@@ -7,16 +8,19 @@ class DialogboxesController < ApplicationController
   end
 
   def show
-    # find_dialogbox
-    @dialogbox = Dialogbox.find(params[:id])
     @dialogbox_id = params[:id]
-    render 'index'
+    render :index
   end
 
   def create_message
     set_dialogbox_for_creating_message
     continue_dialog
-    redirect_to dialogbox_path(@dialogbox), notice: '訊息已送出'  
+
+    html = render(partial: 'messages/message',
+                  locals: {message: @message}
+                 )
+
+    ActionCable.server.broadcast "dialogbox_channel_#{@dialogbox.id}", html: html
   end
 
   private
@@ -33,16 +37,17 @@ class DialogboxesController < ApplicationController
   end
 
   def find_dialogbox
-    @dialogbox = Dialogbox.find(params.values[2].to_i)
+    @dialogbox = Dialogbox.find(params[:id])
   end
 
   def set_dialogbox_for_creating_message
-    @dialogbox = Dialogbox.find(params.values[1].values[0].to_i)
+    @dialogbox = Dialogbox.find(params[:message][:dialogbox])
   end
 
   def continue_dialog
-    @dialogbox.messages.create(user: current_user,
-                              content: params.values[1].values[1])
+    @message = current_user.messages.create(dialogbox: @dialogbox,
+                                            user: current_user,
+                                            content: params[:message][:content])
   end
 
 end

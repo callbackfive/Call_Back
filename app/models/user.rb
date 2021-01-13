@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :comments
   has_many :dialogboxes
+  has_many :messages
   has_many :orders
   mount_uploader :image, ImageUploader
   acts_as_paranoid
