@@ -113,6 +113,16 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, :category_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
+    params.require(:project).permit(
+      :title, 
+      :summary, 
+      :content, 
+      :image, 
+      :target_amount, 
+      :user_id, 
+      :due_date, 
+      :status, 
+      :category_id, 
+      givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

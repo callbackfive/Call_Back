@@ -7,7 +7,7 @@ class Ability
 
     if user.admin?
       can :manage, :all
-    elsif user.regular?
+    else user.regular?
       can :manage, Project, user_id: user.id
     end
 
