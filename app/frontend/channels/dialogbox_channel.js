@@ -3,7 +3,7 @@ import consumer from "./consumer"
 document.addEventListener('turbolinks:load', () => {
   let dialogbox_id = document.getElementById('dialogbox-id').getAttribute('data-dialogbox-id');
 
-  console.log(dialogbox_id);
+  console.log(dialogbox_id + "這是對話框喔");
   consumer.subscriptions.create({ channel: "DialogboxChannel", dialogbox_id: dialogbox_id }, {
     connected() {
       console.log('Connected to dialogbox channel ' + dialogbox_id);
