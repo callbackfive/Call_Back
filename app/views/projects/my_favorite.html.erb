@@ -1,0 +1,10 @@
+<div class="container">
+  <% @my_fav_projects.each do |my_fav_project| %>
+    <%= link_to project_path(my_fav_project) do %>
+      <div class="m-3">
+        <%= my_fav_project.title %>
+        <%= my_fav_project.target_amount %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

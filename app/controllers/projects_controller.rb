@@ -69,12 +69,16 @@ class ProjectsController < ApplicationController
 
   def favorite
     if current_user.favorite?(@project)
-      current_user.my_favorites.destroy(@project)
+      current_user.my_fav_projects.destroy(@project)
       render json: { status: 'removed' }
     else
-      current_user.my_favorites << @project
+      current_user.my_fav_projects << @project
       render json: { status: 'added' }
     end
+  end
+
+  def my_favorite
+    @my_fav_projects = current_user.my_fav_projects
   end
 
   private
