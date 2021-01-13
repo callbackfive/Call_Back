@@ -17,9 +17,9 @@ import '../home/Rank.scss'
             </div>
             <div className="ranking-projects">
               {projects.map(project => (
-                    <Card key={index} project={project}/>
+                    <Card key={project.id} project={project}/>
                 ))
-                }   
+                } 
             </div>
             <a href="/projects" className="more-btn">查看更多</a> 
           </div>
