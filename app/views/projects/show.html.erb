@@ -56,11 +56,22 @@
 
 <div>
   <ul>
-    <% @givebacks.each do |g| %>
-      <%= image_tag g.image_url if g.image_url.present? %>
-      <li>回饋商品： <%= g.title %></li>
-      <li>商品價格： <%= g.price %>元</li>
-      <%= link_to "贊助此回饋商品", user_order_path(current_user, g) %>
+    <% @givebacks.each do |giveback| %>
+      <div class="border-2 my-2">
+      <div class="w-40">
+        <%= image_tag giveback.image_url if giveback.image_url.present? %>
+      </div>
+      <div>
+        商品名稱：<%= giveback.title %>
+      </div>
+      <div>
+        商品價格：<%= giveback.price %>元
+      </div>
+      <div>
+        預估寄送時間：<%= giveback.deliver_time %>寄送
+      </div>
+      <%= link_to "贊助此回饋商品", user_order_path(current_user, giveback) %>
+    </div>
     <%end%>
   </ul>
 </div>

@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
-    @project.project_new_validation = true
+    @project.new_project_validation = true
     if @project.save
       redirect_to edit_project_path(@project)
     else
@@ -36,9 +36,16 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @givebacks = @project.givebacks
   end
 
   def update
+    if @project.is_published?
+      @project.is_published_project_validation = true
+    else
+      @project.edit_project_validation = true
+    end
+
     if @project.update(project_params)
       redirect_to project_path, notice: '提案內容已更新'
       @project.is_published!
