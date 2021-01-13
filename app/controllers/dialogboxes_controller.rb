@@ -15,12 +15,10 @@ class DialogboxesController < ApplicationController
   def create_message
     set_dialogbox_for_creating_message
     continue_dialog
+    # ActionCable.server.broadcast "dialogbox_channel_#{@message.dialogbox.id}", content: '123'
+    # SendMessageJob.perform_later(@message)
 
-    html = render(partial: 'messages/message',
-                  locals: {message: @message}
-                 )
-
-    ActionCable.server.broadcast "dialogbox_channel_#{@dialogbox.id}", html: html
+    ActionCable.server.broadcast "dialogbox_channel_#{@message.dialogbox.id}", {html: render_message}
   end
 
   private
@@ -50,4 +48,17 @@ class DialogboxesController < ApplicationController
                                             content: params[:message][:content])
   end
 
+  def render_message
+    ApplicationController.renderer.instance_variable_set(
+    :@env, {
+      "HTTP_HOST"=>"localhost:3000", 
+      "HTTPS"=>"off", 
+      "REQUEST_METHOD"=>"GET", 
+      "SCRIPT_NAME"=>"",   
+      "warden" => warden
+    }
+  )
+  ApplicationController.render(partial: 'messages/message', locals: {message: @message})
+
+  end
 end
