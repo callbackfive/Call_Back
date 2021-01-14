@@ -25,7 +25,9 @@
           </div>  
           <div class="messages-block">
             <% @dialogbox.messages.each do |message| %>
-              <%= render 'messages/message', message: message %>
+              <div id="messages-container">
+                <%= render 'messages/message', message: message %>
+              </div>
             <% end %>
           </div>
           <div class="message-typing-box">
