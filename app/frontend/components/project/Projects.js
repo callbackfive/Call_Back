@@ -28,13 +28,20 @@ const Projects = () => {
   
   
   const handleBtn = (e) => {
-    
+  
     const currentCategory = e.currentTarget.value
     console.log(currentCategory)
     let isFilter;
-    isFilter=projects.filter((item) => item.category === currentCategory )
+    if(currentCategory ==="全部"){
+      isFilter=projects
+      setIsFilter(isFilter)
+    }else{
+      isFilter=projects.filter((item) => item.category === currentCategory )
+      setIsFilter(isFilter)
+    }
+    
     console.log(isFilter)
-    setIsFilter(isFilter)
+    
   }
 
   return(
