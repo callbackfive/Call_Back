@@ -17,6 +17,19 @@ class Order < ApplicationRecord
     project.reaching_goal
   end
 
+  def self.to_csv
+    attributes = %w{merchantOrderNo project_title giveback_title giveback_price issue_date status}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |order|
+        csv << attributes.map{ |attr| order.send(attr) }
+      end
+    end
+  end
+
+
   def status_to_string
     case status_before_type_cast
     when Order.statuses[:order_received]
