@@ -9,16 +9,15 @@ class DialogboxesController < ApplicationController
 
   def show
     @dialogbox_id = params[:id]
+    @current_user_id = current_user.id
     render :index
   end
 
   def create_message
     set_dialogbox_for_creating_message
     continue_dialog
-    # ActionCable.server.broadcast "dialogbox_channel_#{@message.dialogbox.id}", content: '123'
-    # SendMessageJob.perform_later(@message)
 
-    ActionCable.server.broadcast "dialogbox_channel_#{@message.dialogbox.id}", {html: render_message}
+    SendMessageJob.perform_later(@message)
   end
 
   private
