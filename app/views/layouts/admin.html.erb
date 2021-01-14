@@ -1,8 +1,22 @@
-<title>UnitedIssues</title>
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-<%= csrf_meta_tags %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Callback</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<div class="container main">
-  <%= yield %>
-  <%= debug(params) if Rails.env.development? %>
-</div>  
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
+ 
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>" >
+    <div class="container main">
+      <%= render "shared/admin_navbar" %>
+      <div style="margin-top:55px"></div>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>  
+  </body>
+</html>
