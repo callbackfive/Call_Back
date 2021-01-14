@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   has_many :orders, through: :givebacks
   has_many :favorite_projects
   has_many :fav_users, through: :fav_projects, source: 'user'
+  has_many :paid_orders, through: :givebacks
+
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
   mount_uploader :image, ImageUploader
   acts_as_paranoid
@@ -26,9 +28,25 @@ class Project < ApplicationRecord
 
   enum status: [:is_hidden, :is_published ,:succeeded, :failed]
   scope :is_now_on_sale, -> {self.where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)}
-  #在截止日之前達標
   scope :succeeded_and_done, -> {self.succeeded.where('due_date < ?', Time.now)}
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
+
+
+  def paid_orders_amounts  
+    return paid_orders.inject(0) do |sum, order|
+      sum += order.giveback_price
+    end
+  end
+ 
+  def reaching_goal
+    if self.is_published? && (self.paid_orders_amounts >= self.target_amount)
+      self.succeeded!
+    end
+  end
+
+  def days_left
+    (due_date.to_i - Time.now.to_i) / (60 * 60 * 24) 
+  end
 
   def status_to_string
     case status_before_type_cast
@@ -44,6 +62,5 @@ class Project < ApplicationRecord
       return "狀態未明"
     end
   end
-
-
+  
 end

@@ -16,10 +16,31 @@
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
-<div>截止日期： <%= @project.due_date %></div>
+<div>NT$<%=@project.paid_orders_amounts%></div>
+<div>募資人數： <%= @project.paid_orders.count%></div>
+<div>剩下<%= @project.days_left%>天</div>
+
 <% if !project_owner? %>
-  <%= link_to '贊助此專案', rewards_project_path %>
+  <%= link_to "贊助此專案",rewards_project_path %>
 <% end %>
+
+<%# -----giveback-----%>
+
+<div>
+  <ul>
+    <% @givebacks.each do |g| %>
+      <%= image_tag g.image_url if g.image_url.present? %>
+      <li>回饋商品： <%= g.title %></li>
+      <li>商品價格： <%= g.price %>元</li>
+    
+     <% if !project_owner? %>
+      <%= link_to "贊助此回饋商品", user_order_path(current_user, g) %>
+     <% end %>
+    <%end%>
+  </ul>
+</div>
+<br>
+
 
 <%# -----dialogbox-----%>
 <div>
@@ -51,31 +72,6 @@
     </div>
   </div>
 </div>
-
-<%# -----giveback-----%>
-
-<div>
-  <ul>
-    <% @givebacks.each do |giveback| %>
-      <div class="border-2 my-2">
-      <div class="w-40">
-        <%= image_tag giveback.image_url if giveback.image_url.present? %>
-      </div>
-      <div>
-        商品名稱：<%= giveback.title %>
-      </div>
-      <div>
-        商品價格：<%= giveback.price %>元
-      </div>
-      <div>
-        預估寄送時間：<%= giveback.deliver_time %>寄送
-      </div>
-      <%= link_to "贊助此回饋商品", user_order_path(current_user, giveback) %>
-    </div>
-    <%end%>
-  </ul>
-</div>
-<br>
 
 <%# -----comment-----%>
 <h3>---留言區---</h3>
