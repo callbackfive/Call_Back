@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :categories
+  end
+  namespace :admin do
     resources :projects
   end
   root to: "home#index"
@@ -10,6 +13,8 @@ Rails.application.routes.draw do
 
 =======
   namespace :admin do
+    root to: "home#index"
+    resources :categories
     resources :projects
   end
   

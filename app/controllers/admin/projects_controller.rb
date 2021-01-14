@@ -1,4 +1,5 @@
 class Admin::ProjectsController < ApplicationController
+  layout 'admin'
   before_action :set_admin_project, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/projects
