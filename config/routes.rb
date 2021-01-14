@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :categories
-  end
-  namespace :admin do
-    resources :projects
-  end
   root to: "home#index"
 
 <<<<<<< HEAD
@@ -16,6 +10,7 @@ Rails.application.routes.draw do
     root to: "home#index"
     resources :categories
     resources :projects
+    resources :users
   end
   
 >>>>>>> 2b097a8 (create admin/project page)
