@@ -48,17 +48,17 @@ class DialogboxesController < ApplicationController
                                             content: params[:message][:content])
   end
 
-  def render_message
-    ApplicationController.renderer.instance_variable_set(
-    :@env, {
-      "HTTP_HOST"=>"localhost:3000", 
-      "HTTPS"=>"off", 
-      "REQUEST_METHOD"=>"GET", 
-      "SCRIPT_NAME"=>"",   
-      "warden" => warden
-    }
-  )
-  ApplicationController.render(partial: 'messages/message', locals: {message: @message})
+  # def render_message
+  #   ApplicationController.renderer.instance_variable_set(
+  #   :@env, {
+  #     "HTTP_HOST"=>"localhost:3000", 
+  #     "HTTPS"=>"off", 
+  #     "REQUEST_METHOD"=>"GET", 
+  #     "SCRIPT_NAME"=>"",   
+  #     "warden" => warden
+  #   }
+  # )
+  # ApplicationController.render(partial: 'messages/message', locals: {message: @message})
 
-  end
+  # end
 end
