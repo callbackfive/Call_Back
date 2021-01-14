@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_150943) do
+ActiveRecord::Schema.define(version: 2021_01_14_100018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,8 +117,6 @@ ActiveRecord::Schema.define(version: 2021_01_13_150943) do
     t.integer "end_price"
     t.integer "status", default: 0, null: false
     t.datetime "paid_date"
-    t.datetime "unpaid_payment_expire_date"
-    t.integer "transaction_service_provider"
     t.string "third_party_payment_id"
     t.string "time_stamp"
     t.integer "payment_type"

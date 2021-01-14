@@ -22,15 +22,9 @@ class OrdersController < ApplicationController
       end
     end
 
-
     def show
       @order = Order.new
     end
-
-    def paid_record
-       
-    end
-    
 
     def create
       @giveback = Giveback.find(order_params[:giveback_id])

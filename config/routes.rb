@@ -35,9 +35,6 @@ Rails.application.routes.draw do
       member do
         get 'records', as: 'records', action: :paid_record
       end
-      # colletion do
-      #   post :import
-      # end
     end
   end
 
