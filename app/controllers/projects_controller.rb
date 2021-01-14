@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
+    @project.new_project_validation = true
     if @project.save
       redirect_to edit_project_path(@project)
     else
@@ -35,10 +36,16 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    # redirect_to user_projects_path(current_user), notice: '成功新增專案'
+    @givebacks = @project.givebacks
   end
 
   def update
+    if @project.is_published?
+      @project.is_published_project_validation = true
+    else
+      @project.edit_project_validation = true
+    end
+
     if @project.update(project_params)
       redirect_to project_path, notice: '提案內容已更新'
       @project.is_published!
@@ -113,6 +120,16 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, :category_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
+    params.require(:project).permit(
+      :title, 
+      :summary, 
+      :content, 
+      :image, 
+      :target_amount, 
+      :user_id, 
+      :due_date, 
+      :status, 
+      :category_id, 
+      givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

@@ -12,6 +12,19 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
   mount_uploader :image, ImageUploader
   acts_as_paranoid
+  validates :target_amount, numericality: { only_integer: true }
+
+  #在project new頁面的驗證
+  attr_accessor :new_project_validation
+  validates :title, presence: true, if: -> {new_project_validation} 
+
+  #在project edit頁面的驗證
+  attr_accessor :edit_project_validation
+  validates :title, :image, :summary, :content, :target_amount, :due_date,:givebacks, presence: true, if: -> {edit_project_validation} 
+
+  #已經發布的專案的edit頁面驗證
+  attr_accessor :is_published_project_validation
+  validates :image, :summary, :content, presence: true, if: -> {is_published_project_validation}
 
   enum status: [:is_hidden, :is_published ,:succeeded, :failed]
   scope :is_now_on_sale, -> {self.where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)}
@@ -51,9 +64,3 @@ class Project < ApplicationRecord
   end
   
 end
-
-# scope :participating_rooms, -> (user) dialogbox
-#   where(sender: user, receiver: user)
-# end
-
-# find_or_create   ...Rails內建
