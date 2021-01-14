@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :orders
+  end
   root to: "home#index"
 
 <<<<<<< HEAD
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
 
 =======
   namespace :admin do
-    root to: "home#index"
+    root to: "users#index"
     resources :categories
     resources :projects
     resources :users
