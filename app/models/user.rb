@@ -14,7 +14,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :name, presence: true
-  enum role: [ :guest, :regular, :admin ]
+  enum role: [ :regular, :admin ]
 
   def self.from_omniauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)

@@ -10,8 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="m-3">
+    <%= form_for(admin_category) do |form| %>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, class:"border-2" %><br>
+      <div class="my-3">
+        <%= form.label :image, '類別照片' %><br>
+        <%= form.file_field :image, id: :category_image %>
+      </div>
+      <%= form.submit %>
+    <% end%>
   </div>
 <% end %>

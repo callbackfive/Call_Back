@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Admin Projects</h1>
+<div class="text-center">
+  <h1 class="text-xl mb-3">專案清單</h1>
+  <%= link_to '新增專案', new_admin_project_path, class:"bg-blue-200 rounded p-1"%>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="my-2 py-2 flex justify-center">
+    <div class="mt-6 inline-block px-8 pt-3">
+      <table class="w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">名稱</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">狀態</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">目標金額</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">贊助總額</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider", colspan="3">操作</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @admin_projects.each do |admin_project| %>
-      <tr>
-        <td><%= link_to 'Show', admin_project %></td>
-        <td><%= link_to 'Edit', edit_admin_project_path(admin_project) %></td>
-        <td><%= link_to 'Destroy', admin_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Admin Project', new_admin_project_path %>
+        <tbody>
+          <% @admin_projects.each do |admin_project| %>
+            <tr>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.title %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.status %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.target_amount %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.paid_orders_amounts %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Show', admin_project %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Edit', edit_admin_project_path(admin_project) %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Destroy', admin_project, method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
