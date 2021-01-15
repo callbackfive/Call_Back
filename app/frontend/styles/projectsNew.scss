@@ -11,10 +11,11 @@
       .projects-new-row{
         @apply flex;
         @apply flex-col;
+        @apply justify-items-center;
         
         h2{
           color:#EF5959;
-          @apply text-4xl;
+          @apply text-3xl;
           @apply font-bold;
           @apply text-center;
           @apply my-6;
