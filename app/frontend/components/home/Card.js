@@ -1,42 +1,75 @@
 import React,{useState,useEffect} from 'react'
 import './Card.scss'
 
- const Card  = ({ project }) => {
-
-  return (
-    <>
-
-    <div className="card-item">
-
-      <img className="item-img" src={project.webformatURL}/>
-     
-      <div className="item-content">
-
-        <div className="item-category">
-          <p>創意生活</p>
-          <p>SUCCESS !</p>
-        </div>
-
-        <div className="item-txt">
-          <h2>SWOL 雙水箱旋轉拖把 | 分離淨水和污水，才是真正的乾淨</h2>
-          <p>Swol</p>
-        </div>
-
-        <div className="item-progress">
+ const Card  = ({ project,onClick }) => {
 
 
-          <div className="pg-txt">
-            
-            <div className="price">$30,000</div>
-            <div className="days">剩53天</div>
 
+  if(project.status === "succeeded"){
+    return (
+      <>
+        <button onClick={()=>onClick(project.id)}>
+          <div className="card-item">
+            <div className="card-pic">
+              <img className="item-img" src={project.img}/>
+            </div>
+            <div className="item-content">
+              <div className="item-category">
+                <p>{project.category_title}</p>
+                <p>SUCCESS !</p>
+              </div>
+              <div className="item-txt">
+                <h2 className="truncate">{project.title}</h2>
+                <p>{project.name}</p>
+              </div>
+              <div className="item-progress">
+                <div className="pg-txt flex justify-between">
+                  <div className="price">{project.target_amount}</div>
+                  <div className="days">剩53天</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-    
-    </>
-  )
+        </button>
+      </>
+    )
+  }else{
+    return (
+      <>
+         <a onClick={()=>onClick(project.id)}>
+          <div className="card-item">
+            <div className="card-pic">
+              <img className="item-img" src={project.img}/>
+            </div>
+            
+            <div className="item-content">
+
+              <div className="item-category">
+                <p>{project.category}</p>
+                
+              </div>
+
+              <div className="item-txt">
+                <h2 className="truncate">{project.title}</h2>
+                <p>{project.name}</p>
+              </div>
+
+              <div className="item-progress">
+
+                <div className="pg-txt flex justify-between">
+              
+                  <div className="price">{project.target_amount}</div>
+                  <div className="days">剩53天</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </>
+    )
+  }
+
 }
 
 export default Card

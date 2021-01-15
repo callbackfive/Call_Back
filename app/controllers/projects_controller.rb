@@ -22,7 +22,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project.givebacks.new
   end
 
   def create
@@ -37,6 +36,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @givebacks = @project.givebacks
+    @project.givebacks.new
   end
 
   def update

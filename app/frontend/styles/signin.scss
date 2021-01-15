@@ -66,8 +66,10 @@
       .btn-google{
         @apply mx-auto;
         @apply inline-block;
-        @apply text-white;
+        @apply text-gray-500;
         @apply font-bold;
+        @apply border;
+        @apply border-gray-400;
         @apply py-2;
         @apply rounded;
         @apply shadow-sm;
@@ -75,7 +77,7 @@
         @apply transition;
         @apply duration-200;
         margin: 5px 0;
-        background:#EF5959;
+        background:white;
         text-align: center;
         letter-spacing:3px;
       }
