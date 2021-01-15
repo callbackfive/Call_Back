@@ -13,7 +13,7 @@
               <%= user_project.status_to_string %></td>
               <%= link_to "修改", edit_project_path(user_project) %>
               <%= link_to "專案頁面", user_project %>
-              <%= link_to "刪除", user_project, method: 'delete' %>
+              <%= link_to "專案支付紀錄", myorderlist_project_path(user_project)%>
             </li>
           <% end %>
         <% end %>
@@ -30,7 +30,7 @@
               <%= user_project.status_to_string %></td>
               <%= link_to "修改", edit_project_path(user_project) %>
               <%= link_to "專案頁面", user_project %>
-              <%= link_to "刪除", user_project, method: 'delete' %>
+              <%= link_to "專案支付紀錄", myorderlist_project_path(user_project)%>
             </li>
           <% end %>
         <% end %>
@@ -57,3 +57,4 @@
 <div>
   <%= link_to '回首頁(探索)', root_path %>
 </div>
+
