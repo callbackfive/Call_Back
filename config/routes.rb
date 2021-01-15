@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   end
   root to: "home#index"
 
-<<<<<<< HEAD
   get '/apis/projects', action: 'projects',controller: 'apis'
   get '/apis/categories', action: 'categories',controller: 'apis'
 
-=======
   namespace :admin do
     root to: "users#index"
     resources :categories
@@ -16,7 +14,6 @@ Rails.application.routes.draw do
     resources :users
   end
   
->>>>>>> 2b097a8 (create admin/project page)
   devise_for :users, controllers: { 
     sessions: 'users/sessions', 
     registrations: "users/registrations",
