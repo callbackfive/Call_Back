@@ -1,14 +1,46 @@
 <h1>募資專案頁(show)</h1>
+<h2 data-controller="favorite" data-favorite-id="<%= @project.id %>">
+  <% if user_signed_in? && !project_owner? %>
+    <%= link_to '#', data: { action: 'favorite#toggle_like' } do %>
+      <% if current_user.favorite?(@project) %>
+        <i class="fas fa-heart" data-favorite-target='icon'></i>
+      <% else %>
+        <i class="far fa-heart" data-favorite-target='icon'></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</h2>
 <%= image_tag @project.image_url if @project.image_url.present? %>
 <div>專案名稱： <%= @project.title %></div>
 <div>專案類別： <%= @project.category.title %></div>
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
-<div>截止日期： <%= @project.due_date %></div>
+<div>NT$<%=@project.paid_orders_amounts%></div>
+<div>募資人數： <%= @project.paid_orders.count%></div>
+<div>剩下<%= @project.days_left%>天</div>
+
 <% if !project_owner? %>
-  <%= link_to '贊助此專案', rewards_project_path %>
+  <%= link_to "贊助此專案",rewards_project_path %>
 <% end %>
+
+<%# -----giveback-----%>
+
+<div>
+  <ul>
+    <% @givebacks.each do |g| %>
+      <%= image_tag g.image_url if g.image_url.present? %>
+      <li>回饋商品： <%= g.title %></li>
+      <li>商品價格： <%= g.price %>元</li>
+    
+     <% if !project_owner? %>
+      <%= link_to "贊助此回饋商品", user_order_path(current_user, g) %>
+     <% end %>
+    <%end%>
+  </ul>
+</div>
+<br>
+
 
 <%# -----dialogbox-----%>
 <div>
@@ -40,20 +72,6 @@
     </div>
   </div>
 </div>
-
-<%# -----giveback-----%>
-
-<div>
-  <ul>
-    <% @givebacks.each do |g| %>
-      <%= image_tag g.image_url if g.image_url.present? %>
-      <li>回饋商品： <%= g.title %></li>
-      <li>商品價格： <%= g.price %>元</li>
-      <%= link_to "贊助此專案", user_order_path(g) %>
-    <%end%>
-  </ul>
-</div>
-<br>
 
 <%# -----comment-----%>
 <h3>---留言區---</h3>

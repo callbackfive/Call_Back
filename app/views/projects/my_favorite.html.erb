@@ -1,0 +1,21 @@
+<div class="container">
+  <thead>
+    <tr>
+      <th></th>
+      <th>專案名稱</th>
+      <th>募資目標</th>
+      <th>目前募資總額</th>
+      <th>倒數時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @my_fav_projects.each do |my_fav_project| %>
+      <tr><%= link_to project_path(my_fav_project) do %>
+        <%= my_fav_project.title %>
+        <%= my_fav_project.target_amount %>
+        <%#= my_fav_project.paid_orders_amounts %>
+        <%#= my_fav_project.days_left %>
+      <% end %></tr>
+    <% end %>
+  </tbody>
+</div>

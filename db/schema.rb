@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_12_061236) do
+ActiveRecord::Schema.define(version: 2021_01_13_150943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,20 @@ ActiveRecord::Schema.define(version: 2021_01_12_061236) do
     t.index ["user_id"], name: "index_dialogboxes_on_user_id"
   end
 
+  create_table "fav_projects", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_fav_projects_on_project_id"
+    t.index ["user_id"], name: "index_fav_projects_on_user_id"
+  end
+
   create_table "givebacks", force: :cascade do |t|
     t.string "title"
     t.integer "price"
     t.text "description"
-    t.datetime "deliver_time"
+    t.date "deliver_time"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -160,7 +169,7 @@ ActiveRecord::Schema.define(version: 2021_01_12_061236) do
     t.string "fb_token"
     t.string "image"
     t.datetime "deleted_at"
-    t.integer "role"
+    t.integer "role", default: 0
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["fb_uid"], name: "index_users_on_fb_uid"
@@ -171,6 +180,8 @@ ActiveRecord::Schema.define(version: 2021_01_12_061236) do
   add_foreign_key "comments", "users"
   add_foreign_key "dialogboxes", "projects"
   add_foreign_key "dialogboxes", "users"
+  add_foreign_key "fav_projects", "projects"
+  add_foreign_key "fav_projects", "users"
   add_foreign_key "givebacks", "projects"
   add_foreign_key "identities", "users"
   add_foreign_key "messages", "dialogboxes"

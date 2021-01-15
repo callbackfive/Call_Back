@@ -1,15 +1,16 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks]
+  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @projects = Project.all
     @projects = Project.is_now_on_sale 
     @successful_projects = Project.succeeded_and_done
     @past_projects = Project.past_projects
   end
 
   def user_projects_index
-    @user_projects = Project.where(:user_id => current_user.id)
+    @user_projects = current_user.projects
   end
 
   def show
@@ -26,20 +27,28 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
+    @project.new_project_validation = true
     if @project.save
-      redirect_to user_projects_path(current_user), notice: '成功新增專案'
-      @project.is_published!
+      redirect_to edit_project_path(@project)
     else
       render :new
     end
   end
 
   def edit
+    @givebacks = @project.givebacks
   end
 
   def update
+    if @project.is_published?
+      @project.is_published_project_validation = true
+    else
+      @project.edit_project_validation = true
+    end
+
     if @project.update(project_params)
       redirect_to project_path, notice: '提案內容已更新'
+      @project.is_published!
     else
       render :edit
     end
@@ -65,6 +74,20 @@ class ProjectsController < ApplicationController
     @givebacks = @project.givebacks
   end
 
+  def favorite
+    if current_user.favorite?(@project)
+      current_user.my_fav_projects.destroy(@project)
+      render json: { status: 'removed' }
+    else
+      current_user.my_fav_projects << @project
+      render json: { status: 'added' }
+    end
+  end
+
+  def my_favorite
+    @my_fav_projects = current_user.my_fav_projects
+  end
+
   private
   def had_dialog?
     @my_msg = Message.joins(:dialogbox)
@@ -80,12 +103,12 @@ class ProjectsController < ApplicationController
   end
 
   def start_dialog
-      @dialogbox = @project.dialogboxes.new(user: current_user)
-      @dialogbox.save
-      first_msg = Message.new(content: params[:message][:content],
+    @dialogbox = @project.dialogboxes.new(user: current_user)
+    @dialogbox.save
+    first_msg = Message.new(content: params[:message][:content],
                               user: current_user,
                               dialogbox: @dialogbox)
-      first_msg.save
+    first_msg.save
   end
   
   def find_project
@@ -97,6 +120,16 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :summary, :content, :image, :target_amount, :user_id, :due_date, :status, :category_id, givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
+    params.require(:project).permit(
+      :title, 
+      :summary, 
+      :content, 
+      :image, 
+      :target_amount, 
+      :user_id, 
+      :due_date, 
+      :status, 
+      :category_id, 
+      givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
 end

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :dialogboxes
   has_many :messages
   has_many :orders
+  has_many :fav_projects
+  has_many :my_fav_projects, through: :fav_projects, source: 'project'
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :name, presence: true
@@ -39,6 +41,10 @@ class User < ApplicationRecord
     end
 
     user
+  end
+
+  def favorite?(project)
+    my_fav_projects.include?(project)
   end
 
   def delete_access_token(auth)

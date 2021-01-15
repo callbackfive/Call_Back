@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     member do
       get 'rewards', as: 'rewards', action: :project_givebacks
     end
+    member do
+      post :favorite
+    end
+    collection do
+      get :my_favorite
+    end
     resources :comments, shallow: true, only: [:new, :create, :destroy]
   end 
 
@@ -25,7 +31,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index
-    resources :orders, only: [:index, :new, :create, :show]
+    resources :orders, only: [:index, :new, :create, :show] do
+      member do
+        get 'records', as: 'records', action: :paid_record
+      end
+    end
   end
 
   resources :categories, shallow: true
@@ -33,10 +43,8 @@ Rails.application.routes.draw do
   resources :payments do
     collection do
       get :mpg
-      get :canceled
       post :notify
       post :paid
-      post :not_paid_yet
     end
   end
 

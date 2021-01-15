@@ -10,7 +10,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  config.omniauth :facebook, ENV['fb_api'], ENV['fb_secret'], :scope => 'public_profile,email', :info_fields => 'email,name', callback_url: "http://localhost:5000/users/auth/facebook/callback"
+  config.omniauth :facebook, ENV['fb_api'], ENV['fb_secret'], :scope => 'public_profile,email', :info_fields => 'email,name', callback_url: "http://callback.money/users/auth/facebook/callback"
 
   config.omniauth :google_oauth2, ENV['google_api'], ENV['google_secret']
 

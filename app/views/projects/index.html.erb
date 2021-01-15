@@ -1,33 +1,4 @@
-<div>
-  <% if user_signed_in? %>
-    <div>
-      <%= current_user.name %>
-    </div>
-    <div>
-      <%= link_to '登出', destroy_user_session_path, method: "delete" %>
-    </div>
-    <div>
-      <%= link_to '個人頁面', profile_users_path %>
-    </div>
-    <div>
-      <%= link_to '您的提案列表', user_projects_path(current_user) %>
-    </div>
-    <div>
-      <%= link_to '聯絡訊息', dialogboxes_path %>
-    </div>
-    <div>
-      <%= link_to '您的贊助列表', user_orders_path(current_user) %>
-    </div>
-  <% else %>
-    <%= link_to '註冊', new_user_registration_path %>
-    <%= link_to '登入', new_user_session_path %>
-  <% end %>
-</div>
-
 <h1 class="text-xl text-green-500">專案列表</h1>
-
-<%= link_to "提案", new_project_path, class: "text-blue-300  hover:text-white px-3 py-2 rounded-md text-large font-medium" %>
-
 <ul>
   <% @projects.each do |project| %>
     <li>
@@ -36,30 +7,3 @@
   <% end %>
 </ul>
 
-<div>
-  <div class="container">
-    <p>正在募資</p>
-    <% unless @projects.blank? %>
-      <%= render 'projects/card_list', projects: @projects %>
-    <% else %>
-      <div>
-        <p>現在沒有進行中的募資！！</p>
-      </div>
-    <% end %>
-    <hr />
-  </div>
-  <% unless @successful_projects.blank? %>
-    <div class="container">
-      <p>募資成功</p>
-      <%= render 'projects/card_list', projects: @successful_projects %>
-      <hr />
-    </div>
-  <% end %>
-  <% unless @past_projects.blank? %>
-    <div class="container">
-      <p>過去專案</p>
-      <%= render 'projects/card_list', projects: @past_projects %>
-      <hr />
-    </div>
-  <% end %>
-</div>
