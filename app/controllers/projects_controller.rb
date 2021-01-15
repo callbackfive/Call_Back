@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite]
+  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite, :project_orders_index]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -12,6 +12,11 @@ class ProjectsController < ApplicationController
   def user_projects_index
     @user_projects = current_user.projects
   end
+
+  def project_orders_index
+    @my_order_lists = @project.orders.order(id: :desc)
+  end
+  
 
   def show
     @givebacks = @project.givebacks
