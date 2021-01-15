@@ -10,6 +10,7 @@
     <% end %>
   <% end %>
 </h2>
+
 <%= image_tag @project.image_url if @project.image_url.present? %>
 <div>專案名稱： <%= @project.title %></div>
 <div>專案類別： <%= @project.category.title %></div>
