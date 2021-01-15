@@ -6,12 +6,12 @@ class Admin::ProjectsController < ApplicationController
   # GET /admin/projects.json
   def index
     @admin_projects = Admin::Project.order(params[:sort])
-    @givebacks = @admin_projects.givebacks
   end
 
   # GET /admin/projects/1
   # GET /admin/projects/1.json
   def show
+    @givebacks = @admin_project.givebacks
   end
 
   # GET /admin/projects/new
@@ -71,6 +71,16 @@ class Admin::ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_project_params
-      params.fetch(:admin_project, {})
+      params.fetch(:admin_project).permit(
+        :title, 
+        :summary, 
+        :content, 
+        :image, 
+        :target_amount, 
+        :user_id, 
+        :due_date, 
+        :status, 
+        :category_id, 
+        givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
     end
 end
