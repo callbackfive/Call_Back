@@ -27,6 +27,11 @@ Rails.application.routes.draw do
     get '/profile', action: 'show'
   end
 
+  resources :users do
+    resources :projects, only: [:index], action: :user_projects_index
+    resources :orders, only: [:index, :new, :create, :show]
+  end
+
   # projects
   resources :projects, path_names: {new: 'proposal'} do
     member do
