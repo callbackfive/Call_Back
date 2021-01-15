@@ -1,7 +1,16 @@
-<h1>修改提案內容</h1>
-<div>請確認好您的專案時程與募資金額</div>
+<div class="container">
+  <h1>修改提案內容</h1>
+  <div>請確認好您的專案時程與募資金額</div>
 
-<%= render 'form', project: @project %>
-<div>
-  <%= link_to '回專案列表', projects_path %></h2>
+  <% if @project.is_published? %>
+    <%= render 'published_form', project: @project %>
+  <% end %>
+
+  <% if @project.is_hidden? %>
+    <%= render 'hidden_form', project: @project %>
+  <% end %>
+  
+  <div>
+    <%= link_to '回專案列表', projects_path %></h2>
+  </div>
 </div>

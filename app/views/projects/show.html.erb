@@ -1,15 +1,28 @@
 <h1>募資專案頁(show)</h1>
+<h2 data-controller="favorite" data-favorite-id="<%= @project.id %>">
+  <% if user_signed_in? && !project_owner? %>
+    <%= link_to '#', data: { action: 'favorite#toggle_like' } do %>
+      <% if current_user.favorite?(@project) %>
+        <i class="fas fa-heart" data-favorite-target='icon'></i>
+      <% else %>
+        <i class="far fa-heart" data-favorite-target='icon'></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</h2>
 <%= image_tag @project.image_url if @project.image_url.present? %>
 <div>專案名稱： <%= @project.title %></div>
 <div>專案類別： <%= @project.category.title %></div>
 <div>內容摘要： <%= @project.summary %></div>
 <div>專案內容： <%= @project.content %></div>
 <div>募資目標： <%= @project.target_amount %></div>
-<div>截止日期： <%= @project.due_date %></div>
-<% if !project_owner? %>
-  <%= link_to '贊助此專案', rewards_project_path %>
-<% end %>
+<div>NT$<%=@project.paid_orders_amounts%></div>
+<div>募資人數： <%= @project.paid_orders.count%></div>
+<div>剩下<%= @project.days_left%>天</div>
 
+<% if !project_owner? %>
+  <%= link_to "贊助此專案",rewards_project_path %>
+<% end %>
 
 <%# -----giveback-----%>
 
@@ -19,11 +32,46 @@
       <%= image_tag g.image_url if g.image_url.present? %>
       <li>回饋商品： <%= g.title %></li>
       <li>商品價格： <%= g.price %>元</li>
-      <%= link_to "贊助此專案", user_order_path(g) %>
+    
+     <% if !project_owner? %>
+      <%= link_to "贊助此回饋商品", user_order_path(current_user, g) %>
+     <% end %>
     <%end%>
   </ul>
 </div>
 <br>
+
+
+<%# -----dialogbox-----%>
+<div>
+  <% unless project_owner? %>
+    <a href="#" class="new-dialogbox-popup">聯絡提案人</a>
+  <% end %>
+</div>
+
+<div class="new-dialogbox-popup-block no-popup">
+  <div class="popup-content">
+    <div class="close-popup">
+      <i class="far fa-times-circle text-5xl"></i>
+    </div>
+    <div class="project-owner-info">
+      <div>(這邊可以放提案負責人照片)</div>
+      <div>提案負責人： <%= @project.user.name %></div>
+      <div>(這邊可以放提案負責人粉絲專頁或官方連結)</div>
+      <div>(這邊可以放提案負責人簡介)</div>
+    </div>
+    <hr>
+    <div class="add-message-to-dialogbox">
+      <div class="message-guiding">
+        傳訊息給 <%= @project.user.name %>
+      </div>
+    </div>
+    <%# -----message-----%>
+    <div class="message-form">
+      <%= render 'projects/msg_form', message: @message, project: @project %>
+    </div>
+  </div>
+</div>
 
 <%# -----comment-----%>
 <h3>---留言區---</h3>

@@ -1,0 +1,10 @@
+<div class="message mb-2 <%= 'me' if message.user == current_user %>">
+  <div class="content-container">
+    <div class="content">
+      訊息內容：<%= message.content %>
+    </div>
+    <div class="author">
+      傳訊息的人：<%= message.user.name %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div id="dialogbox-id" data-dialogbox-id="<%#= @dialogbox.try(:id) %>"></div>
+<div id="user-id" data-user-id="<%= current_user.id %>"></div>
+
+<%# 我發出的聯絡訊息列表 %>
+<div class="container mx-auto">
+  <div class="grid grid-cols-3">
+    <div class="col-span-1">
+        <% @sent_dialogboxes.each do |dialogbox| %> 
+          <%= link_to dialogbox do %>
+            <div class="card-body p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
+              <%= dialogbox.project.title %>(專案名)
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    <%# 訊息視窗 %>
+    <div class="dialogbox">
+      <%# if @dialogbox.user == current_user || @dialogbox.project.user == current_user %>
+        <%#= @dialogbox.project.title %>
+      <%# end %>
+    </div>
+  </div>
+</div>
+
+<hr>
+<%# 我的專案收到的聯絡訊息列表 %>
+<div class="container mx-auto">
+  <div class="grid grid-cols-3">
+    <div class="col-span-1">
+      <% @my_projects.each do |project| %> 
+        <% project.dialogboxes.each do |dialogbox|%>
+          <%# if dialogbox %>
+            <%= link_to dialogbox do %>
+              <div class="card-body p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
+                <%= dialogbox.user.name %> 對您的專案發送訊息...
+                <div class="dialogbox-of-the-project">
+                  <%= dialogbox.project.title %>
+                </div>
+              </div>
+            <% end %>
+          <%# end %>
+        <% end %>
+      <% end %>
+    </div>
+    <%# 訊息視窗 %>
+    <div class="dialogbox">
+      <%# if @dialogbox.user == current_user || @dialogbox.project.user == current_user %>
+        <%#= @dialogbox.project.title %>
+      <%# end %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= link_to '回探索（專案列表）', projects_path %></h2>
+</div>

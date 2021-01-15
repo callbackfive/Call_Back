@@ -6,7 +6,10 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
   has_many :projects
   has_many :comments
+  has_many :dialogboxes
   has_many :orders
+  has_many :fav_projects
+  has_many :my_fav_projects, through: :fav_projects, source: 'project'
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :name, presence: true
@@ -37,6 +40,10 @@ class User < ApplicationRecord
     end
 
     user
+  end
+
+  def favorite?(project)
+    my_fav_projects.include?(project)
   end
 
   def delete_access_token(auth)
