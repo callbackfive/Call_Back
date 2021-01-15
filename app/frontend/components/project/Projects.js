@@ -8,26 +8,28 @@ const Projects = () => {
 
   const [projects, setProjects]= useState([])
   const [isLoading, setIsLoading]= useState(true)
-
+  const [isFilter, setIsFilter]= useState([])
 
   useEffect(() => {
+    
     (async () => {
+      console.log('123')
       const response = await fetch('/apis/projects');
       const data = await response.json();
       setProjects(data);
-      setIsLoading(false);
-     
+      setIsFilter(data);
+
     })();
+    
   },[])
-  console.log(projects)
-  console.log(isLoading)
  
-  const [isFilter, setIsFilter]= useState([])
+
+  console.log('state: ', isFilter)
   
   const handleBtn = (e) => {
   
     const currentCategory = e.currentTarget.value
-    console.log(currentCategory)
+    // console.log(currentCategory)
     let isFilter;
     if(currentCategory ==="全部"){
       isFilter=projects
@@ -39,6 +41,9 @@ const Projects = () => {
   }
   return(
     <>
+    {
+      console.log('return:' ,isFilter)
+    }
     <section className="category-bg">
       <div className="category-container ">
       <CategoryList handleBtn={handleBtn}/>
