@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
   before_action :get_order, only: [:mpg]
   skip_before_action :verify_authenticity_token, only: [:paid, :not_paid_yet, :notify, :canceled]
 
+
   def mpg
       hashKey = 'PED4txrEktTyEDSx8hG0zep0DrKTTT0X'
       hashIV = 'CQBc2k1cpdHqEEkP' 
@@ -99,16 +100,9 @@ class PaymentsController < ApplicationController
         if order 
           payment = Payment.paid.new(order: order)
           payment.merchant_order_no = merchantOrderNo
-          payment.transaction_service_provider = "mpg"
-              
-          if result["PaymentType"] == "CREDIT"
-            payment.payment_type = "credit_card"
+          # payment.=result ["EscrowBank"]
 
-          elsif result["PaymentType"] == "WEBATM"
-          payment.payment_type = "web_atm"
-
-          end
-            
+          payment.code_no = result["Card4No"]
           payment.end_price = result["Amt"]
           payment.save!
           order.paid!
