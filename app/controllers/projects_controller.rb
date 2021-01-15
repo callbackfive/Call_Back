@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
   def project_orders_index
     @my_order_lists = @project.orders.order(id: :desc)
   end
-  
 
   def show
     @givebacks = @project.givebacks
