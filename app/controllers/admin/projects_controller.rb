@@ -17,6 +17,7 @@ class Admin::ProjectsController < ApplicationController
   # GET /admin/projects/new
   def new
     @admin_project = Admin::Project.new
+    @admin_project.givebacks.new
   end
 
   # GET /admin/projects/1/edit

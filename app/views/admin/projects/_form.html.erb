@@ -11,15 +11,12 @@
     </div>
   <% end %>
 
-  <% if admin_project.errors.any? %>
-    <ul>
-      <% admin_project.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <%= form_for(admin_project) do |form| %>
+    <div class="admin_project-title">
+      <%= form.label :title, '提案人ID' %><br>
+      <%= form.number_field :user_id, class:"border-2 border-gray-300"%>
+    </div>
+
     <div class="admin_project-title">
       <%= form.label :title, '專案標題' %><br>
       <%= form.text_field :title, class:"border-2 border-gray-300"%>
@@ -76,7 +73,7 @@
       </template>
 
       <%= form.fields_for :givebacks do |giveback| %>
-        <%= render 'projects/giveback_field', form: giveback %>
+        <%= render 'giveback_field', form: giveback %>
       <% end %>
 
       <div class='mb-3' data-nested-form-target='links'>
