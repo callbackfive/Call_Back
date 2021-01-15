@@ -1,20 +1,12 @@
-<nav class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
+<nav class="bg-gray-100 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
 
     <div class="flex justify-between">
         <div class="flex w-full">
-            <li class="list-none text-xl text-white inline-block py-2 px-4">Callback後台</li>
-            <li class="list-none">
-                <%= link_to 'User', admin_users_path, class:"inline-block py-2 px-4 text-white no-underline hover:text-gray-200"%>
-            </li>
-            <li class="list-none">
-                <%= link_to 'Project', admin_projects_path, class:"inline-block py-2 px-4 text-white no-underline hover:text-gray-200"%>
-            </li>
-            <%= link_to 'Category', admin_categories_path, class:"inline-block py-2 px-4 text-white no-underline hover:text-gray-200"%>
-            </li>
-            <%= link_to 'Order', admin_orders_path, class:"inline-block py-2 px-4 text-white no-underline hover:text-gray-200"%>
+            <li class="list-none text-xl text-gray inline-block py-2 px-4"><%= link_to 'Callback Admin', admin_root_path %></li>
+            <li class="list-none text-xl text-gray inline-block py-2 px-4"><%= link_to '前台',root_path %></li>
         </div>
         <div>
-        <p class="text-xl text-white inline-block py-2 px-4"><%= current_user.name%></p>
+        <p class="text-xl text-gray inline-block py-2 px-4"><%= current_user.name%></p>
         </div>
     </div>
  </nav>
