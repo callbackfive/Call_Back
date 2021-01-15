@@ -21,6 +21,8 @@ if (process.env.RAILS_ENV === 'production') {
         './app/frontend/**/*.js',
         './app/frontend/**/*.vue',
         './app/frontend/**/*.jsx',
+        './app/frontend/**/*.css',
+        './app/frontend/**/*.scss'
       ],
       defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || []
     })
