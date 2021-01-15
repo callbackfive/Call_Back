@@ -12,7 +12,7 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
   mount_uploader :image, ImageUploader
   acts_as_paranoid
-
+  
 
   #在project new頁面的驗證
   attr_accessor :new_project_validation
