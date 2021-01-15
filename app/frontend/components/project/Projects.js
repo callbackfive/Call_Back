@@ -7,25 +7,22 @@ import CardList from '../../components/project/CardList'
 const Projects = () => {
 
   const [projects, setProjects]= useState([])
-  const [isFilter, setIsFilter]= useState([])
   const [isLoading, setIsLoading]= useState(true)
 
 
   useEffect(() => {
-    Promise.all([
-      fetch('/apis/projects')
-      .then(res => res.json())
-      .then((data) =>{
-        setProjects(data)
-        console.log(data)
-        setIsLoading(false)
-  
-      })
-      .catch(err => console.log(err)),
-
-    ])
+    (async () => {
+      const response = await fetch('/apis/projects');
+      const data = await response.json();
+      setProjects(data);
+      setIsLoading(false);
+     
+    })();
   },[])
-  
+  console.log(projects)
+  console.log(isLoading)
+ 
+  const [isFilter, setIsFilter]= useState([])
   
   const handleBtn = (e) => {
   
@@ -39,11 +36,7 @@ const Projects = () => {
       isFilter=projects.filter((item) => item.category === currentCategory )
       setIsFilter(isFilter)
     }
-    
-    console.log(isFilter)
-    
   }
-
   return(
     <>
     <section className="category-bg">
@@ -53,13 +46,12 @@ const Projects = () => {
     </section>
     <section className="projects-bg">
       <div className="projects-container ">
-        <CardList key={projects.id} isFilter={isFilter} projects={projects} />
+        <CardList  isFilter={isFilter}  />
       </div> 
     </section>
 
     </>
   )
-  
 }
 
 export default Projects

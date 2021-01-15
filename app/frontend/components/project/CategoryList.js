@@ -12,7 +12,6 @@ const CategoryList = ({handleBtn}) => {
     .then((res) => res.json())
     .then((data) =>{
       setCategories(data)
-      console.log(data)
       setIsLoading(false) })
       .catch(err => console.log(err))
   },[])
@@ -27,8 +26,6 @@ const CategoryList = ({handleBtn}) => {
         ))
       } 
       </div>
- 
-
     </>
     
   )
