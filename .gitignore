@@ -46,3 +46,6 @@ yarn-debug.log*
 
 # 排除Peacock套件顏色設定檔
 /.vscode/settings.json
+
+# 本機開發用，暫存
+/app/views/dialogboxes/old_index.html.erb
