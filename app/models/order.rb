@@ -1,10 +1,10 @@
 class Order < ApplicationRecord
   belongs_to :user
+  belongs_to :project 
   belongs_to :giveback  
   has_one :payment
   has_one :giveback
-  belongs_to :project 
-
+  
   before_create :build_trade_no
  
   validates_presence_of :full_name, :delivery_country, :zip, :email, :message => ": 不可空白."
