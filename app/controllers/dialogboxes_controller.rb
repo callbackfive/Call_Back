@@ -26,7 +26,7 @@ class DialogboxesController < ApplicationController
   end
 
   def set_dialogbox_create_by_current_user
-    @sent_dialogboxes = current_user.dialogboxes
+    @sent_dialogboxes = current_user.dialogboxes.includes(:project)
   end
 
   def dialogbox_params
