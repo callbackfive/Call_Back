@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :givebacks
+  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'

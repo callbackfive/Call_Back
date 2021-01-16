@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :dialogboxes
   belongs_to :category
-  has_many :givebacks, inverse_of: :project
+  has_many :givebacks, inverse_of: :project, dependent: :destroy
   has_many :comments, -> { where(parent_id: nil).order('created_at DESC') },dependent: :destroy
   has_many :orders, through: :givebacks
   has_many :favorite_projects
