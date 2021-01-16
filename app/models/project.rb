@@ -48,6 +48,17 @@ class Project < ApplicationRecord
     (due_date.to_i - Time.now.to_i) / (60 * 60 * 24) 
   end
 
+  def self.to_csv
+    attributes = %w{merchantOrderNo project_title giveback_title giveback_price  full_name zip address phone email issue_date status}
+    
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |order|
+        csv << attributes.map{|attr| order.send(attr)}
+      end
+    end
+  end
+
   def status_to_string
     case status_before_type_cast
     when Project.statuses[:is_hidden]
