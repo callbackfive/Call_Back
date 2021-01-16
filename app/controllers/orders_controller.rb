@@ -11,17 +11,6 @@ class OrdersController < ApplicationController
       end
     end
 
-    def self.to_csv
-      attributes = %w{merchantOrderNo project_title giveback_title giveback_price issue_date status}
-      
-      CSV.generate(headers: true) do |csv|
-        csv << attributes
-        all.each do |order|
-          csv << attributes.map{|attr| order.send(attr)}
-        end
-      end
-    end
-
     def show
       @order = Order.new
     end
