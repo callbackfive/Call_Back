@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite, :project_orders_index]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_payment, only: [:project_orders_index]
 
   def index
     @projects = Project.all
@@ -15,8 +16,6 @@ class ProjectsController < ApplicationController
 
   def project_orders_index
     @my_order_lists = @project.orders.order(id: :desc)
-    @payments = Payment.all
-    @payment = Payment.find(params[:id])
     respond_to do |format|
       format.html
     end
@@ -122,6 +121,10 @@ class ProjectsController < ApplicationController
   
   def find_project
     @project = Project.find(params[:id])
+  end
+
+  def find_payment
+    @payment = Payment.find(params[:id])
   end
 
   def set_project_for_creating_message
