@@ -18,6 +18,18 @@ class ProjectsController < ApplicationController
     @my_order_lists = @project.orders.order(id: :desc)
     respond_to do |format|
       format.html
+      format.csv { send_data @my_order_lists.to_csv, filename: "orders-#{Date.today}.csv" }    
+    end
+  end
+
+  def self.to_csv
+    attributes = %w{merchantOrderNo project_title giveback_title giveback_price  full_name zip address phone email issue_date status}
+    
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |order|
+        csv << attributes.map{|attr| order.send(attr)}
+      end
     end
   end
 
