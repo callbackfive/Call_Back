@@ -23,7 +23,7 @@ class DialogboxesController < ApplicationController
 
   private
   def set_current_user_projects
-    @my_projects = current_user.projects
+    @my_projects = current_user.projects.includes(:dialogboxes)
   end
 
   def set_dialogbox_create_by_current_user
