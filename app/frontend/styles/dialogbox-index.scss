@@ -1,11 +1,54 @@
 .dialogboxes.index{
 
-  .old-hide{
-    display: none;
-  }
-
   .container{
-    border: solid 2px black;
-    border-radius: 5px;
+    @apply border-green-700;
+    @apply border-2;
+    @apply border-solid;
+
+    .wrapper{
+      @apply px-4;
+      @apply py-6;
+
+      .grid{
+        @apply outline-black;
+        @apply bg-gray-100;
+
+        .col-span-1{
+          @apply p-5;
+          @apply outline-black;
+          @apply bg-gray-200;
+
+          .dialogboxes-sent-by-me{
+            @apply bg-blue-200;
+            @apply border-2;
+            @apply rounded;
+            @apply border-gray-700;
+            @apply border-opacity-25;
+            @apply p-4;
+
+            .dialogbox-link{
+              @apply p-4;
+              @apply m-6;
+              @apply h-52;
+              @apply border-2;
+              @apply border-gray-800;
+              @apply border-opacity-25;
+              @apply rounded-xl;
+            }
+          }
+        }
+
+        .col-span-2{
+          @apply p-5;
+          @apply outline-black;
+          @apply bg-yellow-200;
+          @apply bg-opacity-25;
+
+          .dialogbox{
+
+          }
+        }
+      }
+    }
   }
 }
