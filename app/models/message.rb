@@ -1,4 +1,6 @@
 class Message < ApplicationRecord
+  default_scope { order('id DESC') }
+
   validates :content, presence: true
   validates :dialogbox, presence: true
   

@@ -21,7 +21,7 @@
           </div>  
           <div class="dialogbox-content">
             <div id="messages-container">
-              <% @dialogbox.messages.each do |message| %>
+              <% @messages.each do |message| %>
                 <%= render 'messages/message', message: message %>
               <% end %>
             </div>

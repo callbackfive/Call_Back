@@ -10,6 +10,7 @@ class DialogboxesController < ApplicationController
   def show
     @dialogbox_id = params[:id]
     @current_user_id = current_user.id
+    @messages = Message.where(dialogbox: @dialogbox).includes(:user)
     render :index
   end
 
@@ -34,11 +35,11 @@ class DialogboxesController < ApplicationController
   end
 
   def set_dialogbox_for_creating_message
-    @dialogbox = Dialogbox.find(params[:message][:dialogbox])
+    @msg_dialogbox = Dialogbox.find(params[:message][:dialogbox])
   end
 
   def continue_dialog
-    @message = current_user.messages.create(dialogbox: @dialogbox,
+    @message = current_user.messages.create(dialogbox: @msg_dialogbox,
                                             user: current_user,
                                             content: params[:message][:content])
   end

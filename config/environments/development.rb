@@ -10,6 +10,7 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.add_footer = true
+    Bullet.rails_logger = true
   end
 
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
