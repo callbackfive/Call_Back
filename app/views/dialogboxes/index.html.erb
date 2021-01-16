@@ -13,6 +13,15 @@
             <% end %>
           <% end %>
         </div>
+        <div class="guest-send-dialogboxes">
+          <%# @sent_dialogboxes.each do |dialogbox| %> 
+            <%#= link_to dialogbox do %>
+              <div class="dialogbox-link">
+                  <%#= dialogbox.project.title %>(專案名)
+              </div>
+            <%# end %>
+          <%# end %>
+        </div>
       </div>
       <div class="the-dialogbox">
         <% if @dialogbox.present? %>

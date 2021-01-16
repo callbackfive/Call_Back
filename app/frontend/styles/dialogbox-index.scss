@@ -1,53 +1,48 @@
 .dialogboxes{
+  // @apply bg-gray-800;
 
   .container{
-    @apply border-green-700;
-    @apply border-2;
-    @apply border-solid;
-    @apply h-screen;
+    // @apply outline-white;
+    height: 85vh;
 
     .wrapper{
       @apply h-full;
-      @apply border-blue-700;
-      @apply border-2;
-      @apply border-solid;
+      @apply py-4;
+      @apply bg-gray-50;
 
       .grid-items{
+        @apply h-full;
         @apply grid;
-        @apply grid-cols-3;
-        @apply gap-2;
+        @apply grid-cols-7;
         @apply outline-black;
-        @apply bg-gray-100;
+        @apply bg-gray-600;
 
         .dialogboxes-index{
-          @apply col-span-1;
-          @apply p-3;
-          @apply bg-yellow-500;
-          @apply bg-opacity-40;
+          @apply col-span-2;
+          @apply p-4;
+          // @apply border-2;
+          // @apply border-yellow-500;
+          // @apply border-solid;
 
           .dialogboxes-sent-by-me{
-            @apply bg-blue-200;
-            @apply border-2;
-            @apply rounded;
-            @apply border-gray-700;
-            @apply border-opacity-25;
-            @apply p-4;
+            // @apply bg-blue-200;
+            // @apply border-2;
+            // @apply rounded;
+            // @apply border-gray-700;
+            // @apply border-opacity-25;
 
             .dialogbox-link{
-              @apply p-4;
-              @apply m-6;
-              @apply h-52;
               @apply border-2;
-              @apply border-gray-800;
-              @apply border-opacity-25;
+              @apply border-red-300;
+              @apply border-opacity-50;
               @apply rounded-xl;
             }
           }
         }
 
         .the-dialogbox{
-          @apply col-span-2;
-          @apply p-5;
+          @apply col-span-5;
+          @apply outline-white;
           @apply bg-purple-500;
           @apply bg-opacity-30;
 
