@@ -7,22 +7,27 @@ nav{
   @apply border-gray-200;
   @apply shadow-sm;
   background: #EF5959;
+ 
   
 }
 
 .navbar-container {
-  max-width: 1280px;
+  
   margin: auto;
+ 
 }
 
 .row{  
   display: flex;
   justify-content: center;
   justify-items: center;
+  box-sizing: border-box;
+  
 }
 
 .nav-left{
   display: flex;
+  
 }
 
 .navbar-logo {

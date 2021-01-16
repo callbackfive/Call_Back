@@ -5,15 +5,26 @@ class OrdersController < ApplicationController
     def index
       @orders = current_user.orders
       @user_orders = Order.where(:user_id => current_user.id).order(id: :desc)
+      respond_to do |format|
+        format.html
+        format.csv { send_data @orders.to_csv, filename: "orders-#{Date.today}.csv" }
+      end
+    end
+
+    def self.to_csv
+      attributes = %w{merchantOrderNo project_title giveback_title giveback_price issue_date status}
+      
+      CSV.generate(headers: true) do |csv|
+        csv << attributes
+        all.each do |order|
+          csv << attributes.map{|attr| order.send(attr)}
+        end
+      end
     end
 
     def show
       @order = Order.new
     end
-
-    def paid_record 
-    end
-    
 
     def create
       @giveback = Giveback.find(order_params[:giveback_id])

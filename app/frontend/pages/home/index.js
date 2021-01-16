@@ -8,13 +8,15 @@ import Rank from '../../components/home/Rank'
 import  '../../styles/application.scss'
 
 document.addEventListener('turbolinks:load',() => {
+   const $content = document.getElementById('content')
+   if (!$content) return;
    
   ReactDOM.render(
   <>  
     <Banner/>
     <Rank/>
   </>,
-    document.getElementById('content'),
+    $content,
   )
   
 })

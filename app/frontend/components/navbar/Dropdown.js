@@ -37,6 +37,9 @@ const Dropdown = ({ isShow,user }) => {
     return(
       <>
         <ul onClick={handleClick} className={isShow ? 'dropdown-menu clicke':'dropdown-menu'} style={{zIndex: 1000}}>
+        <li className="dropdown-link">
+           {user.name}
+          </li>
           <li className="dropdown-link">
             <a href="/users/profile">個人頁面</a>
           </li>

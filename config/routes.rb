@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  
+
+  get '/apis/projects', action: 'projects',controller: 'apis'
+  get '/apis/categories', action: 'categories',controller: 'apis'
+
   devise_for :users, controllers: { 
     sessions: 'users/sessions', 
     registrations: "users/registrations",

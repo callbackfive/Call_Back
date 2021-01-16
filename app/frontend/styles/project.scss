@@ -1,0 +1,18 @@
+.category-bg{
+  @apply py-3;
+  @apply w-full;
+  background: #F0F0F0;
+  .category-container {
+    max-width: 1200px;
+    @apply mx-auto;
+  }
+}
+.projects-bg{
+  @apply py-3;
+  @apply w-full;
+  background:white;
+  .projects-container {
+    max-width: 1200px;
+    @apply mx-auto;
+  }
+}
