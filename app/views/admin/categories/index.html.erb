@@ -1,31 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <div class="text-center">
+    <h1 class="text-xl mb-3">專案類別清單</h1>
+    <%= link_to '新增category', new_admin_category_path, class:"bg-blue-200 rounded p-1"%>
+    <p id="notice"><%= notice %></p>
+  </div>
 
-<div class="text-center">
-  <h1 class="text-xl mb-3">Category清單</h1>
-  <%= link_to '新增category', new_admin_category_path, class:"bg-blue-200 rounded p-1"%>
-</div>
-
-<div class="my-2 py-2 flex justify-center">
-    <div class="mt-6 inline-block px-8 pt-3">
-      <table class="w-full">
-        <thead>
-          <tr>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">類別名稱</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider", colspan="3">操作</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @admin_categories.each do |category| %>
+  <div class="my-2 py-2 flex justify-center">
+      <div class="mt-6 inline-block px-8 pt-3">
+        <table class="w-full">
+          <thead>
             <tr>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= category.title %></td>
-              <div class="">
+              <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">類別名稱</th>
+              <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider", colspan="3">操作</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @admin_categories.each do |category| %>
+              <tr>
+                <td class="text-center px-6 py-4 border-b border-gray-500"><%= category.title %></td>
                 <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Edit', edit_admin_category_path(category) %></td>
                 <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Destroy', category, method: :delete %></td>
-              </div>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>

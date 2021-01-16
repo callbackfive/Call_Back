@@ -1,6 +1,9 @@
-<h1>Editing Admin Project</h1>
+<div>
+  <h1 class="text-xl text-center mt-3">修改專案資料</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_project %> |
+    <%= link_to 'Back', admin_projects_path %>
+  </div>
+  <%= render 'form', admin_project: @admin_project %>
+</div>
 
-<%= render 'form', admin_project: @admin_project %>
-
-<%= link_to 'Show', @admin_project %> |
-<%= link_to 'Back', admin_projects_path %>

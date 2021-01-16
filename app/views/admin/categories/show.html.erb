@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_admin_category_path(@admin_category) %> |
-<%= link_to 'Back', admin_categories_path %>
+<div class="flex justify-center mt-8">
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Edit', edit_admin_category_path(@admin_category) %> |
+  <%= link_to 'Back', admin_categories_path %>
+</div>
+<div class="flex justify-center">
+<ul class="space-x-0">
+  <% @projects.each do |p| %>
+  <li><%= p.title %></li>
+  <% end %>
+</ul>
+</div>

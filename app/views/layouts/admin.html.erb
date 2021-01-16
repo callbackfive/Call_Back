@@ -11,10 +11,12 @@
  
   </head>
 
-  <body class="<%= controller_name %> <%= action_name %>" >
+  <body class="relative" >
     <%= render "shared/admin_navbar" %>
     <div style="margin-top:55px"></div>
     <%= render "shared/admin_sidebar" %>
-    <%= yield %>
+    <div class="flex justify-center ml-40">
+      <%= yield %>
+    </div>
   </body>
 </html>

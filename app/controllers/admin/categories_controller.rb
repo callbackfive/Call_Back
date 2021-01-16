@@ -6,6 +6,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /admin/categories.json
   def index
     @admin_categories = Admin::Category.all
+    @projects = @admin_categories
   end
 
   # GET /admin/categories/1
@@ -29,7 +30,7 @@ class Admin::CategoriesController < ApplicationController
 
     respond_to do |format|
       if @admin_category.save
-        format.html { redirect_to @admin_category, notice: 'Category was successfully created.' }
+        format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @admin_category }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_category.update(admin_category_params)
-        format.html { redirect_to @admin_category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to admin_categories_path, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_category }
       else
         format.html { render :edit }
@@ -70,6 +71,6 @@ class Admin::CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_category_params
-      params.fetch(:admin_category, {})
+      params.fetch(:admin_category).permit(:title, :image)
     end
 end

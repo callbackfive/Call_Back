@@ -1,6 +1,8 @@
-<h1>編輯Category</h1>
-
-<%= render 'form', admin_category: @admin_category %>
-
-<%= link_to 'Show', @admin_category %> |
-<%= link_to 'Back', admin_categories_path %>
+<div>
+  <h1 class="text-xl text-center mt-3">編輯Category</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_category %> |
+    <%= link_to 'Back', admin_categories_path %>
+  </div>
+  <%= render 'form', admin_category: @admin_category %>
+</div>

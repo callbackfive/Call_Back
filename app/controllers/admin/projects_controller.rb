@@ -5,7 +5,7 @@ class Admin::ProjectsController < ApplicationController
   # GET /admin/projects
   # GET /admin/projects.json
   def index
-    @admin_projects = Admin::Project.order(params[:sort])
+    @admin_projects = Admin::Project.order(params[:sort]).includes(:user)
   end
 
   # GET /admin/projects/1

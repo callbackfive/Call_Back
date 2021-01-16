@@ -1,15 +1,17 @@
- <div class="mt-10 w-1/6 bg-gray-100 px-2 fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen">
-    <div class="justify-center flex">
-        <ul class="list-reset flex md:flex-col text-center md:text-left mt-10">
+ <div class="flex flex-col md:flex-row">
+  <div class="bg-gray-100 fixed bottom-0 mt-12 h-screen w-48">
+    <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+        <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
           <li class="list-none">
-                <%= link_to 'User', admin_users_path, class:"text-2xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
+                <%= link_to 'User', admin_users_path, class:"text-xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
           </li>
           <li class="list-none">
-              <%= link_to 'Project', admin_projects_path, class:"text-2xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
+              <%= link_to 'Project', admin_projects_path, class:"text-xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
           </li>
-          <%= link_to 'Category', admin_categories_path, class:"text-2xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
+          <%= link_to 'Category', admin_categories_path, class:"text-xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
           </li>
-          <%= link_to 'Order', admin_orders_path, class:"text-2xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
+          <%= link_to 'Order', admin_orders_path, class:"text-xl inline-block py-2 px-4 text-black no-underline hover:text-gray-200"%>
         </ul>
     </div>
   </div>
+</div>

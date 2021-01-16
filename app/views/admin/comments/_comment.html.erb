@@ -6,7 +6,7 @@
   </div>
 
   <%# 限定只有提案者可以回覆留言 %>
-  <%= link_to "刪除", admin_project_path, method: 'delete' %>
+  <%= link_to "刪除", admin_project_path(coment), method: 'delete' %>
 
   <div id="reply-form-<%= comment.id %>"></div>
 

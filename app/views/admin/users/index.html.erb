@@ -1,17 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<div class="text-center">
-  <h1 class="text-xl mb-3">User 清單</h1>
-  <%= link_to '新增user', new_admin_user_path, class:"bg-blue-200 rounded p-1"%>
-</div>
+<div>
+  <div class="text-center">
+    <h1 class="text-xl mb-1">User清單</h1>
+    <%= link_to '新增user', new_admin_user_path, class:"bg-blue-200 rounded p-1"%>
+    <p id="notice"><%= notice %></p>
+  </div>
 
 <div class="my-2 py-2 flex justify-center">
     <div class="mt-6 inline-block px-8 pt-3">
-      <table class="w-full">
+      <table>
         <thead>
           <tr>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">ID</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">名稱</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">Email</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">狀態</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">created_at</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">updated_at</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">deleted_at</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider", colspan="3">操作</th>
           </tr>
         </thead>
@@ -19,8 +24,13 @@
         <tbody>
           <% @admin_users.each do |admin_user| %>
             <tr>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.id %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.name %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.email %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.role %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.created_at %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.updated_at %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_user.deleted_at %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Show', admin_user %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Edit', edit_admin_user_path(admin_user) %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Destroy', admin_user, method: :delete %></td>
@@ -30,3 +40,4 @@
       </table>
     </div>
   </div>
+</div>
