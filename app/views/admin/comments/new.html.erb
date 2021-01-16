@@ -1,0 +1,8 @@
+<div>
+  <h1 class="text-xl flex justify-center">新增留言</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_user %> |
+    <%= link_to 'Back', admin_comments_path %>
+  </div>
+  <%= render 'form', admin_comment: @admin_comment %>
+</div>

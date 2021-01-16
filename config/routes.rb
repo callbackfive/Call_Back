@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :orders
-  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'
@@ -12,6 +9,8 @@ Rails.application.routes.draw do
     resources :categories
     resources :projects
     resources :users
+    resources :orders
+    resources :comments
   end
   
   devise_for :users, controllers: { 
