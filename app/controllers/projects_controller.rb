@@ -15,6 +15,11 @@ class ProjectsController < ApplicationController
 
   def project_orders_index
     @my_order_lists = @project.orders.order(id: :desc)
+    @payments = Payment.all
+    @payment = Payment.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
   end
 
   def show
