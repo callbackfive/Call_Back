@@ -29,10 +29,6 @@ class DialogboxesController < ApplicationController
     @sent_dialogboxes = current_user.dialogboxes.includes(:project)
   end
 
-  def dialogbox_params
-    params.require(:dialogbox).permit(:project_id, :user_id, :project_owner_id)
-  end
-
   def find_dialogbox
     @dialogbox = Dialogbox.find(params[:id])
   end

@@ -1,38 +1,35 @@
 <div id="dialogbox-id" data-dialogbox-id="<%= @dialogbox_id %>"></div>
 
 <div class="container">
-  <div class="wrapper">
-    <div class="grid grid-cols-3">
-      <div class="col-span-1">
+  <div class="wrapper">  
+    <div class="grid-items">
+      <div class="dialogboxes-index">
         <div class="dialogboxes-sent-by-me">
           <% @sent_dialogboxes.each do |dialogbox| %> 
             <%= link_to dialogbox do %>
               <div class="dialogbox-link">
-                 <%= dialogbox.project.title %>(專案名)
+                  <%= dialogbox.project.title %>(專案名)
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
-  
-      <div class="col-span-2">
-        <div class="dialogbox">
-          <% if @dialogbox.present? %>
-            <div class="dialogbox-title">
-              <h4><%= @dialogbox.project.title %></h4>
-            </div>  
-            <div class="dialogbox-content">
-              <div id="messages-container">
-                <% @dialogbox.messages.each do |message| %>
-                  <%= render 'messages/message', message: message %>
-                <% end %>
-              </div>
+      <div class="the-dialogbox">
+        <% if @dialogbox.present? %>
+          <div class="dialogbox-title">
+            <h4><%= @dialogbox.project.title %></h4>
+          </div>  
+          <div class="dialogbox-content">
+            <div id="messages-container">
+              <% @dialogbox.messages.each do |message| %>
+                <%= render 'messages/message', message: message %>
+              <% end %>
             </div>
-            <div class="message-form">
-              <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
-            </div>
-          <% end %>
-        </div>
+          </div>
+          <div class="message-form">
+            <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
