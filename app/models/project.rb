@@ -62,5 +62,6 @@ class Project < ApplicationRecord
       return "狀態未明"
     end
   end
+
   
 end

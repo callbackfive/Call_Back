@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :comments
   has_many :dialogboxes
+  has_many :messages
   has_many :orders
   has_many :fav_projects
   has_many :my_fav_projects, through: :fav_projects, source: 'project'

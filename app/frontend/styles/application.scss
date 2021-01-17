@@ -8,7 +8,8 @@
 @import "./signup";
 @import "./project";
 
-@import "@tailwindcss/postcss7-compat/utilities";
-
-@import "./navbar";
 @import "./new-dialogbox";
+@import "./dialogbox-index";
+@import "./messages";
+
+@import "@tailwindcss/postcss7-compat/utilities";
