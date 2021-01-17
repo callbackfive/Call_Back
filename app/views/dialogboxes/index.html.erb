@@ -6,26 +6,24 @@
       <div class="dialogboxes-index">
         <div class="dialogboxes-sent-by-me">
           <%# 我發出的聯絡訊息列表 %>
-          <% @sent_dialogboxes.each do |dialogbox| %> 
+          <% @my_sent_dialogboxes.each do |dialogbox| %> 
             <%= link_to dialogbox do %>
               <div class="dialogbox-link">
-                  <%= dialogbox.project.title %>(專案名)
+                <%= dialogbox.project.title %>(專案名)
               </div>
             <% end %>
           <% end %>
         </div>
         <%# 我的專案收到的聯絡訊息列表 %>
         <div class="guest-send-dialogboxes">
-          <% @my_projects.each do |project| %> 
-            <% project.dialogboxes.each do |dialogbox|%>
-              <%= link_to dialogbox do %>
-                <div class="card-body p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
-                  <%= dialogbox.user.name %> 對您的專案發送訊息...
-                  <div class="dialogbox-of-the-project">
-                    <%= dialogbox.project.title %>
-                  </div>
+          <% @dialogboxes_of_my_projects.each do |dialogbox|%>
+            <%= link_to dialogbox do %>
+              <div class="dialogbox-card p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
+                <%= dialogbox.user.name %> 對您的專案發送訊息...
+                <div class="dialogbox-of-the-project">
+                  <%= dialogbox.project.title %>
                 </div>
-              <% end %>
+              </div>
             <% end %>
           <% end %>
         </div>
