@@ -6,7 +6,6 @@ class Admin::CategoriesController < ApplicationController
   # GET /admin/categories.json
   def index
     @admin_categories = Admin::Category.all
-    @projects = @admin_categories
   end
 
   # GET /admin/categories/1

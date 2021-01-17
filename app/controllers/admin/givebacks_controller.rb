@@ -5,7 +5,7 @@ class Admin::GivebacksController < ApplicationController
   # GET /admin/givebacks
   # GET /admin/givebacks.json
   def index
-    @admin_givebacks = Admin::Giveback.all
+    @admin_givebacks = Admin::Giveback.all.includes(:project)
   end
 
   # GET /admin/givebacks/1
@@ -29,7 +29,7 @@ class Admin::GivebacksController < ApplicationController
 
     respond_to do |format|
       if @admin_giveback.save
-        format.html { redirect_to @admin_giveback, notice: 'Giveback was successfully created.' }
+        format.html { redirect_to admin_givebacks_path, notice: 'Giveback was successfully created.' }
         format.json { render :show, status: :created, location: @admin_giveback }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::GivebacksController < ApplicationController
   def update
     respond_to do |format|
       if @admin_giveback.update(admin_giveback_params)
-        format.html { redirect_to @admin_giveback, notice: 'Giveback was successfully updated.' }
+        format.html { redirect_to admin_givebacks_path, notice: 'Giveback was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_giveback }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class Admin::GivebacksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_giveback_params
-      params.fetch(:admin_giveback, {})
+      params.fetch(:admin_giveback).permit(:title, :price, :description, :deliver_time, :project_id, :image)
     end
 end

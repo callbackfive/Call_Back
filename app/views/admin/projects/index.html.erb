@@ -1,9 +1,11 @@
 <div>
-  <div class="mt-6 inline-block px-8 pt-3 text-center">
-  <p id="notice"><%= notice %></p>
-
-  <h1 class="text-xl my-1">專案清單</h1>
-  <%= link_to '新增專案', new_admin_project_path, class:"bg-blue-200 rounded p-1"%>
+  <div class="text-center">
+    <h1 class="text-xl mb-1">Project清單</h1>
+    <%= link_to '新增project', new_admin_project_path, class:"bg-blue-200 rounded p-1"%>
+    <p id="notice"><%= notice %></p>
+  </div>
+    <div class="my-2 py-2 flex justify-center">
+      <div class="inline-block px-8">
       <table class="w-full">
         <thead>
           <tr>

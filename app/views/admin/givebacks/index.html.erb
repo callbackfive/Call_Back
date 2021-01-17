@@ -5,7 +5,7 @@
     <p id="notice"><%= notice %></p>
   </div>
 
-<div class="my-2 py-2 flex justify-center">
+  <div class="my-2 py-2 flex justify-center">
     <div class="mt-6 inline-block px-8 pt-3">
       <table>
         <thead>
@@ -16,6 +16,7 @@
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">描述</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">寄送時間</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">專案名稱</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">專案ID</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">created_at</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">updated_at</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">deleted_at</th>
@@ -32,10 +33,10 @@
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.description %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.deliver_time %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.project.title %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.project.id %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.created_at %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.updated_at %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_giveback.deleted_at %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Show', admin_giveback %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Edit', edit_admin_giveback_path(admin_giveback) %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Destroy', admin_giveback, method: :delete %></td>
             </tr>
