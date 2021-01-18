@@ -1,33 +1,30 @@
 .dialogboxes{
-  // @apply bg-gray-800;
-
+  *{
+    box-sizing: border-box;
+  }
   .container{
-    // @apply outline-white;
     height: 85vh;
 
     .wrapper{
       @apply h-full;
       @apply py-4;
-      @apply bg-gray-50;
 
       .grid-items{
         @apply h-full;
         @apply grid;
+        @apply gap-4;
         @apply grid-cols-7;
-        @apply outline-black;
-        @apply bg-gray-600;
 
         .dialogboxes-index{
           @apply col-span-2;
           @apply p-4;
-          // @apply border-2;
-          // @apply border-yellow-500;
-          // @apply border-solid;
+          @apply bg-gray-200;
+          @apply rounded-md;
 
           .dialogboxes-sent-by-me{
             // @apply bg-blue-200;
             // @apply border-2;
-            // @apply rounded;
+            // @apply rounded-md;
             // @apply border-gray-700;
             // @apply border-opacity-25;
 
@@ -42,10 +39,46 @@
 
         .the-dialogbox{
           @apply col-span-5;
-          @apply outline-white;
-          @apply bg-purple-500;
-          @apply bg-opacity-30;
+          @apply bg-gray-200;
+          @apply rounded;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
+
+          .dialogbox-title{
+            height: 15%;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(2,2,2,0.5);
+            display: flex;
+            justify-content: flex-start;
+            @apply p-4;
+
+          }
+          
+          .dialogbox-content{
+            height: 75%;
+            @apply px-4;
+            @apply overflow-auto;
+
+            .messages-container{
+              @apply border-blue-200;
+              color: white;
+
+            }
+          }
+
+          .message-form{
+            height: 10%;
+            // @apply bg-yellow-200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            
+          }
         }
       }
     }
