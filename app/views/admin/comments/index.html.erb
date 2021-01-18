@@ -10,15 +10,15 @@
       <table>
         <thead>
           <tr>
-            <th class="admin_th">ID</th>
-            <th class="admin_th">留言人</th>
-            <th class="admin_th">留言人ID</th>
-            <th class="admin_th">留言內容</th>
-            <th class="admin_th">專案名稱</th>
-            <th class="admin_th">專案ID</th>
-            <th class="admin_th">created_at</th>
-            <th class="admin_th">updated_at</th>
-            <th class="admin_th">deleted_at</th>
+            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+            <th class="admin_th"><%= sort_link(@q, :user_id, '留言人') %></th>
+            <th class="admin_th"><%= sort_link(@q, :user_id, '留言人id') %></th>
+            <th class="admin_th"><%= sort_link(@q, :content, '留言內容') %></th>
+            <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
+            <th class="admin_th"><%= sort_link(@q, :project_id, 'ID') %></th>
+            <th class="admin_th"><%= sort_link(@q, :created_at, 'created_at') %></th>
+            <th class="admin_th"><%= sort_link(@q, :updated_at, 'updated_at') %></th>
+            <th class="admin_th"><%= sort_link(@q, :deleted_at, 'deleted_at') %></th>
             <th class="admin_th", colspan="3">操作</th>
           </tr>
         </thead>

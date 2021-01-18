@@ -5,7 +5,8 @@ class Admin::CommentsController < ApplicationController
   # GET /admin/comments
   # GET /admin/comments.json
   def index
-    @admin_comments = Admin::Comment.all
+    @q = Admin::Comment.ransack(params[:q])
+    @admin_comments = @q.result  
   end
 
   # GET /admin/comments/1
