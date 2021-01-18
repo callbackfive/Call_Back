@@ -1,0 +1,9 @@
+<div>
+  <h1 class="text-xl text-center mt-3">修改user資料</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_user %> |
+    <%= link_to 'Back', admin_users_path %>
+  </div>
+  <%= render 'form', admin_user: @admin_user %>
+</div>
+

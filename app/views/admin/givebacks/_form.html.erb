@@ -1,0 +1,46 @@
+<div class="flex justify-center">
+  <%= form_with(model: admin_giveback, local: true, :html => { :class => 'bg-gray-100' }) do |f| %>
+    <% if admin_giveback.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(admin_giveback.errors.count, "error") %> prohibited this admin_giveback from being saved:</h2>
+        <ul>
+          <% admin_giveback.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="rounded-lg p-8 flex flex-col mt-3">
+      <div>
+        <%= f.label "回饋商品名稱" %><br/>
+        <%= f.text_field :title %>
+      </div>
+      <div>
+        <%= f.label :image, '回饋商品照片' %><br>
+        <%= f.file_field :image %>
+      </div>
+      <div>
+        <%= f.label "回饋商品價格" %><br/>
+        <%= f.number_field :price %>
+      </div>
+      <div>
+        <%= f.label "回饋商品描述" %><br/>
+        <%= f.text_field :description %>
+      </div>
+      <div>
+        <%= f.label "寄送時間" %><br/>
+        <%= f.date_field :deliver_time %>
+      </div>
+      <div>
+        <%= f.label "所屬專案ID" %><br/>
+        <%= f.text_field :project_id %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+    
+  <% end %>
+</div>

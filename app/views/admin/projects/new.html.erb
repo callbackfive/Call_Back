@@ -1,0 +1,10 @@
+<div>
+  <h1 class="text-xl flex justify-center">新增project</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_project %> |
+    <%= link_to 'Back', admin_projects_path %>
+  </div>
+
+  <%= render 'form', admin_project: @admin_project %>
+</div>
+

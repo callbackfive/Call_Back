@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :givebacks
+  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'
   get '/apis/categories', action: 'categories',controller: 'apis'
 
+  namespace :admin do
+    root to: "users#index"
+    resources :categories
+    resources :projects
+    resources :users
+    resources :orders
+    resources :comments
+  end
+  
   devise_for :users, controllers: { 
     sessions: 'users/sessions', 
     registrations: "users/registrations",
@@ -12,6 +24,11 @@ Rails.application.routes.draw do
 
   resource :users, controller: 'profiles', only: [] do
     get '/profile', action: 'show'
+  end
+
+  resources :users do
+    resources :projects, only: [:index], action: :user_projects_index
+    resources :orders, only: [:index, :new, :create, :show]
   end
 
   # projects
