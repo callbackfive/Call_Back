@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   # projects
   resources :projects, path_names: {new: 'proposal'} do
     member do
+      get 'myorderlist', as: 'myorderlist',action: :project_orders_index 
+    end
+    member do
       get 'rewards', as: 'rewards', action: :project_givebacks
     end
     member do
@@ -52,11 +55,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index
     resources :orders, only: [:index, :new, :create, :show] do
-      member do
-        get 'records', as: 'records', action: :paid_record
-      end
     end
   end
+
 
   resources :categories, shallow: true
   
