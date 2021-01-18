@@ -5,7 +5,8 @@ class Admin::UsersController < Admin::AdminController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @admin_users = Admin::User.all
+    @q = Admin::User.ransack(params[:q])
+    @admin_users = @q.result
   end
 
   # GET /admin/users/1
