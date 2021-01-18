@@ -9,18 +9,18 @@
       <table class="w-full">
         <thead>
           <tr>
-            <th class="admin_th">ID</th>
-            <th class="admin_th">類別</th>
-            <th class="admin_th">Owner</th>
-            <th class="admin_th">名稱</th>
-            <th class="admin_th"><%= link_to '狀態', sort: :status %></th>
+            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+            <th class="admin_th"><%= sort_link(@q, :category_id, '類別') %></th>
+            <th class="admin_th"><%= sort_link(@q, :user_id, '提案者') %></th>
+            <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
+            <th class="admin_th"><%= sort_link(@q, :status, '狀態') %></th>
             <th class="admin_th">概要</th>
             <th class="admin_th">內容</th>
             <th class="admin_th"><%= link_to '目標金額', sort: :target_amount %></th>
-            <th class="admin_th">截止日期</th>
-            <th class="admin_th">贊助總額</th>
-            <th class="admin_th">created_at</th>
-            <th class="admin_th">deleted_at</th>
+            <th class="admin_th"><%= sort_link(@q, :due_date, '截止日期') %></th>
+            <th class="admin_th">募資總額</th>
+            <th class="admin_th"><%= link_to 'created_at', sort: :created_at %></th>
+            <th class="admin_th"><%= link_to 'deleted_at', sort: :deleted_at %></th>
             <th class="admin_th", colspan="3">操作</th>
           </tr>
         </thead>

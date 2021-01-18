@@ -10,13 +10,13 @@
       <table>
         <thead>
           <tr>
-            <th class="admin_th">ID</th>
-            <th class="admin_th">名稱</th>
-            <th class="admin_th">Email</th>
-            <th class="admin_th">狀態</th>
-            <th class="admin_th">created_at</th>
-            <th class="admin_th">updated_at</th>
-            <th class="admin_th">deleted_at</th>
+            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+            <th class="admin_th"><%= sort_link(@q, :name, '名稱') %></th>
+            <th class="admin_th"><%= sort_link(@q, :email, 'Email') %></th>
+            <th class="admin_th"><%= sort_link(@q, :role, '狀態') %></th>
+            <th class="admin_th"><%= sort_link(@q, :created_at, 'created_at') %></th>
+            <th class="admin_th"><%= sort_link(@q, :updated_at, 'updated_at') %></th>
+            <th class="admin_th"><%= sort_link(@q, :deleted_at, 'deleted_at') %></th>
             <th class="admin_th", colspan="3">操作</th>
           </tr>
         </thead>
