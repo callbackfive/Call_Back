@@ -17,6 +17,4 @@ jobs:
           heroku_email: "blueridge05@gmail.com"
           branch: "dev"
           healthcheck: "https://callback.money"
-          delay: 5
-      - name: DataBase Migration
-        run: rails db:migrate
+          delay: 6
