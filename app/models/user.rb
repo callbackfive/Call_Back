@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :comments
   has_many :dialogboxes
+  has_many :identities
   has_many :messages
   has_many :orders
   has_many :fav_projects
