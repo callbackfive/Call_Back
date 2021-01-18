@@ -1,0 +1,17 @@
+.order_th{
+    @apply px-6;
+    @apply py-3;
+    @apply border-b-2;
+    @apply border-gray-300;
+    @apply text-left;
+    @apply leading-4;
+    @apply text-blue-500;
+    @apply tracking-wider;
+}
+.order_td{
+    @apply px-6;
+    @apply py-4;
+    // @apply whitespace-no-wrap;
+    @apply border-b;
+    @apply border-gray-500;
+}
