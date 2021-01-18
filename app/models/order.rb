@@ -28,6 +28,21 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.to_csv_project
+    order_attrs = %w{merchantOrderNo project_title giveback_title giveback_price full_name zip address phone email issue_date status}
+    payment_attrs = %w[card_4no]
+    all_attrs = [*order_attrs, *payment_attrs]
+    
+    CSV.generate(headers: true) do |csv|
+      csv << all_attrs
+      all.includes(:payment).each do |order|
+        order_fields = order_attrs.map{|attr| order.send(attr)}
+        payment_fields = payment_attrs.map{ |attr| order.payment&.send(attr) }
+        csv << order_fields.concat(payment_fields)
+      end
+    end
+  end
+
 
   def status_to_string
     case status_before_type_cast
