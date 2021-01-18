@@ -1,0 +1,14 @@
+zh-TW:
+  activerecord:
+    attributes:  
+      project:  
+        title: 專案標題
+        target_amount: 募資目標
+        summary: 內容摘要
+        content: 專案內容
+        due_date: 截止時間
+        image: 專案封面
+        
+      
+  
+        
