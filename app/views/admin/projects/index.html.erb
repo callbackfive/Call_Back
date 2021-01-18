@@ -10,6 +10,7 @@
         <thead>
           <tr>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">ID</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">類別</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">Owner</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">名稱</th>
             <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider"><%= link_to '狀態', sort: :status %></th>
@@ -28,6 +29,7 @@
           <% @admin_projects.each do |admin_project| %>
             <tr>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.id %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.category.title %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.user.name %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.title %></td>
               <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.status %></td>
