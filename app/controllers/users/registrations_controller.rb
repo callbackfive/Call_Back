@@ -6,10 +6,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
 
-  def create
-    super
-    current_user.regular!
-  end
+  # def create
+  #  super
+  #  current_user.regular!
+  # end
 
 
   # If you have extra params to permit, append them to the sanitizer.
