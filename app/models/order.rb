@@ -1,9 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :project 
   belongs_to :giveback  
   has_one :payment
-  has_one :giveback
   has_one :project, through: :giveback
   before_create :build_trade_no
  
@@ -26,17 +24,6 @@ class Order < ApplicationRecord
 
       all.each do |order|
         csv << attributes.map{ |attr| order.send(attr) }
-      end
-    end
-  end
-
-  def self.to_csv_project
-    attributes = %w{merchantOrderNo project_title giveback_title giveback_price  full_name zip address phone email issue_date status}
-    
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
-      all.each do |order|
-        csv << attributes.map{|attr| order.send(attr)}
       end
     end
   end
