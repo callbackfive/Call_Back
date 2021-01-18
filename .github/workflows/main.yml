@@ -18,5 +18,3 @@ jobs:
           branch: "dev"
           healthcheck: "https://callback.money"
           delay: 5
-      - name: DataBase Migration
-        run: rails db:migrate
