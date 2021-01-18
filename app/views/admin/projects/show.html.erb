@@ -1,64 +1,68 @@
-<div class="bg-gray-100">
-  <p id="notice"><%= notice %></p>
+<div class="flex justify-center mt-8">
+  <div class="">
+    <p id="notice"><%= notice %></p>
 
-  <%= link_to 'Edit', edit_admin_project_path(@admin_project) %> |
-  <%= link_to 'Back', admin_projects_path %>
+    <%= link_to 'Edit', edit_admin_project_path(@admin_project) %> |
+    <%= link_to 'Back', admin_projects_path %>
 
-  <%= image_tag @admin_project.image_url if @admin_project.image_url.present? %>
-  <div>專案名稱： <%= @admin_project.title %></div>
-  <div>專案類別： <%= @admin_project.category.title %></div>
-  <div>內容摘要： <%= @admin_project.summary %></div>
-  <div>專案內容： <%= @admin_project.content %></div>
-  <div>募資目標： <%= @admin_project.target_amount %></div>
-  <div>NT$<%=@admin_project.paid_orders_amounts%></div>
-  <div>募資人數： <%= @admin_project.paid_orders.count%></div>
-  <div>剩下<%= @admin_project.days_left%>天</div>
+    <%= image_tag @admin_project.image_url if @admin_project.image_url.present? %>
+    <div>專案id： <%= @admin_project.id %></div>
+    <div>專案名稱： <%= @admin_project.title %></div>
+    <div>專案類別： <%= @admin_project.category.title %></div>
+    <div>內容摘要： <%= @admin_project.summary %></div>
+    <div>專案內容： <%= @admin_project.content %></div>
+    <div>募資目標： <%= @admin_project.target_amount %></div>
+    <div>NT$<%=@admin_project.paid_orders_amounts%></div>
+    <div>募資人數： <%= @admin_project.paid_orders.count%></div>
+    <div>剩下<%= @admin_project.days_left%>天</div>
 
-  <%# -----giveback-----%>
+    <%# -----giveback-----%>
 
-  <div>
-    <ul>
-      <% @givebacks.each do |g| %>
-        <%= image_tag g.image_url if g.image_url.present? %>
-        <li>回饋商品： <%= g.title %></li>
-        <li>商品價格： <%= g.price %>元</li>
-      <%end%>
-    </ul>
-  </div>
-  <br>
+    <div>
+      <ul>
+        <% @givebacks.each do |g| %>
+          <%= image_tag g.image_url if g.image_url.present? %>
+          <li>回饋商品： <%= g.title %></li>
+          <li>商品價格： <%= g.price %>元</li>
+        <%end%>
+      </ul>
+    </div>
+    <br>
 
 
-  <%# -----dialogbox-----%>
+    <%# -----dialogbox-----%>
 
-  <div class="new-dialogbox-popup-block no-popup">
-    <div class="popup-content">
-      <div class="close-popup">
-        <i class="far fa-times-circle text-5xl"></i>
-      </div>
-      <div class="project-owner-info">
-        <div>(這邊可以放提案負責人照片)</div>
-        <div>提案負責人： <%= @admin_project.user.name %></div>
-        <div>(這邊可以放提案負責人粉絲專頁或官方連結)</div>
-        <div>(這邊可以放提案負責人簡介)</div>
-      </div>
-      <hr>
-      <div class="add-message-to-dialogbox">
-        <div class="message-guiding">
-          傳訊息給 <%= @admin_project.user.name %>
+    <div class="new-dialogbox-popup-block no-popup">
+      <div class="popup-content">
+        <div class="close-popup">
+          <i class="far fa-times-circle text-5xl"></i>
+        </div>
+        <div class="project-owner-info">
+          <div>(這邊可以放提案負責人照片)</div>
+          <div>提案負責人： <%= @admin_project.user.name %></div>
+          <div>(這邊可以放提案負責人粉絲專頁或官方連結)</div>
+          <div>(這邊可以放提案負責人簡介)</div>
+        </div>
+        <hr>
+        <div class="add-message-to-dialogbox">
+          <div class="message-guiding">
+            傳訊息給 <%= @admin_project.user.name %>
+          </div>
+        </div>
+        <%# -----message-----%>
+        <div class="message-form">
+          <%= render 'projects/msg_form', message: @message, project: @admin_project %>
         </div>
       </div>
-      <%# -----message-----%>
-      <div class="message-form">
-        <%= render 'projects/msg_form', message: @message, project: @admin_project %>
-      </div>
+    </div>
+
+    <%# 渲染comment跟reply的畫面 %>
+    <%= render @admin_project.comments, comment: @comment %>
+
+    <div>
+      <%= link_to '回探索（專案列表）', projects_path %></h2>
     </div>
   </div>
-
-  <%# 渲染comment跟reply的畫面 %>
-  <%= render @admin_project.comments, comment: @comment %>
-
-  <div>
-    <%= link_to '回探索（專案列表）', projects_path %></h2>
-  </div>
 </div>
+
   
