@@ -1,11 +1,15 @@
 zh-TW:
   activerecord:
     models:
-      givebacks: 回饋商品
+      giveback: "回饋商品"
     attributes:  
-      givebacks:  
+      giveback:  
         price: 商品價格 
         deliver_time: 預估寄送時間
+        
+      
+  
+        
         
       
   
