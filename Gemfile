@@ -56,6 +56,7 @@ group :development do
   gem 'foreman', '~> 0.87.2'
   gem 'thor', '~> 1.0', '>= 1.0.1'
   gem 'hirb', '~> 0.7.3'
+  gem 'bullet', '~> 6.1', '>= 6.1.2'
 end
 
 group :test do
