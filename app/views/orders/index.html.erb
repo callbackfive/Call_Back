@@ -23,32 +23,32 @@
          <table class="min-w-full">
           <thead>
               <tr>
-                <th class="px-0 py-3 border-b-4 border-b text-left leading-4 text-gray-500 font-light tracking-wider">專案名稱</th>
-                <th class="px-0 py-3 border-b-4 border-b text-left leading-4 text-gray-500 font-light tracking-wider">回饋品名稱</th>
-                <th class="px-0 py-3 border-b-4 border-b text-left leading-4 text-gray-500 font-light tracking-wider">訂單編號</th>
-                <th class="px-0 py-3 border-b-4 border-b text-left leading-4 text-gray-500 font-light tracking-wider">贊助金額</th>
-                <th class="px-0 py-3 border-b-4 border-b text-left leading-4 text-gray-500 font-light tracking-wider">付款時間</th>
-                <th class="px-0 py-3 border-b-4 border-b text-left leading-4 text-gray-500 font-light tracking-wider">訂單狀態</th>
+                <th class="order_th">專案名稱</th>
+                <th class="order_th">回饋品名稱</th>
+                <th class="order_th">訂單編號</th>
+                <th class="order_th">贊助金額</th>
+                <th class="order_th">付款時間</th>
+                <th class="order_th">訂單狀態</th>
               </tr>
           </thead>
           <tbody class="bg-white">
             <% @user_orders.each do |user_order| %>
               <% if user_order.user_id == current_user.id %>
                 <tr>
-                  <td class="px-0 py-4 border-b text-left border-gray-300 font-extralight border-gray-200">
+                  <td class="order_td">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= user_order.project_title%></div>
                   </td>
-                  <td class="px-0 py-4 border-b-2 border-b text-left border-gray-300 font-extralight border-gray-100"><div class="flex items-center"><div>
+                  <td class="order_td"><div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= link_to user_order.giveback_title, current_user %></div>
                       </td>
-                    <td class="px-0 py-4 border-b text-left border-gray-300 font-extralight border-gray-200"><div class="flex items-center"><div>
+                    <td class="order_td"><div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= user_order.merchantOrderNo%></td>
-                     <td class="px-0 py-4 border-b text-left  font-extralight border-gray-200"><div class="flex items-center"><div>
+                     <td class="order_td"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= user_order.giveback_price%></td>
-                     <td class="px-0 py-4 border-b text-left font-extralight border-gray-200"><div class="flex items-center"><div>
+                     <td class="order_td"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= user_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
-                    <td class="px-0 py-4 border-b text-left border-gray-200 font-extralight border-gray-200">
+                    <td class="order_td">
                         <span class="relative inline-block px-3 py-1 font-medium text-white leading-tight">
                         <span aria-hidden class="absolute inset-0 bg-red-600 opacity-70 rounded-full"></span>
                         <span class="relative text-xs"><%= user_order.status_to_string%></span>
