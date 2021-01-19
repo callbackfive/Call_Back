@@ -1,17 +1,21 @@
 .order_th{
-    @apply px-6;
+    @apply px-0;
     @apply py-3;
-    @apply border-b-2;
-    @apply border-gray-300;
     @apply text-left;
+    @apply border-b-4;
+    @apply border-b; ;
     @apply leading-4;
-    @apply text-blue-500;
+    @apply text-gray-500;
+    @apply font-light;
     @apply tracking-wider;
 }
 .order_td{
-    @apply px-6;
+    @apply px-0;
     @apply py-4;
-    // @apply whitespace-no-wrap;
-    @apply border-b;
-    @apply border-gray-500;
+    @apply border-b-2;
+    @apply border-b; 
+    @apply text-left;
+    @apply text-gray-500;
+    @apply font-extralight;
+    @apply border-gray-200;
 }
