@@ -6,7 +6,7 @@ class Admin::ProjectsController < ApplicationController
   # GET /admin/projects.json
   def index
     @q = Admin::Project.ransack(params[:q])
-    @admin_projects = @q.result.includes(:user, :category)
+    @admin_projects = @q.result.includes(:user, :category, :givebacks, :paid_orders)
   end
 
   # GET /admin/projects/1
