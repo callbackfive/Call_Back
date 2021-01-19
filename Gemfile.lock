@@ -306,12 +306,12 @@ DEPENDENCIES
   cancancan (~> 1.15)
   capybara (>= 2.15)
   carrierwave (~> 2.1)
-  chartkick
+  chartkick (~> 3.4, >= 3.4.2)
   devise (~> 4.7, >= 4.7.3)
   figaro (~> 1.2)
   fog-aws (~> 3.7)
   foreman (~> 0.87.2)
-  groupdate
+  groupdate (~> 5.2, >= 5.2.1)
   hirb (~> 0.7.3)
   jbuilder (~> 2.7)
   koala (~> 3.0)
