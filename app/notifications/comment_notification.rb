@@ -1,18 +1,22 @@
-# To deliver this notification:
-#
-CommentNotification.with(comment: @comment).deliver_later(current_user)
-# CommentNotification.with(post: @post).deliver(current_user)
-
 class CommentNotification < Noticed::Base
+  CommentNotification.with(comment: @comment).deliver_later(User.all)
   # Add your delivery methods
   #
-  deliver_by :database
+  deliver_by :database, format: :to_database
   # deliver_by :email, mailer: "UserMailer"
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
 
   # Add required params
   #
+  def to_database
+    {
+      type: self.class.name,
+      params: params,
+      # account: Current.account,
+    }
+  end
+
   param :comment
 
   # Define helper methods to make rendering easier.
@@ -25,3 +29,4 @@ class CommentNotification < Noticed::Base
     comment_path(params[:comment])
   end
 end
+
