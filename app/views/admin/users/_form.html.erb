@@ -1,0 +1,50 @@
+<div class="flex justify-center">
+  <%= form_with(model: admin_user, local: true, :html => { :class => 'bg-gray-100' }) do |f| %>
+    <% if admin_user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(admin_user.errors.count, "error") %> prohibited this admin_user from being saved:</h2>
+        <ul>
+          <% admin_user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="rounded-lg p-8 flex flex-col mt-3">
+      <div>
+        <%= f.label "顯示名稱" %><br/>
+        <%= f.text_field :name, placeholder: admin_user.name %>
+      </div>
+      <div>
+        <%= f.label :image, '個人照片' %><br>
+        <%= f.file_field :image, id: :admin_user_image %>
+      </div> 
+
+      <% if !admin_user.persisted? %>
+        <div>
+          <%= f.label :email, 'email' %>
+          <%= f.text_field :email %>
+        </div> 
+      <% end %>
+
+      <div>
+        <%= f.label '密碼' %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div>
+        <%= f.label "Role"%><br/>
+        <%= f.select :role, options_for_select([
+          ['regular'], ['admin']
+          ]) %>
+      </div>
+      <br>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+    
+  <% end %>
+</div>

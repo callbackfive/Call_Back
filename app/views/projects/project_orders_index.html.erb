@@ -1,0 +1,99 @@
+<div class="mt-28"></div>
+<h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800"><%=@project.title%></h2>
+<% if @my_order_lists.blank? %> 
+  <div>沒有任何人贊助你的夢想</div>
+<% else %>
+<% end %>
+<div class="mt-8"></div>
+<div class="flex justify-center space-x-4">
+  <h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800">以下為您的贊助金主列表</h2>
+  <%=link_to myorderlist_project_path( format: :csv) do %>
+    <div class="text-center font-semibold text-3xl lg:text-4xl", style= "color:#EF5959;"><i class="fas fa-cloud-download-alt"></i></div>
+  <% end %>
+</div>
+<div class="mx-24"><%=line_chart @project.orders.paid.group_by_day(:created_at).count%></div>
+
+<!-- component -->
+<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+    <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12"></div>
+      <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+         <table class="min-w-full">
+          <thead>
+              <tr>
+                <th class="order_th">訂單編號</th>
+                <th class="order_th">信用卡後四碼</th>
+                <th class="order_th">回饋品名稱</th>
+                <th class="order_th">回饋品價格</th>
+                <th class="order_th">收件人</th>
+                <th class="order_th">國家</th>
+                <th class="order_th">郵遞區號</th>
+                <th class="order_th">收件地址</th>
+                <th class="order_th">手機號碼</th>
+                <th class="order_th">電子信箱</th>
+                <th class="order_th">訂單付款日期</th>
+                <th class="order_th">訂單狀態</th>
+              </tr>
+          </thead>
+
+          <tbody class="bg-white">
+            <% @my_order_lists.each do |project_order| %>
+             <% if project_order.paid? %>
+                <tr>
+                <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.merchantOrderNo%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.payment.card_4no%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.giveback_title%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.giveback_price%></div>
+                  </td>
+
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.full_name%></div>
+                  </td>
+                   <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.delivery_country%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.zip%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.address%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.phone%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.email%></div>
+                  </td>
+                  <td class="order_td">
+                    <div class="flex items-center"><div>
+                      <div class="text-sm leading-5 text-gray-800"><%= project_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S')%></div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                        <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                        <span class="relative text-xs"><%= project_order.status_to_string%></span>
+                          </span>
+                    </td>
+                </tr>
+              <%end%> 
+            <%end%>
+          </tbody>
+        </table>     
+    </div>
+</div>

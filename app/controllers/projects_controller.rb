@@ -1,16 +1,25 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite]
+  before_action :find_project, only: [:show, :edit, :update, :destroy, :project_givebacks, :favorite, :project_orders_index]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_payment, only: [:project_orders_index]
 
   def index
     @projects = Project.all
-    @projects = Project.is_now_on_sale 
+    # @projects = Project.is_now_on_sale 
     @successful_projects = Project.succeeded_and_done
     @past_projects = Project.past_projects
   end
 
   def user_projects_index
     @user_projects = current_user.projects
+  end
+
+  def project_orders_index
+    @my_order_lists = @project.orders.order(id: :desc)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @my_order_lists.to_csv_project, filename: "orders-#{Date.today}.csv" }    
+    end
   end
 
   def show
@@ -113,6 +122,10 @@ class ProjectsController < ApplicationController
   
   def find_project
     @project = Project.find(params[:id])
+  end
+
+  def find_payment
+    @payment = Payment.find(params[:id])
   end
 
   def set_project_for_creating_message

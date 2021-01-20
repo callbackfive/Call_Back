@@ -100,9 +100,10 @@ class PaymentsController < ApplicationController
         if order 
           payment = Payment.paid.new(order: order)
           payment.merchant_order_no = merchantOrderNo
-          # payment.=result ["EscrowBank"]
 
-          payment.code_no = result["Card4No"]
+          payment.trade_no = result["TradeNo"]
+          payment.card_4no = result["Card4No"]
+          payment.paid_date = result["PayTime"]
           payment.end_price = result["Amt"]
           payment.save!
           order.paid!

@@ -6,5 +6,5 @@ class Giveback < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :price, numericality: { only_integer: true }
-  validates :image, :deliver_time, presence: true
+  validates :deliver_time, presence: true
 end

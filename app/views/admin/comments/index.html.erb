@@ -1,0 +1,46 @@
+<div>
+  <div class="text-center">
+    <h1 class="text-xl mb-1">Comment清單</h1>
+    <%= link_to '新增comment', new_admin_comment_path, class:"bg-blue-200 rounded p-1"%>
+    <p id="notice"><%= notice %></p>
+  </div>
+
+  <div class="my-2 py-2 flex justify-center">
+    <div class="mt-6 inline-block px-8 pt-3">
+      <table>
+        <thead>
+          <tr>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">ID</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">留言人</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">留言人ID</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">留言內容</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">專案名稱</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">專案ID</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">created_at</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">updated_at</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">deleted_at</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider", colspan="3">操作</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_comments.each do |admin_comment| %>
+            <tr>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.id %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.user.name %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.user.id %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.content %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.project.title %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.project.id %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.created_at %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.updated_at %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_comment.deleted_at %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Edit', edit_admin_comment_path(admin_comment) %></td>
+              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Destroy', admin_comment, method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

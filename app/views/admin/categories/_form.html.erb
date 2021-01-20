@@ -1,0 +1,26 @@
+<div class="flex justify-center">
+  <%= form_with(model: admin_category, local: true, :html => { :class => 'bg-gray-100' }) do |form| %>
+    <% if admin_category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(admin_category.errors.count, "error") %> prohibited this admin_category from being saved:</h2>
+
+        <ul>
+          <% admin_category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="m-3">
+      <%= form_for(admin_category) do |form| %>
+        <%= form.label :title %><br>
+        <%= form.text_field :title, class:"border-2" %><br>
+        <div class="my-3">
+          <%= form.label :image, '類別照片' %><br>
+          <%= form.file_field :image, id: :category_image %>
+        </div>
+        <%= form.submit %>
+      <% end%>
+    </div>
+  <% end %>
+</div>

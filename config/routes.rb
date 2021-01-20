@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :givebacks
+  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'
   get '/apis/categories', action: 'categories',controller: 'apis'
 
+  namespace :admin do
+    root to: "users#index"
+    resources :categories
+    resources :projects
+    resources :users
+    resources :orders
+    resources :comments
+  end
+  
   devise_for :users, controllers: { 
     sessions: 'users/sessions', 
     registrations: "users/registrations",
@@ -14,8 +26,16 @@ Rails.application.routes.draw do
     get '/profile', action: 'show'
   end
 
+  resources :users do
+    resources :projects, only: [:index], action: :user_projects_index
+    resources :orders, only: [:index, :new, :create, :show]
+  end
+
   # projects
   resources :projects, path_names: {new: 'proposal'} do
+    member do
+      get 'myorderlist', as: 'myorderlist',action: :project_orders_index 
+    end
     member do
       get 'rewards', as: 'rewards', action: :project_givebacks
     end
@@ -35,11 +55,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index
     resources :orders, only: [:index, :new, :create, :show] do
-      member do
-        get 'records', as: 'records', action: :paid_record
-      end
     end
   end
+
 
   resources :categories, shallow: true
   
