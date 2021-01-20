@@ -1,8 +1,7 @@
 class ApisController < ActionController::Base
  
   def projects
-    # @projects = Project.includes(:category).all
-    @projects = Project.all
+    @projects = Project.includes(:category).all
     # render json: @projects.category.title
      render json: projects_with_category(@projects)
   end

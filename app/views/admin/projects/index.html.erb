@@ -1,6 +1,6 @@
-<div>
+<div class="text-xs">
   <div class="text-center">
-    <h1 class="text-xl mb-1">Project清單</h1>
+    <h1 class="text-xl mb-1 ">Project清單</h1>
     <%= link_to '新增project', new_admin_project_path, class:"bg-blue-200 rounded p-1"%>
     <p id="notice"><%= notice %></p>
   </div>
@@ -9,41 +9,44 @@
       <table class="w-full">
         <thead>
           <tr>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">ID</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">Owner</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">名稱</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider"><%= link_to '狀態', sort: :status %></th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">概要</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">內容</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider"><%= link_to '目標金額', sort: :target_amount %></th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">截止日期</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">贊助總額</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">created_at</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider">deleted_at</th>
-            <th class="px-6 py-3 border-b-2 border-gray-300 text-center leading-4 text-blue-500 tracking-wider", colspan="3">操作</th>
+            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+            <th class="admin_th"><%= sort_link(@q, :category_id, '類別') %></th>
+            <th class="admin_th"><%= sort_link(@q, :user_id, '提案者') %></th>
+            <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
+            <th class="admin_th"><%= sort_link(@q, :status, '狀態') %></th>
+            <th class="admin_th">概要</th>
+            <th class="admin_th">內容</th>
+            <th class="admin_th"><%= link_to '目標金額', sort: :target_amount %></th>
+            <th class="admin_th"><%= sort_link(@q, :due_date, '截止日期') %></th>
+            <th class="admin_th">募資總額</th>
+            <th class="admin_th"><%= link_to 'created_at', sort: :created_at %></th>
+            <th class="admin_th"><%= link_to 'deleted_at', sort: :deleted_at %></th>
+            <th class="admin_th", colspan="3">操作</th>
           </tr>
         </thead>
 
         <tbody>
           <% @admin_projects.each do |admin_project| %>
             <tr>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.id %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.user.name %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.title %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.status %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.summary %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.content %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.target_amount %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.due_date %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.paid_orders_amounts %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.created_at %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= admin_project.deleted_at %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Show', admin_project %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Edit', edit_admin_project_path(admin_project) %></td>
-              <td class="text-center px-6 py-4 border-b border-gray-500"><%= link_to 'Destroy', admin_project, method: :delete %></td>
+              <td class="admin_td"><%= admin_project.id %></td>
+              <td class="admin_td"><%= admin_project.category.title %></td>
+              <td class="admin_td"><%= admin_project.user.name %></td>
+              <td class="admin_td"><%= admin_project.title %></td>
+              <td class="admin_td"><%= admin_project.status %></td>
+              <td class="admin_td"><%= admin_project.summary %></td>
+              <td class="admin_td"><%= admin_project.content %></td>
+              <td class="admin_td"><%= admin_project.target_amount %></td>
+              <td class="admin_td"><%= admin_project.due_date %></td>
+              <td class="admin_td"><%= admin_project.paid_orders_amounts %></td>
+              <td class="admin_td"><%= admin_project.created_at %></td>
+              <td class="admin_td"><%= admin_project.deleted_at %></td>
+              <td class="ud_btn"><%= link_to 'Show', admin_project %></td>
+              <td class="ud_btn"><%= link_to 'Edit', edit_admin_project_path(admin_project) %></td>
+              <td class="ud_btn"><%= link_to 'Destroy', admin_project, method: :delete %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <p><%= @admin_projects.count %> projects</p>
     </div>
   </div>
