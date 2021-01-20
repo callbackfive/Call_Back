@@ -9,8 +9,14 @@ class CommentsController < ActionController::Base
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.project = @project
+<<<<<<< HEAD
      if @comment.save 
        redirect_to project_path(@project)
+=======
+     if @comment.save
+      CommentNotification.with(comment: @comment).deliver_later(@project.user)
+      redirect_to project_path(@project)
+>>>>>>> 52a274b (done project_owner can receive new comment message)
      end
   end
 

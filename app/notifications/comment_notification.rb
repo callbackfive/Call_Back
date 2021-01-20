@@ -1,6 +1,6 @@
-# CommentNotification.with(comment: @comment).deliver_later(current_user)
 
 class CommentNotification < Noticed::Base
+
   # notification = CommentNotification.with(current_user)
   # notification.deliver_later(User.all)
   # Add your delivery methods
@@ -20,6 +20,7 @@ class CommentNotification < Noticed::Base
     }
   end
 
+  param :comment
   # Define helper methods to make rendering easier.
   #
   def message
@@ -27,7 +28,7 @@ class CommentNotification < Noticed::Base
   end
   #
   def url
-    project_path(@comment.project_id)
+    project_path((params[:comment]).project_id)
   end
 end
 

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root to: "users#index"
     resources :categories
     resources :projects
+    resources :givebacks
     resources :users
     resources :orders
     resources :comments
