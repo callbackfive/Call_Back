@@ -5,7 +5,8 @@ class Admin::GivebacksController < ApplicationController
   # GET /admin/givebacks
   # GET /admin/givebacks.json
   def index
-    @admin_givebacks = Admin::Giveback.all.includes(:project)
+    @q = Admin::Giveback.ransack(params[:q])
+    @admin_givebacks = @q.result.includes(:project)
   end
 
   # GET /admin/givebacks/1
