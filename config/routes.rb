@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :givebacks
-  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'
@@ -25,6 +22,8 @@ Rails.application.routes.draw do
   resource :users, controller: 'profiles', only: [] do
     get '/profile', action: 'show'
   end
+
+  resources :notifications, only: [:index]
 
   resources :users do
     resources :projects, only: [:index], action: :user_projects_index

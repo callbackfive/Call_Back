@@ -1,0 +1,4 @@
+zh-TW:
+  notifications:
+    comment_notification:
+      message: "您有一則新訊息"
