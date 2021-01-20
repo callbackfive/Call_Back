@@ -9,7 +9,7 @@ class CommentsController < ActionController::Base
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.project = @project
-     if @comment.save
+     if @comment.save 
        redirect_to project_path(@project)
      end
   end
