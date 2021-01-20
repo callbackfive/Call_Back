@@ -4,52 +4,85 @@
   <div class="wrapper">  
     <div class="grid-items">
       <div class="dialogboxes-index">
-        <div class="dialogboxes-sent-by-me">
-          <%# 我發出的聯絡訊息列表 %>
-          <% if @my_sent_dialogboxes %>
-            <% @my_sent_dialogboxes.each do |dialogbox| %> 
-              <%= link_to dialogbox do %>
-                <div class="dialogbox-link">
-                  <%= dialogbox.project.title %>(專案名)
-                </div>
-              <% end %>
-            <% end %>
-          <% else %>
-            <div>您沒有發送過任何訊息</div>
-          <% end %>
+        <div class="tab-triger">
+          <ul class="tabs">
+            <li data-tab-target="#dialogboxes-sent-by-me" class="active tab">已送出的對話</li>
+            <li data-tab-target="#guest-send-dialogboxes" class="tab">我的專案收到的訊息</li>
+          </ul>
         </div>
-        <%# 我的專案收到的聯絡訊息列表 %>
-        <div class="guest-send-dialogboxes">
-          <% if @dialogboxes_of_my_projects %>
-            <% @dialogboxes_of_my_projects.each do |dialogbox|%>
-              <%= link_to dialogbox do %>
-                <div class="dialogbox-card p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
-                  <%= dialogbox.user.name %> 對您的專案發送訊息...
-                  <div class="dialogbox-of-the-project">
-                    <%= dialogbox.project.title %>
-                  </div>
-                </div>
-              <% end %>
+        <div class="tab-content">
+          <!-- 我發出的聯絡訊息列表 -->
+          <div id="dialogboxes-sent-by-me" data-tab-content class="active sub-index">
+            <% if @my_sent_dialogboxes %>
+              <ul>
+                <% @my_sent_dialogboxes.each do |dialogbox| %> 
+                  <li>
+                    <%= link_to dialogbox do %>
+                      <div class="dialogbox-link">
+                        <div class="project-owner-name">
+                          <%= dialogbox.project.user.name %>(專案名)
+                        </div>
+                        <div class="project-of-the-dialogbox">
+                          <%= dialogbox.project.title %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <div>您沒有發送過任何訊息</div>
             <% end %>
-          <% else %>
-            <div>您的專案沒有收到任何訊息</div>
-          <% end %>
+          </div>
+          <!-- 我的專案收到的聯絡訊息列表 -->
+          <div id="guest-send-dialogboxes" data-tab-content class="sub-index">
+            <% if @dialogboxes_of_my_projects %>
+              <ul>
+                <% @dialogboxes_of_my_projects.each do |dialogbox|%>
+                  <li>
+                    <%= link_to dialogbox do %>
+                      <div class="dialogbox-link">
+                        <div class="guest-name">
+                          <%= dialogbox.user.name %> 對您的專案發送訊息...
+                        </div>
+                        <div class="project-of-the-dialogbox">
+                          <%= dialogbox.project.title %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <div>您的專案沒有收到任何訊息</div>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="the-dialogbox">
         <% if @dialogbox.present? %>
           <div class="dialogbox-title">
-            <h4><%= @dialogbox.project.title %></h4>
+            <h4>
+              <%= @dialogbox.project.title %>
+            </h4>
           </div>  
           <div class="dialogbox-content">
-            <div id="messages-container">
+            <div class="messages-container">
+              <!-- 訊息列表 --> 
               <% @messages.each do |message| %>
                 <%= render 'messages/message', message: message %>
               <% end %>
             </div>
           </div>
           <div class="message-form">
-            <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
+              <!-- 送出訊息form -->
+            <form action="/dialogbox/create_message" accept-charset="UTF-8" method="post">
+              <div class="input-group">
+                <input value="25" type="hidden" name="message[dialogbox]" id="message-dialogbox">
+                <input placeholder="請輸入訊息..." type="text" name="message[content]" id="message-content">
+                <input type="submit" name="commit" value="送出訊息" id="dialogbox-msg-submit-btn" data-disable-with="送出訊息">
+              </div>
+            </form>
           </div>
         <% end %>
       </div>
