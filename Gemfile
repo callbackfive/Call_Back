@@ -38,6 +38,7 @@ gem 'omniauth-google-oauth2', '~> 0.8.1'
 gem 'koala', '~> 3.0'
 gem 'groupdate'
 gem 'chartkick'
+gem 'ransack', '~> 2.4', '>= 2.4.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

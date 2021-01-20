@@ -1,0 +1,17 @@
+zh-TW:
+  activerecord:
+    models:
+      category: 
+    attributes:  
+      category:  
+        title: "名稱"
+      
+
+        
+      
+  
+        
+        
+      
+  
+        

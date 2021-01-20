@@ -1,7 +1,5 @@
 zh-TW:
-  activerecord:  
-    models:
-      category: 專案類別
+  activerecord:
     attributes:  
       project:  
         title: 專案標題
@@ -10,11 +8,6 @@ zh-TW:
         content: 專案內容
         due_date: 截止時間
         image: 專案封面
-      giveback:
-        title: 回饋商品名稱 
-      user:
-        name: 顯示名稱
-        
       
   
         

@@ -1,6 +1,9 @@
-<h1>Editing Admin Comment</h1>
+<div>
+  <h1 class="text-xl text-center mt-3">修改comment資料</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_comment %> |
+    <%= link_to 'Back', admin_comments_path %>
+  </div>
 
-<%= render 'form', admin_comment: @admin_comment %>
-
-<%= link_to 'Show', @admin_comment %> |
-<%= link_to 'Back', admin_comments_path %>
+  <%= render 'form', admin_comment: @admin_comment %>
+</div>
