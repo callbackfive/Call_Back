@@ -36,7 +36,6 @@ gem 'cancancan', '~> 1.15'
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
 gem 'omniauth-google-oauth2', '~> 0.8.1'
 gem 'koala', '~> 3.0'
-
 gem 'ransack', '~> 2.4', '>= 2.4.1'
 gem 'groupdate', '~> 5.2', '>= 5.2.1'
 gem 'chartkick', '~> 3.4', '>= 3.4.2'
