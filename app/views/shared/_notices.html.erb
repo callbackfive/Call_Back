@@ -1,0 +1,21 @@
+<div class="p-4 position-absolute" style="top:0; right:0; width:350px; z-index: 9999;">
+  <% flash.to_hash.with_indifferent_access.each do |type, f| %>
+    <div class="toast" data-toggle="toast" data-autohide="false">
+      <div class="toast-body">
+        <button class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+
+        <% case f %>
+        <% when String %>
+          <div><%= sanitize f %></div>
+        <% when Hash %>
+          <div><%= sanitize f[:message] %></div>
+
+          <% f[:actions].each do |action| %>
+            <%= link_to action[:title], action[:url], class: "btn btn-sm btn-primary mr-1" %>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  <% end %>
+</div>
