@@ -15,6 +15,7 @@
 @import "./projects/pro-show-tab.scss";
 @import "./projects/pro-ctn-giveback.scss";
 
+
 @import "./comment/comment.scss";
 @import "./comment/reply.scss";
 
@@ -24,10 +25,11 @@
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
 @import "./admin_page";
-@import "./project_orders_index";
 @import "./profile";
 @import "./admin_page";
-@import "@tailwindcss/postcss7-compat/utilities";
 @import "./project_orders_index";
+@import "./orders";
+
+@import "@tailwindcss/postcss7-compat/utilities";
 
 
