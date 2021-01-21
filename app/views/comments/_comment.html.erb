@@ -23,13 +23,13 @@
          <%= link_to "刪除", comment, method: 'delete' %>
       </div>
       <% end %>
-
       <div id="reply-form-<%= comment.id %>"></div>
-
-
     </div>
-   
   </li>
 </ul>
-
+  <% if comment.replies.any? %>
+    <% comment.replies.includes(:user).each do |reply| %>
+      <%= render 'comments/reply', reply: reply %>
+    <% end %>
+  <% end %>
 </div>
