@@ -1,0 +1,71 @@
+<%# 我發出的聯絡訊息列表 %>
+<div class="old-hide">
+  <div class="">
+    <div class="grid grid-cols-3">
+      <div class="col-span-1">
+        <% @sent_dialogboxes.each do |dialogbox| %> 
+          <%= link_to dialogbox do %>
+            <div class="card-body p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
+              <%= dialogbox.project.title %>(專案名)
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%# 訊息視窗 %>
+      <div class="dialogbox col-span-2">
+        <%# if @dialogbox.user == current_user || @dialogbox.project.user == current_user %>
+          <%#= @dialogbox.project.title %>
+        <%# end %>
+        <%#= 上面四行保留修改，後續要用來判別是否為聊天室的兩位 %>
+        <% if @dialogbox.present? %>
+          <div class="dialogbox-project-title">
+            <h4><%= @dialogbox.project.title %></h4>
+          </div>  
+          <div class="messages-block">
+            <div id="messages-container">
+              <% @dialogbox.messages.each do |message| %>
+                <%= render 'messages/message', message: message %>
+              <% end %>
+            </div>
+          </div>
+          <div class="message-typing-box">
+            <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <%# 我的專案收到的聯絡訊息列表 %>
+  <div class="">
+    <div class="grid grid-cols-3">
+      <div class="col-span-1">
+        <% @my_projects.each do |project| %> 
+          <% project.dialogboxes.each do |dialogbox|%>
+            <%= link_to dialogbox do %>
+              <div class="card-body p-5 my-5 rounded-2xl border-4 border-light-blue-500 border-opacity-100">
+                <%= dialogbox.user.name %> 對您的專案發送訊息...
+                <div class="dialogbox-of-the-project">
+                  <%= dialogbox.project.title %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%# 訊息視窗 %>
+      <div class="dialogbox">
+        <%# if @dialogbox.user == current_user || @dialogbox.project.user == current_user %>
+          <%#= @dialogbox.project.title %>
+        <%# end %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= link_to '回探索（專案列表）', projects_path %></h2>
+  </div>
+</div>
+

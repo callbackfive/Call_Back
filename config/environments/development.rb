@@ -17,6 +17,13 @@ Rails.application.configure do
   config.eager_load = false
   config.consider_all_requests_local = true
 
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.add_footer = true
+    Bullet.rails_logger = true
+  end
 
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
@@ -58,3 +65,4 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 end
+

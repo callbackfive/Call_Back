@@ -3,5 +3,5 @@ class Dialogbox < ApplicationRecord
   belongs_to :user
   has_many :messages
 
-  validates :user, uniqueness: { scope: :project }
+  validates :user, uniqueness: { scope: :project } 
 end
