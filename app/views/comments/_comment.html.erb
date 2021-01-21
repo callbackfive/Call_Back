@@ -14,7 +14,7 @@
   <div id="reply-form-<%= comment.id %>"></div>
 
   <% if comment.replies.any? %>
-    <% comment.replies.each do |reply| %>
+    <% comment.replies.includes(:user).each do |reply| %>
       <%= render 'comments/reply', reply: reply %>
     <% end %>
   <% end %>
