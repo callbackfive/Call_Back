@@ -1,7 +1,7 @@
 <h1>訂單頁(show)</h1>
 <h2>付款方式：信用卡付款</h2>
 <div>回饋商品： <%= @giveback.title %></div>
-<div>商品價格： <%= @giveback.price %></div>
+<div>商品價格： <%= @giveback.price.to_s(:delimited) %></div>
 
 <h2>寄送資訊：</h2>
 

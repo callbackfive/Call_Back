@@ -14,7 +14,7 @@
   <%end%>
 </div>
 <div class="mx-52">
-<%=line_chart Order.paid.group_by_day(:created_at).count %></div>
+<%=line_chart current_user.orders.paid.group_by_day(:created_at).count %></div>
 
 <!-- component -->
 <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-6 pr-10 lg:px-8">
@@ -25,7 +25,7 @@
               <tr>
                 <th class="order_th">專案名稱</th>
                 <th class="order_th">回饋品名稱</th>
-                <th class="order_th"><%= sort_link(@q, :merchantOrderNo, '	付款時間') %></th>
+                <th class="order_th"><%= sort_link(@q, :merchantOrderNo, '訂單編號') %></th>
                 <th class="order_th">贊助金額</th>
                 <th class="order_th"><%= sort_link(@q, :issue_date, '	付款時間') %></th>
                 <%# <th class="order_th">訂單狀態</th> %>
@@ -34,7 +34,7 @@
               </tr>
           </thead>
           <tbody class="bg-white">
-            <% @user_orders.each do |user_order| %>
+            <% @user_orders.paid.each do |user_order| %>
               <% if user_order.user_id == current_user.id %>
                 <tr>
                   <td class="order_td">
