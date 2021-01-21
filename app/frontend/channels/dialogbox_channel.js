@@ -1,20 +1,29 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
+  
   let dialogbox_id = document.getElementById('dialogbox-id').getAttribute('data-dialogbox-id');
 
-  console.log(dialogbox_id);
-  consumer.subscriptions.create({ channel: "DialogboxChannel", dialogbox_id: dialogbox_id }, {
+  consumer.subscriptions.subscriptions.forEach((subscription) => {
+    consumer.subscriptions.remove(subscription)
+  });
+
+  consumer.subscriptions.create ({channel: "DialogboxChannel", dialogbox_id: dialogbox_id}, {
     connected() {
-      console.log('Connected to dialogbox channel ' + dialogbox_id);
+      console.log("Connected to dialogbox channel " + dialogbox_id);
     },
   
     disconnected() {
-      // Called when the subscription has been terminated by the server
     },
   
     received(data) {
-      console.log(data);
+      const sendMsgBtn = document.getElementById('dialogbox-msg-submit-btn');
+      sendMsgBtn.disabled = false;
+      const msgForm = document.forms[0];
+      msgForm.reset();
+      const messageContainer = document.getElementById('messages-container')
+      // console.log(messageContainer.innerHTML);
+      messageContainer.innerHTML = messageContainer.innerHTML + data.html
     }
   });
 });

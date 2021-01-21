@@ -1,0 +1,20 @@
+<%= content_tag :div, class: "nested_field", data: { new_record: form.object.new_record? } do %>
+  <div class=''>
+    <%= form.label :title, '回饋商品' %><br>
+    <%= form.text_field :title, class:'border-2'%>
+  </div>
+  <div class=''>
+    <%= form.label :price, '價格' %><br>
+    <%= form.number_field :price, class:'border-2' %> 
+  </div>
+  <div class=''>
+    <%= form.label :deliver_time, '預計寄送時間' %><br>
+    <%= form.date_field :deliver_time %> 
+  </div>
+  <div class="">
+    <%= form.label :image, '商品照片' %>
+    <%= form.file_field :image, id: :giveback_image %>
+  </div> 
+  <%= link_to '刪除回饋', '#', class:'mb-3 text-white bg-red-400 rounded p-1 ', data: { action: 'click->nested-form#remove_giveback'}%>
+  <%= form.hidden_field :_destroy %>
+<% end %>

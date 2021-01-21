@@ -1,13 +1,14 @@
 <div id="dialogbox-id" data-dialogbox-id="<%= @dialogbox_id %>"></div>
-<%= render 'index' %>
-<div class="project-dialogbox">
-  <h4><%= @dialogbox.project.title %></h4>
-</div>
+
+<%#= render 'index' %>
+<div class="dialogbox-project-title">
+  <h4><%#= @dialogbox.project.title %></h4>
+</div>  
 <div class="messages-block">
-  <% @dialogbox.messages.each do |message| %>
-    <%= render 'messages/message', message: message %>
-  <% end %>
+  <%# @dialogbox.messages.each do |message| %>
+    <%#= render 'messages/message', message: message %>
+  <%# end %>
 </div>
 <div class="message-typing-box">
-  <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
+  <%#= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
 </div>

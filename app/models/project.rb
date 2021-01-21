@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :dialogboxes
   belongs_to :category
-  has_many :givebacks, inverse_of: :project
+  has_many :givebacks, inverse_of: :project, dependent: :destroy
   has_many :comments, -> { where(parent_id: nil).order('created_at DESC') },dependent: :destroy
   has_many :orders, through: :givebacks
   has_many :favorite_projects
@@ -12,7 +12,6 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
   mount_uploader :image, ImageUploader
   acts_as_paranoid
-  
 
   #在project new頁面的驗證
   attr_accessor :new_project_validation
@@ -62,5 +61,6 @@ class Project < ApplicationRecord
       return "狀態未明"
     end
   end
+
   
 end

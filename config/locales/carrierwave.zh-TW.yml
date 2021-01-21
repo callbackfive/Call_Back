@@ -4,7 +4,7 @@ zh-TW:
       carrierwave_processing_error: failed to be processed
       carrierwave_integrity_error: is not of an allowed file type
       carrierwave_download_error: could not be downloaded
-      extension_whitelist_error: "只允許這些檔案類型上傳: %{allowed_types}"
+      extension_whitelist_error: "只允許%{allowed_types}的檔案類型上傳"
       content_type_whitelist_error: "You are not allowed to upload %{content_type} files, allowed types: %{allowed_types}"
       content_type_blacklist_error: "You are not allowed to upload %{content_type} files"
       rmagick_processing_error: "Failed to manipulate with rmagick, maybe it is not an image?"

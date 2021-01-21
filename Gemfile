@@ -19,10 +19,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_passwordx
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pg', '~> 1.2', '>= 1.2.3'
@@ -38,6 +36,10 @@ gem 'cancancan', '~> 1.15'
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
 gem 'omniauth-google-oauth2', '~> 0.8.1'
 gem 'koala', '~> 3.0'
+gem 'ransack', '~> 2.4', '>= 2.4.1'
+gem 'groupdate', '~> 5.2', '>= 5.2.1'
+gem 'chartkick', '~> 3.4', '>= 3.4.2'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,6 +57,7 @@ group :development do
   gem 'foreman', '~> 0.87.2'
   gem 'thor', '~> 1.0', '>= 1.0.1'
   gem 'hirb', '~> 0.7.3'
+  gem 'bullet', '~> 6.1', '>= 6.1.2'
 end
 
 group :test do

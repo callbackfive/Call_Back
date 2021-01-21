@@ -4,16 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
-  has_many :projects
+  has_many :projects, dependent: :destroy
   has_many :comments
   has_many :dialogboxes
+  has_many :identities
+  has_many :messages
   has_many :orders
   has_many :fav_projects
   has_many :my_fav_projects, through: :fav_projects, source: 'project'
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :name, presence: true
-  enum role: [ :guest, :regular, :admin ]
+  enum role: [ :regular, :admin ]
 
   def self.from_omniauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)

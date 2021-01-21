@@ -19,9 +19,14 @@
 @import "./comment/reply.scss";
 
 @import "./new-dialogbox";
+@import "./dialogbox-index";
+@import "./messages";
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
-
+@import "./admin_page";
+@import "./project_orders_index";
+@import "./profile";
+@import "./admin_page";
 @import "@tailwindcss/postcss7-compat/utilities";
 
 

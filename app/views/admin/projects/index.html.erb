@@ -1,0 +1,52 @@
+<div class="text-xs">
+  <div class="text-center">
+    <h1 class="text-xl mb-1 ">Project清單</h1>
+    <%= link_to '新增project', new_admin_project_path, class:"bg-blue-200 rounded p-1"%>
+    <p id="notice"><%= notice %></p>
+  </div>
+    <div class="my-2 py-2 flex justify-center">
+      <div class="inline-block px-8">
+      <table class="w-full">
+        <thead>
+          <tr>
+            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+            <th class="admin_th"><%= sort_link(@q, :category_id, '類別') %></th>
+            <th class="admin_th"><%= sort_link(@q, :user_id, '提案者') %></th>
+            <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
+            <th class="admin_th"><%= sort_link(@q, :status, '狀態') %></th>
+            <th class="admin_th">概要</th>
+            <th class="admin_th">內容</th>
+            <th class="admin_th"><%= link_to '目標金額', sort: :target_amount %></th>
+            <th class="admin_th"><%= sort_link(@q, :due_date, '截止日期') %></th>
+            <th class="admin_th"><%= sort_link(@q, :paid_orders_amounts, '募資總額') %></th>
+            <th class="admin_th"><%= link_to 'created_at', sort: :created_at %></th>
+            <th class="admin_th"><%= link_to 'deleted_at', sort: :deleted_at %></th>
+            <th class="admin_th", colspan="3">操作</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @admin_projects.each do |admin_project| %>
+            <tr>
+              <td class="admin_td"><%= admin_project.id %></td>
+              <td class="admin_td"><%= admin_project.category.title %></td>
+              <td class="admin_td"><%= admin_project.user.name %></td>
+              <td class="admin_td"><%= admin_project.title %></td>
+              <td class="admin_td"><%= admin_project.status %></td>
+              <td class="admin_td"><%= admin_project.summary %></td>
+              <td class="admin_td"><%= admin_project.content %></td>
+              <td class="admin_td"><%= admin_project.target_amount %></td>
+              <td class="admin_td"><%= admin_project.due_date %></td>
+              <td class="admin_td"><%= admin_project.paid_orders_amounts %></td>
+              <td class="admin_td"><%= admin_project.created_at %></td>
+              <td class="admin_td"><%= admin_project.deleted_at %></td>
+              <td class="ud_btn"><%= link_to 'Show', admin_project %></td>
+              <td class="ud_btn"><%= link_to 'Edit', edit_admin_project_path(admin_project) %></td>
+              <td class="ud_btn"><%= link_to 'Destroy', admin_project, method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <p><%= @admin_projects.count %> projects</p>
+    </div>
+  </div>

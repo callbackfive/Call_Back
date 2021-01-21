@@ -1,3 +1,4 @@
+
 <section class="pro-ctn">
   <div class="projects-container">
     <div class="row">
@@ -7,7 +8,6 @@
       </div>
       <div class="projects-content-top">
         <div class="projects-left">
-
           <div class="banner"><%= image_tag @project.image_url if @project.image_url.present? %></div>
           <div class="progress-bar-wrapper">
             <div class="fund-progress-bar">
@@ -146,6 +146,7 @@
 
       <div class="pro-giveback-col flex flex-col">
        <%= render 'giveback_show' %>
+
       </div>
     </div>
   </div>

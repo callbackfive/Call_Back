@@ -5,15 +5,15 @@ class OrdersController < ApplicationController
     def index
       @orders = current_user.orders
       @user_orders = Order.where(:user_id => current_user.id).order(id: :desc)
+      respond_to do |format|
+        format.html
+        format.csv { send_data @orders.to_csv, filename: "orders-#{Date.today}.csv" }
+      end
     end
 
     def show
       @order = Order.new
     end
-
-    def paid_record 
-    end
-    
 
     def create
       @giveback = Giveback.find(order_params[:giveback_id])

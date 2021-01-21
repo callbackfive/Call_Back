@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Callback</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
+ 
+  </head>
+
+  <body class="relative" >
+    <%= render "shared/admin_navbar" %>
+    <div style="margin-top:55px"></div>
+    <%= render "shared/admin_sidebar" %>
+    <div class="ml-40">
+      <%= yield %>
+    </div>
+  </body>
+</html>

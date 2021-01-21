@@ -1,13 +1,19 @@
 class ApisController < ActionController::Base
  
   def projects
+
     @projects = Project.includes(:category).is_published
     render json: projects_with_category(@projects)
+
   end
 
   def categories
     @categories = Category.all
     render json:@categories
+  end
+
+  def notices
+   render json: @comment.content
   end
 
   private

@@ -1,0 +1,9 @@
+<div>
+  <h1 class="text-xl text-center mt-3">修改回饋商品資料</h1>
+  <div class="flex justify-center">
+    <%= link_to 'Show', @admin_giveback %> |
+    <%= link_to 'Back', admin_givebacks_path %>
+  </div>
+  <%= render 'form', admin_giveback: @admin_giveback %>
+</div>
+
