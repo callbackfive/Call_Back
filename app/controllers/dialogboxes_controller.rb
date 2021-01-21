@@ -12,7 +12,11 @@ class DialogboxesController < ApplicationController
     @current_user_id = current_user.id
     @messages = Message.where(dialogbox: @dialogbox).includes(:user)
     @dialogboxes_of_my_projects = Dialogbox.where(project: @my_projects).includes(:user, :project)
-    render :index
+
+    @project_owner_of_the_dialogbox = @dialogbox.project.user
+    @dialogbox_starter = @dialogbox.user
+    check_user_in_the_dialogbox
+    
   end
 
   def create_message
@@ -43,5 +47,11 @@ class DialogboxesController < ApplicationController
     @message = current_user.messages.create(dialogbox: @msg_dialogbox,
                                             user: current_user,
                                             content: params[:message][:content])
+  end
+
+  def check_user_in_the_dialogbox
+    if @project_owner_of_the_dialogbox != current_user && @dialogbox_starter != current_user
+      redirect_to root_path, notice: "你沒有權限進入此聊天室！"
+    end
   end
 end

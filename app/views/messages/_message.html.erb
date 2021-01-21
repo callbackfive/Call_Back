@@ -1,5 +1,4 @@
 <div class="message">
-  <div id="msg-user-id" value="<%= @current_user_id %>"></div>
   <div class="content-container">
     <div class="content">
       <%= message.content %>
@@ -7,5 +6,14 @@
     <div class="author">
       <%= message.user.name %>
     </div>
+    <div class="check-msg-user">
+      <div id="message-owner-id" value="<%= message.user.id %>"></div>
+      <div id="dialogbox-starter-id" value="<%= @dialogbox_starter.id %>"></div>
+      <div id="project-owner-of-the-dialogbox-id" value="<%= @project_owner_of_the_dialogbox.id %>"></div>
+    </div>
   </div>
 </div>
+
+<%# TODO 第2行放@current_user_id，給JS判斷；
+         message.user = @dialogbox_starter，；
+         message.user = @project_owner_of_the_dialogbox，。 %>
