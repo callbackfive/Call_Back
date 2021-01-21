@@ -43,25 +43,15 @@
               <%= form.file_field :image, id: :project_image %>
             </div> 
             <p>請提供 JPEG、PNG 或 BMP 檔，圖片尺寸至少 1024 x 768 px (4:3)； 2MB 以內。</p> 
-
-<<<<<<< HEAD
           </div>
           <div class="proposal-item project-deadline">
-=======
-  <div class="target-amount">
-    <%= form.label :target_amount, '募資目標' %><br>
-    <%= form.number_field :target_amount, class:"border-2 border-gray-300" %>
-  </div>
-  <br>
->>>>>>> 7ffad15879c7c4d0905090af048cfcb2fd35fcd1
+
 
             <%= form.label :due_date, '截止時間' %><br>
             <div class="input-item"><%= form.date_field :due_date %> </div>
             <p>專案提交後需要七個工作天進行內容檢視，所以開始時間至少為 7 天後。募資天數最短為 7 天，最長為 60 天。系統預設募資開始時間為 12:00，結束時間為 23:59:59，如需調整請於提交後與您的專案經理討論。</p>
           </div>
           <div class="proposal-item project-category">
-
-<<<<<<< HEAD
             <%= form.label "專案類別"%><br/>
             <div class="input-item">
               <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
@@ -108,24 +98,6 @@
           <%= link_to '+新增回饋', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
         </div>
       </div>
-      
-=======
-  <%#-------- givebacks ----------%>
-  <h3 class='text-xl font-bold'>回饋商品區</h3>
-  <div data-controller='nested-form' >
-    <%= form.fields_for :givebacks do |giveback| %>
-      <%= render 'giveback_field', form: giveback %>
-    <% end %>
-
-    <template data-nested-form-target='template'>
-      <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
-        <%= render 'giveback_field', form: giveback %>
-      <% end %>
-    </template>
-
-    <div class='mb-3' data-nested-form-target='links'>
-      <%= link_to '新增回饋', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
->>>>>>> 7ffad15879c7c4d0905090af048cfcb2fd35fcd1
     </div>
       
   </div>      
