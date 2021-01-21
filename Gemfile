@@ -39,7 +39,7 @@ gem 'koala', '~> 3.0'
 gem 'ransack', '~> 2.4', '>= 2.4.1'
 gem 'groupdate', '~> 5.2', '>= 5.2.1'
 gem 'chartkick', '~> 3.4', '>= 3.4.2'
-
+gem 'noticed', '~> 1.2', '>= 1.2.21'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

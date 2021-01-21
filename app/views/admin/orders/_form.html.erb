@@ -1,17 +1,71 @@
-<%= form_with(model: admin_order, local: true) do |form| %>
-  <% if admin_order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(admin_order.errors.count, "error") %> prohibited this admin_order from being saved:</h2>
+<div class="flex justify-center">
+  <%= form_with(model: admin_order, local: true, :html => { :class => 'bg-gray-100' }) do |form| %>
+    <% if admin_order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(admin_order.errors.count, "error") %> prohibited this admin_order from being saved:</h2>
 
-      <ul>
-        <% admin_order.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+        <ul>
+          <% admin_order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for(admin_order) do |form| %>
+      <div class="order-title">
+        <%= form.label :merchantOrderNo, '訂單編號' %><br>
+        <%= form.text_field :merchantOrderNo, class:"border-2 border-gray-300"%>
+      </div>
+      <div>
+        <%= form.label "status"%><br/>
+        <%= form.select :status, options_for_select([
+          ['order_received'], ['not_paid'], ['paid']
+          ]) %>
+      </div>
+      <div class="order-title">
+        <%= form.label :user_id, 'user_id' %><br>
+        <%= form.number_field :user_id, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :giveback_id, 'giveback_id' %><br>
+        <%= form.number_field :giveback_id, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :giveback_price, 'giveback_price' %><br>
+        <%= form.number_field :giveback_price, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :full_name, '姓名' %><br>
+        <%= form.text_field :full_name, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :delivery_country, '國家' %><br>
+        <%= form.text_field :delivery_country, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :zip, '郵遞區號' %><br>
+        <%= form.text_field :zip, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :address, '地址' %><br>
+        <%= form.text_field :address, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :phone, '電話' %><br>
+        <%= form.number_field :phone, class:"border-2 border-gray-300"%>
+      </div>
+      <div class="order-title">
+        <%= form.label :email, 'email' %><br>
+        <%= form.text_field :email, class:"border-2 border-gray-300"%>
+      </div>
+      
+      
+
+      
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

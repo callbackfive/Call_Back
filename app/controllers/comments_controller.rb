@@ -9,9 +9,17 @@ class CommentsController < ActionController::Base
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.project = @project
-     if @comment.save 
-       redirect_to project_path(@project)
-     end
+    @comment.save
+
+    #一般留言時，通知提案者  
+    if @comment.parent_id.nil?
+      CommentNotification.with(comment: @comment).deliver_later(@project.user)  
+    #提案者回覆時，通知原留言者
+    else
+      @origin_comment = Comment.find(@comment.parent_id)
+      CommentNotification.with(comment: @origin_comment).deliver_later(@origin_comment.user)
+    end
+    redirect_to project_path(@project)
   end
 
   def destroy
