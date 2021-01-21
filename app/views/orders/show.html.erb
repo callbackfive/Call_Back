@@ -1,9 +1,10 @@
 <div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 mb-10 mt-8">
     <div class="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700" style="max-width: 600px">
         <div class="mb-5">
+            <h2 class="text-center font-bold text-xl uppercase">請填寫寄送資訊</h2>
             <h1 class="text-center font-bold text-base uppercase">回饋商品：<%= @giveback.title %></h1>
             <h1 class="text-center font-bold text-base uppercase">$<%= @giveback.price.to_s(:delimited)%>元</h1>
-            <h2 class="text-center font-bold text-xl uppercase">請填寫寄送資訊</h2>
+           
         </div>
         <div class="mb-5">
           <% if @order.errors.any? %>
