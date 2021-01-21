@@ -20,18 +20,18 @@
          <table class="min-w-full">
           <thead>
               <tr>
-                <th class="order_th">訂單編號</th>
-                <th class="order_th">信用卡後四碼</th>
-                <th class="order_th">回饋品名稱</th>
-                <th class="order_th">回饋品價格</th>
-                <th class="order_th">收件人</th>
-                <th class="order_th">國家</th>
-                <th class="order_th">郵遞區號</th>
-                <th class="order_th">收件地址</th>
-                <th class="order_th">手機號碼</th>
-                <th class="order_th">電子信箱</th>
-                <th class="order_th">訂單付款日期</th>
-                <th class="order_th">訂單狀態</th>
+                <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">訂單編號</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">信用卡後四碼</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">回饋品名稱</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">回饋品價格</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">收件人</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">國家</th>
+                <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">郵遞區號</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">收件地址</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">手機號碼</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">電子信箱</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">訂單付款日期</th>
+                 <th class="px-0 py-3 text-left border-b-4 border-b leading-4 text-gray-500 font-light tracking-wider">訂單狀態</th>
               </tr>
           </thead>
 
@@ -39,52 +39,52 @@
             <% @my_order_lists.each do |project_order| %>
              <% if project_order.paid? %>
                 <tr>
-                <td class="order_td">
+                <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.merchantOrderNo%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.payment.card_4no%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.giveback_title%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.giveback_price%></div>
                   </td>
 
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.full_name%></div>
                   </td>
-                   <td class="order_td">
+                   <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.delivery_country%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.zip%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.address%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.phone%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.email%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                     <div class="flex items-center"><div>
                       <div class="text-sm leading-5 text-gray-800"><%= project_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S')%></div>
                   </td>
-                  <td class="order_td">
+                  <td class="px-0 py-4 border-b-2 border-b text-left text-gray-500 font-extralight border-gray-200">
                         <span class="relative inline-block px-3 py-1 font-medium text-white leading-tight">
                         <span aria-hidden class="absolute inset-0 bg-red-600 opacity-70 rounded-full font-medium"></span>
                         <span class="relative text-xs"><%= project_order.status_to_string%></span>
