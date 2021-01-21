@@ -1,14 +1,12 @@
 import React,{useState,useEffect} from 'react'
-import './Card.scss'
+import '../../components/home/Card.scss'
 
- const Card  = ({ project,onClick }) => {
-
-
+ const itemCard  = ({ project,isClick }) => {
 
   if(project.status === "succeeded"){
     return (
       <>
-        <button onClick={()=>onClick(project.id)}>
+        <button onClick={()=>isClick(project.id)}>
           <div className="card-item">
             <div className="card-pic">
               <img className="card-img" src={project.img}/>
@@ -36,7 +34,7 @@ import './Card.scss'
   }else{
     return (
       <>
-         <a onClick={()=>onClick(project.id)}>
+         <a onClick={()=>isClick(project.id)}>
           <div className="card-item">
             <div className="card-pic">
               <img className="item-img" src={project.img}/>
@@ -72,4 +70,4 @@ import './Card.scss'
 
 }
 
-export default Card
+export default itemCard

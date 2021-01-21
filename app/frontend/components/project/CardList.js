@@ -1,12 +1,12 @@
 
 import React from 'react'
-import Card from '../home/Card'
+import ItemCard from '../../components/project/itemCards'
 import '../home/Rank.scss'
 
 
 
 
- const CardList = ({projects,isFilter}) => {
+ const CardList = ({isFilter,isClick}) => {
   return (
     <div>
 
@@ -18,7 +18,7 @@ import '../home/Rank.scss'
             </div>
             <div className="ranking-projects">
               {isFilter.map(project => (
-                    <Card key={project.id} project={project}/>
+                    <ItemCard key={project.id} project={project} isClick={isClick}/>
                 ))
                 } 
             </div>

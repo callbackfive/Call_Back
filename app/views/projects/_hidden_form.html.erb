@@ -1,3 +1,4 @@
+<div class="proposal-container">
 <% if project.errors.any? %>
   <ul>
     <% project.errors.full_messages.each do |message| %>
@@ -6,61 +7,104 @@
   </ul>
 <% end %>
 
-<%= form_for(project) do |form| %>
-  <div class="project-title">
-    <%= form.label :title, '專案標題' %><br>
-    <%= form.text_field :title, class:"border-2 border-gray-300"%>
-  </div>
+  <div class="proposal-pages">
+  <%= form_for(project) do |form| %>
+    <div class="page" id="page1">
+        <p class="description">在這個區塊您將填寫專案內容中最吸引人募資影片、封面圖片和專案來說明您與理念的創意，以及最核心的專案資訊 如：募資目標、時程。</p>
+        <div class="row">
+          <div class="proposal_txt">
+            <div class="proposal-txt-content ">
+              <div class="proposal-item title">
+                <%= form.label :title, '專案標題' %><br>
+                <div class="input-item">
+                  <%= form.text_field :title, placeholder:"40 個字以內的專案標題", class:'inpuTitle' %>
+                </div>
+                <p>一個好的標題應該要好記、好搜尋、吸引人想點進去看，並讓瀏覽者能在最短的時間內瞭解專案的核心理念。</p>
+              </div>
+              <div class="proposal-item summary ">
+                <%= form.label :summary, '內容摘要' %><br>
+                <div class="input-item">
+                  <%= form.text_area :summary,placeholder:"例：簡短描述專案內容，吸引瀏覽者在 flyingV 首頁上點擊你的專案。" %>
+                </div>
+                <p>使用吸引人的短文說明你的目標以及理念，強調你的獨一無二，讓贊助人對你或你的專案好奇，願意更進一步了解專案。</p>
+              </div>
+            </div>
 
-  <div class="m-3">
-    <%= form.label :image, '專案照片' %><br>
-    <%= form.file_field :image, id: :project_image %>
-  </div> 
-  
-  <div class="project-summary">
-    <%= form.label :summary, '內容摘要' %><br>
-    <%= form.text_field :summary, class:"border-2 border-gray-300" %>
-  </div>
+            <div class="proposal-preview" id="card-preview-content">
+              <h4>專案卡預覽</h4>
+              <%= render 'preview_card' %>
+            </div>
+          </div>
+          <div class="proposal-item project-pic">
 
-  <div class="project-content">
-    <%= form.label :content, '專案內容' %><br>
-    <%= form.text_area :content, class:"border-2 border-gray-300" %>
-  </div>
+            <%= form.label :image, '專案封面' %><br>
+            <div class="img-btn">
+              <i class="fas fa-camera-retro"></i>上傳封面圖片
+              <%= form.file_field :image, id: :project_image %>
+            </div> 
+            <p>請提供 JPEG、PNG 或 BMP 檔，圖片尺寸至少 1024 x 768 px (4:3)； 2MB 以內。</p> 
 
-  <div class="target-amount">
-    <%= form.label :target_amount, '募資目標' %><br>
-    <%= form.text_field :target_amount, class:"border-2 border-gray-300" %>
-  </div>
-  <br>
+          </div>
+          <div class="proposal-item project-deadline">
 
-  <div class="project-due-date">
-    <%= form.label :due_date, '截止時間' %><br>
-    <%= form.date_field :due_date %> 
-  </div>
-  <br>
-  <div>
-    <%= form.label "專案類別"%><br/>
-    <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
-  </div>
-  <br>
+            <%= form.label :due_date, '截止時間' %><br>
+            <div class="input-item"><%= form.date_field :due_date %> </div>
+            <p>專案提交後需要七個工作天進行內容檢視，所以開始時間至少為 7 天後。募資天數最短為 7 天，最長為 60 天。系統預設募資開始時間為 12:00，結束時間為 23:59:59，如需調整請於提交後與您的專案經理討論。</p>
+          </div>
+          <div class="proposal-item project-category">
 
-  <%#-------- givebacks ----------%>
-  <h3 class='text-xl font-bold'>回饋商品區</h3>
-  <div data-controller='nested-form' >
-  
-    <template data-nested-form-target='template'>
-      <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
-        <%= render 'giveback_field', form: giveback %>
-      <% end %>
-    </template>
+            <%= form.label "專案類別"%><br/>
+            <div class="input-item">
+              <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
+            </div>  
 
-    <%= form.fields_for :givebacks do |giveback| %>
-      <%= render 'giveback_field', form: giveback %>
-    <% end %>
+          </div>
 
-    <div class='mb-3' data-nested-form-target='links'>
-      <%= link_to '新增回饋', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
+          <div class="proposal-item project-target-amount">
+            <%= form.label :target_amount, '募資目標' %><br>
+            <div class="input-item">
+              <%= form.number_field :target_amount,min:"5000" ,value:"5000"  %>
+            </div>  
+            <p>募資目標金額最低為 $5,000 元。設定目標金額時，除了考量專案執行的成本支出外，也必須考慮回饋項目的成本，總體而言必須滿足「最低計畫可執行資金」的門檻，才是合理的募資目標。設定目標的小技巧：提案百科</p>
+          </div>
+
+        </div>
     </div>
+    <div class="page" id="page2">
+      <p class="description">在這個區塊您將填寫專案的故事和執行方式，文案在專案內容中扮演詳盡說明細節的角色。</p>
+      <div class="row">
+        <div class=" proposal-item">
+          <%= form.label :content, '專案內容' %><br>
+          
+          <%= form.text_area :content, class:"border-2 border-gray-300" ,id:"ckeditor"%>
+          <p>利用文字、圖片和影片，將您的計畫詳細清楚的述說給大家聽。圖片大小建議寬度 697 px，考慮到手機使用者的網路速度，單張圖片上傳大小不可超過 1 MB，且為求在手機上瀏覽順暢，圖片上若有出現文字，任何文字皆不得小於 16 級。</p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page3">
+      <div class="card-description">
+        <p >在這個區塊您將制定本次募資專案提供的回饋項目，回饋內容可以十分多元，但是必須清楚寫明回饋金額、內容說明、運費及寄送時間等必要資訊。</p>
+
+      </div>
+      <div data-controller='nested-form ' >
+        <template data-nested-form-target='template'>
+        <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
+          <%= render 'giveback_field', form: giveback %>
+        <% end %>
+        </template>
+        <%= form.fields_for :givebacks do |giveback| %>
+          <%= render 'giveback_field', form: giveback %>
+        <% end %>
+        <div class='add-giveback' data-nested-form-target='links'>
+          <%= link_to '+新增回饋', '#', data: { action: 'click->nested-form#add_new_giveback' } %>
+        </div>
+      </div>
+      
+    </div>
+      
+  </div>      
+  <div class="flex justify-end ">
+      <%= form.submit '發布專案',class:'proposal-btn' %>
+    <% end %>
   </div>
-<%= form.submit '檢查/發布專案' %>
-<% end %>
+</div>

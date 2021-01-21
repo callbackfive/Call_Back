@@ -1,0 +1,68 @@
+.card-item{
+
+  max-width: 300px;
+  @apply rounded;
+  @apply overflow-hidden;
+  @apply shadow-md;
+  @apply box-border;
+  @apply mt-4;
+  .card-pic{
+    clear: both;
+    overflow: hidden;
+    height: 150px;
+   
+    @apply box-border;
+    @apply bg-gray-200;
+    .pre-img{@apply w-full; height: auto; display: none;}
+
+  }
+  .item-content{
+    @apply px-6;
+    @apply py-4;
+    @apply space-y-2;
+  
+    .item-category{
+      @apply space-x-2;
+  
+      p{
+        display: inline-block;
+        font-size: 12px;
+        @apply bg-gray-200; 
+        @apply px-2;
+        @apply py-1;
+      }
+    }
+    .item-txt{
+      @apply space-y-2;
+      h2{
+        @apply font-bold;
+        @apply text-gray-600;
+        font-size: 13px;
+        @apply mb-2;
+        overflow:hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      p{
+        font-size: 13px;
+        @apply text-gray-600;
+      }
+    }
+  }
+}
+
+.createProgressBar{
+  margin: 15px 0;
+  @apply w-full;
+  position: relative;
+  background: #d9d9d9;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1pt #9EE9EF;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  height: 10px;
+  padding-top: 3px;
+  padding-left: 3px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,276 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+.projects.show{
+  section.pro-ctn{
+    @apply w-full;
+    margin-top: 120px;
+    .projects-container{
+      max-width: 1090px;
+      @apply mx-auto;
+      .row{
+        @apply flex;
+        @apply flex-col;
+        @apply space-y-10;
+        .projects-txt{
+          @apply flex-col;
+          @apply space-y-4;
+
+          .projects-category{
+
+            p{ 
+            font-size: 14px; 
+            @apply text-gray-900;
+            @apply inline-block;
+            padding: 5px 7px;
+            @apply bg-gray-100;
+            }
+          }
+          .projects-title{
+            h2{
+
+              font-size: 24px;
+              letter-spacing: 3px;
+              color: #212121;
+              font-weight: 700;
+        
+            }
+
+          }
+        }
+
+        .projects-content-top{
+          @apply flex;
+          @apply space-x-10;
+          .projects-left{
+            width:70%;
+            @apply space-y-16;
+            
+            .banner{
+              height:450px;
+              img{@apply w-full;@apply h-full;@apply object-cover;}
+            }
+            .progress-bar-wrapper{
+              @apply w-full;
+              .fund-progress-bar{
+                @apply relative;
+                height: 5px;
+                border-radius: 4px;
+                background-color: #d7d7d7;
+                top: 50%;
+                transform: translateY(-50%);
+                .progress-bar{
+                  @apply absolute;
+                  top: 0;
+                  left: 0;
+                  border-radius: 4px;
+                  background-color: #f8414a;
+                  height: 5px;
+                  width:10%;
+                }
+                .progress-points{
+                   @apply flex;
+                  .progress-section{
+                   width:50%;
+                    font-size: 14px;
+                    letter-spacing: 1.6px;
+                    line-height: 1.6;
+                    color: #212121;
+                    font-family: "Noto Sans TC",sans-serif;
+                    height: 60px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 2;
+                    @apply relative;
+                    .progress-point{
+
+                      top: 50%;
+                      left: -5px;
+                      @apply absolute;
+                      transform: translate(-50%,-50%);
+                      height: 18px;
+                      width: 18px;
+                      background-color: #fff;
+                      border: 5px solid #d7d7d7;
+                      border-radius: 50%;
+
+                    }
+                  }
+
+                  .txt{
+                    @apply flex;
+                    @apply flex-col;
+                    @apply justify-between;
+                    @apply space-y-6;
+                    span{
+                      @apply inline-block;
+                    }
+                  }
+                }
+              }
+            }
+
+          }
+          .projects-right{
+            width:30%;
+            @apply space-y-10;
+            @apply text-left;
+            
+              p.tag{
+                font-size: 14px;
+                line-height: 1.6;
+                letter-spacing: 1.8px;
+                font-weight: 400;
+                @apply text-gray-500;
+                span{
+                  margin-left: 10px;
+                }
+              }
+              p.titles{
+                font-family: Barlow,sans-serif;
+                font-size: 36px;
+                font-weight: 700;
+                letter-spacing: 4px;
+                text-align: left;
+                color: #212121;
+              }
+            .projects-btns{
+              @apply flex;
+              @apply  flex-col;
+             
+              .sponser-btn{
+                margin-right: 15px;
+                a{
+                  background: #f8414a;
+                  @apply mx-auto;
+                  @apply inline-block;
+                  @apply text-white;
+                  @apply text-center;
+                  @apply font-bold;
+                  @apply px-6;
+                  @apply py-2;
+                  @apply shadow-sm;
+                  @apply w-full;
+                  @apply transition;
+                  @apply duration-200;
+                  margin: 15px 0 10px ;
+                }
+                a:hover{
+                  background:#df3d3d;
+                }
+                
+              }
+
+              .unclick{
+                margin-right: 15px;
+                .sponser-btn a{
+                  background: #f8414a;
+                  @apply mx-auto;
+                  @apply inline-block;
+                  @apply text-white;
+                  @apply text-center;
+                  @apply font-bold;
+                  @apply px-6;
+                  @apply py-2;
+
+                  @apply shadow-sm;
+                  @apply w-full;
+                  @apply transition;
+                  @apply duration-200;
+                  margin: 15px 0 10px ;
+                }
+                .sponser-btn a:hover{
+                  background:#df3d3d;
+                }
+
+              }
+            }
+            
+          }
+        }        
+      }
+    }
+  }
+}
+
+.track-btn{
+  @apply flex; 
+  @apply space-x-4;
+  margin-right: 15px;
+ 
+  .new-dialogbox-popup-btn{
+   
+    width:60%;
+    .new-dialogbox-popup{
+      @apply w-full;
+      @apply inline-block;
+      @apply border;
+      border-color:#EF5959;
+      color:#EF5959;
+      @apply px-6;
+      @apply py-2;
+      @apply text-center;
+      
+    }
+    .new-dialogbox-popup.active:hover{
+      background:#EF5959;
+      @apply text-white;
+    }
+
+
+  }
+  .favorite-btn{
+    width:40%;
+    a{
+      @apply w-full;
+      @apply inline-block;
+      @apply border;
+      @apply border-gray-400;
+      color:#EF5959;
+      @apply px-6;
+      @apply py-2;
+    }
+    
+  }
+
+}
+
+.pro-comment-page{
+  @apply w-full;
+  
+  form{
+    div{
+    margin: 12px 0;
+    @apply border-gray-300;
+    @apply border;
+    @apply text-gray-700;
+    @apply bg-white;
+    @apply px-4; 
+    @apply rounded; 
+    @apply block ;
+    textarea.comment-text{
+      @apply w-full;
+      resize: none;
+      @apply py-4;
+      @apply px-2;  
+      letter-spacing: 1.2px;
+      text-align: left;
+      color: #000;
+      @apply leading-tight ;  
+  }
+    textarea.comment-text:focus{
+      @apply outline-none
+    }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

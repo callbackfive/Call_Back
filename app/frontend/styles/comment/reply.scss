@@ -1,0 +1,35 @@
+
+ul.reply-list{
+ 
+  @apply w-full;
+  @apply my-4;
+  @apply bg-gray-100;
+  padding: 24px;
+  @apply rounded-md;
+  li.reply-txt{
+      @apply bg-gray-100;
+      
+      .reply-head{
+        p{
+          color:#EF5959;
+          font-size: 18px;
+          font-weight: 700;
+          @apply inline-block;
+          letter-spacing: 1.5px;
+        }
+      }
+    .reply-ctn{
+      p{
+        font-size: 16px;
+        @apply text-gray-700;
+        font-weight: 400;
+       
+      }
+    }
+    
+  }
+
+}
+
+ 
+ 

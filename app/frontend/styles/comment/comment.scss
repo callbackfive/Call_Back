@@ -1,0 +1,137 @@
+ul.comments-list{
+   
+  @apply w-full;
+  li.comment{
+    @apply flex;
+    @apply justify-start;
+    @apply space-x-6;
+    @apply border-b;
+    @apply py-4;
+    @apply border-gray-200;
+
+    .user-pic{
+      width:25%;
+      @apply block;
+      @apply h-16;
+      @apply w-16;
+      @apply rounded-full;
+      @apply overflow-hidden;
+      @apply border;
+      @apply border-gray-200;
+      
+    
+      .pic{ 
+        @apply h-full;
+        @apply w-full;
+        @apply object-cover;
+      }
+    }
+    .comment-txt {
+      width: 80%;
+      @apply flex;
+      @apply flex-col;
+      .comment-head{
+        @apply flex;
+        @apply justify-between;
+        @apply space-y-2;
+
+        p.name{
+          @apply text-gray-700;
+          font-size: 18px;
+          font-weight: 700;
+          @apply inline-block;
+          letter-spacing: 1.5px;
+        }
+
+        p.time{
+          @apply inline-block;
+          font-size:14px;
+          @apply text-gray-600;
+          letter-spacing: 2px;
+        }
+      }
+      .comment-ctn{
+        p{
+          font-size: 16px;
+          @apply text-gray-700;
+          font-weight: 400;
+        }
+      
+      }
+      .reply-btns{
+        @apply flex;
+        @apply space-x-4;
+        @apply self-end;
+        a{
+          @apply inline-block;
+        }
+      }
+
+
+    }
+
+
+  }
+
+
+} 
+
+.reply-form{
+  @apply w-full;
+  @apply mt-4;
+
+  .input-ctn{
+    width: 85%;
+    @apply text-gray-700;
+    @apply bg-gray-100;
+    @apply rounded-l-xl;
+    @apply shadow-sm;
+    @apply pl-4; 
+    
+    @apply block ;
+    input.reply-input{
+      @apply bg-gray-100;
+
+      @apply w-full;
+      @apply leading-tight ; 
+       
+      padding: 8px 4px;
+      font-size: 15px;
+      letter-spacing: 1.2px;
+      text-align: left;
+      color: #000; 
+    }
+    input.reply-input:focus{
+    @apply outline-none
+    }
+
+  }
+  .re-btn{
+    width: 15%;
+ 
+  
+    input{
+      
+      width: 100%;
+      @apply rounded-r-xl;
+      @apply bg-gray-400;
+      @apply leading-tight ; 
+      padding: 8px 4px;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      text-align: center;
+      color:white; 
+
+    }
+    input:focus{
+
+      outline: none;
+    }
+    
+  }
+
+
+}
+
+ 
