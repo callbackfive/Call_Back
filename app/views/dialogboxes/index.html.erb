@@ -75,14 +75,8 @@
             </div>
           </div>
           <div class="message-form">
-              <!-- 送出訊息form -->
-            <form action="/dialogbox/create_message" accept-charset="UTF-8" method="post">
-              <div class="input-group">
-                <input value="25" type="hidden" name="message[dialogbox]" id="message-dialogbox">
-                <input placeholder="請輸入訊息..." type="text" name="message[content]" id="message-content">
-                <input type="submit" name="commit" value="送出訊息" id="dialogbox-msg-submit-btn" data-disable-with="送出訊息">
-              </div>
-            </form>
+            <!-- 送出訊息form -->
+            <%= render 'dialogboxes/msg_form', message: Message.new, dialogbox: @dialogbox %>
           </div>
         <% end %>
       </div>
