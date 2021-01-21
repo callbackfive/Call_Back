@@ -12,6 +12,9 @@ class ApisController < ActionController::Base
     render json:@categories
   end
 
+  def projects_amounts 
+  end
+
   def notices
    render json: @comment.content
   end
