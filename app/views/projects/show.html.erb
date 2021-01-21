@@ -42,7 +42,9 @@
           <div class="projects-date">
             <p class="date-title tag">倒數天數</p>
             <p class="day titles"><span><%= @project.days_left%></span>天</p>
+            <p class="day titles"><%=@percentage = (@project.percentage_of_reaching_goal * 100).round(2)%>%</p>
           </div>
+          
           <% if project_owner? %>
             <div class="projects-btns unclik">
               <div class="sponser-btn"><a>無法贊助此專案</a></div>
