@@ -1,0 +1,131 @@
+.projects.new,.projects.create{
+  @apply bg-gray-100;
+  section{
+    @apply w-full;
+    .projects-new-container{
+
+      margin-top: 135px;
+      max-width: 580px;
+      @apply mx-auto;
+
+      .projects-new-row{
+        @apply flex;
+        @apply flex-col;
+        @apply justify-items-center;
+        
+        h2{
+          color:#EF5959;
+          @apply text-3xl;
+          @apply font-bold;
+          @apply text-center;
+          @apply my-6;
+        }
+        .project-form{
+          @apply flex ;
+          @apply space-x-6; 
+          @apply justify-center;
+          @apply my-8;
+          @apply px-4;
+
+          .project-title{
+            @apply flex-1;
+
+            input{
+              @apply w-full;
+              @apply text-gray-700;
+              @apply border-gray-300;
+              @apply bg-gray-100;
+              @apply border-b-2;
+              @apply transition;
+              @apply duration-500;
+              @apply px-3;
+              @apply pb-3;
+            }
+            input:focus{
+              outline:none;
+               border-color:#EF5959;
+            }
+          }
+
+          .project-category{
+
+            @apply border-gray-200;
+            @apply border;
+            @apply text-gray-700;
+            @apply bg-white;
+            @apply px-2; 
+            @apply rounded; 
+            @apply block ;
+
+            select{
+              @apply w-full;
+              @apply leading-tight ;  
+              @apply py-2;
+              @apply px-6;  
+            }
+
+            select:focus{
+              @apply outline-none;
+              @apply border-gray-300;
+              
+            }
+
+          }
+          
+        }
+        .project-txt{
+          @apply space-y-6;
+          p{
+            @apply text-gray-600;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-align: center;
+           
+          }
+          ul{          
+            @apply space-y-6;
+            @apply list-disc;
+            @apply px-6;
+            @apply mb-10;
+
+            li{
+            
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-align: left;
+            @apply text-gray-600;
+            @apply leading-6;
+              span{
+                font-size: 12px;
+                font-weight: 400;
+                @apply text-gray-600;
+                @apply leading-4;
+              }
+            }
+          }
+        }
+
+        .form-btn{ 
+          background:#EF5959;
+          @apply mx-auto;
+          @apply inline-block;
+          @apply text-white;
+          @apply font-bold;
+          @apply py-2;
+          @apply rounded;
+          @apply shadow-sm;
+          @apply w-full;
+          @apply transition;
+          @apply duration-200;
+          margin: 30px 0 10px ;}
+        
+        .form-btn:hover{ background:#df3d3d; }
+      
+      }
+      
+    }
+  }
+
+}

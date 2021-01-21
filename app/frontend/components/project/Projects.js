@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import '../../styles/project'
+import '../../styles/projects/project.scss'
 import CategoryList from '../../components/project/CategoryList'
 import CardList from '../../components/project/CardList'
 
@@ -9,6 +9,7 @@ const Projects = () => {
   const [projects, setProjects]= useState([])
   const [isLoading, setIsLoading]= useState(true)
   const [isFilter, setIsFilter]= useState([])
+
 
   useEffect(() => {
     
@@ -39,6 +40,11 @@ const Projects = () => {
       setIsFilter(isFilter)
     }
   }
+
+  const isClick = (project) => {
+    Turbolinks.visit(`/projects/${project}`)
+  }
+
   return(
     <>
     {
@@ -51,7 +57,7 @@ const Projects = () => {
     </section>
     <section className="projects-bg">
       <div className="projects-container ">
-        <CardList  isFilter={isFilter}  />
+        <CardList  isFilter={isFilter} isClick={isClick} />
       </div> 
     </section>
 

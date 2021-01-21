@@ -11,7 +11,7 @@ import './Card.scss'
         <button onClick={()=>onClick(project.id)}>
           <div className="card-item">
             <div className="card-pic">
-              <img className="item-img" src={project.img}/>
+              <img className="card-img" src={project.img}/>
             </div>
             <div className="item-content">
               <div className="item-category">

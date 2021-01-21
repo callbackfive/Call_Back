@@ -1,56 +1,76 @@
-<h1>募資專案頁(show)</h1>
-<h2 data-controller="favorite" data-favorite-id="<%= @project.id %>">
-  <% if user_signed_in? && !project_owner? %>
-    <%= link_to '#', data: { action: 'favorite#toggle_like' } do %>
-      <% if current_user.favorite?(@project) %>
-        <i class="fas fa-heart" data-favorite-target='icon'></i>
-      <% else %>
-        <i class="far fa-heart" data-favorite-target='icon'></i>
-      <% end %>
-    <% end %>
-  <% end %>
-</h2>
 
-<%= image_tag @project.image_url if @project.image_url.present? %>
-<div>專案名稱： <%= @project.title %></div>
-<div>專案類別： <%= @project.category.title %></div>
-<div>內容摘要： <%= @project.summary %></div>
-<div>專案內容： <%= @project.content %></div>
-<div>募資目標： <%= @project.target_amount %>元</div>
-<div>NT$<%=@project.paid_orders_amounts%></div>
-<div>募資人數： <%= @project.paid_orders.count%></div>
-<div>剩下<%= @project.days_left%>天</div>
-
-<% if !project_owner? %>
-  <%= link_to "贊助此專案",rewards_project_path %>
-<% end %>
-
-<%# -----giveback-----%>
-
-<div>
-  <ul>
-    <% @givebacks.each do |g| %>
-      <%= image_tag g.image_url if g.image_url.present? %>
-      <li>回饋商品： <%= g.title %></li>
-      <li>商品價格： <%= g.price %>元</li>
-    
-     <% if !project_owner? %>
-      <%= link_to "贊助此回饋商品", user_order_path(current_user, g) %>
-     <% end %>
-    <%end%>
-  </ul>
-</div>
-<br>
-
-
-<%# -----dialogbox-----%>
-<div>
-  <% if !project_owner? %>
-    <a href="#" class="new-dialogbox-popup">聯絡提案人</a>
-  <% end %>
-</div>
-
-<div class="new-dialogbox-popup-block">
+<section class="pro-ctn">
+  <div class="projects-container">
+    <div class="row">
+      <div class="projects-txt">
+        <div class="projects-category"><p><%= @project.category.title %></p></div>
+        <div class="projects-title"><h2><%= @project.title %></h2></div>
+      </div>
+      <div class="projects-content-top">
+        <div class="projects-left">
+          <div class="banner"><%= image_tag @project.image_url if @project.image_url.present? %></div>
+          <div class="progress-bar-wrapper">
+            <div class="fund-progress-bar">
+              <div class="progress-bar"></div>
+              <div class="progress-points">
+                <div class="progress-section ">
+                  <div class="txt space-y-4">
+                    <span class="progressMoney">$0</span>
+                    <span class="progressTitle">募資開始</span>
+                  </div>
+                </div>
+                <div class="progress-section ">
+                  <div class="progress-point"></div>
+                  <div class="txt space-y-4">
+                    <span class="progressMoney">$<%= @project.target_amount %></span>
+                    <span class="progressTitle">募資成功</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects-right">
+          <div class="projects-price">
+            <p class="target-amount  tag">目標NTD$<span><%= @project.target_amount %></span></p>
+            <p class="price_amounts titles">$<span><%=@project.paid_orders_amounts%><span></p>
+          </div>
+          <div class="projects-sponsor">
+            <p class="sponsor-title tag">贊助人數</p>
+            <p class="sponser titles"> <%= @project.paid_orders.count%> 人</p>
+          </div>
+          <div class="projects-date">
+            <p class="date-title tag">倒數天數</p>
+            <p class="day titles"><span><%= @project.days_left%></span>天</p>
+          </div>
+          <% if project_owner? %>
+            <div class="projects-btns unclik">
+              <div class="sponser-btn"><a>無法贊助此專案</a></div>
+              <div class="track-btn">
+                <div class="new-dialogbox-popup-btn">  
+                    <a href="#" class="new-dialogbox-popup">聯絡提案人</a>
+                </div>
+                <button class="favorite-btn">
+                  <h2 data-controller="favorite" data-favorite-id="<%= @project.id %>">
+                    <i class="fas fa-heart" data-favorite-target='icon'></i>
+                  </h2>
+                </button> 
+              </div>
+            </div>
+          <% else %>
+            <div class="projects-btns ">
+              <div class="sponser-btn">
+                <% if !project_owner? %>
+                  <%= link_to "贊助此專案",rewards_project_path %>
+                <% end %>
+              </div>
+              <div class="track-btn">
+                <div class="new-dialogbox-popup-btn">  
+                  <% if !project_owner? %>
+                    <a href="#" class="new-dialogbox-popup active"><i class="fas fa-comment-dots "></i> 聯絡提案人</a>
+                  <% end %>
+                </div>
+                <div class="new-dialogbox-popup-block">
   <div class="popup-content">
     <div class="close-popup">
       <i class="far fa-times-circle text-5xl"></i>
@@ -73,28 +93,92 @@
     </div>
   </div>
 </div>
-
-<%# -----comment-----%>
-<h3>---留言區---</h3>
-<% if user_signed_in? %>
-  <%= form_with model: Comment.new, url: project_comments_path(@project) do |f| %>
-    <div>
-      <%= f.text_area :content, placeholder: '請留言', class:'border-2' %>
+                <button class="favorite-btn ">
+                  <h2 data-controller="favorite" data-favorite-id="<%= @project.id %>">
+                    <% if user_signed_in? && !project_owner? %>
+                      <%= link_to '#', data: { action: 'favorite#toggle_like' } do %>
+                        <% if current_user.favorite?(@project) %>
+                          <i class="fas fa-heart" data-favorite-target='icon'></i>
+                          <% else %>
+                          <i class="far fa-heart" data-favorite-target='icon'></i>
+                          <% end %>
+                          收藏
+                        <% end %>
+                      
+                    <% end %>
+                  </h2>
+                </button> 
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
     </div>
-    <%= f.submit '送出' %>
-  <% end %>
-<% end %>
+    
+  </div>
+</section>
 
-<%# 渲染comment跟reply的畫面 %>
-<%= render @project.comments, comment: @comment %>
+<section class="w-full bg-gray-100 mt-20">
+  <div class="tabs-container">
+      <div class="pro-tab">
+        <div class="content-tab">
+          <button class="tab-link clicked" id="content-btn">
+            專案內容
+          </button>
+          <button class="tab-link" id="comment-btn">
+            專案留言
+          </button>
+        </div>
+        
+        <div class="user-tab ">
+         <div class="user-pic"></div>
+         <div class="user-name">
+          提案者 <span><%= @project.user.name %></span>
+         </div>
+        </div>
+      </div>
+   
+  </div>
+
+</section>
 
 
-<div>
-  <% if can? :edit, @project %>
-    <%= link_to "編輯此專案", edit_project_path(@project) %>
-  <% end %>
-</div>
+<section class="pro-ctn-giveback">
+  <div class="pro-giveback-container">
+    <div class="pro-giveback-row ">
+      <div class="ctn-pages">
+        <div class="pro-summary-col mt-10">
+        <div class="pro-ctn-page pro-page" id="content-pg1">
+          <%= @project.content %>
+        </div>
+        <div class="pro-comment-page pro-page" id="comment-pg2">
+          <%= render @project.comments, comment: @comment %>
+          <% if user_signed_in? && !project_owner? %>
+          <%= form_with model: Comment.new, url: project_comments_path(@project) do |f| %>
+           
+           <div class="comment-box"> <%= f.text_area :content, placeholder: '留下你的你對我們的心得吧！', class:'comment-text' %></div>
+            
+            <div class="send-btn"><%= f.submit '送出' %></div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      </div>
 
-<div>
-  <%= link_to '回探索（專案列表）', projects_path %></h2>
-</div>
+      <div class="pro-giveback-col flex flex-col">
+       <%= render 'giveback_show' %>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+          
+          
+
+
+            
+

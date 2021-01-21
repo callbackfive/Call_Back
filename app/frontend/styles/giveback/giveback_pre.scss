@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+.giveback-card-item{
+  max-width: 330px;
+  @apply rounded;
+  @apply overflow-hidden;
+  @apply shadow-md;
+  @apply box-border;
+  @apply mt-4;
+  @apply px-4;
+
+  @apply border;
+  @apply border-gray-100;
+
+  .giveback-card-price{
+
+    font-family: Barlow,sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f8414a;
+    letter-spacing: 2.4px;
+    @apply bg-white;
+    height:50px;
+    line-height: 50px;
+
+  }
+
+  .giveback-card-pic{
+    clear: both;
+    overflow: hidden;
+    height: 210px;
+    @apply w-full;
+    @apply box-border;
+    @apply bg-gray-200;
+    img.pre-img{      
+      @apply w-full; 
+      height: auto;
+      display: none;
+    }
+    img.p-img{
+      @apply w-full; 
+      height: auto;
+      transform:scale(1,1);
+      transition: all 0.4s ease-out;
+    }
+
+  }
+  .item-content{
+    
+    @apply space-y-2;
+    @apply mt-6;
+    height: 100px;
+   
+    .card-title{
+     
+        font-size: 15px;
+        @apply text-gray-800;
+        @apply text-left;
+        font-weight: 500;
+    }
+       
+    .card-title::before{
+     
+      display: inline-block;
+      top: 5px;
+      left: 0;
+      content:" ";
+      height: 10px;
+      width: 5px;
+      background: #EF5959;
+      margin-right:10px; 
+    }
+    .card-summary{
+      font-size: 14px;
+      @apply text-gray-800;
+      @apply text-left;
+    }
+    
+  }
+  .item-txt {
+    @apply flex; 
+    @apply justify-between;
+  }
+
+
+}
+p.g-tag{
+  @apply inline-block;
+  font-size:13px;
+  @apply text-gray-600;
+  letter-spacing: 2px;
+}
+p.g-tit{
+  letter-spacing: 1px;
+    color: #222;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pro-giveback-btn{
+  @apply w-full;
+  @apply inline-block;
+  @apply border;
+  border-color:#EF5959;
+  color:#EF5959;
+  @apply px-6;
+  @apply py-2;
+  @apply text-center;
+}
+
+.giveback-card-item:hover{
+
+  img.p-img{
+
+    transform:scale(1.2,1.2);
+   }
+
+
+  .pro-giveback-btn{
+    background:#EF5959;
+    @apply text-white;
+    
+  }
+
+}

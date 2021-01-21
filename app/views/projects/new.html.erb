@@ -1,25 +1,45 @@
-<div class="container mx-auto">
-  <h1 >請提案</h1>
-  <% if @project.errors.any? %>
-  <ul>
-    <% @project.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+<section calss="">
+      <% if @project.errors.any? %>
+      <ul>
+        <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
-  <%= form_for(@project) do |form| %>
+  <div class="projects-new-container ">
+    <div class="projects-new-row">
 
-    <div class="project-title">
-      <%= form.label :title, '專案標題' %><br>
-      <%= form.text_field :title, class:"border-2 border-gray-300"%>
+      <h2>讓 CALL BACK 實現你的夢想吧！</h2>
+
+      <div class="red-bar"></div>
+      <%= form_for(@project) do |form| %>
+      <div class="project-form">
+        <div class="project-title ">
+          <%= form.text_field :title, class:"project-input", placeholder: "輸入專案名稱"%>
+        </div>
+        <div class="project-category flex space-x-2">
+          <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "選擇領域" %>
+         
+        </div>
+      </div>
+      <div class="project-txt">
+          <p>請確認以下事項，確保您符合 CallBack 提案人的身份</p>
+          <ul>
+          <li>
+            您已滿 18 歲是具備完全行為能力的自然人，或是合法登記的法人或團體
+            <br/>
+            <span>若提案者為未成年人，應由其法定代理人閱讀、暸解，才可進行提案流程。</span>
+          </li>
+          <li>
+            您是具有台灣居住地址、銀行帳戶及國籍的自然人或法人<br/>
+            <span>目前 CallBack 只限定台灣用戶，國外單位提案必須有台灣分公司或代理人，並且由台灣代理人提交專案。</span>
+          </li>
+          </ul>
+      </div>
+
+        <%= form.submit '開始撰寫專案' , class:"form-btn"%>
+
+        <% end %>
+      
     </div>
-
-    <div>
-      <%= form.label "專案類別"%><br/>
-      <%= form.collection_select :category_id, Category.all, :id, :title, :prompt => "請選擇一個類別" %>
-    </div>
-
-    <%= form.submit '開始撰寫專案' %>
-
-  <% end %>
-</div>
+</section>

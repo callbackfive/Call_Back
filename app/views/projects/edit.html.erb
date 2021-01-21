@@ -1,7 +1,24 @@
-<div class="container">
-  <h1>修改提案內容</h1>
-  <div>請確認好您的專案時程與募資金額</div>
 
+<section >
+  <div class="tab-container">
+    <div class="tab-bar">
+      <button class="step active" id="step-btn1" >
+        <p>專案大綱</p>
+        <div class="bullet">
+        </div>
+      </button>
+      <button class="step" id="step-btn2" >
+        <p>專案內容</p>
+        <div class="bullet">
+        </div>
+      </button>
+      <button class="step" id="step-btn3" >
+        <p>回饋商品</p>
+        <div class="bullet"></div>
+      </button>
+    </div>
+  </div>
+  
   <% if @project.is_published? %>
     <%= render 'published_form', project: @project %>
   <% end %>
@@ -10,7 +27,5 @@
     <%= render 'hidden_form', project: @project %>
   <% end %>
   
-  <div>
-    <%= link_to '回專案列表', projects_path %></h2>
-  </div>
-</div>
+
+</section>

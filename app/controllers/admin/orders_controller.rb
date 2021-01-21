@@ -5,7 +5,8 @@ class Admin::OrdersController < ApplicationController
   # GET /admin/orders
   # GET /admin/orders.json
   def index
-    @admin_orders = Admin::Order.all
+    @q = Admin::Order.ransack(params[:q])
+    @admin_orders = @q.result
   end
 
   # GET /admin/orders/1
@@ -70,6 +71,19 @@ class Admin::OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_order_params
-      params.fetch(:admin_order, {})
+      params.fetch(:admin_order).permit(
+        :user_id,
+        :giveback_id,
+        :issue_date,
+        :status,
+        :giveback_price,
+        :merchantOrderNo,
+        :delivery_country,
+        :full_name,
+        :zip,
+        :address,
+        :phone,
+        :email
+      )
     end
 end

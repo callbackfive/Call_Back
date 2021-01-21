@@ -1,0 +1,271 @@
+#page3{
+  .card-description{
+    p{
+      @apply text-gray-800;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.54;
+      letter-spacing: 1.2px;
+      text-align: center;
+      @apply px-4;
+      margin:20px 0 ;
+    }
+  }
+  .row{
+
+    @apply flex; 
+    @apply flex-col;
+    
+    .nested_field{
+      padding: 20px;
+      @apply border;
+      @apply border-dashed;
+      @apply border-gray-600;
+      @apply bg-white;
+      @apply bg-opacity-70;
+      @apply rounded;
+      margin-bottom: 20px;
+      .giveback_txt{
+        @apply flex;
+        @apply space-x-10;
+        margin-bottom: 20px;
+        .giveback-txt-content{
+          width: 50%;
+          @apply flex; 
+          @apply flex-col;
+          .giveback-item{
+
+            label{
+              font-size: 16px;
+              @apply text-gray-700;
+              font-weight: 500;
+            }
+            label::before{
+              display: inline-block;
+              top: 5px;
+              left: 0;
+              content:" ";
+              height: 13px;
+              width: 8px;
+              background: #EF5959;
+              margin-right:18px; 
+            }
+            .input-item{
+              margin: 12px 0;
+   
+              @apply border-gray-300;
+              @apply border;
+              @apply text-gray-700;
+              @apply bg-white;
+              @apply px-4; 
+              @apply rounded; 
+              @apply block ;
+             
+              box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+              input{
+                @apply w-full;
+                @apply leading-tight ;  
+                margin: 10px 0;
+                @apply px-2;  
+                font-size: 14px;
+                letter-spacing: 1.2px;
+                text-align: left;
+                color: #000;
+              }
+              input:focus{
+                @apply outline-none
+              }
+              textarea{
+                @apply w-full;
+                resize: none;
+                @apply py-4;
+                @apply px-2;  
+                letter-spacing: 1.2px;
+                text-align: left;
+                color: #000;
+                @apply leading-tight ;  
+              }
+              textarea:focus{
+              @apply outline-none
+              }
+            }
+            p{
+              font-size: 13px;
+              line-height: 1.67;
+              letter-spacing: 1.1px;
+              text-align: justify;
+              color: #4a4a4a;
+              margin-top: 10px;
+            }
+          }
+          
+        }
+        .proposal-preview{
+          width: 50%;
+        }
+      }
+      .project-deadline{
+
+        label{
+          font-size: 16px;
+          @apply text-gray-700;
+          font-weight: 500;
+        }
+        label::before{
+          display: inline-block;
+          top: 5px;
+          left: 0;
+          content:" ";
+          height: 13px;
+          width: 8px;
+          background: #EF5959;
+          margin-right:18px; 
+        }
+        .input-item{
+          margin: 12px 0;
+
+          @apply border-gray-300;
+          @apply border;
+          @apply text-gray-700;
+          @apply bg-white;
+          @apply px-4; 
+          @apply rounded; 
+          @apply block ;
+         
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+          input{
+            @apply w-full;
+            @apply leading-tight ;  
+            margin: 10px 0;
+            @apply px-2;  
+            font-size: 14px;
+            letter-spacing: 1.2px;
+            text-align: left;
+            color: #000;
+          }
+          input:focus{
+            @apply outline-none
+          }
+        }
+      }  
+    }
+
+  }
+}
+.card-del-btn{
+  @apply flex;
+  @apply justify-end;
+  a{
+    @apply inline-block;
+    color:#EF5959;
+    letter-spacing: 1.5;
+    font-weight: 500;
+  }
+}
+.project-pic{
+
+  label{
+    font-size: 16px;
+    @apply text-gray-700;
+    font-weight: 500;
+  }
+  label::before{
+    display: inline-block;
+    top: 5px;
+    left: 0;
+    content:" ";
+    height: 13px;
+    width: 8px;
+    background: #EF5959;
+    margin-right:18px; 
+  }
+
+}
+
+.img-btn{
+  margin: 12px 0;
+  height: 40px;
+  padding: 6px 12px;
+  @apply text-center;
+  letter-spacing: 6px;
+  font-weight: 600;
+  @apply border-gray-400;
+  @apply border;
+  @apply rounded;
+  @apply overflow-hidden; 
+  @apply relative;
+  font-size: 15px;
+  @apply text-gray-500;
+
+  input#giveback_image{
+  opacity: 0;
+  font-size: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;  
+  }
+  p{
+    font-size: 13px;
+    line-height: 1.67;
+    letter-spacing: 1.1px;
+    text-align: justify;
+    color: #4a4a4a;
+    margin-top: 10px;
+  }
+}
+.img-btn:hover{
+  @apply border-gray-600;
+  @apply text-gray-800;
+  @apply bg-gray-200;
+  @apply bg-opacity-90;
+  @apply border;
+  @apply transition;
+  @apply duration-500;
+}
+.add-giveback{
+  margin: 12px 0;
+  height: 40px;
+  padding: 6px 12px;
+  @apply text-center;
+  letter-spacing: 6px;
+  font-weight: 600;
+  @apply border-gray-400;
+  @apply border;
+  @apply rounded;
+  @apply overflow-hidden; 
+  font-size: 15px;
+  @apply text-gray-500;
+  a{
+    @apply inline-block;
+    @apply w-full;
+    
+  }
+}
+.add-giveback:hover{
+
+  font-weight: 600;
+  @apply border-gray-600;
+  @apply bg-gray-200;
+  @apply bg-opacity-90;
+  @apply border;
+  @apply text-gray-700;
+}
+.giveback-preview{
+  width: 50%;
+  h4{
+    font-size: 16px;
+    @apply text-gray-700;
+    font-weight: 500;
+  }
+  h4::before{
+    display: inline-block;
+    top: 5px;
+    left: 0;
+    content:" ";
+    height: 13px;
+    width: 8px;
+    background: #EF5959;
+    margin-right:18px; 
+  }
+}

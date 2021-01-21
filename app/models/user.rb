@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :fav_projects
   has_many :my_fav_projects, through: :fav_projects, source: 'project'
+  has_many :notifications, as: :recipient
   mount_uploader :image, ImageUploader
   acts_as_paranoid
   validates :name, presence: true
