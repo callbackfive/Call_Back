@@ -15,7 +15,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_orders_index
-    @my_order_lists = @project.orders.order(id: :desc)
+    # @my_order_lists = @project.orders.order(id: :desc)
+    @q = @project.orders.ransack(params[:q])
+    @my_order_lists = @q.result
     respond_to do |format|
       format.html
       format.csv { send_data @my_order_lists.to_csv_project, filename: "orders-#{Date.today}.csv" }    
