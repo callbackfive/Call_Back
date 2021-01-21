@@ -1,6 +1,15 @@
 <%# 回覆的列表 %>
-<div  class='ml-5'>
-  [<%= reply.user.name %>]
-  <%= reply.created_at.strftime("%Y/%m/%d") %>
-  <%= reply.content %>
-</div>
+
+<ul class="reply-list">
+   
+    <li class="reply-txt">
+      <div class="reply-head ">
+        <p class="name"> <%= reply.user.name %></p> 
+      </div>
+      <div class="reply-ctn">
+        <p><%= reply.content %></p>
+      </div>
+
+    </li>
+  
+</ul>
