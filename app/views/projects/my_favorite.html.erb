@@ -1,21 +1,29 @@
-<div class="container">
-  <thead>
-    <tr>
-      <th></th>
-      <th>專案名稱</th>
-      <th>募資目標</th>
-      <th>目前募資總額</th>
-      <th>倒數時間</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @my_fav_projects.each do |my_fav_project| %>
-      <tr><%= link_to project_path(my_fav_project) do %>
-        <%= my_fav_project.title %>
-        <%= my_fav_project.target_amount %>
-        <%#= my_fav_project.paid_orders_amounts %>
-        <%#= my_fav_project.days_left %>
-      <% end %></tr>
-    <% end %>
-  </tbody>
-</div>
+<section>
+  <div class="fav-project-container">
+    <div class="my-favorite-row">
+      <table>
+        <thead>
+          <tr>
+            <th>專案名稱</th>
+            <th>募資目標</th>
+            <th>目前募資總額</th>
+            <th>倒數時間</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @my_fav_projects.each do |my_fav_project| %>
+            <tr class="">
+              <%= link_to project_path(my_fav_project) do %>
+                <td><%= image_tag my_fav_project.image.url, class:"w-40 h-40" %></td>
+                <td><%= my_fav_project.title %></td>
+                <td><%= my_fav_project.target_amount %></td>
+                <td><%= my_fav_project.paid_orders_amounts %></td>
+                <td><%= my_fav_project.days_left %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

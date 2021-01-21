@@ -1,0 +1,18 @@
+.projects.my_favorite{
+  @apply bg-gray-100;
+  section{
+    @apply w-full;
+
+    .fav-project-container{
+      margin-top: 135px;
+      max-width: 1280px;
+      @apply mx-auto;
+
+      .my-favorite-row{
+        @apply flex;
+        @apply justify-center;
+        
+      }
+    }
+  }
+}
