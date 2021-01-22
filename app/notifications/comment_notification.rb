@@ -12,9 +12,9 @@ class CommentNotification < Noticed::Base
   param :comment
 
   def message
-    t(".message")
+    '您有一則新留言!'
   end
-  
+
   def url
     project_path((params[:comment]).project_id)
   end

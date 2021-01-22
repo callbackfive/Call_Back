@@ -74,12 +74,11 @@ class ProjectsController < ApplicationController
     set_project_for_creating_message
     if had_dialog?
       continue_dialog
-
       MessageNotification.with(message: @new_msg).deliver_later(@project.user) 
-
       redirect_to project_path(@project), notice: '您先前有發送過訊息，可至聯絡訊息，查看專案負責人是否已回覆'
     else
       start_dialog
+      MessageNotification.with(message: @first_msg).deliver_later(@project.user) 
       redirect_to project_path(@project), notice: '您與提案人的已開始新對話，可至聯絡訊息查看'
     end
   end
@@ -120,10 +119,10 @@ class ProjectsController < ApplicationController
   def start_dialog
     @dialogbox = @project.dialogboxes.new(user: current_user)
     @dialogbox.save
-    first_msg = Message.new(content: params[:message][:content],
+    @first_msg = Message.new(content: params[:message][:content],
                               user: current_user,
                               dialogbox: @dialogbox)
-    first_msg.save
+    @first_msg.save
   end
   
   def find_project
