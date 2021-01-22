@@ -25,7 +25,7 @@ class DialogboxesController < ApplicationController
   def create_message
     set_dialogbox_for_creating_message
     continue_dialog
-
+    
     SendMessageJob.perform_later(@message)
   end
 
