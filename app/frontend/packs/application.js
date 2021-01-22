@@ -33,4 +33,3 @@ require("chart.js")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
-console.log("script-index.js");

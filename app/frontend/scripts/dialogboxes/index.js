@@ -1,4 +1,6 @@
 document.addEventListener('turbolinks:load', () => {
+  // TODO 送出與接收分欄對話框，JS顯示要正常
+  // TODO 訊息左右邊CSS
 
   let currentUserData = document.getElementById('navbar_current_user').getAttribute('user_data');
   let currentUserId = JSON.parse(currentUserData).id;

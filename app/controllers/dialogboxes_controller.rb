@@ -17,6 +17,8 @@ class DialogboxesController < ApplicationController
     @dialogbox_starter = @dialogbox.user
     check_user_in_the_dialogbox
     
+    # TODO 訊息左右邊CSS
+
   end
 
   def create_message
@@ -52,6 +54,8 @@ class DialogboxesController < ApplicationController
   def check_user_in_the_dialogbox
     if @project_owner_of_the_dialogbox != current_user && @dialogbox_starter != current_user
       redirect_to root_path, notice: "你沒有權限進入此聊天室！"
+    else
+      render :index
     end
   end
 end
