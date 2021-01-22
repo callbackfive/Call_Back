@@ -1,18 +1,18 @@
 document.addEventListener('turbolinks:load', () => {
 
-  // let currentUserData = document.getElementById('navbar_current_user').getAttribute('user_data');
-  // let currentUserId = JSON.parse(currentUserData).id;
-  // let allMsg = document.querySelectorAll('.message');
+  let currentUserData = document.getElementById('navbar_current_user').getAttribute('user_data');
+  let currentUserId = JSON.parse(currentUserData).id;
+  let allMsg = document.querySelectorAll('.message');
 
-  // allMsg.forEach(msg => {
-  //   let msgUserId = Number(document.getElementById('msg-user-id').getAttribute('value'));
-  //   let newMessage = document.querySelector('.message');
+  allMsg.forEach(msg => {
+    let msgUserId = Number(document.getElementById('msg-user-id').getAttribute('value'));
+    // let newMessage = document.querySelector('.message');
   
-  //   if (currentUserId === msgUserId) {
-  //     newMessage.classList.add('my-msg');
-  //   };
+    if (currentUserId === msgUserId) {
+      msg.classList.add('my-msg');
+    };
 
-  // });
+  });
 
 
   // 點選視窗
