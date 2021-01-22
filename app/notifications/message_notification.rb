@@ -1,5 +1,5 @@
 
-class CommentNotification < Noticed::Base
+class MessageNotification < Noticed::Base
   deliver_by :database, format: :to_database
 
   def to_database
@@ -9,7 +9,7 @@ class CommentNotification < Noticed::Base
     }
   end
 
-  param :comment
+  param :message
 
   def message
     t(".message")

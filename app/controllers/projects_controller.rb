@@ -74,6 +74,9 @@ class ProjectsController < ApplicationController
     set_project_for_creating_message
     if had_dialog?
       continue_dialog
+
+      MessageNotification.with(message: @new_msg).deliver_later(@project.user) 
+
       redirect_to project_path(@project), notice: '您先前有發送過訊息，可至聯絡訊息，查看專案負責人是否已回覆'
     else
       start_dialog
@@ -109,8 +112,9 @@ class ProjectsController < ApplicationController
 
   def continue_dialog
     @dialogbox = @my_msg.dialogbox
-    @dialogbox.messages.create(user: current_user,
-                              content: params.values[1].values[1])
+    @new_msg = Message.create(user: current_user,
+                              dialogbox: @dialogbox,
+                              content: params[:message][:content])
   end
 
   def start_dialog
