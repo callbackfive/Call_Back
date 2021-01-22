@@ -52,7 +52,6 @@ class DialogboxesController < ApplicationController
 
   def continue_dialog
     @message = current_user.messages.create(dialogbox: @msg_dialogbox,
-                                            user: current_user,
                                             content: params[:message][:content])
   end
 

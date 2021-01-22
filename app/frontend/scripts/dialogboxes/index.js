@@ -6,13 +6,22 @@ document.addEventListener('turbolinks:load', () => {
   let currentUserId = JSON.parse(currentUserData).id;
   let allMsg = document.querySelectorAll('.message');
 
+  console.log(currentUserId + "is current_user id");
+
+
   allMsg.forEach(msg => {
-    let msgUserId = Number(document.getElementById('msg-user-id').getAttribute('value'));
-    // let newMessage = document.querySelector('.message');
-  
-    if (currentUserId === msgUserId) {
-      msg.classList.add('my-msg');
-    };
+    const msgUserId = document.getElementById('msg-owner-id').getAttribute('value');
+    const dilogboxStarterId = document.getElementById('dialogbox-starter-id').getAttribute('value');
+    const projectOwnerOfTheDialogboxId = document.getElementById('project-owner-of-the-dialogbox-id').getAttribute('value');
+
+    console.log(msg.innerHTML + " is the msg");
+    console.log(msgUserId + " is msg owner id");
+    console.log(dilogboxStarterId + " is dialogbox starter\(guest\) id");
+    console.log(projectOwnerOfTheDialogboxId + " is project owner id");
+
+    // if (currentUserId == msgUserId) {
+    //   msg.classList.add('my-msg');
+    // };
 
   });
 
