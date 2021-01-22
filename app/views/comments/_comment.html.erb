@@ -1,22 +1,35 @@
 <div>
-  <div>
-    [<%= comment.user.name %>]
-    <%= comment.created_at.strftime("%Y/%m/%d") %>
-    <%= comment.content %>
-  </div>
+  <ul class="comments-list  w-full">
+  <li  class='comment flex'>
+    <div class="user-pic"></div>
+    <div class="comment-txt ">
+      <div class="comment-head ">
+        <p class="name"> <%= comment.user.name %></p> 
+        <p class="time"> <%= comment.created_at.strftime("%Y/%m/%d") %></p> 
+      </div>
+      <div class="comment-ctn">
+        <p><%= comment.content %></p>
+      </div>
 
-  <%# 限定只有提案者可以回覆留言 %>
-  <% if project_owner? %>
-    <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
-    <%= link_to "刪除", comment, method: 'delete' %>
-  <% end %>
-
-  <div id="reply-form-<%= comment.id %>"></div>
-
+      <% if comment.replies.any? %>
+      <% comment.replies.each do |reply| %>
+        <%= render 'comments/reply', reply: reply %>
+      <% end %>
+      <% end %>
+      
+      <% if project_owner? %>
+      <div class="reply-btns">
+        <%= link_to '回覆', new_project_comment_path(@project, parent_id: comment.id), remote: true %>
+         <%= link_to "刪除", comment, method: 'delete' %>
+      </div>
+      <% end %>
+      <div id="reply-form-<%= comment.id %>"></div>
+    </div>
+  </li>
+</ul>
   <% if comment.replies.any? %>
     <% comment.replies.includes(:user).each do |reply| %>
       <%= render 'comments/reply', reply: reply %>
     <% end %>
   <% end %>
-
 </div>

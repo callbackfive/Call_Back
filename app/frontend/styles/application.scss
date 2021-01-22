@@ -6,15 +6,27 @@
 @import "./navbar";
 @import "./signin";
 @import "./signup";
-@import "./project";
+@import "./projects/previewCard.scss";
+@import "./projects/project.scss";
+@import "./projects/projectsEdit.scss";
+@import "./projects/projectsNew.scss";
+@import "./projects/projectShow.scss";
+@import "./projects/project-tab-bar.scss";
+@import "./projects/pro-show-tab.scss";
+@import "./projects/pro-ctn-giveback.scss";
+
+@import "./comment/comment.scss";
+@import "./comment/reply.scss";
+
 @import "./new-dialogbox";
 @import "./dialogbox-index";
 @import "./messages";
+@import "./giveback/givback";
+@import "./giveback/giveback_pre";
 @import "./admin_page";
 @import "./project_orders_index";
-@import "./admin_page";
 @import "./profile";
-
+@import "./admin_page";
 @import "@tailwindcss/postcss7-compat/utilities";
 
 

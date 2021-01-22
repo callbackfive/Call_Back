@@ -1,0 +1,57 @@
+.tab-container{
+  max-width: 820px;
+  margin: auto;
+  padding: 0 35px;
+  margin-bottom:40px;
+  .tab-bar{
+    @apply flex;
+    margin:40px 0;
+    @apply space-x-8;
+    
+    .step{
+      @apply text-center;
+      @apply w-full;
+      @apply outline-none;
+      p{
+        font-size: 18px;
+        font-weight: 700;
+        @apply text-gray-400;
+        @apply border-gray-400;
+        margin-bottom: 8px;
+      }
+      .bullet{
+        @apply inline-block;
+        @apply bg-gray-300;
+        height:5px;
+        @apply w-full;
+        
+      
+      }
+
+    }
+
+    .step:hover{ 
+      
+      p{
+        @apply text-gray-800;
+        @apply transition;
+        @apply duration-500;
+      }
+      .bullet{
+        background:#EF5959;
+        @apply transition;
+        @apply duration-700;
+      }
+    }
+    .active{ 
+      
+      p{
+        @apply text-gray-800;
+      }
+      .bullet{
+        background:#EF5959;
+      }
+    }
+  }
+}
+

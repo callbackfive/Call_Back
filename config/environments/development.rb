@@ -1,20 +1,20 @@
 Rails.application.configure do
-  config.after_initialize do
-    Bullet.enable        = true
-    Bullet.alert         = false
-    Bullet.bullet_logger = true
-    Bullet.console       = true
-  # Bullet.growl         = true
-    Bullet.rails_logger  = true
-    Bullet.add_footer    = true
-  end
+
+  # config.after_initialize do
+  #   Bullet.enable        = true
+  #   Bullet.alert         = true
+  #   Bullet.bullet_logger = true
+  #   Bullet.console       = true
+  #   Bullet.growl         = true
+  #   Bullet.rails_logger  = true
+  #   Bullet.add_footer    = true
+  # end
 
 
   config.hosts << "326fe47559f9.ngrok.io"
   config.cache_classes = false
   config.eager_load = false
   config.consider_all_requests_local = true
-
 
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
@@ -56,3 +56,4 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 end
+

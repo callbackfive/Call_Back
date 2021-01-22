@@ -63,7 +63,7 @@ nav{
             justify-content: start;
 
             .nav-links {
-
+              @apply cursor-pointer;
               display: flex;
               align-items: center;
               color:#696969;

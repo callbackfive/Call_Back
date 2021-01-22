@@ -10,8 +10,10 @@ require("channels")
 
 import "styles/application" 
 import "@fortawesome/fontawesome-free/css/all.css"
-import "pages"
-import "scripts"
+
+import "@ckeditor/ckeditor5-build-classic/build/ckeditor"
+import "pages" 
+import "scripts" 
 
 
 const images = require.context('../images', true)

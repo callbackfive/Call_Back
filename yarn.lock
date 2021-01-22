@@ -909,6 +909,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@ckeditor/ckeditor5-build-classic@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-24.0.0.tgz"
+  integrity sha512-659ZAYbuQbPj3ElqrTSV7aqPtW4vt30Th0PiheFei7adIgmu1bFTHgcM3hqm7XGRzGmBRV6C07xSwUptxn3cvQ==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
@@ -1119,26 +1124,26 @@
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@stimulus/core/-/core-2.0.0.tgz#140c85318d6a8a8210c0faf182223b8459348877"
+  resolved "https://registry.npmjs.org/@stimulus/core/-/core-2.0.0.tgz"
   integrity sha512-ff70GafKtzc8zQ1/cG+UvL06GcifPWovf2wBEdjLMh9xO2GOYURO3y2RYgzIGYUIBefQwyfX2CLfJdZFJrEPTw==
   dependencies:
     "@stimulus/mutation-observers" "^2.0.0"
 
 "@stimulus/multimap@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@stimulus/multimap/-/multimap-2.0.0.tgz#420cfa096ed6538df4a91dbd2b2842c1779952b2"
+  resolved "https://registry.npmjs.org/@stimulus/multimap/-/multimap-2.0.0.tgz"
   integrity sha512-pMBCewkZCFVB3e5mEMoyO9+9aKzHDITmf3OnPun51YWxlcPdHcwbjqm1ylK63fsoduIE+RowBpFwFqd3poEz4w==
 
 "@stimulus/mutation-observers@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@stimulus/mutation-observers/-/mutation-observers-2.0.0.tgz#3dbe37453bda47a6c795a90204ee8d77a799fb87"
+  resolved "https://registry.npmjs.org/@stimulus/mutation-observers/-/mutation-observers-2.0.0.tgz"
   integrity sha512-kx4VAJdPhIGBQKGIoUDC2tupEKorG3A+ckc2b1UiwInKTMAC1axOHU8ebcwhaJIxRqIrs8//4SJo9YAAOx6FEg==
   dependencies:
     "@stimulus/multimap" "^2.0.0"
 
 "@stimulus/webpack-helpers@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-2.0.0.tgz#54296d2a2dffd4f962d2e802d99a3fdd84b8845f"
+  resolved "https://registry.npmjs.org/@stimulus/webpack-helpers/-/webpack-helpers-2.0.0.tgz"
   integrity sha512-D6tJWsAC024MwGEIKlUVYU8Ln87mlrmiwHvYAjipg+s8H4eLxUMQ3PZkWyPevfipH+oR3leuHsjYsK1gN5ViQA==
 
 "@tailwindcss/postcss7-compat@^2.0.2":
@@ -1714,7 +1719,7 @@ aws4@^1.8.0:
 
 axios@^0.21.1:
   version "0.21.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
@@ -3598,7 +3603,7 @@ flush-write-stream@^1.0.0:
 
 follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.13.1"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz"
   integrity sha512-SSG5xmZh1mkPGyKzjZP8zLjltIfpW32Y5QpdNJyjcfGxK3qo3NDDkZOZSFiGn1A6SclQxY9GzEwAHQ3dmYRWpg==
 
 for-in@^1.0.2:
@@ -4615,7 +4620,7 @@ jest-worker@^25.4.0:
 
 jquery@^3.5.1:
   version "3.5.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.5.1.tgz"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
 
 js-base64@^2.1.8:
@@ -7131,10 +7136,10 @@ react-dom@^17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
-react-elastic-carousel@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/react-elastic-carousel/-/react-elastic-carousel-0.10.0.tgz#f7f2b2ff13fb96a02e1026834be4439a21099529"
-  integrity sha512-SfPVqQ07F5BOAJw1Y77JXkce6Trw0vnVZciZCnji9z+C4PVJAKgs7fgEf7uY+fI/YGVIakdKN8CcZGj/WEZPvg==
+react-elastic-carousel@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.npmjs.org/react-elastic-carousel/-/react-elastic-carousel-0.11.0.tgz"
+  integrity sha512-Z8PpJcnWeVZkf5K8CNHE63hQrStgF12MiYiEFEtFSkcyTk4msoOI19fkbIGCbNp92sOuDFJTLsI1rEK5J3gA1A==
   dependencies:
     classnames "^2.2.6"
     react-only-when "^1.0.2"
@@ -7148,7 +7153,7 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
 
 react-only-when@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-only-when/-/react-only-when-1.0.2.tgz#a8a79b48dd6cfbd91ddc710674a94153e88039d3"
+  resolved "https://registry.npmjs.org/react-only-when/-/react-only-when-1.0.2.tgz"
   integrity sha512-agE6l3L6bqaVuwNtjihTQ36M+VBfPS63KOzcNL4ZTmlwSxQPvhzIqmBWfiol0/wLYmKxCcBqgXkEJpvj5Kob8Q==
 
 react-router-dom@^5.2.0:
@@ -7182,7 +7187,7 @@ react-router@5.2.0:
 
 react-swipeable@^5.5.1:
   version "5.5.1"
-  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.5.1.tgz#48ae6182deaf62f21d4b87469b60281dbd7c4a76"
+  resolved "https://registry.npmjs.org/react-swipeable/-/react-swipeable-5.5.1.tgz"
   integrity sha512-EQObuU3Qg3JdX3WxOn5reZvOSCpU4fwpUAs+NlXSN3y+qtsO2r8VGkVnOQzmByt3BSYj9EWYdUOUfi7vaMdZZw==
   dependencies:
     prop-types "^15.6.2"
@@ -7402,7 +7407,7 @@ requires-port@^1.0.0:
 
 resize-observer-polyfill@1.5.0:
   version "1.5.0"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
+  resolved "https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz"
   integrity sha512-M2AelyJDVR/oLnToJLtuDJRBBWUGUvvGigj1411hXhAdyFWqMaqHp7TixW3FpiLuVaikIcR1QL+zqoJoZlOgpg==
 
 resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
@@ -7980,7 +7985,7 @@ stdout-stream@^1.4.0:
 
 stimulus@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-2.0.0.tgz#713c8b91a72ef90914b90955f0e705f004403047"
+  resolved "https://registry.npmjs.org/stimulus/-/stimulus-2.0.0.tgz"
   integrity sha512-xipy7BS5TVpg4fX6S8LhrYZp7cmHGjmk09WSAiVx1gF5S5g43IWsuetfUhIk8HfHUG+4MQ9nY0FQz4dRFLs/8w==
   dependencies:
     "@stimulus/core" "^2.0.0"

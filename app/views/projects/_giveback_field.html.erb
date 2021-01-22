@@ -1,20 +1,54 @@
-<%= content_tag :div, class: "nested_field", data: { new_record: form.object.new_record? } do %>
-  <div class=''>
-    <%= form.label :title, '回饋商品' %><br>
-    <%= form.text_field :title, class:'border-2'%>
-  </div>
-  <div class=''>
-    <%= form.label :price, '價格' %><br>
-    <%= form.number_field :price, class:'border-2' %> 
-  </div>
-  <div class=''>
-    <%= form.label :deliver_time, '預計寄送時間' %><br>
-    <%= form.date_field :deliver_time %> 
-  </div>
-  <div class="">
-    <%= form.label :image, '商品照片' %>
-    <%= form.file_field :image, id: :giveback_image %>
-  </div> 
-  <%= link_to '刪除回饋', '#', class:'mb-3 text-white bg-red-400 rounded p-1 ', data: { action: 'click->nested-form#remove_giveback'}%>
-  <%= form.hidden_field :_destroy %>
-<% end %>
+
+<div class="row">
+  <%= content_tag :div, class: "nested_field", data: { new_record: form.object.new_record? } do %>
+    <div class="giveback_txt">
+      <div class="giveback-txt-content ">
+        <div class="giveback-item title">
+            <%= form.label :title, '回饋商品' %><br>
+            <div class="input-item">
+              <%= form.text_field :title, placeholder:"40 個字以內的回饋標題",class:"input-titl"%>
+            </div>
+        </div>
+        <div class="giveback-item summary ">
+          <%= form.label :description, '回饋內容' %><br>
+          <div class="input-item">
+            <%= form.text_area :description,class:"g-descript" %>
+          </div>
+        </div>
+        <div class="giveback-item price ">
+          <%= form.label :price, '回饋金額' %><br>
+          <div class="input-item">
+            <%= form.number_field :price,min:"100" ,value:"100" ,class:"g-price"%> 
+          </div>
+        </div>
+        <div class="giveback-item project-pic">
+          <%= form.label :image, '回饋封面' %><br>
+          <div class="img-btn">
+          <i class="fas fa-camera-retro"></i>上傳封面圖片
+          <%= form.file_field :image, id: :giveback_image %>
+          </div> 
+          <p>請提供 JPEG、PNG檔，尺寸至少 1024 x 768px； 並將檔案大小控制在 1MB 以內。</p> 
+      </div>
+      </div>
+      <div class="giveback-preview" id="card-preview-content">
+        <h4>回饋卡預覽</h4>
+         <%= render 'give_preview_card' %>
+        
+      </div>
+    </div>
+
+    <div class="giveback-item project-deadline">
+
+      <%= form.label :deliver_time, '截止時間' %><br>
+      <div class="input-item"><%= form.date_field :deliver_time ,class:"g-deliver"%> </div>
+
+    </div>
+
+    <div  class="card-del-btn">
+      <%= link_to '刪除回饋', '#',class:"del-btn", data: { action: 'click->nested-form#remove_giveback'}%>
+      <%= form.hidden_field :_destroy %>
+    </div>
+
+  <% end %>
+</div>
+

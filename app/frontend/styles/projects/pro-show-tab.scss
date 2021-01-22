@@ -1,0 +1,76 @@
+
+.tabs-container{
+  max-width:1090px;
+  margin: auto;
+  
+  .pro-tab{
+    @apply w-full;
+    @apply flex;
+    @apply justify-between;
+    
+    
+    .content-tab{
+      @apply flex;
+      @apply justify-items-center;
+      @apply justify-center;
+      .tab-link{
+        @apply px-10;
+        
+        @apply text-gray-500;
+        font-weight: 400;
+        letter-spacing: 1.5;
+        font-size: 17px;
+
+      }
+      .tab-link:focus{
+        @apply outline-none;
+      }
+      .clicked{
+        @apply border-b-2;
+        border-color: #EF5959;
+        font-weight: 700;
+        color:#EF5959;
+        
+      }
+    }
+
+    .user-tab{
+      @apply flex;
+      @apply space-x-4;
+      @apply items-center;
+      .user-pic{
+        @apply block;
+        @apply h-16;
+        @apply w-16;
+        @apply rounded-full;
+        @apply overflow-hidden;
+        @apply border;
+        @apply border-gray-200;
+        img{ 
+          @apply h-full;
+          @apply w-full;
+          @apply object-cover;
+          @apply inline-block;
+
+        }
+    
+      }
+      .user-pic:focus{
+        @apply outline-none;
+        @apply border-gray-400;
+      }
+      .user-name{
+        line-height:72px;
+        margin: auto;
+        vertical-align: middle;
+        font-size: 13px;
+        span{
+          font-size: 15px;
+          @apply mr-2;
+        }
+      }
+    }
+  }
+}
+
+

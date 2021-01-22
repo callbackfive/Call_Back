@@ -10,6 +10,8 @@ class DialogboxesController < ApplicationController
   def show
     @dialogbox_id = params[:id]
     @current_user_id = current_user.id
+    @messages = Message.where(dialogbox: @dialogbox).includes(:user)
+    @dialogboxes_of_my_projects = Dialogbox.where(project: @my_projects).includes(:user, :project)
     render :index
   end
 
@@ -21,16 +23,12 @@ class DialogboxesController < ApplicationController
   end
 
   private
-  def set_current_user_projects
-    @my_projects = current_user.projects
-  end
-
   def set_dialogbox_create_by_current_user
-    @sent_dialogboxes = current_user.dialogboxes
+    @my_sent_dialogboxes = current_user.dialogboxes.includes(:project)
   end
 
-  def dialogbox_params
-    params.require(:dialogbox).permit(:project_id, :user_id, :project_owner_id)
+  def set_current_user_projects
+    @my_projects = current_user.projects.includes(:dialogboxes)
   end
 
   def find_dialogbox
@@ -38,11 +36,11 @@ class DialogboxesController < ApplicationController
   end
 
   def set_dialogbox_for_creating_message
-    @dialogbox = Dialogbox.find(params[:message][:dialogbox])
+    @msg_dialogbox = Dialogbox.find(params[:message][:dialogbox])
   end
 
   def continue_dialog
-    @message = current_user.messages.create(dialogbox: @dialogbox,
+    @message = current_user.messages.create(dialogbox: @msg_dialogbox,
                                             user: current_user,
                                             content: params[:message][:content])
   end

@@ -21,8 +21,8 @@ document.addEventListener('turbolinks:load', () => {
       sendMsgBtn.disabled = false;
       const msgForm = document.forms[0];
       msgForm.reset();
-      const messageContainer = document.getElementById('messages-container')
-      // console.log(messageContainer.innerHTML);
+      const messageContainer = document.querySelector('.messages-container')
+      console.log(messageContainer.innerHTML);
       messageContainer.innerHTML = messageContainer.innerHTML + data.html
     }
   });

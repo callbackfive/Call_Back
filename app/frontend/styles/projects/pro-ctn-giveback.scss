@@ -1,0 +1,37 @@
+.pro-ctn-giveback{
+  @apply w-full;
+  .pro-giveback-container{
+    max-width:1090px;
+    margin: auto;
+    .pro-giveback-row{
+      @apply w-full;
+      @apply flex;
+      @apply justify-between;
+      @apply space-x-10;
+      .ctn-pages{
+        width: 70%;
+        @apply overflow-hidden;
+        
+        .pro-summary-col{
+          width: 200%;
+          @apply flex;
+          .pro-page{
+            width: 50%;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+          }
+        }
+      }
+      
+
+      .pro-giveback-col{
+        width: 30%;
+        
+      }
+
+    }
+
+  }
+}
+#content-pg1{
+  transform: translateX(0px);
+}
