@@ -162,6 +162,16 @@
                     margin-left: 10px;
                   }
                 }
+
+                &.my-msg {
+                  .content-container {
+                    float: right;
+                    .content {
+                      background-color: #007bff;
+                      color: white;
+                    }
+                  }
+                }
               }
 
               .message.my-msg{

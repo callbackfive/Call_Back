@@ -1,7 +1,11 @@
 <div>
   <ul class="comments-list  w-full">
   <li  class='comment flex'>
+<<<<<<< HEAD
     <div class="user-pic"><%#= image_tag comment.user.image_url%></div>
+=======
+    <div class="user-pic"></div>
+>>>>>>> ff851d5199edf3b05823475fbc2412b119904ce0
     <div class="comment-txt ">
       <div class="comment-head ">
         <p class="name"> <%= comment.user.name %></p> 
@@ -23,13 +27,13 @@
          <%= link_to "刪除", comment, method: 'delete' %>
       </div>
       <% end %>
-
       <div id="reply-form-<%= comment.id %>"></div>
-
-
     </div>
-   
   </li>
 </ul>
-
+  <% if comment.replies.any? %>
+    <% comment.replies.includes(:user).each do |reply| %>
+      <%= render 'comments/reply', reply: reply %>
+    <% end %>
+  <% end %>
 </div>
