@@ -3,15 +3,17 @@ class DialogboxesController < ApplicationController
   before_action :find_dialogbox, only: :show
   before_action :set_dialogbox_create_by_current_user, only: [:index, :show]
   before_action :set_current_user_projects, only: [:index, :show]
+  before_action :set_dialogbox_create_by_guest, only: [:index, :show]
+
 
   def index
+
   end
 
   def show
     @dialogbox_id = params[:id]
     @current_user_id = current_user.id
     @messages = Message.where(dialogbox: @dialogbox).includes(:user)
-    @dialogboxes_of_my_projects = Dialogbox.where(project: @my_projects).includes(:user, :project)
 
     @project_owner_of_the_dialogbox = @dialogbox.project.user
     @dialogbox_starter = @dialogbox.user
@@ -33,6 +35,10 @@ class DialogboxesController < ApplicationController
 
   def set_current_user_projects
     @my_projects = current_user.projects.includes(:dialogboxes)
+  end
+
+  def set_dialogbox_create_by_guest
+    @dialogboxes_of_my_projects = Dialogbox.where(project: @my_projects).includes(:user, :project)
   end
 
   def find_dialogbox
