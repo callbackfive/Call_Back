@@ -1,13 +1,12 @@
 class DialogboxesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_dialogbox, only: :show
-  before_action :set_dialogbox_create_by_current_user, only: [:index, :show]
+  before_action :set_dialogbox_created_by_current_user, only: [:index, :show]
   before_action :set_current_user_projects, only: [:index, :show]
-  before_action :set_dialogbox_create_by_guest, only: [:index, :show]
+  before_action :set_dialogbox_created_by_guest, only: [:index, :show]
 
 
   def index
-
   end
 
   def show
@@ -31,7 +30,7 @@ class DialogboxesController < ApplicationController
   end
 
   private
-  def set_dialogbox_create_by_current_user
+  def set_dialogbox_created_by_current_user
     @my_sent_dialogboxes = current_user.dialogboxes.includes(:project)
   end
 
@@ -39,7 +38,7 @@ class DialogboxesController < ApplicationController
     @my_projects = current_user.projects.includes(:dialogboxes)
   end
 
-  def set_dialogbox_create_by_guest
+  def set_dialogbox_created_by_guest
     @dialogboxes_of_my_projects = Dialogbox.where(project: @my_projects).includes(:user, :project)
   end
 

@@ -1,5 +1,3 @@
-import "./show"
-
 document.addEventListener('turbolinks:load', () => {
   // TODO 送出與接收分欄對話框，JS顯示要正常
   // TODO 訊息左右邊CSS
@@ -26,6 +24,8 @@ document.addEventListener('turbolinks:load', () => {
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const target = document.querySelector(tab.dataset.tabTarget);
+
+      console.log(tab);
 
       tabContents.forEach(tabContent => {
         tabContent.classList.remove('active')
