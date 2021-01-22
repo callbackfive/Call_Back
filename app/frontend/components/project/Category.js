@@ -5,16 +5,16 @@ const Category = ({category,handleBtn}) => {
   return (
     <>
       <button value={category.title} onClick={handleBtn} className="btns-cate">
-      <div className="category-btn" id={category.id}>
-        <div className="category-pic">
-          <div className="category-circle">
-            <img src={category.image.url} alt="" className="w-full"/>
-          </div> 
+        <div className="category-btn" id={category.id}>
+          <div className="category-pic">
+            <div className="category-circle">
+              <img src={category.image.url} alt="" className="w-full"/>
+            </div> 
+          </div>
+          <div className="category-title">
+            <p>{category.title}</p>
+          </div>
         </div>
-        <div className="category-title">
-          <p>{category.title}</p>
-        </div>
-      </div>
       </button>
     </>
 
