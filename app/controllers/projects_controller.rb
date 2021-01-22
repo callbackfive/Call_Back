@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
     # @projects = Project.is_now_on_sale 
     @successful_projects = Project.succeeded_and_done
     @past_projects = Project.past_projects
-    @percentage = (@project.percentage_of_reaching_goal * 100).round(2)
   end
 
   def user_projects_index
@@ -30,7 +29,6 @@ class ProjectsController < ApplicationController
     @comment = Comment.new
     @comments = @project.comments.includes(:user, :replies)
     @message = Message.new
-    @percentage = (@project.percentage_of_reaching_goal * 100).round(2)
   end
 
   def new
