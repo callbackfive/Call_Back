@@ -1,59 +1,59 @@
-<div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 mb-10 mt-8">
-    <div class="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700" style="max-width: 600px">
-        <div class="mb-5">
-            <h2 class="text-center font-bold text-xl uppercase">請填寫寄送資訊</h2>
-            <h1 class="text-center font-bold text-base uppercase">回饋商品：<%= @giveback.title %></h1>
-            <h1 class="text-center font-bold text-base uppercase">$<%= @giveback.price.to_s(:delimited)%>元</h1>
-           
-        </div>
-        <div class="mb-5">
-          <% if @order.errors.any? %>
-            <ul>
-              <% @order.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          <% end %>
+<div class="mb-5">
+  <% if @order.errors.any? %>
+  <ul>
+    <% @order.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+<section class="orders-form-bg">
+    <div class="orders-show-container">
+      <div class="orders-show-row">
+        <div class="order-show-txt mb-2">
+          <h2 class="title">請填寫寄送資訊</h2>
+          <h3 >回饋商品：<span><%= @giveback.title %></span></h3>
+          <h3 >贊助金額：<span>$NTD<%= @giveback.price.to_s(:delimited)%><span></h3>
         </div>
         <%= form_tag user_orders_path, method: :post do%>
           <input type="hidden" name="giveback_id" value="<%= @giveback.id%>">
-          <div class="mb-3">
-            <div class="font-bold text-sm mb-2 ml-1">
+          <div class="orders-form-item">
             <%= label :full_name, "收件人" %>
-            <%= text_field_tag :full_name,"", {class:"w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-red-400 transition-colors",placeholder:"不可空白" } %>
+            <%= text_field_tag :full_name,"", {class:"orders-input",placeholder:"不可空白" } %>
+
           </div>
-          <div class="mb-3">
-            <div class="font-bold text-sm mb-2 ml-1">
+          <div class="orders-form-item">
             <%= label :delivery_country, "國家" %>
-            <%= text_field_tag :delivery_country,"", {class:"w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-red-400 transition-colors",placeholder:"不可空白" }%>
-          </div>
+            <%= text_field_tag :delivery_country,"", {class:"orders-input",placeholder:"不可空白" }%>
 
-          <div class="mb-3">
-            <div class="font-bold text-sm mb-2 ml-1">
+          </div>
+          <div class="orders-form-item">
             <%= label :zip, "郵遞區號" %>
-            <%= text_field_tag :zip,"", {class:"w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-red-400 transition-colors",placeholder:"請輸入數字" } %>
-          </div>
+            <%= text_field_tag :zip,"", {class:"orders-input",placeholder:"請輸入數字" } %>
 
-          <div class="mb-3">
-            <div class="font-bold text-sm mb-2 ml-1">
+          </div>
+          <div class="orders-form-item">
             <%= label :address, "收件地址" %>
-            <%= text_field_tag :address,"", {class:"w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-red-400 transition-colors",placeholder:"不可空白" } %>
+            <%= text_field_tag :address,"", {class:"orders-input",placeholder:"不可空白" } %>
           </div>
-
-          <div class="mb-3">
-            <div class="font-bold text-sm mb-2 ml-1">
+          <div class="orders-form-item">
             <%= label :phone, "手機號碼" %>
-            <%= text_field_tag :phone,"", {class:"w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-red-400 transition-colors",placeholder:"請填入10碼數字" } %>
+            <%= text_field_tag :phone,"", {class:"orders-input",placeholder:"請填入10碼數字" } %>
           </div>
-
-          <div class="mb-3">
-            <div class="font-bold text-sm mb-2 ml-1">
+          <div class="orders-form-item">
             <%= label :email, "電子信箱" %>
-            <%= text_field_tag :email,"", {class:"w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-red-400 transition-colors",placeholder:"請填入xxx@xxx" } %>
+            <%= text_field_tag :email,"", {class:"orders-input",placeholder:"請填入xxx@xxx" } %>
           </div>
+           <button class="orders-btn" type="submit">確認結帳</button>
+         <% end %>
+        </div>
 
-          <button class="block w-full max-w-xs mx-auto bg-red-400 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" type="submit">確認結帳</button>
-          </div>
-        <% end %>
+        
+
+
+       
+
+ 
+      </div>
     </div>
 </div>
