@@ -10,7 +10,6 @@ Rails.application.configure do
   #   Bullet.add_footer    = true
   # end
 
-
   config.hosts << "326fe47559f9.ngrok.io"
   config.cache_classes = false
   config.eager_load = false

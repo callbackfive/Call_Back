@@ -12,7 +12,7 @@
     <ul class="m-3 border">
         <%= image_tag g.image_url if g.image_url.present? %>
         <li>回饋商品： <%= g.title %></li>
-        <li>商品價格： <%= g.price %>元</li>
+        <li>商品價格： <%= g.price.to_s(:delimited) %>元</li>
     </ul>
     <%end%>
   </div>

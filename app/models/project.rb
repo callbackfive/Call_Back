@@ -31,7 +31,7 @@ class Project < ApplicationRecord
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
 
-  def paid_orders_amounts  
+  def paid_orders_amounts
     return paid_orders.inject(0) do |sum, order|
       sum += order.giveback_price
     end
@@ -41,6 +41,10 @@ class Project < ApplicationRecord
     if self.is_published? && (self.paid_orders_amounts >= self.target_amount)
       self.succeeded!
     end
+  end
+
+  def percentage_of_reaching_goal
+    paid_orders_amounts.to_f / target_amount.to_f
   end
 
   def days_left
