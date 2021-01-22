@@ -69,7 +69,7 @@
       
         <template data-nested-form-target='template'>
           <%= form.fields_for :givebacks, Giveback.new, child_index: 'new_record' do |giveback| %>
-            <%= render 'projects/giveback_field', form: giveback %>
+            <%= render 'giveback_field', form: giveback %>
           <% end %>
         </template>
 

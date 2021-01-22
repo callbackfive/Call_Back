@@ -1,7 +1,15 @@
 .projects.my_favorite{
-  @apply bg-gray-100;
+  
   section{
     @apply w-full;
+
+    h2{
+      color:#EF5959;
+      @apply text-xl;
+      @apply font-bold;
+      @apply text-center;
+      @apply my-3;
+    }
 
     .fav-project-container{
       margin-top: 135px;
@@ -9,9 +17,9 @@
       @apply mx-auto;
 
       .my-favorite-row{
-        @apply flex;
+        @apply grid;
+        @apply grid-cols-3;
         @apply justify-center;
-        
       }
     }
   }
