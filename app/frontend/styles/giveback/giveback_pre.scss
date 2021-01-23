@@ -1,4 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+.giveback-card-flex{
+  @apply flex;
+}
+.giveback-show-project-flex{
+
+  .giveback-show-project-row{
+    @apply flex;
+    @apply justify-center;
+
+    .giveback-show-project-pic{
+      @apply w-20;
+      @apply h-20;
+      @apply mr-3;
+
+      img.p-img{
+        @apply w-full; 
+        height: auto;
+      }
+      
+    }
+    .giveback-show-project-text{
+      @apply flex-col;
+
+      .giveback-show-category{
+        p{ 
+          font-size: 14px; 
+          @apply text-gray-900;
+          @apply inline-block;
+          padding: 5px 7px;
+          @apply bg-gray-100;
+          }
+      }
+      .giveback-show-project-title{
+        @apply text-2xl;
+      }
+    }
+  } 
+}
+  
 .giveback-card-item{
   max-width: 330px;
   @apply rounded;
