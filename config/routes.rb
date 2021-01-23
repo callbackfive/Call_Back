@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/apis/projects', action: 'projects',controller: 'apis'
   get '/apis/categories', action: 'categories',controller: 'apis'
+  get '/apis/succeeded', action: 'succeeded',controller: 'apis'
+  
   
   namespace :admin do
     root to: "users#index"

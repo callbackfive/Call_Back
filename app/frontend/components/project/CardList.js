@@ -22,7 +22,7 @@ import '../home/Rank.scss'
                 ))
                 } 
             </div>
-            <a href="/projects" className="more-btn">查看更多</a> 
+            <a href="/projects" className="more-btn"></a> 
           </div>
         </div>
       </section>
