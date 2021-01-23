@@ -1,21 +1,33 @@
-<div class="container">
-  <thead>
-    <tr>
-      <th></th>
-      <th>專案名稱</th>
-      <th>募資目標</th>
-      <th>目前募資總額</th>
-      <th>倒數時間</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @my_fav_projects.each do |my_fav_project| %>
-      <tr><%= link_to project_path(my_fav_project) do %>
-        <%= my_fav_project.title %>
-        <%= my_fav_project.target_amount %>
-        <%#= my_fav_project.paid_orders_amounts %>
-        <%#= my_fav_project.days_left %>
-      <% end %></tr>
-    <% end %>
-  </tbody>
-</div>
+<section>
+  <div class="fav-project-container">
+    <h2>已追蹤專案</h2>
+    <div class="my-favorite-row">
+      <% @my_fav_projects.each do |my_fav_project| %>
+        <%= link_to project_path(my_fav_project) do %>
+          <div class="card-item">
+            <div class="card-pic">
+              <%= image_tag my_fav_project.image.url %>
+            </div>
+            <div class="item-content">
+              <div class="item-category">
+                <p class='category'><%= my_fav_project.category.title %></p>
+                <p><%= my_fav_project.status %></p>
+              </div>
+            <div class="item-txt">
+              <h2 class=""><%= my_fav_project.title %></h2>
+              <p></p>
+              </div>
+            </div>
+            <div class="item-progress">
+              <div class="pg-txt flex justify-between">
+                <div class="price"><%= my_fav_project.paid_orders_amounts %></div>
+                <div class="days"><%= my_fav_project.days_left %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
