@@ -7,7 +7,6 @@ document.addEventListener('turbolinks:load', () => {
   let currentUserId = JSON.parse(currentUserData).id;
   let allMsg = document.querySelectorAll('.message');
 
-  // console.log(allMsg);
   console.log(currentUserId + "is current_user id");
 
 
@@ -15,20 +14,16 @@ document.addEventListener('turbolinks:load', () => {
 
     const checkMsgUserDiv = msg.querySelector('.content-container').querySelector('.check-msg-user')
     const msgOwnerId = Number(checkMsgUserDiv.querySelector('#msg-owner-id').getAttribute('value'));
-    const dilogboxStarterId = Number(checkMsgUserDiv.querySelector('#dialogbox-starter-id').getAttribute('value'));
-    const projectOwnerOfTheDialogboxId = Number(checkMsgUserDiv.querySelector('#project-owner-of-the-dialogbox-id').getAttribute('value'));
 
     console.log(msg.innerHTML + "are the msg");
     console.log(msgOwnerId + " is msg owner id");
-    console.log(dilogboxStarterId + " is dialogbox starter\(guest\) id");
-    console.log(projectOwnerOfTheDialogboxId + " is project owner id");
 
-  // debugger
-
-
-    if (currentUserId == msgUserId) {
+    // console.log(msg.className);
+    
+    if (currentUserId === msgOwnerId) {
       msg.classList.add('my-msg');
     };
+    // debugger
 
   });
 
