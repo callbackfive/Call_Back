@@ -13,6 +13,9 @@ class Project < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   #在project new頁面的驗證
   attr_accessor :new_project_validation
   validates :title, presence: true, if: -> {new_project_validation} 
