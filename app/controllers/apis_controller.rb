@@ -6,7 +6,6 @@ class ApisController < ActionController::Base
   
   end
 
-  
   def succeeded
     @succee_projects = Project.succeeded_and_done
     render json:@succee_projects
