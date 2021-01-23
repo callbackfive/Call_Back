@@ -19,8 +19,6 @@ class DialogboxesController < ApplicationController
     set_dialogbox_for_creating_message
     continue_dialog
     
-    MessageNotification.with(message: @message).deliver_later(@project.user)
-
     SendMessageJob.perform_later(@message)
   end
 
