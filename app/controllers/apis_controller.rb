@@ -29,7 +29,7 @@ class ApisController < ActionController::Base
           target_amount:project.target_amount,
           category: project.category.title,
           days:project.days_left,
-          total:project.percentage_of_reaching_goal,
+          total:(project.percentage_of_reaching_goal* 100).round(2),
           totalprice:project.paid_orders_amounts,
           count:project.paid_orders.count
    
