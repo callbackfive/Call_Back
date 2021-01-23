@@ -1,0 +1,138 @@
+.orders.show,.orders.create{
+  .orders-form-bg{
+    @apply w-full;
+    @apply pt-12 ;
+    @apply md:pt-20 ;
+    @apply pb-6 ;
+    @apply px-2;
+    @apply md:px-0 ;
+    @apply bg-gray-100;
+    .orders-show-container{
+      max-width: 600px;
+      @apply mx-auto;
+      @apply border-gray-200;
+      @apply rounded-lg; 
+      @apply bg-white; 
+      @apply shadow-lg; 
+      @apply p-10; 
+      @apply text-gray-700;
+      .orders-show-row{
+        @apply flex;
+        @apply flex-col;
+        @apply space-y-6;
+
+        .order-show-txt{
+
+          @apply flex;
+          @apply flex-col;
+          @apply space-x-2;
+          @apply p-4;
+          @apply border-b;
+          @apply border-gray-300;
+          @apply flex;
+          
+
+          h2.title{
+            color: #EF5959;
+            @apply text-3xl;
+            @apply font-bold;
+            @apply text-center;
+            @apply mb-4;
+          
+          }
+          h3{
+            @apply text-center; 
+            @apply text-gray-600;
+            font-weight: 400; 
+            @apply text-base; 
+            @apply uppercase;
+            span{
+              font-size: 16px;
+              margin-right: 5px;
+            }
+          }
+          h3::before{
+            display: inline-block;
+            top: 3px;
+            left: 0;
+            content:" ";
+            height: 15px;
+            width: 5px;
+            @apply bg-gray-600;
+            margin-right:10px; 
+          }
+
+        }
+        .orders-form-item{
+          @apply mb-2;
+          
+          label{
+
+            @apply block;
+            @apply text-gray-500;
+            font-size: 16px;
+            font-weight: 700; 
+            @apply mb-2;
+           
+          
+          }
+          label::before{
+            display: inline-block;
+            top: 5px;
+            left: 0;
+            content:" ";
+            height: 15px;
+            width: 5px;
+            background: #EF5959;
+            margin-right:10px; 
+          }
+          .orders-input{
+            @apply w-full;
+            @apply px-3;
+            @apply py-2;
+            @apply mb-1;
+            @apply border-2;
+            @apply border-gray-200;
+            @apply rounded-md ;
+            @apply duration-500;
+            @apply px-3;
+            @apply pb-2;
+                
+            
+          }
+          .orders-input:focus{
+            outline:none;
+             border-color:#EF5959;
+             @apply  transition-colors;
+          }
+          span{
+            @apply text-gray-600;
+            @apply text-sm;
+            @apply mb-2;
+            @apply ml-2;
+          }
+
+        }
+        .orders-btn{
+          background:#EF5959;
+          @apply mx-auto;
+          @apply inline-block;
+          @apply text-white;
+          @apply font-bold;
+          @apply py-2;
+          @apply rounded;
+          @apply shadow-sm;
+          @apply w-full;
+          @apply transition;
+          @apply duration-200;
+          margin: 15px 0 10px ;}
+        
+        .orders-btn:hover{ background:#df3d3d; }
+      }
+      
+    }
+  
+  }
+}
+
+

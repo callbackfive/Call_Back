@@ -4,10 +4,10 @@ class ProjectsController < ApplicationController
   before_action :find_payment, only: [:project_orders_index]
 
   def index
-    @projects = Project.all
-    # @projects = Project.is_now_on_sale 
+    # @projects = Project.all
+    @projects = Project.is_now_on_sale 
     @successful_projects = Project.succeeded_and_done
-    @past_projects = Project.past_projects
+    # @past_projects = Project.past_projects
   end
 
   def user_projects_index
@@ -51,6 +51,7 @@ class ProjectsController < ApplicationController
       @project.givebacks.new
     end
   end
+
 
   def update
     if @project.is_published?
