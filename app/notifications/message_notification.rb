@@ -1,5 +1,5 @@
 
-class CommentNotification < Noticed::Base
+class MessageNotification < Noticed::Base
   deliver_by :database, format: :to_database
 
   def to_database
@@ -9,14 +9,15 @@ class CommentNotification < Noticed::Base
     }
   end
 
-  param :comment
+  param :message
 
   def message
-    '您有一則新留言!'
+    '您有一則新的私訊！'
   end
-
+  
   def url
-    project_path((params[:comment]).project_id)
+    dialogbox_path(
+      Dialogbox.find(params[:message].dialogbox_id))
   end
 end
 
