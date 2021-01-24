@@ -1,0 +1,42 @@
+.giveback-show-project-flex{
+  @apply flex;
+  @apply justify-center;
+
+  .giveback-show-project-pic{
+    @apply w-20;
+    @apply h-20;
+    @apply mr-3;
+
+    img.p-img{
+      @apply w-full; 
+      height: auto;
+    }
+    
+  }
+  .giveback-show-project-text{
+    @apply flex-col;
+
+    .giveback-show-category{
+      p{ 
+        font-size: 14px; 
+        @apply text-gray-900;
+        @apply inline-block;
+        padding: 5px 7px;
+        @apply bg-gray-100;
+        }
+    }
+    .giveback-show-project-title{
+      @apply text-2xl;
+    }
+  }
+} 
+
+.giveback-card-items-container{
+  max-width: 1280px;
+  .giveback-card-items-flex{
+    @apply flex;
+    @apply space-x-5;
+    @apply justify-center;
+  }
+}
+
