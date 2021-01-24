@@ -25,7 +25,14 @@ class DialogboxesController < ApplicationController
   def create_message
     set_dialogbox_for_creating_message
     continue_dialog
-    
+
+    # html = ApplicationController.render(
+    #   partial: 'messages/message',
+    #   locals: { message: @message }
+    #   )
+
+    # ActionCable.server.broadcast "dialogbox_channel_#{@message.dialogbox.id}", {html: html}
+
     SendMessageJob.perform_later(@message)
   end
 

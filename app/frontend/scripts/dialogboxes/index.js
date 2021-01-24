@@ -11,20 +11,15 @@ document.addEventListener('turbolinks:load', () => {
 
 
   allMsg.forEach(msg => {
-
     const checkMsgUserDiv = msg.querySelector('.content-container').querySelector('.check-msg-user')
     const msgOwnerId = Number(checkMsgUserDiv.querySelector('#msg-owner-id').getAttribute('value'));
 
     console.log(msg.innerHTML + "are the msg");
     console.log(msgOwnerId + " is msg owner id");
 
-    // console.log(msg.className);
-    
     if (currentUserId === msgOwnerId) {
       msg.classList.add('my-msg');
     };
-    // debugger
-
   });
 
 
