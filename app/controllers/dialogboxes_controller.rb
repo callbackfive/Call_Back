@@ -5,7 +5,6 @@ class DialogboxesController < ApplicationController
   before_action :set_current_user_projects, only: [:index, :show]
   before_action :set_dialogbox_created_by_guest, only: [:index, :show]
 
-
   def index
   end
 
@@ -17,21 +16,11 @@ class DialogboxesController < ApplicationController
     @project_owner_of_the_dialogbox = @dialogbox.project.user
     @dialogbox_starter = @dialogbox.user
     check_user_in_the_dialogbox
-    
-    # TODO 訊息左右邊CSS
-
   end
 
   def create_message
     set_dialogbox_for_creating_message
     continue_dialog
-
-    # html = ApplicationController.render(
-    #   partial: 'messages/message',
-    #   locals: { message: @message }
-    #   )
-
-    # ActionCable.server.broadcast "dialogbox_channel_#{@message.dialogbox.id}", {html: html}
 
     SendMessageJob.perform_later(@message)
   end
