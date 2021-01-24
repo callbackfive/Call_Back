@@ -26,11 +26,12 @@
 @import "./messages";
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
-@import "./admin_page";
 @import "./profile";
-@import "./admin_page";
 @import "./project_orders_index";
 @import "./order/order-show.scss";
+
+@import "./admin/side-bar.scss";
+@import "./admin/admin-index-table.scss";
 
 
 @import "@tailwindcss/postcss7-compat/utilities";
