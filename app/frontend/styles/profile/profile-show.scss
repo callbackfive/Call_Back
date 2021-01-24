@@ -1,0 +1,47 @@
+.profiles.show{
+  section.profile-show-nav{
+    @apply w-full;
+    @apply bg-gray-100;
+    
+    .profile-nav-container{
+      max-width: 650px;
+      margin-top: 70px;
+      @apply mx-auto;
+      @apply box-border;
+      
+      .profile-show-row{
+        @apply flex;
+        @apply justify-between;
+        @apply mx-auto;
+        @apply box-border;
+        .profile-tab{       
+           width: 130px;
+           @apply box-border;
+          .profile-nav-btn{
+          @apply box-border;
+          @apply text-gray-500;
+          @apply py-6;
+          @apply px-2;
+          @apply border-b-2;
+          @apply border-gray-100;
+         
+         }
+         .profile-nav-btn:hover{
+           @apply border-b-2;
+           @apply border-gray-800;
+           
+         }
+         .profile-nav-btn:focus{
+           
+           @apply outline-none;
+           
+         }
+
+        }
+
+      }
+    }
+  }
+}
+
+

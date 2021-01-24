@@ -24,12 +24,12 @@ import ProgressBar from "./ProgressItem"
               <div className="item-progress">
                 <div className="progress-barr">
                   {/* <ProgressBar done="{project.total}"/> */}
-                  <ProgressBar done="100"/>
+                  <ProgressBar done="{project.total}"/>
                 </div>
 
                 <div className="pg-txt flex justify-between">
               
-                  <div className="price">{project.total}%<span>已有 {project.total} 人贊助</span></div>
+                  <div className="price">{project.total}%<span>已有 {project.count} 人贊助</span></div>
                   <div className="days">還剩<span>{project.days}</span>天</div>
 
                 </div>
@@ -68,7 +68,7 @@ import ProgressBar from "./ProgressItem"
 
                 <div className="pg-txt flex justify-between">
               
-                  <div className="price">{project.total}%<span>已有 {project.total} 人贊助</span></div>
+                  <div className="price">{project.total}%<span>已有 {project.count} 人贊助</span></div>
                   <div className="days">還剩<span>{project.days}</span>天</div>
 
                 </div>

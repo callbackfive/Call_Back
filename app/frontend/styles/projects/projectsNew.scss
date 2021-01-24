@@ -12,6 +12,25 @@
         @apply flex;
         @apply flex-col;
         @apply justify-items-center;
+
+        ul.alert-box{
+          @apply w-full;
+          color: #EF5959;
+          @apply border;
+          @apply rounded;
+          border-color: #EF5959;
+          @apply px-8;
+          @apply py-6;
+          @apply space-y-2;
+          background: #FEE8E7;
+          @apply my-4;
+
+
+          li.alert{
+            
+            list-style: disc;
+          }
+        }
         
         h2{
           color:#EF5959;

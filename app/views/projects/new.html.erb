@@ -1,17 +1,18 @@
 <section calss="">
-      <% if @project.errors.any? %>
-      <ul>
-        <% @project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
   <div class="projects-new-container ">
     <div class="projects-new-row">
 
       <h2>讓 CALL BACK 實現你的夢想吧！</h2>
 
       <div class="red-bar"></div>
+    <% if @project.errors.any? %>
+      <ul class="alert-box">
+        <% @project.errors.full_messages.each do |message| %>
+        <li class="alert"><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
       <%= form_for(@project) do |form| %>
       <div class="project-form">
         <div class="project-title ">
