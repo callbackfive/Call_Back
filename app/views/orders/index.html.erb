@@ -1,68 +1,68 @@
-<div class="mt-22"></div>
-<% if @user_orders.blank? %> 
-  <div>你沒有任何贊助紀錄</div>
-<% else %>
-<% end %>
+<section class="orders-index">
+  <div class="mt-22"></div>
+  <% if @user_orders.blank? %> 
+    <div>你沒有任何贊助紀錄</div>
+  <% else %>
+  <% end %>
 
-<div class="mt-2"></div>
-<div class="flex justify-center space-x-4">
-  <h2 class="text-center font-extralight text-1xl lg:text-lg text-gray-800">您的贊助紀錄</h2>
-  <%= link_to user_orders_path( current_user, format: :csv) do %>
-    <div class="text-center font-semibold text-1xl lg:text-lg", style= "color:#EF5959;">
-      <i class="fas fa-cloud-download-alt"></i>
-    </div>
-  <%end%>
-</div>
-<div class="mx-52">
-<%=line_chart Order.paid.group_by_day(:created_at).count %></div>
+  <div class="mt-2"></div>
+  <div class="flex justify-center space-x-4">
+    <h2 class="text-center font-extralight text-1xl lg:text-lg text-gray-800">您的贊助紀錄</h2>
+    <%= link_to user_orders_path( current_user, format: :csv) do %>
+      <div class="text-center font-semibold text-1xl lg:text-lg", style= "color:#EF5959;">
+        <i class="fas fa-cloud-download-alt"></i>
+      </div>
+    <%end%>
+  </div>
+  <div class="mx-52">
+  <%=line_chart current_user.orders.paid.group_by_day(:created_at).count %></div>
 
-<!-- component -->
-<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-6 pr-10 lg:px-8">
-    <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12"></div>
-      <div class="align-middle inline-block min-w-full bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
-         <table class="min-w-full">
-          <thead>
-              <tr>
-                <th class="order_th">專案名稱</th>
-                <th class="order_th">回饋品名稱</th>
-                <th class="order_th"><%= sort_link(@q, :merchantOrderNo, '	付款時間') %></th>
-                <th class="order_th">贊助金額</th>
-                <th class="order_th"><%= sort_link(@q, :issue_date, '	付款時間') %></th>
-                <%# <th class="order_th">訂單狀態</th> %>
-                <th class="order_th"><%= sort_link(@q, :status, '訂單狀態') %></th>
-                
-              </tr>
-          </thead>
-          <tbody class="bg-white">
-            <% @user_orders.each do |user_order| %>
-              <% if user_order.user_id == current_user.id %>
+  <!-- component -->
+  <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-6 pr-10 lg:px-8">
+      <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12"></div>
+        <div class="align-middle inline-block min-w-full bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+          <table class="min-w-full">
+            <thead>
                 <tr>
-                  <td class="order_td">
-                    <div class="flex items-center"><div>
-                      <div class="text-sm leading-5 text-gray-800"><%= user_order.project_title%></div>
-                  </td>
-                  <td class="order_td"><div class="flex items-center"><div>
-                      <div class="text-sm leading-5 text-gray-800"><%= link_to user_order.giveback_title, current_user %></div>
-                      </td>
-                    <td class="order_td"><div class="flex items-center"><div>
-                      <div class="text-sm leading-5 text-gray-800"><%= user_order.merchantOrderNo%></td>
-                     <td class="order_td"><div>
-                      <div class="text-sm leading-5 text-gray-800"><%= user_order.giveback_price%></td>
-                     <td class="order_td"><div>
-                      <div class="text-sm leading-5 text-gray-800"><%= user_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
-
-                    <td class="order_td">
-                        <span class="relative inline-block px-3 py-1 font-medium text-white leading-tight">
-                        <span aria-hidden class="absolute inset-0 bg-red-600 opacity-70 rounded-full"></span>
-                        <span class="relative text-xs"><%= user_order.status_to_string%></span>
-                          </span>
-                    </td>               
+                  <th class="order_th">專案名稱</th>
+                  <th class="order_th">回饋品名稱</th>
+                  <th class="order_th"><%= sort_link(@q, :merchantOrderNo, '訂單編號') %></th>
+                  <th class="order_th">贊助金額</th>
+                  <th class="order_th"><%= sort_link(@q, :issue_date, '	付款時間') %></th>
+                  <th class="order_th"><%= sort_link(@q, :status, '訂單狀態') %></th>
+                  
                 </tr>
+            </thead>
+            <tbody class="bg-white">
+              <% @user_orders.paid.each do |user_order| %>
+                <% if user_order.user_id == current_user.id %>
+                  <tr>
+                    <td class="order_td">
+                      <div class="flex items-center"><div>
+                        <div class="text-sm leading-5 text-gray-800"><%= user_order.project_title%></div>
+                    </td>
+                    <td class="order_td"><div class="flex items-center"><div>
+                        <div class="text-sm leading-5 text-gray-800"><%= user_order.giveback_title %></div>
+                        </td>
+                      <td class="order_td"><div class="flex items-center"><div>
+                        <div class="text-sm leading-5 text-gray-800"><%= user_order.merchantOrderNo%></td>
+                      <td class="order_td"><div>
+                        <div class="text-sm leading-5 text-gray-800"><%= user_order.giveback_price%></td>
+                      <td class="order_td"><div>
+                        <div class="text-sm leading-5 text-gray-800"><%= user_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S') %></td>
+
+                      <td class="order_td">
+                          <span class="relative inline-block px-3 py-1 font-medium text-white leading-tight">
+                          <span aria-hidden class="absolute inset-0 bg-red-600 opacity-70 rounded-full"></span>
+                          <span class="relative text-xs"><%= user_order.status_to_string%></span>
+                            </span>
+                      </td>               
+                  </tr>
+                <% end %>
               <% end %>
-            <% end %>
-          </tbody>
-              </table>
-                 
-      
-    </div>
-</div>
+            </tbody>
+                </table>
+      </div>
+  </div>
+
+</section>

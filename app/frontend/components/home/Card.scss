@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&display=swap');
 .card-item{
 
   max-width: 350px;
@@ -40,5 +41,52 @@
         @apply mb-2;
       }
     }
+    .item-progress{
+      @apply flex;
+      @apply flex-col;
+      .progress-barr{}
+      .pg-txt{
+        @apply flex; 
+        @apply justify-between;
+        font-family: Barlow,sans-serif;
+        @apply text-gray-600;
+        letter-spacing: 1.5;
+        .price{
+          font-size: 16px;
+          margin-bottom: 15px;
+          font-weight: 600;
+          @apply space-x-2;
+          span{    
+            font-weight: 600;
+
+            padding:0 10px;
+            position: relative;
+          }
+          span::before{
+            position: relative;
+            left: -5px;
+            top: 3px;
+            content: "";
+            display: inline-block;
+            height: 17px;
+            width: 2px;
+            background: #d7d7d7;
+        }
+          }
+        }
+        .days{
+          font-size: 16px;
+          margin-bottom: 15px;
+          font-weight: 600;
+          span{
+            
+            font-weight: 600;
+            padding:0 10px;
+            position: relative;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
   }
-}

@@ -1,0 +1,36 @@
+.percent-progress {
+	@apply bg-gray-200;
+	
+	position: relative;
+	margin: 15px 0;
+	height: 4px;
+  width: 300px;
+  @apply rounded;
+}
+.progress-done {
+	background: linear-gradient(to left, #F2709C, #FF9472);
+	
+	@apply rounded;
+  color: #fff;
+  font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+.progress-undone {
+	background: #696969;
+	@apply rounded;
+  color: #fff;
+  font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}

@@ -1,51 +1,59 @@
-<h1>訂單頁(show)</h1>
-<h2>付款方式：信用卡付款</h2>
-<div>回饋商品： <%= @giveback.title %></div>
-<div>商品價格： <%= @giveback.price %></div>
-
-<h2>寄送資訊：</h2>
-
-<% if @order.errors.any? %>
+<div class="mb-5">
+  <% if @order.errors.any? %>
   <ul>
     <% @order.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
-<% end %>
+  <% end %>
+</div>
+<section class="orders-form-bg">
+    <div class="orders-show-container">
+      <div class="orders-show-row">
+        <div class="order-show-txt mb-2">
+          <h2 class="title">請填寫寄送資訊</h2>
+          <h3 >回饋商品：<span><%= @giveback.title %></span></h3>
+          <h3 >贊助金額：<span>$NTD<%= @giveback.price.to_s(:delimited)%><span></h3>
+        </div>
+        <%= form_tag user_orders_path, method: :post do%>
+          <input type="hidden" name="giveback_id" value="<%= @giveback.id%>">
+          <div class="orders-form-item">
+            <%= label :full_name, "收件人" %>
+            <%= text_field_tag :full_name,"", {class:"orders-input",placeholder:"不可空白" } %>
 
-<%= form_tag user_orders_path, method: :post do%>
-  <input type="hidden" name="giveback_id" value="<%= @giveback.id%>">
-  
-  <div>
-  <%= label :full_name, "收件人" %>
-  <%= text_field_tag :full_name %>
-  </div>
+          </div>
+          <div class="orders-form-item">
+            <%= label :delivery_country, "國家" %>
+            <%= text_field_tag :delivery_country,"", {class:"orders-input",placeholder:"不可空白" }%>
 
-  <div>
-  <%= label :delivery_country, "國家" %>
-  <%= text_field_tag :delivery_country %>
-  </div>
-  
-  <div>
-  <%= label :zip, "郵遞區號" %>
-  <%= text_field_tag :zip %>
-  </div>
+          </div>
+          <div class="orders-form-item">
+            <%= label :zip, "郵遞區號" %>
+            <%= text_field_tag :zip,"", {class:"orders-input",placeholder:"請輸入數字" } %>
 
-  <div>
-  <%= label :address, "收件地址" %>
-  <%= text_field_tag :address %>
-  </div>
+          </div>
+          <div class="orders-form-item">
+            <%= label :address, "收件地址" %>
+            <%= text_field_tag :address,"", {class:"orders-input",placeholder:"不可空白" } %>
+          </div>
+          <div class="orders-form-item">
+            <%= label :phone, "手機號碼" %>
+            <%= text_field_tag :phone,"", {class:"orders-input",placeholder:"請填入10碼數字" } %>
+          </div>
+          <div class="orders-form-item">
+            <%= label :email, "電子信箱" %>
+            <%= text_field_tag :email,"", {class:"orders-input",placeholder:"請填入xxx@xxx" } %>
+          </div>
+           <button class="orders-btn" type="submit">確認結帳</button>
+         <% end %>
+        </div>
 
-   <div>
-  <%= label :phone, "手機號碼" %>
-  <%= text_field_tag :phone %>
-  </div>
+        
+
+
+       
+
  
-  <div>
-  <%= label :email, "電子信箱" %>
-  <%= text_field_tag :email%>
-  </div>
-
-  <button type="submit">確認結帳</button>
-
-<% end %>
+      </div>
+    </div>
+</div>

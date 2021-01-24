@@ -13,6 +13,9 @@ class Project < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_paranoid
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   #在project new頁面的驗證
   attr_accessor :new_project_validation
   validates :title, presence: true, if: -> {new_project_validation} 
@@ -31,7 +34,7 @@ class Project < ApplicationRecord
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
 
-  def paid_orders_amounts  
+  def paid_orders_amounts
     return paid_orders.inject(0) do |sum, order|
       sum += order.giveback_price
     end
@@ -43,9 +46,14 @@ class Project < ApplicationRecord
     end
   end
 
+  def percentage_of_reaching_goal
+    paid_orders_amounts.to_f / target_amount.to_f
+  end
+
   def days_left
     (due_date.to_i - Time.now.to_i) / (60 * 60 * 24) 
   end
+
 
   def status_to_string
     case status_before_type_cast

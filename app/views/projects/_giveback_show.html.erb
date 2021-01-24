@@ -1,7 +1,8 @@
 
-  <div class="giveback-card-item">
+ 
   <% @givebacks.each do |g| %>
-    <div class="giveback-card-price" >$<%= g.price %></div> 
+   <div class="giveback-card-item">
+    <div class="giveback-card-price" >$<%= g.price.to_s(:delimited) %></div> 
     <div class="giveback-card-pic">
       <%= image_tag g.image_url ,class:"p-img" if g.image_url.present?%>
     </div> 
@@ -31,7 +32,8 @@
      <% if !project_owner? %>
       <%= link_to "贊助此回饋商品", user_order_path(current_user, g) ,class:"pro-giveback-btn"%>
      <% end %>
+    </div>    
   <%end%>
 
-  </div> 
+
 

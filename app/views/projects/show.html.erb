@@ -22,7 +22,7 @@
                 <div class="progress-section ">
                   <div class="progress-point"></div>
                   <div class="txt space-y-4">
-                    <span class="progressMoney">$<%= @project.target_amount %></span>
+                    <span class="progressMoney">$<%= @project.target_amount.to_s(:delimited) %></span>
                     <span class="progressTitle">募資成功</span>
                   </div>
                 </div>
@@ -32,8 +32,8 @@
         </div>
         <div class="projects-right">
           <div class="projects-price">
-            <p class="target-amount  tag">目標NTD$<span><%= @project.target_amount %></span></p>
-            <p class="price_amounts titles">$<span><%=@project.paid_orders_amounts%><span></p>
+            <p class="target-amount  tag">目標NTD$<span><%= @project.target_amount.to_s(:delimited) %></span></p>
+            <p class="price_amounts titles">$<span><%=@project.paid_orders_amounts.to_s(:delimited)%><span></p>
           </div>
           <div class="projects-sponsor">
             <p class="sponsor-title tag">贊助人數</p>
@@ -42,7 +42,9 @@
           <div class="projects-date">
             <p class="date-title tag">倒數天數</p>
             <p class="day titles"><span><%= @project.days_left%></span>天</p>
+            <p class="day titles"><%=@percentage = (@project.percentage_of_reaching_goal * 100).round(2)%>%</p>
           </div>
+          
           <% if project_owner? %>
             <div class="projects-btns unclik">
               <div class="sponser-btn"><a>無法贊助此專案</a></div>

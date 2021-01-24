@@ -32,7 +32,7 @@
         <%= giveback.title %>
       </div>
       <div>
-        <%= giveback.price %>元
+        <%= giveback.price.to_s(:delimited) %>元
       </div>
       <div>
         <%= giveback.deliver_time %>寄送
