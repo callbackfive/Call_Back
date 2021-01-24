@@ -1,7 +1,7 @@
 class ApisController < ActionController::Base
  
   def projects
-    @projects = Project.includes(:category).where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now).order(id: :desc)
+    @projects = Project.includes(:category).where(status:[:is_published,:succeeded]).where('due_date > ?', Time.now)
     render json: projects_with_category(@projects)
   
   end
