@@ -5,10 +5,10 @@ class ApisController < ActionController::Base
     render json: projects_with_category(@projects)
   
   end
-  
+
   def succeeded
-    @succee_projects = Project.succeeded_and_done
-    render json:@succee_projects
+    @succeeded_projects = Project.succeeded_and_done
+    render json:@succeeded_projects
   end
 
 
@@ -16,8 +16,6 @@ class ApisController < ActionController::Base
     @categories = Category.all
     render json:@categories
   end
-
-
 
   private
 
@@ -31,7 +29,7 @@ class ApisController < ActionController::Base
           target_amount:project.target_amount,
           category: project.category.title,
           days:project.days_left,
-          total:project.percentage_of_reaching_goal,
+          total:(project.percentage_of_reaching_goal* 100).round(2),
           totalprice:project.paid_orders_amounts,
           count:project.paid_orders.count
    
