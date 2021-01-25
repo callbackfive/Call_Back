@@ -17,7 +17,7 @@ import './Card.scss'
             </div>
             <div className="item-content">
               <div className="item-category">
-                <p>{project.category_title}</p>
+                <p>{project.category}</p>
                 <p>SUCCESS !</p>
               </div>
               <div className="item-txt">
@@ -62,7 +62,7 @@ import './Card.scss'
               <div className="item-progress">
                 <div className="progress-barr">
                   {/* <ProgressBar done="{project.total}"/> */}
-                  <ProgressBar done="{project.total}"/>
+                  <ProgressBar done="3"/>
                 </div>
 
                 <div className="pg-txt flex justify-between">
