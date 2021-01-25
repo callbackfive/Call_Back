@@ -16,6 +16,9 @@
     <div style="margin-top:55px"></div>
     <%= render "shared/admin_sidebar" %>
     <div class="ml-40">
+      <% if notice %>
+      <p id="notice"><%= notice %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>
