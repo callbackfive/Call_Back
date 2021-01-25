@@ -24,7 +24,9 @@
         @apply px-4;
         @apply text-black;
         @apply no-underline;
-        @apply hover:text-gray-200;
+      }
+      .models:hover{
+        font-weight: 700;
       }
     }
   }
