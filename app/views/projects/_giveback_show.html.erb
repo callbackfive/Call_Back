@@ -29,7 +29,9 @@
         <p class="g-tit">只寄送台灣本島</p>
       </div>
     
-     <% if !project_owner? %>
+     <% if !user_signed_in? %>
+      <%= link_to '贊助此回饋商品', user_session_path( flash_notice: "您需要先登入或註冊後才能繼續。"),class:"pro-giveback-btn"  %>
+     <% else %>
       <%= link_to "贊助此回饋商品", user_order_path(current_user, g) ,class:"pro-giveback-btn"%>
      <% end %>
     </div>    

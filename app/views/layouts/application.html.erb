@@ -19,6 +19,8 @@
 
     <%= render "shared/navbar" %>
     <div class="mt-20"></div>
+    
+    <% flash.now[:notice] = params["flash_notice"] if params["flash_notice"] %>
     <% if notice %>
       <p class="notice text-center bg-red-100 p-5 text-lg"><%= notice %></p>
     <% end %>
