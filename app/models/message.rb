@@ -6,4 +6,6 @@ class Message < ApplicationRecord
   
   belongs_to :user
   belongs_to :dialogbox
+
+  acts_as_paranoid
 end
