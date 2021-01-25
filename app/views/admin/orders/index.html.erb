@@ -13,7 +13,6 @@
             <th class="admin_th"><%= sort_link(@q, :merchantOrderNo, '訂單編號') %></th>
             <th class="admin_th"><%= sort_link(@q, :status, '訂單狀態') %></th>
             <th class="admin_th"><%= sort_link(@q, :project_title, '專案名稱') %></th>
-            <th class="admin_th"><%= sort_link(@q, :project_id, '專案ID') %></th>
             <th class="admin_th"><%= sort_link(@q, :giveback_title, '商品名稱') %></th>
             <th class="admin_th"><%= sort_link(@q, :giveback_price, '商品價格') %></th>
             <th class="admin_th"><%= sort_link(@q, :giveback_id, '商品ID') %></th>
@@ -41,9 +40,6 @@
               </td>
               <td class="admin_td">
                 <%= order.project_title %>
-              </td>
-              <td class="admin_td">
-                <%= order.project.id %>
               </td>
               <td class="admin_td">
                 <%= order.giveback_title %>
