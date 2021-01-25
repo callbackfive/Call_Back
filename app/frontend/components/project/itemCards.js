@@ -25,7 +25,7 @@ import ProgressBar from "./ProgressItem"
               <div className="item-progress">
                 <div className="progress-barr">
                   {/* <ProgressBar done="{project.total}"/> */}
-                  <ProgressBar done="{project.total}"/>
+                  <ProgressBar done={project.total}/>
                 </div>
 
                 <div className="pg-txt flex justify-between">
