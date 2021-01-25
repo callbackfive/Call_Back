@@ -8,6 +8,7 @@ class Project < ApplicationRecord
   has_many :favorite_projects
   has_many :fav_users, through: :fav_projects, source: 'user'
   has_many :paid_orders, through: :givebacks
+  has_rich_text :content
 
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
   mount_uploader :image, ImageUploader

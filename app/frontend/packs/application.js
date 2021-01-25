@@ -8,6 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// for Action Text
+require("trix")
+require("@rails/actiontext")
+
 import "styles/application" 
 import "@fortawesome/fontawesome-free/css/all.css"
 
