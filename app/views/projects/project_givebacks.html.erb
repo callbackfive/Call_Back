@@ -1,5 +1,4 @@
-
-<div class="giveback-show-project-flex">
+<%= link_to project_path(@project), class:"giveback-show-project-flex" do %>
   <div class="giveback-show-project-pic">
     <%= image_tag @project.image_url ,class:"p-img" if @project.image_url.present?%>
   </div>
@@ -7,9 +6,7 @@
     <div class="giveback-show-category"><p><%= @project.category.title %></p></div>
     <div class="giveback-show-project-title"><h2><%= @project.title %></h2></div>
   </div> 
-</div>
-
-
+<% end %>
 <% @givebacks.each do |g| %>
 <div class="giveback-card-items-container">
 <div class="giveback-card-items-flex">
