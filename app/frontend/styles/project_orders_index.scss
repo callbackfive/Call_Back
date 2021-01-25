@@ -1,23 +1,77 @@
-.projects.project_orders_index,.orders_index{
-    .order_th{
-        @apply px-0;
-        @apply py-3;
-        @apply text-left;
-        @apply border-b-4;
-        @apply border-b;
-        @apply leading-4;
-        @apply text-gray-500;
-        @apply font-light;
-        @apply tracking-wider;
+
+#profile-proposal-p2{
+    @apply space-y-20;
+    .status-list{
+        h2.status-title{
+            margin-top: 1rem;        
+            font-size: 24px;
+            @apply text-gray-700;
+            font-weight: 500;
+          }
+          h2.status-title::before{
+            display: inline-block;
+            top: 5px;
+            left: 0;
+            content:" ";
+            height: 17px;
+            width: 8px;
+            background: #EF5959;
+            margin-right:18px; 
+          }
+        table.status-table{
+            @apply table-auto;
+            @apply w-full;
+            @apply mt-6;
+            thead{
+                tr{
+                    th.status-table-title{
+                        @apply px-4; 
+                        @apply py-3; 
+                        @apply border-b-2; 
+                        @apply border-gray-300; 
+                        @apply text-left; 
+                        @apply text-gray-600; 
+                        @apply leading-4; 
+                        @apply tracking-wider;
+                        @apply truncate;
+                        font-weight: 600;
+                    }
+                }
+            }
+            tbody.status-content-txt{
+                tr{
+                    td.status-table-content{
+                        @apply truncate;
+                        @apply px-4; 
+                        @apply py-4; 
+                        @apply border-b; 
+                        @apply border-gray-300;
+                        @apply space-y-2;
+                        .list-btn{
+                            @apply inline-block;
+                            @apply border;
+                            border-color:#EF5959;
+                            color:#EF5959;
+                            @apply px-1;
+                            @apply py-1;
+                            @apply text-center;
+                            font-size: 15px;
+                            
+                        }
+                        .list-btn:hover{
+                            background:#EF5959;
+                            @apply text-white;
+                        }
+                    
+                    }
+                }
+            }
         }
-    .order_td{
-        @apply px-0;
-        @apply py-4;
-        @apply border-b-2;
-        @apply border-b; 
-        @apply text-left;
-        @apply text-gray-500;
-        @apply font-extralight;
-        @apply border-gray-200;
-        }
+        
+
+    }
 }
+
+
+
+

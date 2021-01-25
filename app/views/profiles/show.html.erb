@@ -2,7 +2,7 @@
   <div class="profile-nav-container">
     <div class="profile-show-row">
       <div class="profile-tab">
-        <button class="profile-nav-btn" id="profile-info-btn">個人頁面</button>
+        <button class="profile-nav-btn active" id="profile-info-btn">個人頁面</button>
       </div>  
       <div class="profile-tab">
         <button class="profile-nav-btn" id="profile-proposal-btn">提案記錄</button>
@@ -10,11 +10,12 @@
       <div class="profile-tab">
         <button class="profile-nav-btn" id="profile-sponser-btn">贊助記錄</button>
       </div>
-      <div class="profile-tab">
-        <button class="profile-nav-btn" id="profile-fav-btn">聯絡訊息</button>
-      </div>
+
       <div class="profile-tab">
         <button class="profile-nav-btn" id="profile-contact-btn">編輯資料</button>
+      </div>
+      <div class="profile-tab">
+       <%= link_to '聯絡訊息', dialogboxes_path,id:"profile-fav-btn" %>
       </div>
     </div>
   </div>
@@ -22,6 +23,7 @@
 
 <section class="profile-content-pages">
   <div class="content-pages-container ">
+  <div class="content-box">
     <div class="content-pages-row">
       <div class="profile-page" id="profile-info-pg1" >
         <div class="user-info">
@@ -68,19 +70,16 @@
 
       </div>
 
-      <div class="profile-page" id="profile-proposal-pg2">
-        <%= render partial: "./orders/index" %>    
+      <div class="profile-page" id="profile-proposal-p2">
+        <%= render partial: "./projects/user_projects_index" %>  
       </div>
       <div class="profile-page" id="profile-sponser-pg3">
+         <%= render partial: "./orders/index" %>   
       </div>
       <div class="profile-page" id="profile-edit-bg4">
-  
-      </div>
-      <div class="profile-page" id="profile-contact-pg5">
       </div>
     </div>
-
-  
+  </div>
 
 
 </div>

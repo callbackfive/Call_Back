@@ -108,7 +108,7 @@
                       height: 18px;
                       width: 18px;
                       background-color: #fff;
-                      border: 5px solid #d7d7d7;
+                      border: 5px solid #f8414a;
                       border-radius: 50%;
 
                     }
@@ -224,8 +224,11 @@
     .new-dialogbox-popup{
       .msg-icon{
         @apply inline-block;
-        font-size: 18px;
-        color:#EF5959;
+        i{
+          font-size: 18px;
+          color:#EF5959;
+        }
+
       }
       @apply w-full;
       @apply inline-block;
@@ -246,8 +249,11 @@
        @apply flex;
       p{
         @apply inline-block;
-        font-size: 18px;
-        color:#EF5959;
+      
+        i.fav-icon{
+          font-size: 18px;
+          color:#EF5959;
+        }
       }
       @apply w-full;
       @apply inline-block;
@@ -299,7 +305,6 @@
 
   }
 }
-
 
 
 

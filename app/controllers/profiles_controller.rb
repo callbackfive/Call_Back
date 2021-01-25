@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @my_fav_projects = current_user.my_fav_projects
+    @user_projects = current_user.projects
     @q = Order.ransack(params[:q])
     @orders = current_user.orders
     @q = Order.ransack(params[:q])
