@@ -46,7 +46,7 @@
     @apply w-full;
 
     .content-pages-container{
-      max-width: 650px;
+      max-width: 1090px;
       margin-top: 70px;
       @apply mx-auto;
       @apply box-border;
@@ -54,7 +54,6 @@
       .content-pages-row{
         @apply flex;
         
-
         .profile-info-pg1{
           @apply flex;
           @apply space-x-6;

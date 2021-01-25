@@ -6,6 +6,7 @@ import '../home/Rank.scss'
 
 
 
+
  const CardList = ({isFilter,isClick}) => {
   return (
     <div>
