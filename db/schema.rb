@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_132637) do
+ActiveRecord::Schema.define(version: 2021_01_25_021734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_132637) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_dialogboxes_on_deleted_at"
     t.index ["project_id"], name: "index_dialogboxes_on_project_id"
     t.index ["user_id"], name: "index_dialogboxes_on_user_id"
   end
@@ -95,6 +97,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_132637) do
     t.bigint "dialogbox_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_messages_on_deleted_at"
     t.index ["dialogbox_id"], name: "index_messages_on_dialogbox_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -131,6 +135,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_132637) do
     t.string "email"
     t.string "merchantOrderNo"
     t.string "card_4no"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
     t.index ["giveback_id"], name: "index_orders_on_giveback_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -149,6 +155,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_132637) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "trade_no"
     t.string "card_4no"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_payments_on_deleted_at"
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
