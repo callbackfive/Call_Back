@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_one :payment
   has_one :project, through: :giveback
   before_create :build_trade_no
- 
+  acts_as_paranoid
   validates_presence_of :full_name, :delivery_country, :zip, :email, :message => ": 不可空白."
   validates :phone, format:{with: /\A09\d{8}\Z/,message:': 您的手機號碼需為10碼數字.'}
 
