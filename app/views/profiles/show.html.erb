@@ -23,23 +23,28 @@
 <section class="profile-content-pages">
   <div class="content-pages-container ">
     <div class="content-pages-row">
-      <div class="profile-page flex space-x-4" id="profile-info-pg1">
-        <div class="info-pic">
-          <%= image_tag current_user.image_url,class:"pic" if current_user.image_url.present? %>
+      <div class="profile-page flex-col flex space-y-4" id="profile-info-pg1">
+        <div class="user-info flex space-x-4">
+          <div class="info-pic">
+            <%= image_tag current_user.image_url,class:"pic" if current_user.image_url.present? %>
+          </div>
+          <div class="info-content">
+            <div class="user-name">
+              <%= current_user.name %>
+            </div>
+            <div class="text-lg mt-2">
+              <%= current_user.email %>
+            </div>
+            <div class="text-sm mt-2">
+              <p class="text-xs">
+              贊助過<span class="text-red-600"><%= current_user.orders.count %></span>件專案
+              / 發起過<span class="text-red-600"><%= current_user.projects.count %></span>件專案
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="info-content">
-          <div class="user-name">
-            <%= current_user.name %>
-          </div>
-          <div class="text-lg mt-2">
-            <%= current_user.email %>
-          </div>
-          <div class="text-sm mt-2">
-            <p class="text-xs">
-            贊助過<span class="text-red-600"><%= current_user.orders.count %></span>件專案
-            / 發起過<span class="text-red-600"><%= current_user.projects.count %></span>件專案
-            </p>
-          </div>
+        <div class="my-fav-pro">
+          <%= render './my_favorite'%>
         </div>
       </div>
       <div class="profile-page" id="profile-proposal-pg2">
