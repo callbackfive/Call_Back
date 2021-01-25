@@ -23,7 +23,7 @@
 <section class="profile-content-pages">
   <div class="content-pages-container ">
     <div class="content-pages-row">
-      <div class="profile-page" id="profile-info-pg1">
+      <div class="profile-page" id="profile-info-pg1" >
         <div class="user-info">
           <div class="info-pic">
             <%= image_tag current_user.image_url,class:"pic" if current_user.image_url.present? %>
@@ -67,7 +67,9 @@
         </div>
 
       </div>
+
       <div class="profile-page" id="profile-proposal-pg2">
+        <%= render partial: "./orders/index" %>    
       </div>
       <div class="profile-page" id="profile-sponser-pg3">
       </div>

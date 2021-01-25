@@ -51,7 +51,7 @@
       @apply mx-auto;
       margin-top: 70px;
       .content-pages-row{
-
+        @apply space-y-20;
         #profile-info-pg1{
           @apply flex;
           @apply flex-col;
