@@ -22,10 +22,10 @@
     
     <% flash.now[:notice] = params["flash_notice"] if params["flash_notice"] %>
     <% if notice %>
-      <p class="notice text-center bg-red-100 p-5 text-lg"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="notice text-center bg-red-100 p-5 text-lg"><%= alert %></p>
+      <p id="notice"><%= alert %></p>
     <% end %>
     <%= yield %>
 

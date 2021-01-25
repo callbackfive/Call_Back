@@ -1,42 +1,38 @@
-<div class="text-xs">
-  <div class="text-center">
-    <h1 class="text-xl mb-1">Notification清單</h1>
-    <p id="notice"><%= notice %></p>
-  </div>
+<div class="model-title-container">
+  <h1>Notification清單</h1>
+  <%= link_to '新增notification', new_admin_notification_path, class:"create-btn"%>
+  <p><%= @admin_notifications.count %> notifications</p>
+</div>
 
-  <div class="my-2 py-2 flex justify-center">
-    <div class="mt-6 inline-block px-8 pt-3">
-      <table>
-        <thead>
-          <tr>
-            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
-            <th class="admin_th"><%= sort_link(@q, :recipient_type, 'recipient_type') %></th>
-            <th class="admin_th"><%= sort_link(@q, :recipient_id, 'recipient_id') %></th>
-            <th class="admin_th"><%= sort_link(@q, :type, 'type') %></th>
-            <th class="admin_th"><%= sort_link(@q, :params, 'params') %></th>
-            <th class="admin_th"><%= sort_link(@q, :read_at, 'read_at') %></th>
-            <th class="admin_th"><%= sort_link(@q, :created_at, 'created_at') %></th>
-            <th class="admin_th", colspan="3">操作</th>
-          </tr>
-        </thead>
+<div class="admin-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+        <th class="admin_th"><%= sort_link(@q, :recipient_type, 'recipient_type') %></th>
+        <th class="admin_th"><%= sort_link(@q, :recipient_id, 'recipient_id') %></th>
+        <th class="admin_th"><%= sort_link(@q, :type, 'type') %></th>
+        <th class="admin_th"><%= sort_link(@q, :params, 'params') %></th>
+        <th class="admin_th"><%= sort_link(@q, :read_at, 'read_at') %></th>
+        <th class="admin_th"><%= sort_link(@q, :created_at, 'created_at') %></th>
+        <th class="admin_th", colspan="3">操作</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <% @admin_notifications.each do |admin_notification| %>
-            <tr>
-              <td class="admin_td"><%= admin_notification.id %></td>
-              <td class="admin_td"><%= admin_notification.recipient_type %></td>
-              <td class="admin_td"><%= admin_notification.recipient_id %></td>
-              <td class="admin_td"><%= admin_notification.type %></td>
-              <td class="admin_td"><%= admin_notification.params %></td>
-              <td class="admin_td"><%= admin_notification.read_at %></td>
-              <td class="admin_td"><%= admin_notification.created_at %></td>
-              <td class="ud_btn"><%= link_to 'Edit', edit_admin_notification_path(admin_notification) %></td>
-              <td class="ud_btn"><%= link_to 'Destroy', admin_notification, method: :delete %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <p><%= @admin_notifications.count %> notifications</p>
-    </div>
-  </div>
+    <tbody>
+      <% @admin_notifications.each do |admin_notification| %>
+        <tr>
+          <td class="admin_td"><%= admin_notification.id %></td>
+          <td class="admin_td"><%= admin_notification.recipient_type %></td>
+          <td class="admin_td"><%= admin_notification.recipient_id %></td>
+          <td class="admin_td"><%= admin_notification.type %></td>
+          <td class="admin_td"><%= admin_notification.params %></td>
+          <td class="admin_td"><%= admin_notification.read_at %></td>
+          <td class="admin_td"><%= admin_notification.created_at %></td>
+          <td class="ud_btn"><%= link_to 'Edit', edit_admin_notification_path(admin_notification) %></td>
+          <td class="ud_btn"><%= link_to 'Destroy', admin_notification, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

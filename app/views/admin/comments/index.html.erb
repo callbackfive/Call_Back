@@ -1,47 +1,42 @@
-<div class="text-xs">
-  <div class="text-center">
-    <h1 class="text-xl mb-1">Comment清單</h1>
-    <%= link_to '新增comment', new_admin_comment_path, class:"bg-blue-200 rounded p-1"%>
-    <p id="notice"><%= notice %></p>
-  </div>
+<div class="model-title-container">
+  <h1>Comment清單</h1>
+  <%= link_to '新增comment', new_admin_comment_path, class:"create-btn"%>
+  <p><%= @admin_comments.count %> comments</p>
+</div>
 
-  <div class="my-2 py-2 flex justify-center">
-    <div class="mt-6 inline-block px-8 pt-3">
-      <table>
-        <thead>
-          <tr>
-            <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
-            <th class="admin_th"><%= sort_link(@q, :user_id, '留言人') %></th>
-            <th class="admin_th"><%= sort_link(@q, :user_id, '留言人id') %></th>
-            <th class="admin_th"><%= sort_link(@q, :content, '留言內容') %></th>
-            <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
-            <th class="admin_th"><%= sort_link(@q, :project_id, '專案id') %></th>
-            <th class="admin_th"><%= sort_link(@q, :created_at, 'created_at') %></th>
-            <th class="admin_th"><%= sort_link(@q, :updated_at, 'updated_at') %></th>
-            <th class="admin_th"><%= sort_link(@q, :deleted_at, 'deleted_at') %></th>
-            <th class="admin_th", colspan="3">操作</th>
-          </tr>
-        </thead>
+<div class="admin-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th class="admin_th"><%= sort_link(@q, :id, 'ID') %></th>
+        <th class="admin_th"><%= sort_link(@q, :user_id, '留言人') %></th>
+        <th class="admin_th"><%= sort_link(@q, :user_id, '留言人id') %></th>
+        <th class="admin_th"><%= sort_link(@q, :content, '留言內容') %></th>
+        <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
+        <th class="admin_th"><%= sort_link(@q, :project_id, '專案id') %></th>
+        <th class="admin_th"><%= sort_link(@q, :created_at, 'created_at') %></th>
+        <th class="admin_th"><%= sort_link(@q, :updated_at, 'updated_at') %></th>
+        <th class="admin_th"><%= sort_link(@q, :deleted_at, 'deleted_at') %></th>
+        <th class="admin_th", colspan="3">操作</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <% @admin_comments.each do |admin_comment| %>
-            <tr>
-              <td class="admin_td"><%= admin_comment.id %></td>
-              <td class="admin_td"><%= admin_comment.user.name %></td>
-              <td class="admin_td"><%= admin_comment.user.id %></td>
-              <td class="admin_td"><%= admin_comment.content %></td>
-              <td class="admin_td"><%= admin_comment.project.title %></td>
-              <td class="admin_td"><%= admin_comment.project.id %></td>
-              <td class="admin_td"><%= admin_comment.created_at %></td>
-              <td class="admin_td"><%= admin_comment.updated_at %></td>
-              <td class="admin_td"><%= admin_comment.deleted_at %></td>
-              <td class="ud_btn"><%= link_to 'Edit', edit_admin_comment_path(admin_comment) %></td>
-              <td class="ud_btn"><%= link_to 'Destroy', admin_comment, method: :delete %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <p><%= @admin_comments.count %> comments</p>
-    </div>
-  </div>
+    <tbody>
+      <% @admin_comments.each do |admin_comment| %>
+        <tr>
+          <td class="admin_td"><%= admin_comment.id %></td>
+          <td class="admin_td"><%= admin_comment.user.name %></td>
+          <td class="admin_td"><%= admin_comment.user.id %></td>
+          <td class="admin_td"><%= admin_comment.content %></td>
+          <td class="admin_td"><%= admin_comment.project.title %></td>
+          <td class="admin_td"><%= admin_comment.project.id %></td>
+          <td class="admin_td"><%= admin_comment.created_at %></td>
+          <td class="admin_td"><%= admin_comment.updated_at %></td>
+          <td class="admin_td"><%= admin_comment.deleted_at %></td>
+          <td class="ud_btn"><%= link_to 'Edit', edit_admin_comment_path(admin_comment) %></td>
+          <td class="ud_btn"><%= link_to 'Destroy', admin_comment, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
