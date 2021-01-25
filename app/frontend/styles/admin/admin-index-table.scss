@@ -1,0 +1,68 @@
+#notice{
+  @apply text-center;
+  @apply bg-red-100;
+  @apply p-5;
+  @apply text-lg;
+}
+
+.admin_th{
+  @apply text-xs;
+  @apply px-6;
+  @apply py-1;
+  @apply border-b-2;
+  @apply border-gray-300;
+  @apply text-center;
+  @apply leading-4;
+  @apply text-blue-500;
+  @apply tracking-wider;
+}
+
+.admin_td{
+  @apply text-xs;
+  @apply text-center;
+  @apply px-6;
+  @apply border-b;
+  @apply border-gray-500;
+}
+
+.ud_btn{
+  @apply text-center;
+  @apply text-xs;
+  @apply px-2;
+  @apply border-b;
+  @apply border-gray-500;
+}
+
+.model-title-container{
+  @apply text-center;
+
+  h1{
+    @apply text-xl;
+    @apply mb-1;
+  }
+
+  .table{
+    @apply table-auto;
+    @apply max-w-screen-xl;
+
+  }
+  .create-btn{
+    @apply bg-green-300;
+    @apply rounded;
+    @apply p-1;
+    @apply text-sm;
+  }
+
+  tr{
+    @apply h-1;
+    @apply overflow-ellipsis;
+  }
+}
+
+.admin-table-container{
+  @apply flex;
+  @apply justify-center;
+  @apply mt-2;
+  @apply px-8;
+  @apply pt-3;
+}

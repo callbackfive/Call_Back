@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   enum role: [ :regular, :admin ]
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   def self.from_omniauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
 

@@ -4,7 +4,7 @@
               local: true) do |form| %>
   <div class="input-group">
     <%= form.hidden_field :dialogbox, value: dialogbox.id %>
-    <%= form.text_field :content, placeholder: 'Type your message here...' %>
+    <%= form.text_field :content, placeholder: '請輸入訊息...', id: 'message-content' %>
     <div class="input-group-append">
       <%= form.submit '送出訊息', id: 'dialogbox-msg-submit-btn' %>
     </div>

@@ -15,25 +15,24 @@
 @import "./projects/pro-show-tab.scss";
 @import "./projects/pro-ctn-giveback.scss";
 @import "./projects/my-fav-projects.scss";
+@import "./projects/project_givebacks.scss";
 
 
 @import "./comment/comment.scss";
 @import "./comment/reply.scss";
 
-@import "./new-dialogbox";
-@import "./dialogbox-index";
+@import "./dialogboxes/index.scss";
 @import "./messages";
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
-@import "./admin_page";
 @import "./profile";
-@import "./admin_page";
 @import "./project_orders_index";
-
 @import "./profile/profile-show.scss";
-
-
 @import "./order/order-show.scss";
+
+@import "./admin/side-bar.scss";
+@import "./admin/admin-show.scss";
+@import "./admin/admin-index-table.scss";
 
 
 @import "@tailwindcss/postcss7-compat/utilities";

@@ -1,0 +1,33 @@
+.side-bar-container{
+  @apply bg-gray-100;
+  @apply fixed;
+  @apply bottom-0;
+  @apply mt-12;
+  @apply h-screen;
+  @apply w-32;
+
+  .side-bar-content{
+    @apply mt-12;
+    @apply fixed;
+    @apply left-0;
+    @apply top-0;
+
+    ul{
+      @apply py-2;
+      @apply px-1;
+      @apply text-center;
+
+      .models{
+        @apply text-sm;
+        @apply inline-block;
+        @apply py-2;
+        @apply px-4;
+        @apply text-black;
+        @apply no-underline;
+      }
+      .models:hover{
+        font-weight: 700;
+      }
+    }
+  }
+}

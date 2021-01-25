@@ -1,6 +1,7 @@
 class Payment < ApplicationRecord
     belongs_to :order
     
+    acts_as_paranoid
     enum status: [:not_paid_yet, :paid, :canceled_before_paid, :wating_for_refund, :canceled_and_refounded]
     
     enum transaction_service_provider: [:mpg]
