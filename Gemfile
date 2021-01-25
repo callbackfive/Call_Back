@@ -41,7 +41,7 @@ gem 'groupdate', '~> 5.2', '>= 5.2.1'
 gem 'chartkick', '~> 3.4', '>= 3.4.2'
 gem 'noticed', '~> 1.2', '>= 1.2.21'
 gem 'friendly_id', '~> 5.4.2'
-gem 'aws-sdk-s3', '~> 1.87'
+gem 'aws-sdk-s3', '~> 1.87', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
