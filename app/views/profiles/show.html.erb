@@ -36,28 +36,28 @@
               <%= current_user.email %>
             </div>
             <div class="user-projects">
-              <p class="text-xs">
-              贊助過<span class="text-red-600"><%= current_user.orders.count %></span>件專案
-              / 發起過<span class="text-red-600"><%= current_user.projects.count %></span>件專案
+              <p >
+              贊助過<span><%= current_user.orders.count %></span>件專案
+              / 發起過<span><%= current_user.projects.count %></span>件專案
               </p>
             </div>
           </div>
         </div>
         <div class="my-fav-pro">
-          <h2>已追蹤專案</h2>
-          <div class="my-favorite-row flxe">
+          <h2 class="track-title">已追蹤專案</h2>
+          <div class="my-favorite-row">
             <% @my_fav_projects.each do |my_fav_project| %>
               <%= link_to project_path(my_fav_project), class:"fav-card-link" do %>
-                <div class="card-item">
-                  <div class="card-pic">
+                <div class="fav-item">
+                  <div class="fav-pic">
                     <%= image_tag my_fav_project.image.url %>
                   </div>
-                  <div class="item-content">
-                    <div class="item-category">
+                  <div class="fav-content">
+                    <div class="fav-category">
                       <p><%= my_fav_project.category.title %></p>
                     </div>
-                    <div class="item-txt">
-                      <h2 class="truncate"><%= my_fav_project.title %></h2>
+                    <div class="fav-txt">
+                      <h2 class="fav-truncate"><%= my_fav_project.title %></h2>
                     </div>
                   </div>
                 </div>
