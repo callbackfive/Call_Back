@@ -1,33 +1,24 @@
-<section>
-  <div class="fav-project-container">
+
     <h2>已追蹤專案</h2>
-    <div class="my-favorite-row">
+    <div class="my-favorite-row flxe">
       <% @my_fav_projects.each do |my_fav_project| %>
-        <%= link_to project_path(my_fav_project) do %>
-          <div class="card-item">
+        <%= link_to project_path(my_fav_project), class:"fav-card-link" do %>
+                  <div class="card-item">
             <div class="card-pic">
-              <%= image_tag my_fav_project.image.url %>
+             <%= image_tag my_fav_project.image.url %>
             </div>
             <div class="item-content">
               <div class="item-category">
-                <p class='category'><%= my_fav_project.category.title %></p>
-                <p><%= my_fav_project.status %></p>
+                <p><%= my_fav_project.category.title %></p>
               </div>
-            <div class="item-txt">
-              <h2 class=""><%= my_fav_project.title %></h2>
-              <p></p>
-              </div>
-            </div>
-            <div class="item-progress">
-              <div class="pg-txt flex justify-between">
-                <div class="price"><%= my_fav_project.paid_orders_amounts %></div>
-                <div class="days"><%= my_fav_project.days_left %></div>
+              <div class="item-txt">
+                <h2 class="truncate"><%= my_fav_project.title %></h2>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
-  </div>
-</section>
+
+
 
