@@ -5,8 +5,8 @@ class Project < ApplicationRecord
   has_many :givebacks, inverse_of: :project, dependent: :destroy
   has_many :comments, -> { where(parent_id: nil).order('created_at DESC') },dependent: :destroy
   has_many :orders, through: :givebacks, dependent: :destroy
-  has_many :favorite_projects, dependent: :destroy
-  has_many :fav_users, through: :fav_projects, source: 'user', dependent: :destroy
+  has_many :favorite_projects
+  has_many :fav_users, through: :fav_projects, source: 'user'
   has_many :paid_orders, through: :givebacks
 
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
