@@ -1,19 +1,16 @@
 document.addEventListener('turbolinks:load', () => {
-
   let currentUserData = document.getElementById('navbar_current_user').getAttribute('user_data');
   let currentUserId = JSON.parse(currentUserData).id;
   let allMsg = document.querySelectorAll('.message');
 
   allMsg.forEach(msg => {
-    let msgUserId = Number(document.getElementById('msg-user-id').getAttribute('value'));
-    // let newMessage = document.querySelector('.message');
-  
-    if (currentUserId === msgUserId) {
+    const checkMsgUserDiv = msg.querySelector('.content-container').querySelector('.check-msg-user')
+    const msgOwnerId = Number(checkMsgUserDiv.querySelector('#msg-owner-id').getAttribute('value'));
+
+    if (currentUserId === msgOwnerId) {
       msg.classList.add('my-msg');
     };
-
   });
-
 
   // 點選視窗
   const tabs = document.querySelectorAll('[data-tab-target]');
@@ -33,6 +30,5 @@ document.addEventListener('turbolinks:load', () => {
       target.classList.add('active');
     });
   });
-
 
 });

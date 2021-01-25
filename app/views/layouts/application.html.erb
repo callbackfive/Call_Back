@@ -4,6 +4,8 @@
     <title>Callback</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application' %>
+
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
    
@@ -14,12 +16,11 @@
 
     <%= content_tag :p,
       id: "navbar_current_user",
-      user_data: current_user.to_json do %>
+      user_data: current_user.to_json(only: [:name, :id, :image]) do %>
     <% end %>
 
     <%= render "shared/navbar" %>
     <div class="mt-16"></div>
-
     <%= yield %>
 
   </body>

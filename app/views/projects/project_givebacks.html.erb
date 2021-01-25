@@ -1,19 +1,47 @@
-<div class="container mx-auto px-5 py-12">
-  <div class="flex">
-    <%= image_tag @project.image_url if @project.image_url.present? %>
-    <div>
-      <div class="text-2xl font-bold"><%= @project.title %></div>
-      <div><%= @project.category.title %></div>
-    </div>
+<%= link_to project_path(@project), class:"giveback-show-project-flex" do %>
+  <div class="giveback-show-project-pic">
+    <%= image_tag @project.image_url ,class:"p-img" if @project.image_url.present?%>
   </div>
-
-  <div class="flex">
-    <% @givebacks.each do |g| %>
-    <ul class="m-3 border">
-        <%= image_tag g.image_url if g.image_url.present? %>
-        <li>回饋商品： <%= g.title %></li>
-        <li>商品價格： <%= g.price.to_s(:delimited) %>元</li>
-    </ul>
+  <div class="giveback-show-project-text">
+    <div class="giveback-show-category"><p><%= @project.category.title %></p></div>
+    <div class="giveback-show-project-title"><h2><%= @project.title %></h2></div>
+  </div> 
+<% end %>
+<% @givebacks.each do |g| %>
+<div class="giveback-card-items-container">
+<div class="giveback-card-items-flex">
+   <div class="giveback-card-item">
+    <div class="giveback-card-price" >$<%= g.price.to_s(:delimited) %></div> 
+    <div class="giveback-card-pic">
+      <%= image_tag g.image_url ,class:"p-img" if g.image_url.present?%>
+    </div> 
+    
+    <div class="item-content">
+      <div class="card-title"><%= g.title %></div>
+      <div class="card-summary"><%= g.description %></div>
+   </div>
+    
+    <hr>
+      <div class="item-txt my-4 ">
+        <div class="sponsor-quantity flex flex-col">
+        <p class="g-tag">贊助人數</p>
+        <p class="g-tit"><%= @project.paid_orders.count%></p>
+        </div>
+        <div class="card-time flex flex-col ">
+        <p class="g-tag">寄送時間</p>
+        <p class="g-tit"><%= g.deliver_time %></p>
+        </div>
+      </div>
+      <div class="locat-deliver flex flex-col mb-4">
+        <p class="g-tag">寄送地點</p>
+        <p class="g-tit">只寄送台灣本島</p>
+      </div>
+    
+     <% if !project_owner? %>
+      <%= link_to "贊助此回饋商品", user_order_path(current_user, g) ,class:"pro-giveback-btn"%>
+     <% end %>
+    </div>    
     <%end%>
+    </div>
   </div>
 </div>

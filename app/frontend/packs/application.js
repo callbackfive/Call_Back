@@ -8,6 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// for Action Text
+require("trix")
+require("@rails/actiontext")
+
 import "styles/application" 
 import "@fortawesome/fontawesome-free/css/all.css"
 
@@ -34,4 +38,3 @@ require("chart.js")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
-console.log("script-index.js");
