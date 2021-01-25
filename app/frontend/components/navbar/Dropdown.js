@@ -43,7 +43,7 @@ const Dropdown = ({ isShow,user }) => {
           <li className="dropdown-link">
             <a href="/users/profile">個人頁面</a>
           </li>
-          <li className="dropdown-link">
+          <li className="dropdown-link sign-out-btn">
             <a href="/users/sign_out" onClick={(e) => test(e)}>登出</a>
           </li>
         </ul>

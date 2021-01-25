@@ -15,7 +15,7 @@ CallBack是一個復刻的募資平台網站，參考國內外各大募資平台
 ### 資料庫
 - PostgreSQL
 ### 部署
-- Heroku
+- Heroku (test CD)
 
 ## 團隊成員
 [李承豪](https://github.com/prodigy7748)

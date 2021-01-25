@@ -21,13 +21,13 @@
 @import "./comment/comment.scss";
 @import "./comment/reply.scss";
 
-@import "./new-dialogbox";
-@import "./dialogbox-index";
+@import "./dialogboxes/index.scss";
 @import "./messages";
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
 @import "./profile";
 @import "./project_orders_index";
+@import "./profile/profile-show.scss";
 @import "./order/order-show.scss";
 
 @import "./admin/side-bar.scss";

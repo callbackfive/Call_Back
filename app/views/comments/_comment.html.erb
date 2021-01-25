@@ -1,7 +1,7 @@
 <div>
   <ul class="comments-list  w-full">
   <li  class='comment flex'>
-    <div class="user-pic"><%= image_tag comment.user.image_url%></div>
+    <div class="user-pic"><%= image_tag comment.user.image_url if comment.user.image_url.present? %></div>
     <div class="comment-txt ">
       <div class="comment-head ">
         <p class="name"> <%= comment.user.name %></p> 
@@ -27,9 +27,4 @@
     </div>
   </li>
 </ul>
-  <% if comment.replies.any? %>
-    <% comment.replies.includes(:user).each do |reply| %>
-      <%= render 'comments/reply', reply: reply %>
-    <% end %>
-  <% end %>
 </div>

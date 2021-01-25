@@ -133,7 +133,7 @@
 
           .dialogbox-content{
             background-color: #efefef;
-            height: 80%;
+            height: calc(100% - 80px - 70px);
             padding: 0 10px;
 
             .messages-container{
@@ -148,12 +148,12 @@
 
                 .content-container{
                   display: inline-block;
+                  font-size: 20px;
 
                   .content{
                     background-color: #fff;
-                    padding: 5px 10px;
-                    height: 30px;
-                    border-radius: 20px;
+                    padding: 8px 15px;
+                    border-radius: 45px;
                   }
                   
                   .author{
@@ -163,11 +163,13 @@
                   }
                 }
 
+                // TODO 訊息左右邊CSS
+
                 &.my-msg {
                   .content-container {
                     float: right;
                     .content {
-                      background-color: #007bff;
+                      background-color: #EF5959;
                       color: white;
                     }
                   }
@@ -185,31 +187,37 @@
           }
 
           .message-form{
-            height: auto;
-            /* background-color: #ef8787; */
-            padding: 10px;
+            height: 70px;
+            width: 100%;
 
             form{
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
 
               .input-group{
+                width: 90%;
+                height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
                 #message-content{
-                  width: calc(95% - 45px);
-                  height: 25px;
-                  font-size: 18px;
-                  padding: 10px;
-                  border: none;
                   outline: none;
+                  border: none;
+                  border-radius: 3px 0 0 3px;
+                  width: calc(85% - 45px);
+                  font-size: 20px;
+                  padding: 5px;
                 }
 
                 #dialogbox-msg-submit-btn{
-                  border: none;
                   outline: none;
-                  font-size: 18px;
-                  width: 80px;
+                  border-radius: 0 3px 3px 0;
+                  font-size: 20px;
+                  padding: 5px;
+                  color: white;
                   background-color: #EF5959;
                 }
               }

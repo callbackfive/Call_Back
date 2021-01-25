@@ -14,11 +14,11 @@ const Progress = ({done}) => {
 	
 		setStyle(newStyle);
   }, 200);
-  if(done < 50){
+  if(0< done){
     return (
       <>
       <div className="percent-progress">
-        <div className="progress-undone" style={style}></div>
+        <div className="progress-done" style={style}></div>
       </div>
       </>
     )
@@ -28,7 +28,7 @@ const Progress = ({done}) => {
     return (
       <>
       <div className="percent-progress">
-        <div className="progress-done" style={style}></div>
+        <div className="progress-undone" style={style}></div>
       </div>
       </>
     )

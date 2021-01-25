@@ -31,6 +31,8 @@
     "stimulus": "^2.0.0",
     "styled-components": "^5.2.1",
     "trix": "^1.2.0",
+    "sweetalert2": "^10.13.1",
+    "sweetalert2-react-content": "^3.2.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
