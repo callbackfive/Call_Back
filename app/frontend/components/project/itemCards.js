@@ -3,10 +3,11 @@ import '../../components/home/Card.scss'
 import ProgressBar from "./ProgressItem"
 
  const itemCard  = ({ project,isClick }) => {
-
+  
   if(project.status === "succeeded"){
     return (
       <>
+
         <button onClick={()=>isClick(project.id)}>
           <div className="card-item">
             <div className="card-pic">
@@ -14,7 +15,7 @@ import ProgressBar from "./ProgressItem"
             </div>
             <div className="item-content">
               <div className="item-category">
-                <p>{project.category_title}</p>
+                <p>{project.category}</p>
                 <p>SUCCESS !</p>
               </div>
               <div className="item-txt">
@@ -42,6 +43,7 @@ import ProgressBar from "./ProgressItem"
   }else{
     return (
       <>
+      
          <a onClick={()=>isClick(project.id)}>
           <div className="card-item">
             <div className="card-pic">

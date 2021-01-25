@@ -16,6 +16,7 @@ import "pages"
 import "scripts" 
 
 
+
 const images = require.context('../images', true)
  
 import $ from 'jquery'

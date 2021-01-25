@@ -5,7 +5,7 @@ import './Card.scss'
 
  const Card  = ({ project,onClick }) => {
 
-
+  
 
   if(project.status === "succeeded"){
     return (
