@@ -56,7 +56,7 @@
           </div>
           <div class="projects-percent">
             <p class="percent-title tag">募資進度</p>
-            <p class="percent titles"><span><%= @project.percentage_of_reaching_goal * 100.round(2)%>%</span></p>
+            <p class="percent titles"><span><%= @project.percentage_of_reaching_goal * 100.round(2).ceil%>%</span></p>
           </div>
                      
           
