@@ -1,0 +1,78 @@
+
+
+  <% if @user_orders.blank? %> 
+    <div class="unsponsor-title">你沒有任何贊助紀錄</div>
+  <% else %>
+  <% end %>
+  
+  <div class="sponsor-title">
+    <h2 class="txt">您的贊助紀錄</h2>
+    <%= link_to user_orders_path( current_user, format: :csv) ,class:"download-icon" do %>
+        <i class="fas fa-cloud-download-alt"></i>
+    <%end%>
+  </div>
+
+  <div class="sponsored-cart">
+  <%=line_chart current_user.orders.paid.group_by_day(:created_at).count %>
+  </div>
+
+  <!-- component -->
+ 
+  <table class="sponsor-table mt-16">
+    <thead>
+      <tr>
+        <th class="order_th">專案名稱</th>
+        <th class="order_th">回饋品名稱</th>
+        <th class="order_th"><%= sort_link(@q, :merchantOrderNo, '訂單編號') %></th>
+        <th class="order_th">贊助金額</th>
+        <th class="order_th"><%= sort_link(@q, :issue_date, '	付款時間') %></th>
+        <th class="order_th"><%= sort_link(@q, :status, '訂單狀態') %></th>
+                  
+      </tr>
+    </thead>
+    <tbody >
+      <% @user_orders.paid.each do |user_order| %>
+        <% if user_order.user_id == current_user.id %>
+      <tr>
+        <td class="order_td">
+          <div class="space"><div>
+          <div class="td-title"><%= user_order.project_title%></div>
+        </td>
+
+        <td class="order_td">
+          <div class="space"><div>
+          <div class="td-title"><%= user_order.giveback_title %></div>
+        </td>
+                      
+        <td class="order_td">
+          <div class="space"><div>
+          <div class="td-title"><%= user_order.merchantOrderNo%></div>
+        </td>
+                      
+                      
+        <td class="order_td">
+
+          <div class="space"><div>
+          <div class="td-title"><%= user_order.giveback_price%></div>   
+
+        </td>
+        
+        <td class="order_td">
+          <div class="space"><div>
+          <div class="td-title"><%= user_order.issue_date&.strftime('%Y年%m月%d日 %H:%M:%S') %>
+        </td>
+
+        <td class="order_td">
+            <p class="">
+                <span aria-hidden class="txt"></span>
+                <span class="status"><%= user_order.status_to_string%></span>
+            </p>
+        </td>               
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+  
+ 
+

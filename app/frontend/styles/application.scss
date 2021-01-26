@@ -25,10 +25,12 @@
 @import "./messages";
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
-@import "./profile";
+
+
 @import "./project_orders_index";
 @import "./profile/profile-show.scss";
 @import "./order/order-show.scss";
+@import "./order/order-index.scss";
 
 @import "./admin/side-bar.scss";
 @import "./admin/admin-show.scss";

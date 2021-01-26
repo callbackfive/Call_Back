@@ -1,0 +1,100 @@
+
+    <% if @user_projects.blank? %> 
+      <div class="no-proposal">你沒有任何提案紀錄</div>
+    <% else %>
+    <div class="status-list">
+      <h2 class="status-title">募資中專案列表</h2>
+      <table class="status-table"> 
+        <thead>
+          <tr>
+            <th class="status-table-title">專案標題</th>
+            <th class="status-table-title"></th>
+          </tr>
+        </thead>
+
+        <tbody class="status-content-txt">
+          <% @user_projects.each do |user_project| %>
+            <% if user_project.is_published? %>
+          <tr>
+            <td class="status-table-content "><div>
+              <%= link_to  user_project do %>
+                <%= user_project.title %>
+              <% end %>       
+            </td>
+
+            <td class="status-table-content flex flex-col">
+              <%= link_to "修改", edit_project_path(user_project) ,class:"list-btn"%>
+              <%= link_to "訂單", myorderlist_project_path(user_project), class:"list-btn"%>
+            </td>
+            </tr>
+            <% end %>
+           <% end %>
+        </tbody>
+      </table>
+    </div>
+
+      <div class="status-list">
+        <h2 class="status-title">已達標專案列表</h2>
+        <table class="status-table">   
+          <thead>
+            <tr>
+              <th class="status-table-title">專案標題</th>
+              <th class="status-table-title"></th>
+            </tr>
+          </thead>
+          <tbody class="status-content-txt">
+            <% @user_projects.each do |user_project| %>
+              <% if user_project.succeeded? %>
+                <tr>
+                  <td class="status-table-content ">
+                    <%= link_to  user_project do %>
+                      <%= user_project.title %>
+                    <% end %> 
+                    
+                  </td>
+
+                  <td class="status-table-content flex flex-col">
+                      <%= link_to "修改", edit_project_path(user_project), class:"list-btn" %>
+                      <%= link_to "訂單", myorderlist_project_path(user_project), class:"list-btn"%>
+                  </td>
+                </tr>
+              <% end %>
+           <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    <div class="status-list">
+        <h2 class="status-title">草稿</h2>
+        <table class="status-table">   
+          <thead>
+            <tr>
+              <th class="status-table-title ">專案標題</th>
+              <th class="status-table-title"></th>
+            </tr>
+          </thead>
+
+          <tbody class="status-content-txt">
+            <% @user_projects.each do |user_project| %>
+              <% if user_project.is_hidden? %>
+                <tr>
+                  <td class="status-table-content truncate">
+                    <%= link_to  user_project do %>
+                      <%= user_project.title %>
+                    <% end %> 
+                  </td>
+
+                  <td class="status-table-content flex flex-col">
+                      <%= link_to "修改", edit_project_path(user_project) , class:"list-btn"%>
+                      <%= link_to "刪除", user_project, method: 'delete', class:"list-btn" %>
+                  </td>
+                </tr>
+              <% end %>
+           <% end %>
+          </tbody>
+        </table>
+      </div>
+ <% end %>
+
+
+
