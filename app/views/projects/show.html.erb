@@ -74,10 +74,17 @@
               <div class="track-btn">
                 <div class="new-dialogbox-popup-btn">  
                     <% if !project_owner? %>
-                      <a href="#" class="new-dialogbox-popup active">
-                      <p class="msg-icon"><i class="far fa-comments"></i></p>
+                      <% if user_signed_in? %>
+                        <a href="#" class="new-dialogbox-popup active">
+                        <p class="msg-icon"><i class="far fa-comments"></i></p>
                       聯絡提案人
                       </a>
+                      <% else %>
+                        <%= link_to new_user_session_path, class: "new-dialogbox-popup-unsign active" do %>
+                          <p class="msg-icon"><i class="far fa-comments"></i></p>
+                          聯絡提案人
+                        <% end %>
+                      <% end %>
                     <% end %>
                   </div>
                 <div class="new-dialogbox-popup-block">
@@ -86,6 +93,7 @@
                       <i class="far fa-times-circle text-5xl"></i>
                     </div>
                     <div class="project-owner-info">
+
                       <div>提案負責人： <%= @project.user.name %></div>
                     </div>
                     <hr>
@@ -105,9 +113,9 @@
                     <% if user_signed_in? && !project_owner? %>
                       <%= link_to '#', data: { action: 'favorite#toggle_like' } ,class:"fav-ctn" do %>
                         <% if current_user.favorite?(@project) %>
-                          <p class="fav-icon"><i class="fas fa-heart" data-favorite-target='icon'></i></p>
+                          <p class="fav-icon"><i class="fas fa-heart" data-favorite-target='icon'></i></p>
                           <% else %>
-                          <p class="fav-icon"><i class="far fa-heart" data-favorite-target='icon'></i></p>
+                          <p class="fav-icon"><i class="far fa-heart" data-favorite-target='icon'></i></p>
                           <% end %>
                           <p>收藏</p>
                         <% end %>
