@@ -1,11 +1,13 @@
 <div class="message">
-  <div id="msg-user-id" value="<%= @current_user_id %>"></div>
   <div class="content-container">
     <div class="content">
       <%= message.content %>
     </div>
     <div class="author">
       <%= message.user.name %>
+    </div>
+    <div class="check-msg-user">
+      <div id="msg-owner-id" value="<%= message.user_id %>"></div>
     </div>
   </div>
 </div>

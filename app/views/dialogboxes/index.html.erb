@@ -6,13 +6,13 @@
       <div class="dialogboxes-index">
         <div class="tab-triger">
           <ul class="tabs">
-            <li data-tab-target="#dialogboxes-sent-by-me" class="active tab">已送出的對話</li>
-            <li data-tab-target="#guest-send-dialogboxes" class="tab">我的專案收到的訊息</li>
+            <li data-tab-target="#dialogboxes-sent-by-me" class="tab">已送出的對話</li>
+            <li data-tab-target="#guest-send-dialogboxes" class="active tab">我的專案收到的訊息</li>
           </ul>
         </div>
         <div class="tab-content">
           <!-- 我發出的聯絡訊息列表 -->
-          <div id="dialogboxes-sent-by-me" data-tab-content class="active sub-index">
+          <div id="dialogboxes-sent-by-me" data-tab-content class="sub-index">
             <% if @my_sent_dialogboxes %>
               <ul>
                 <% @my_sent_dialogboxes.each do |dialogbox| %> 
@@ -35,7 +35,7 @@
             <% end %>
           </div>
           <!-- 我的專案收到的聯絡訊息列表 -->
-          <div id="guest-send-dialogboxes" data-tab-content class="sub-index">
+          <div id="guest-send-dialogboxes" data-tab-content class="active sub-index">
             <% if @dialogboxes_of_my_projects %>
               <ul>
                 <% @dialogboxes_of_my_projects.each do |dialogbox|%>
