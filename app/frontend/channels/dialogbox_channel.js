@@ -37,6 +37,10 @@ document.addEventListener('turbolinks:load', () => {
         };
         
       });
+
+      if (window.addNewMsgToBtn) {
+        window.addNewMsgToBtn(data.message)
+      }
     }
   });
 });

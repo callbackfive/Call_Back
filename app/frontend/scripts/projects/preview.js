@@ -45,6 +45,7 @@ document.addEventListener('turbolinks:load', (e) => {
     fileImg.addEventListener('change', function(){
 
         const file =fileImg.files[0]
+        console.log(file);
         
         if(file){
           const reader= new FileReader()
