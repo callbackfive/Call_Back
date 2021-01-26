@@ -21,6 +21,16 @@
 
     <%= render "shared/navbar" %>
     <div class="mt-16"></div>
+    <div class="mt-20"></div>
+    
+    <% flash.now[:notice] = params["flash_notice"] if params["flash_notice"] %>
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="notice"><%= alert %></p>
+    <% end %>
+>>>>>>> 491f544 (resolve application.scss conflict)
     <%= yield %>
 
   </body>

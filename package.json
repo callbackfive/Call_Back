@@ -30,12 +30,19 @@
     "react-router-dom": "^5.2.0",
     "stimulus": "^2.0.0",
     "styled-components": "^5.2.1",
+<<<<<<< HEAD
     "trix": "^1.2.0",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "sweetalert2": "^10.13.1",
     "sweetalert2-react-content": "^3.2.2",
 =======
 >>>>>>> 85eb1b7 (resolve schema conflict)
+=======
+=======
+    "sweetalert2": "^10.13.0",
+>>>>>>> 1038d99 (待完成個人頁面)
+>>>>>>> 491f544 (resolve application.scss conflict)
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
