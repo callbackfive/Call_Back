@@ -1,44 +1,87 @@
-<div style="margin-top:-10px;">
-  <div class="bg-gray-100 flex justify-center">
-    <div class="flex-col">
-      <button class="profile_btn">
-        <%= link_to '編輯個人資料', edit_user_registration_path %>
-      </button>
-      <div class="bg-red-500 h-1"></div>
+<section class="profile-show-nav">
+  <div class="profile-nav-container">
+    <div class="profile-show-row">
+      <div class="profile-tab">
+        <button class="profile-nav-btn active" id="profile-info-btn">個人頁面</button>
+      </div>  
+      <div class="profile-tab">
+        <button class="profile-nav-btn" id="profile-proposal-btn">提案記錄</button>
+      </div>
+      <div class="profile-tab">
+        <button class="profile-nav-btn" id="profile-sponser-btn">贊助記錄</button>
+      </div>
+
+      <div class="profile-tab">
+        <button class="profile-nav-btn" id="profile-contact-btn">編輯資料</button>
+      </div>
+      <div class="profile-tab">
+       <%= link_to '聯絡訊息', dialogboxes_path,id:"profile-fav-btn" %>
+      </div>
     </div>
-    <button class="profile_btn">
-      <%= link_to '您的提案記錄', user_projects_path(current_user) %>
-    </button>
-    <button class="profile_btn">
-      <%= link_to '您的贊助記錄', user_orders_path(current_user) %>
-    </button>
-    <button class="profile_btn">
-      <%= link_to '追蹤專案列表', my_favorite_projects_path %>
-    </button>
-    <button class="profile_btn">
-      <%= link_to '您的聯絡訊息', dialogboxes_path %>
-    </button>
   </div>
-  <section class="flex mt-10 justify-center">
-    <div>
-      <%= image_tag current_user.image_url,class:"h-40 w-40 rounded-full m-auto" if current_user.image_url.present? %>
-    </div>
+</section>
 
-    <div class="pl-5 mt-3">
-      <div class="text-3xl mt-3">
-        <%= current_user.name %>
+<section class="profile-content-pages">
+  <div class="content-pages-container ">
+  <div class="content-box">
+    <div class="content-pages-row">
+      <div class="profile-page" id="profile-info-pg1" >
+        <div class="user-info">
+          <div class="info-pic">
+            <%= image_tag current_user.image_url,class:"pic" if current_user.image_url.present? %>
+          </div>
+          <div class="info-content">
+            <div class="user-name">
+              <%= current_user.name %>
+            </div>
+            <div class="user-mail">
+              <%= current_user.email %>
+            </div>
+            <div class="user-projects">
+              <p >
+              贊助過<span><%= current_user.orders.count %></span>件專案
+              / 發起過<span><%= current_user.projects.count %></span>件專案
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="my-fav-pro">
+          <h2 class="track-title">已追蹤專案</h2>
+          <div class="my-favorite-row">
+            <% @my_fav_projects.each do |my_fav_project| %>
+              <%= link_to project_path(my_fav_project), class:"fav-card-link" do %>
+                <div class="fav-item">
+                  <div class="fav-pic">
+                    <%= image_tag my_fav_project.image_url %>
+                  </div>
+                  <div class="fav-content">
+                    <div class="fav-category">
+                      <p><%= my_fav_project.category.title %></p>
+                    </div>
+                    <div class="fav-txt">
+                      <h2 class="fav-truncate"><%= my_fav_project.title %></h2>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
       </div>
-      <div class="text-lg mt-2">
-        <%= current_user.email %>
+
+      <div class="profile-page" id="profile-proposal-p2">
+        <%= render partial: "./projects/user_projects_index" %>  
       </div>
-      <div class="text-sm mt-2">
-        <p class="text-xs">
-        贊助過<span class="text-red-600"><%= current_user.orders.count %></span>件專案
-        / 發起過<span class="text-red-600"><%= current_user.projects.count %></span>件專案
-        </p>
+      <div class="profile-page" id="profile-sponser-pg3">
+         <%= render partial: "./orders/index" %>   
+      </div>
+      <div class="profile-page" id="profile-edit-bg4">
       </div>
     </div>
-  </section>
+  </div>
 
-  <%= render './devise/registrations/edit'%>
+
 </div>
+</section>
+

@@ -8,12 +8,17 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// for Action Text
+require("trix")
+require("@rails/actiontext")
+
 import "styles/application" 
 import "@fortawesome/fontawesome-free/css/all.css"
 
 import "@ckeditor/ckeditor5-build-classic/build/ckeditor"
 import "pages" 
 import "scripts" 
+
 
 
 const images = require.context('../images', true)

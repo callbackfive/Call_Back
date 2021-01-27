@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
   
 .giveback-card-item{
+
   max-width: 330px;
   @apply rounded;
   @apply overflow-hidden;
   @apply shadow-md;
   @apply box-border;
-  @apply mt-4;
+  @apply my-6;
   @apply px-4;
 
   @apply border;
@@ -107,6 +108,7 @@ p.g-tit{
   @apply px-6;
   @apply py-2;
   @apply text-center;
+  @apply my-4;
 }
 
 .giveback-card-item:hover{

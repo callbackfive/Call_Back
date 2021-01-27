@@ -6,6 +6,7 @@ import '../home/Rank.scss'
 
 
 
+
  const CardList = ({isFilter,isClick}) => {
   return (
     <div>
@@ -14,7 +15,7 @@ import '../home/Rank.scss'
         <div className="ranking-container ">
           <div className="ranking-row">
             <div className="ranking-txt flex">
-              <h2 className="title">全部商品</h2>
+              <h2 className="title">募資中專案</h2>
             </div>
             <div className="ranking-projects">
               {isFilter.map(project => (

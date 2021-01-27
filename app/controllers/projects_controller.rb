@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
     # @past_projects = Project.past_projects
   end
 
+
+
   def user_projects_index
     @user_projects = current_user.projects
   end
@@ -28,6 +30,7 @@ class ProjectsController < ApplicationController
     @comment = Comment.new
     @comments = @project.comments.includes(:user, :replies)
     @message = Message.new
+    @percentage = @project.percentage_of_reaching_goal * 100.round(2)
   end
 
   def new
@@ -43,7 +46,7 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @givebacks = @project.givebacks
     if @project.is_hidden?
@@ -145,6 +148,7 @@ class ProjectsController < ApplicationController
       :user_id, 
       :due_date, 
       :status, 
+      :content_image,
       :category_id, 
       givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end

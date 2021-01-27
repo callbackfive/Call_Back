@@ -8,6 +8,8 @@ class Project < ApplicationRecord
   has_many :favorite_projects
   has_many :fav_users, through: :fav_projects, source: 'user'
   has_many :paid_orders, through: :givebacks
+  has_rich_text :content
+  has_one_attached :content_image, dependent: :destroy
 
   accepts_nested_attributes_for :givebacks, allow_destroy: true, reject_if: :all_blank
   mount_uploader :image, ImageUploader
@@ -33,6 +35,11 @@ class Project < ApplicationRecord
   scope :succeeded_and_done, -> {self.succeeded.where('due_date < ?', Time.now)}
   scope :past_projects, -> {self.where.not(status: [:is_hidden]).where('due_date < ?', Time.now)}
 
+  def content_image_url
+    if self.content_image.attachment
+      self.content_image.attachment.service_url
+    end
+  end
 
   def paid_orders_amounts
     return paid_orders.inject(0) do |sum, order|

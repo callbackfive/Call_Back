@@ -39,7 +39,8 @@ import './Rank.scss'
               <a href="/projects" className="more-btn">查看更多</a>
             </div>
             <div className="ranking-projects">
-              {projects.slice(0, 6).map(project => (
+              {
+              projects.slice(0, 6).map(project => (
                   <Card key={project.id} project={project} onClick={atClick}/>
               ))
               }        

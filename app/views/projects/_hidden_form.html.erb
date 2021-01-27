@@ -1,8 +1,10 @@
 <div class="proposal-container">
+
+
 <% if project.errors.any? %>
-  <ul>
+  <ul class="alert-box">
     <% project.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <li class="alert"><%= message %></li>
     <% end %>
   </ul>
 <% end %>
@@ -24,7 +26,7 @@
               <div class="proposal-item summary ">
                 <%= form.label :summary, '內容摘要' %><br>
                 <div class="input-item">
-                  <%= form.text_area :summary,placeholder:"例：簡短描述專案內容，吸引瀏覽者在 flyingV 首頁上點擊你的專案。" %>
+                  <%= form.text_area :summary,placeholder:"例：簡短描述專案內容，吸引瀏覽者在 CALL BACK 首頁上點擊你的專案。" %>
                 </div>
                 <p>使用吸引人的短文說明你的目標以及理念，強調你的獨一無二，讓贊助人對你或你的專案好奇，願意更進一步了解專案。</p>
               </div>
@@ -75,7 +77,8 @@
         <div class=" proposal-item">
           <%= form.label :content, '專案內容' %><br>
           
-          <%= form.text_area :content, class:"border-2 border-gray-300" ,id:"ckeditor"%>
+          <%= form.rich_text_area :content %>
+        
           <p>利用文字、圖片和影片，將您的計畫詳細清楚的述說給大家聽。圖片大小建議寬度 697 px，考慮到手機使用者的網路速度，單張圖片上傳大小不可超過 1 MB，且為求在手機上瀏覽順暢，圖片上若有出現文字，任何文字皆不得小於 16 級。</p>
         </div>
       </div>

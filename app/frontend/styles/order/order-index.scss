@@ -1,23 +1,98 @@
-.orders-index{
-    .order_th{
-        @apply px-0;
-        @apply py-3;
-        @apply text-left;
-        @apply border-b-4;
-        @apply border-b;
-        @apply leading-4;
-        @apply text-gray-500;
-        @apply font-light;
-        @apply tracking-wider;
+#profile-sponser-pg3{
+    @apply space-y-8;
+
+    .sponsor-title{
+        @apply flex; 
+        @apply justify-center; 
+        @apply space-x-4;
+        @apply justify-items-center;
+
+        h2.txt{
+            @apply text-gray-600;
+            font-size: 24px;
+           font-weight: 500;
         }
-    .order_td{
-        @apply px-0;
-        @apply py-4;
-        @apply border-b-2;
-        @apply border-b; 
-        @apply text-left;
-        @apply text-gray-500;
-        @apply font-extralight;
-        @apply border-gray-200;
+        .download-icon{
+            @apply inline-block;
+            @apply pt-1;
+            
+            i{
+                font-size: 26px;
+                color:#EF5959;
+                
+            }
         }
+
+    }
+
+
+    table.sponsor-table{
+        @apply w-full;
+
+        thead{
+            tr{
+                @apply border-b;
+                @apply border-gray-200;
+                .order_th{
+                    
+                    @apply py-3;
+                    @apply text-center;
+                    @apply border-b-4;
+                    @apply border-b;
+                    @apply leading-4;
+                    @apply text-gray-600;
+                    @apply font-light;
+                    @apply tracking-wider;
+                }
+
+            }
+        }
+
+
+        tbody{
+            @apply bg-white;
+            tr{
+                .order_td{
+                    @apply px-0;
+                    @apply py-4;
+                    @apply border-b-2;
+                    @apply border-b; 
+                    @apply text-left;
+                    @apply text-gray-600;
+                    @apply font-light;
+                    @apply border-gray-200;
+                    .space{
+                        @apply flex;
+                        @apply items-center;
+                    }
+                    .td-title{
+                        @apply text-sm; 
+                        @apply leading-5; 
+                        @apply text-gray-800;
+
+                    }
+                    p{
+                        @apply relative;
+                        @apply inline-block; 
+                        @apply px-3; 
+                        @apply py-1; 
+                        @apply font-medium; 
+                        @apply text-white;
+                        @apply leading-tight;
+                        span.txt{
+                            @apply absolute; 
+                            @apply inset-0; 
+                            @apply bg-red-600; 
+                            @apply opacity-70; 
+                            @apply rounded-full;
+                        }
+                        span.status{
+                            @apply relative; 
+                            @apply text-xs;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

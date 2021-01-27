@@ -58,14 +58,32 @@
                 background-color: #d7d7d7;
                 top: 50%;
                 transform: translateY(-50%);
-                .progress-bar{
+                .progress-bar-1{
                   @apply absolute;
                   top: 0;
                   left: 0;
                   border-radius: 4px;
                   background-color: #f8414a;
                   height: 5px;
-                  width:10%;
+                  width:20%;
+                }
+                .progress-bar-2{
+                  @apply absolute;
+                  top: 0;
+                  left: 0;
+                  border-radius: 4px;
+                  background-color: #f8414a;
+                  height: 5px;
+                  width:40%;
+                }
+                .progress-bar-3{
+                  @apply absolute;
+                  top: 0;
+                  left: 0;
+                  border-radius: 4px;
+                  background-color: #f8414a;
+                  height: 5px;
+                  width:80%;
                 }
                 .progress-points{
                    @apply flex;
@@ -90,7 +108,7 @@
                       height: 18px;
                       width: 18px;
                       background-color: #fff;
-                      border: 5px solid #d7d7d7;
+                      border: 5px solid #f8414a;
                       border-radius: 50%;
 
                     }
@@ -112,7 +130,7 @@
           }
           .projects-right{
             width:30%;
-            @apply space-y-10;
+            @apply space-y-6;
             @apply text-left;
             
               p.tag{
@@ -162,6 +180,7 @@
 
               .unclick{
                 margin-right: 15px;
+               
                 .sponser-btn a{
                   background: #f8414a;
                   @apply mx-auto;
@@ -195,12 +214,22 @@
 .track-btn{
   @apply flex; 
   @apply space-x-4;
+  margin-top: 15px;
   margin-right: 15px;
  
   .new-dialogbox-popup-btn{
    
     width:60%;
-    .new-dialogbox-popup{
+
+    .new-dialogbox-popup,.new-dialogbox-popup-unsign{
+      .msg-icon{
+        @apply inline-block;
+        i{
+          font-size: 18px;
+          color:#EF5959;
+        }
+
+      }
       @apply w-full;
       @apply inline-block;
       @apply border;
@@ -211,23 +240,31 @@
       @apply text-center;
       
     }
-    .new-dialogbox-popup.active:hover{
-      background:#EF5959;
-      @apply text-white;
-    }
-
 
   }
   .favorite-btn{
     width:40%;
+   
     a{
+       @apply flex;
+      p{
+        @apply inline-block;
+      
+        i.fav-icon{
+          font-size: 18px;
+          color:#EF5959;
+        }
+      }
       @apply w-full;
       @apply inline-block;
       @apply border;
-      @apply border-gray-400;
+      border-color:#EF5959;
       color:#EF5959;
       @apply px-6;
       @apply py-2;
+      @apply text-center;
+
+
     }
     
   }
@@ -238,32 +275,36 @@
   @apply w-full;
   
   form{
-    div{
-    margin: 12px 0;
-    @apply border-gray-300;
-    @apply border;
-    @apply text-gray-700;
-    @apply bg-white;
-    @apply px-4; 
-    @apply rounded; 
-    @apply block ;
-    textarea.comment-text{
-      @apply w-full;
-      resize: none;
-      @apply py-4;
-      @apply px-2;  
-      letter-spacing: 1.2px;
-      text-align: left;
-      color: #000;
-      @apply leading-tight ;  
-  }
-    textarea.comment-text:focus{
-      @apply outline-none
+    div.comment-box{
+      margin: 12px 0;
+      @apply border-gray-300;
+      @apply border;
+      @apply text-gray-700;
+      @apply bg-white;
+      @apply px-4; 
+      @apply rounded; 
+      @apply block ;
+      textarea.comment-text{
+        @apply w-full;
+        resize: none;
+        @apply py-4;
+        @apply px-2;  
+        letter-spacing: 1.2px;
+        text-align: left;
+        color: #000;
+        @apply leading-tight ;  
+      }
+      textarea.comment-text:focus{
+        @apply outline-none
+      }
     }
+    .send-btn{
+      
     }
+    
+
   }
 }
-
 
 
 

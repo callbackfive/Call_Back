@@ -6,6 +6,7 @@ export default styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height:100%;
   background-color:＃E8EC67;
   color: #FFF;
   font-size: 4em;
