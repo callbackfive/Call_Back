@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - DEMO2 # Changing the branch here would also work
+      - dev # Changing the branch here would also work
 
 jobs:
   build:
@@ -15,6 +15,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "callback5" #Must be unique in Heroku
           heroku_email: "blueridge05@gmail.com"
-          branch: "DEMO2"
+          branch: "dev"
           healthcheck: "https://callback.money"
           procfile: "release: rake db:migrate"
