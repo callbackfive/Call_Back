@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :messages
-  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'
@@ -18,6 +15,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :comments
     resources :notifications
+    resources :dialogboxes
+    resources :messages
   end
   
   devise_for :users, controllers: { 
