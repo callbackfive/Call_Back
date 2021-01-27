@@ -181,7 +181,8 @@
 
     }
   }
-}
+  section.profile-content-pages{
+    @apply w-full;
 
 .fav-item{
 
@@ -226,6 +227,45 @@
         @apply text-gray-600;
         font-size: 16px;
         @apply mx-2;
+    .content-pages-container{
+      max-width: 650px;
+      margin-top: 70px;
+      @apply mx-auto;
+      @apply box-border;
+      
+      .content-pages-row{
+        @apply flex;
+        
+
+        .profile-info-pg1{
+          @apply flex;
+          @apply space-x-6;
+          .info-pic{
+        
+            @apply block;
+            @apply h-20;
+            @apply w-20;
+            @apply rounded-full;
+            @apply overflow-hidden;
+            @apply border;
+            @apply border-gray-200;
+            
+            img{ 
+              @apply h-full;
+              @apply w-full;
+              @apply object-cover;
+            }
+
+          }
+          .info-content{
+            .user-name{
+              
+            }
+          }
+          
+          
+
+        }
       }
     }
   }
