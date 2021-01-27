@@ -148,6 +148,7 @@ class ProjectsController < ApplicationController
       :user_id, 
       :due_date, 
       :status, 
+      :content_image,
       :category_id, 
       givebacks_attributes: [:id, :title, :price, :deliver_time, :_destroy, :image])
   end
