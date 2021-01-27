@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :messages
+  end
   root to: "home#index"
 
   get '/apis/projects', action: 'projects',controller: 'apis'
