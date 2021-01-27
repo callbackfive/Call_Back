@@ -28,10 +28,7 @@ import ProgressBar from "./ProgressItem"
                   <ProgressBar done="{project.total}"/>
                 </div>
                 <div className="pg-txt flex justify-between">
-<<<<<<< HEAD
-=======
-              
->>>>>>> 491f544 (resolve application.scss conflict)
+
                   <div className="price">{project.total}%<span>已有 {project.count} 人贊助</span></div>
                   <div className="days">還剩<span>{project.days}</span>天</div>
 
