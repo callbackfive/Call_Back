@@ -32,7 +32,7 @@ function App () {
   return (
     <>
       <div className="banner-carousel " >
-        <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={2500}  showArrow ={false} pagination ={false}>
+        <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={100000}  showArrow ={false} pagination ={false}>
           <Item>Call Back your money !</Item>
           <Item></Item>
         </Carousel>

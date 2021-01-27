@@ -20,14 +20,11 @@
     @apply overflow-hidden;
     @apply border;
     @apply border-gray-200;
-    
-  
     .pic{ 
       @apply h-full;
       @apply w-full;
       @apply object-cover;
     }
-  
     .user-pic:focus{
       @apply outline-none;
       @apply border-gray-400;

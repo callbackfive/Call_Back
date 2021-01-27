@@ -23,7 +23,6 @@ document.addEventListener('turbolinks:load', () => {
       msgForm.reset();
       const messageContainer = document.querySelector('.messages-container')
       messageContainer.innerHTML = messageContainer.innerHTML + data.html
-
       // 顏色左右邊
       let currentUserData = document.getElementById('navbar_current_user').getAttribute('user_data');
       let currentUserId = JSON.parse(currentUserData).id;
