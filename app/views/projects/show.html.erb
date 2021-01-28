@@ -19,8 +19,10 @@
               <div class="progress-bar-1"></div>
             <% elsif @percentage.between?(31,60)  %>
               <div class="progress-bar-2"></div>
-            <% elsif @percentage.between?(61,100)   %>
+            <% elsif @percentage.between?(61,99)   %>
               <div class="progress-bar-3"></div>
+            <% elsif @percentage >= 100)   %>
+              <div class="progress-bar-4"></div>
             <%end%>
 
               <div class="progress-points">

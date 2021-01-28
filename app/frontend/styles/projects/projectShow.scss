@@ -74,7 +74,7 @@
                   border-radius: 4px;
                   background-color: #f8414a;
                   height: 5px;
-                  width:40%;
+                  width:30%;
                 }
                 .progress-bar-3{
                   @apply absolute;
@@ -83,8 +83,18 @@
                   border-radius: 4px;
                   background-color: #f8414a;
                   height: 5px;
-                  width:80%;
+                  width:45%;
                 }
+                .progress-bar-4{
+                  @apply absolute;
+                  top: 0;
+                  left: 0;
+                  border-radius: 4px;
+                  background-color: #f8414a;
+                  height: 5px;
+                  width:70%;
+                }
+
                 .progress-points{
                    @apply flex;
                   .progress-section{

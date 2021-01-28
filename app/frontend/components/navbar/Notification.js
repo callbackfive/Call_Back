@@ -20,7 +20,6 @@ import MsgList from './MsgList';
     //      setMsg(msg)
     //    }
     //  })
-   
     return(
       <>
       <div className="flex">
