@@ -20,7 +20,19 @@ import MsgList from './MsgList';
     //      setMsg(msg)
     //    }
     //  })
-   
+   if(user === null){
+    return(
+      <>
+      <div className="flex">
+        <button className='notification-btn' onClick={handleClick}>
+          <i className={isClick ? 'fas':'fas'}></i>
+        </button>
+      </div> 
+      {dropdown && <MsgList user={user} isShow={dropdown} />}
+      </>  
+  )
+
+   }else{
     return(
       <>
       <div className="flex">
@@ -30,7 +42,10 @@ import MsgList from './MsgList';
       </div> 
       {dropdown && <MsgList user={user} isShow={dropdown} />}
       </>  
-  )} 
+  )
+
+   }
+} 
   
   
 

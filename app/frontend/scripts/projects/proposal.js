@@ -14,17 +14,12 @@ document.addEventListener('turbolinks:load', () => {
     step1.classList.remove('active')
     step3.classList.remove('active')
     console.log(step2)
-
   })
   step1.addEventListener('click' ,function(){
-    
     page1.style.marginLeft=""
     step1.classList.add('active')
     step2.classList.remove('active')
     step3.classList.remove('active')
-    
-
-
   })
   step3.addEventListener('click' ,function(){
   
@@ -32,10 +27,7 @@ document.addEventListener('turbolinks:load', () => {
     step3.classList.add('active')
     step2.classList.remove('active')
     step1.classList.remove('active')
- 
   })
-
-
-  })
+})
 
 

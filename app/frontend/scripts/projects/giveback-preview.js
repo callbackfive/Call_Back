@@ -12,23 +12,9 @@ document.addEventListener('turbolinks:load', (e) => {
   const cardTime = document.querySelector('.g-time')
   const img = document.querySelector('.pre-imgs')
 
-
-  
-  
   giveTitle.innerText=""
-
-
   const date= givebackDate.value
-
-
   cardSummary.innerText="例：簡短描述專案內容，吸引瀏覽者在投資你的夢想。"
-
-
-
-  
-
-
-
 
   givebackTitle.addEventListener('keyup',(e) => {
     const changeTitle=e.currentTarget.value
