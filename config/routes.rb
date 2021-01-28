@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :orders
     resources :comments
     resources :notifications
+    resources :dialogboxes
+    resources :messages
   end
   
   devise_for :users, controllers: { 

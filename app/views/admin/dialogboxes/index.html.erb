@@ -1,0 +1,35 @@
+<div class="model-title-container">
+  <h1>Dialogbox清單</h1>
+  <%= link_to '新增dialogbox', new_admin_dialogbox_path, class:"create-btn"%>
+  <p><%= @admin_dialogboxes.count %> dialogboxes</p>
+</div>
+
+<div class="admin-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th class="admin_th">ID</th>
+        <th class="admin_th">project title</th>
+        <th class="admin_th">owner name</th>
+        <th class="admin_th">created_at</th>
+        <th class="admin_th">deleted_at</th>
+        <th class="admin_th", colspan="3">操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @admin_dialogboxes.each do |admin_dialogbox| %>
+        <tr>
+          <td class="admin_td"><%= admin_dialogbox.id %></td>
+          <td class="admin_td"><%= admin_dialogbox.project.title %></td>
+          <td class="admin_td"><%= admin_dialogbox.user.name %></td>
+          <td class="admin_td"><%= admin_dialogbox.created_at %></td>
+          <td class="admin_td"><%= admin_dialogbox.deleted_at %></td>
+          <td class="ud_btn"><%= link_to 'Show', admin_dialogbox %></td>
+          <td class="ud_btn"><%= link_to 'Edit', edit_admin_dialogbox_path(admin_dialogbox) %></td>
+          <td class="ud_btn"><%= link_to 'Destroy', admin_dialogbox, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
