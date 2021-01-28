@@ -12,8 +12,6 @@
         <th class="admin_th"><%= sort_link(@q, :user_id, '提案者') %></th>
         <th class="admin_th"><%= sort_link(@q, :title, '專案名稱') %></th>
         <th class="admin_th"><%= sort_link(@q, :status, '狀態') %></th>
-        <th class="admin_th">概要</th>
-        <th class="admin_th">內容</th>
         <th class="admin_th"><%= link_to '目標金額', sort: :target_amount %></th>
         <th class="admin_th"><%= sort_link(@q, :due_date, '截止日期') %></th>
         <th class="admin_th"><%= sort_link(@q, :paid_orders_amounts, '募資總額') %></th>
@@ -31,8 +29,6 @@
           <td class="admin_td"><%= admin_project.user.name %></td>
           <td class="admin_td"><%= admin_project.title %></td>
           <td class="admin_td"><%= admin_project.status %></td>
-          <td class="admin_td"><%= admin_project.summary %></td>
-          <td class="admin_td"><%= admin_project.content %></td>
           <td class="admin_td"><%= admin_project.target_amount %></td>
           <td class="admin_td"><%= admin_project.due_date %></td>
           <td class="admin_td"><%= admin_project.paid_orders_amounts %></td>
