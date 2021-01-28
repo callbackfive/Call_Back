@@ -143,7 +143,7 @@
         </div>
         
         <div class="user-tab ">
-         <div class="user-pic"><%= image_tag @project.user.image_url if @project.image_url.present? %></div>
+         <div class="user-pic"><%= image_tag @project.user.image_url if @project.user.image_url.present? %></div>
          <div class="user-name">
           提案者 <span><%= @project.user.name %></span>
          </div>
