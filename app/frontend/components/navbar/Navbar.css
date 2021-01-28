@@ -1,20 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@1&display=swap');
 
-
-
 nav{
   @apply border-b;
   @apply border-gray-200;
   @apply shadow-sm;
-  background: #EF5959;
- 
-  
+  background: #EF5959; 
 }
 
 .navbar-container {
-  
   margin: auto;
- 
 }
 
 .row{  

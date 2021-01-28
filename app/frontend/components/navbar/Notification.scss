@@ -1,0 +1,27 @@
+.notification-btn{
+  position: relative;
+  align-items: center;
+  
+  
+  
+  i{
+    font-size: 32px;
+    @apply text-gray-700;
+    
+  } 
+  i.notice::before{
+    
+    content:"";
+    position: absolute;
+    top:10;
+    right:-1px;
+    width:10px;
+    height:10px;
+    @apply rounded-full;
+    background-color:red ;
+
+  }
+}
+.notification-btn:focus{
+  @apply outline-none;
+}

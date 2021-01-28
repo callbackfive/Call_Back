@@ -7,6 +7,6 @@ class SendMessageJob < ApplicationJob
       locals: { message: message }
       )
     
-    ActionCable.server.broadcast "dialogbox_channel_#{message.dialogbox.id}", {html: html}
+    ActionCable.server.broadcast "dialogbox_channel_#{message.dialogbox.id}", {html: html, message: message}
   end  
 end

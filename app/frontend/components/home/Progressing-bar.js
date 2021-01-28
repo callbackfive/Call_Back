@@ -11,9 +11,9 @@ const Progress = ({done}) => {
 			opacity: 1,
 			width: `${done}%`
 		}
-	
 		setStyle(newStyle);
   }, 200);
+  
   if(0< done){
     return (
       <>
