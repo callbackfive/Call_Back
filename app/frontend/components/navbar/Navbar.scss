@@ -10,9 +10,10 @@ nav{
   top: 0; 
   z-index: 2000;
   .navbar-container {
-      max-width: 1280px;
+      max-width: 1180px;
+      
       margin: auto;
-      padding: 5px 0px;
+      padding: 5px 10px;
       @apply box-border;
       .row{  
         @apply flex;
@@ -20,6 +21,7 @@ nav{
         .nav-left{
            @apply flex;
            @apply space-x-9;
+          
           //  justify-content: center;
           .navbar-logo {
 
@@ -42,7 +44,7 @@ nav{
             }
           }
           .nav-menu {
-            flex-shrink: 1;
+            
             font-size: 18px;
             display: flex;
             list-style: none;
