@@ -28,7 +28,7 @@ import MsgList from './MsgList';
           <i className={isClick ? 'fas':'fas'}></i>
         </button>
       </div> 
-      {dropdown && <MsgList user={user} isShow={dropdown} />}
+     
       </>  
   )
 
