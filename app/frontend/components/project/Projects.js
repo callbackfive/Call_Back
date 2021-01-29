@@ -40,11 +40,9 @@ const Projects = () => {
       setIsFilter(isFilter)
     }
   }
-
   const isClick = (project) => {
     Turbolinks.visit(`/projects/${project}`)
   }
-
   return(
     <>
     {
@@ -60,9 +58,7 @@ const Projects = () => {
         <CardList  isFilter={isFilter} isClick={isClick} />
       </div> 
     </section>
-
     </>
   )
 }
-
 export default Projects
