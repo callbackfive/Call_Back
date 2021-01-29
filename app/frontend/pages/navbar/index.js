@@ -13,7 +13,7 @@ document.addEventListener('turbolinks:load', () => {
    
   ReactDOM.render(
     <App/>,
-    document.getElementById('navbar_container'),
+    document.getElementById('navbar'),
   )
   
 })

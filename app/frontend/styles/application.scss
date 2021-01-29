@@ -3,7 +3,7 @@
 @import "@tailwindcss/postcss7-compat/components";
 
 // You can add your own custom components/styles here
-@import "./navbar";
+
 @import "./signin";
 @import "./signup";
 @import "./projects/previewCard.scss";
@@ -16,18 +16,14 @@
 @import "./projects/pro-ctn-giveback.scss";
 @import "./projects/my-fav-projects.scss";
 @import "./projects/project_givebacks.scss";
-
-
 @import "./comment/comment.scss";
 @import "./comment/reply.scss";
-
 @import "./dialogboxes/index.scss";
 @import "./messages";
 @import "./giveback/givback";
 @import "./giveback/giveback_pre";
 @import "./project_orders_index";
 @import "./profile/profile-show.scss";
-
 @import "./order/order-show.scss";
 @import "./order/order-index.scss";
 

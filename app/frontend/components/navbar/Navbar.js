@@ -11,10 +11,8 @@ const Navbar = ({user}) => {
   const closeMobileMenu = () => {setClick(false)};
   return(
     <>
-  <nav> 
     <div className="navbar-container"> 
       <div className="row"> 
-
         <div className="nav-left">
           <a href="/" className="navbar-logo">
             <div className="logo-txt">CALLBACK</div>
@@ -29,7 +27,6 @@ const Navbar = ({user}) => {
             <a className="nav-items nav-links" onClick={() => {window.location.href="/projects"}}>探索</a>
           </div>
         </div>
-
         <div className="nav-right">
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times':'fas fa-bars'}></i>
@@ -37,12 +34,10 @@ const Navbar = ({user}) => {
           <div className="flex space-x-8">
             <Notification user={user}/>
             <Avatar user={user}/>
-            
           </div>
         </div>
       </div>
     </div>
-  </nav>
     </>
   )
 }
