@@ -19,14 +19,10 @@ const Projects = () => {
       const data = await response.json();
       setProjects(data);
       setIsFilter(data);
-
-    })();
-    
+    })();  
   },[])
- 
 
   console.log('state: ', isFilter)
-  
   const handleBtn = (e) => {
   
     const currentCategory = e.currentTarget.value

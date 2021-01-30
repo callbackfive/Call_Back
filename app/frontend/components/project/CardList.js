@@ -3,14 +3,9 @@ import React from 'react'
 import ItemCard from '../../components/project/itemCards'
 import '../home/Rank.scss'
 
-
-
-
-
  const CardList = ({isFilter,isClick}) => {
   return (
     <div>
-
       <section className='ranking'>
         <div className="ranking-container ">
           <div className="ranking-row">

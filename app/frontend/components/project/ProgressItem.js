@@ -23,8 +23,7 @@ const Progress = ({done}) => {
       </>
     )
   
-  }else{
-
+  } else {
     return (
       <>
       <div className="percent-progress">
