@@ -22,7 +22,7 @@ const Navbar = ({user}) => {
             <li className="nav-items">
               <Link to='/' className='nav-links-mobile' onClick={closeMobileMenu}>註冊</Link>
             </li>
-            <a className="nav-items  nav-links" onClick={() => {window.location.href="https://github.com/callbackfive/Call_Back"}}>關於</a>
+            <a className="nav-items  nav-links" onClick={() => {window.location.href="https://github.com/callbackfive/Call_Back"}}>Github</a>
             <a className="nav-items  nav-links" onClick={() => {window.location.href="/projects/proposal"}}>提案</a>
             <a className="nav-items nav-links" onClick={() => {window.location.href="/projects"}}>探索</a>
           </div>

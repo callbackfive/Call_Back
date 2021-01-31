@@ -5,11 +5,7 @@
   @apply py-6;
   @apply box-border;
   @apply space-y-6;
-  
- 
-  
   .category-pic{
-
     width:100px;
     height:100px;
     @apply mx-auto;
@@ -19,34 +15,21 @@
     @apply justify-center;
     align-items: center; 
     background:	#FCFCFC;
- 
-  
-
     .category-circle{
       width:50px;
       img{ @apply w-full; }
-    }
-    
+    } 
   }
   .category-title{
-  
     @apply tracking-wider;
     @apply text-center;
-
   }
-
-
 }
 
 .category-btn:hover{
-
-
   .category-circle{
     @apply scale-50;
   }
-  
-  
-
   .category-title{
     color:#EF5959;
   }

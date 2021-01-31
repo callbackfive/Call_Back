@@ -5,8 +5,6 @@ import  './CategoryList.scss'
 const CategoryList = ({handleBtn}) => {
   const [categories, setCategories]= useState([])
   const [isLoading, setIsLoading]= useState(true)
-
-
   useEffect(() => {
     fetch('/apis/categories')
     .then((res) => res.json())
@@ -15,8 +13,6 @@ const CategoryList = ({handleBtn}) => {
       setIsLoading(false) })
       .catch(err => console.log(err))
   },[])
-  
-
   return (
     <>
       <div className="categories-list ">
@@ -26,10 +22,8 @@ const CategoryList = ({handleBtn}) => {
         ))
       } 
       </div>
-    </>
-    
+    </> 
   )
 }
-
 export default CategoryList
 
