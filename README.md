@@ -15,7 +15,7 @@ Whenever dreams Call you, we've got your Back!
 
 ### 3. 第三方金流支付
 我們串接藍新這個第三方金流的功能，讓贊助者能快速透過信用卡支付完成交易。
-![image](https://github.com/callbackfive/Call_Back/blob/dev/%E9%87%91%E6%B5%81%E7%B5%90%E5%B8%B3.gif)
+![image](https://github.com/callbackfive/Call_Back/blob/dev/cashflow_%E5%8A%A0%E9%80%9F%E7%89%88.gif)
 
 ### 4. 專案進度條
 當專案被成功贊助，就可以看到專案卡或者專案頁面中的進度條，隨著贊助金額的增加而往前推進。
