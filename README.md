@@ -25,7 +25,7 @@ Whenever dreams Call you, we've got your Back!
 ## 運用技術
 - 前端：HTML / Tailwindcss / React / Stimulus / Ajax / Webpack
 - 後端：Ruby on Rails/ Websocket
-- 資料庫：PosgreSQL / Redis / Amazon S3
+- 資料庫：PostgreSQL / Redis / Amazon S3
 - 自動部署：Github Action / Heroku
 - 版本控制：Git / GitHub
 - 專案規劃：Whimsical / Diagrams / Trello
