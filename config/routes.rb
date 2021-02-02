@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
     collection do
       get :my_favorite
+      post :create_message
     end
 
     resources :comments, shallow: true, only: [:new, :create, :destroy]
@@ -57,17 +58,14 @@ Rails.application.routes.draw do
     end
   end
 
-  # 對話框
-  resources :dialogboxes, only: [:index, :show, :create], shallow: true
-  
-  # 訊息
+  # -------------dialogbox------------
+  resources :dialogboxes, only: [:index, :show, :create] do
+    collection do
+      post :create_message
+    end
+  end
+
   resources :messages, only: :index
-
-  # 專案頁面創訊息
-  post '/project/create_message', action: 'create_message', controller: 'projects'
-
-  # 對話框創訊息
-  post '/dialogbox/create_message', action: 'create_message', controller: 'dialogboxes'
 
   resources :categories, shallow: true
   
