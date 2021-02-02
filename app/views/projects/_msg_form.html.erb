@@ -1,5 +1,5 @@
 <%= form_with(model: message,
-              url: project_create_message_path,
+              url: create_message_projects_path,
               method: 'POST') do |form| %>
   <div class="input-group">
     <%= form.hidden_field :project, value: project.id %>
